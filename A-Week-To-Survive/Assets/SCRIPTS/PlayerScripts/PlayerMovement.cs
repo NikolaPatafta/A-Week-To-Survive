@@ -26,7 +26,33 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveThePlayer()
     {
-        move_Direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        //Skripta TagHolder -> Klasa Axis
+        move_Direction = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
+
+        //Transform iz lokalne var u world space
+        move_Direction = transform.TransformDirection(move_Direction);
+        move_Direction *= speed * Time.deltaTime; //deltaTime - vremenski razmak izmedju framova
+
+        ApplyGravity();
+        character_Controller.Move(move_Direction);
+
+    }
+
+    void ApplyGravity()
+    {
+        //vertical velocity = brzina vertikalne kretnje
+        verticalVelocity -= gravity * Time.deltaTime;
+        PlayerJump();
+
+        move_Direction.y = verticalVelocity * Time.deltaTime;
+    }
+
+    void PlayerJump()
+    {
+        if(character_Controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            verticalVelocity = jumpForce;
+        }
 
     }
 }
