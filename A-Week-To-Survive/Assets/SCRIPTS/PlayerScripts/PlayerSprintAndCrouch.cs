@@ -16,12 +16,37 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     private bool isCrouching;
 
+    [SerializeField] 
+    private PlayerFootSteps player_FootSteps;
+
+    //Zvuk za footsteps
+    private float sprint_Volume = 1f;
+    private float crouch_Volume = 0.1f;
+    private float walk_Volume_min = 0.2f;
+    private float walk_Volume_max = 0.6f;
+    //***
+
+    //Razmak izmedju footstep zvukova (u sekundama)
+    private float walk_Step_Distance = 0.4f;
+    private float sprint_Step_Distance = 0.25f;
+    private float crouch_Step_Distance = 0.5f;
+    //*** 
+
     // Start is called before the first frame update
     void Awake()
     {
         playerMovement= GetComponent<PlayerMovement>(); 
 
-        look_Root = transform.GetChild(0);  
+        look_Root = transform.GetChild(0); 
+        
+        player_FootSteps= GetComponentInChildren<PlayerFootSteps>();
+    }
+
+    void Start()
+    {
+        player_FootSteps.volume_Min = walk_Volume_min;
+        player_FootSteps.volume_Max= walk_Volume_max;
+        player_FootSteps.step_Distance= walk_Step_Distance;
     }
 
     // Update is called once per frame
@@ -36,10 +61,23 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching) 
         {
             playerMovement.speed = sprint_Speed;
+
+            //footsteps audio settings 
+            player_FootSteps.step_Distance = sprint_Step_Distance;
+            player_FootSteps.volume_Min = sprint_Volume;
+            player_FootSteps.volume_Max = sprint_Volume;
+            //***
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && !isCrouching)
         {
             playerMovement.speed = move_Speed;
+
+            //footstep audio settings
+            player_FootSteps.step_Distance = walk_Step_Distance;
+            player_FootSteps.volume_Min = walk_Volume_min;
+            player_FootSteps.volume_Max = walk_Volume_max;
+            //*** 
+            
         }
 
     }
@@ -52,7 +90,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             if (isCrouching) 
             {
                 look_Root.localPosition = new Vector3(0f, stand_Height, 0f);
-                playerMovement.speed = move_Speed; 
+                playerMovement.speed = move_Speed;
 
                 isCrouching = false;  
 
@@ -62,6 +100,12 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             {
                 look_Root.localPosition = new Vector3(0f, crouch_Height, 0f);
                 playerMovement.speed = crouch_Speed;
+
+                //crouching footsteps audio
+                player_FootSteps.step_Distance = crouch_Step_Distance;
+                player_FootSteps.volume_Min = crouch_Volume;
+                player_FootSteps.volume_Max = crouch_Volume;
+                //***
 
                 isCrouching = true;
 
