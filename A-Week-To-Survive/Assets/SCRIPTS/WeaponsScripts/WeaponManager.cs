@@ -49,6 +49,10 @@ public class WeaponManager : MonoBehaviour
 
     void TurnOnSelectedWeapon(int weaponIndex)
     {
+        if (current_Weapon_Index== weaponIndex)
+        {
+            return;
+        }
         //unequip current weapon
         weapons[current_Weapon_Index].gameObject.SetActive(false);
 
