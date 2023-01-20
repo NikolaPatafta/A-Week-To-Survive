@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 610560870617527976}
   m_Layer: 0
   m_Name: Cannibal
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1465,6 +1465,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1baf7e951959d644287674e8ef7f1a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walk_Speed: 0.5
+  run_Speed: 4
+  chase_Distance: 20
+  attack_Distance: 2.2
+  chase_After_Attack_Distance: 2
+  patrol_Radius_Min: 20
+  patrol_Radius_Max: 60
+  patrol_For_This_Time: 15
+  wait_Before_Attack: 2
 --- !u!1 &1836638480158008642
 GameObject:
   m_ObjectHideFlags: 0
