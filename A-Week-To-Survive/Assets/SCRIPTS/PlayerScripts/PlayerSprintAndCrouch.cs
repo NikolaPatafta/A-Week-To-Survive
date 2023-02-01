@@ -16,7 +16,6 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     private bool isCrouching;
 
-    [SerializeField] 
     private PlayerFootSteps player_FootSteps;
 
     //Zvuk za footsteps
@@ -32,6 +31,11 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     private float crouch_Step_Distance = 0.5f;
     //*** 
 
+    private PlayerStats player_Stats;
+
+    private float sprint_Value = 100f;
+    private float sprint_Treshold = 10f;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,6 +44,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         look_Root = transform.GetChild(0); 
         
         player_FootSteps= GetComponentInChildren<PlayerFootSteps>();
+
+        player_Stats = GetComponent<PlayerStats>();
     }
 
     void Start()
@@ -58,16 +64,22 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     void Sprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching) 
+        //ako imamo staminu onda trci
+        if(sprint_Value > 0f)
         {
-            playerMovement.speed = sprint_Speed;
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching)
+            {
+                playerMovement.speed = sprint_Speed;
 
-            //footsteps audio settings 
-            player_FootSteps.step_Distance = sprint_Step_Distance;
-            player_FootSteps.volume_Min = sprint_Volume;
-            player_FootSteps.volume_Max = sprint_Volume;
-            //***
+                //footsteps audio settings 
+                player_FootSteps.step_Distance = sprint_Step_Distance;
+                player_FootSteps.volume_Min = sprint_Volume;
+                player_FootSteps.volume_Max = sprint_Volume;
+                //***
+            }
+
         }
+
         if (Input.GetKeyUp(KeyCode.LeftShift) && !isCrouching)
         {
             playerMovement.speed = move_Speed;
@@ -80,7 +92,38 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             
         }
 
-    }
+        if(Input.GetKey(KeyCode.LeftShift) && !isCrouching)
+        {
+            sprint_Value -= sprint_Treshold * Time.deltaTime;
+
+            if(sprint_Value <= 0f)
+            {
+                sprint_Value = 0f;
+
+                playerMovement.speed = move_Speed;
+                player_FootSteps.step_Distance = walk_Step_Distance;
+                player_FootSteps.volume_Min = walk_Volume_min;
+                player_FootSteps.volume_Max = walk_Volume_max;
+                WaitBeforeSprint();
+            }
+            player_Stats.Display_StaminaStats(sprint_Value);
+        }
+        else
+        {
+            if(sprint_Value != 100f)
+            {
+                sprint_Value += (sprint_Treshold / 2f) * Time.deltaTime;
+
+                player_Stats.Display_StaminaStats(sprint_Value);
+
+                if(sprint_Value > 100f)
+                {
+                    sprint_Value = 100f;
+                }
+            }
+        }
+
+    }//sprint
 
     void Crouch()
     {
@@ -112,5 +155,16 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             }
 
         }
+    }
+
+    void Moving()
+    {
+        //if(player is moving then use sprint bar)
+    }
+
+    IEnumerator WaitBeforeSprint()
+    {
+        yield return new WaitForSeconds(2f);
+
     }
 }

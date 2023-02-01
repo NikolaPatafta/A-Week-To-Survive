@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -38,13 +37,24 @@ public class EnemyController : MonoBehaviour
 
     private Transform target;
 
-    private void Awake()
+    public GameObject attack_Point;
+
+    private EnemyAudio enemy_Audio;
+
+    private BoxCollider box_Collider;
+
+    void Awake()
     {
         //stanja enemy_Anim su imena animacija u Inspektoru za animacije
         enemy_Anim = GetComponent<EnemyAnimatior>();
         navAgent = GetComponent<NavMeshAgent>();
 
+        //dohvati playera
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+
+        //dohvati audio skriptu
+        enemy_Audio = GetComponentInChildren<EnemyAudio>();
+        box_Collider= GetComponentInChildren<BoxCollider>();
     }
 
     // Start is called before the first frame update
@@ -85,6 +95,7 @@ public class EnemyController : MonoBehaviour
         navAgent.speed = walk_Speed;
 
         patrol_Timer += Time.deltaTime;
+
         if(patrol_Timer > patrol_For_This_Time)
         {
             SetNewRandomDestination();
@@ -108,7 +119,10 @@ public class EnemyController : MonoBehaviour
             enemy_Anim.Walk(false);
 
             enemy_State = EnemyState.CHASE;
+
             //play audio kad nas neprijatelj vidi
+
+            enemy_Audio.Play_ScreamSound();
 
         }
     }//Patrol
@@ -177,12 +191,14 @@ public class EnemyController : MonoBehaviour
             attack_Timer = 0;
 
             //pusti attack zvuk
+            enemy_Audio.Play_AttackSound();
         }
 
         //dajemo malu prednost igracu kako bi lakse pobjegao sa ovim + chase_After_Attack_Distance kako neprijatelj nebi odma poceo trcati
         if (Vector3.Distance(transform.position, target.position) > attack_Distance + chase_After_Attack_Distance)
         {
             enemy_State = EnemyState.CHASE;
+            
         }
 
     }//attack
@@ -207,5 +223,24 @@ public class EnemyController : MonoBehaviour
 
 
     }//SetNewRandomDestination
+
+    void Turn_On_AttackPoint()
+    {
+        attack_Point.SetActive(true);
+    }
+
+    void Turn_Off_AttackPoint()
+    {
+        if (attack_Point.activeInHierarchy)
+        {
+            attack_Point.SetActive(false);
+        }
+    }
+
+    public EnemyState Enemy_State
+    {
+        //dozvoljava
+        get; set;
+    }
 }
 

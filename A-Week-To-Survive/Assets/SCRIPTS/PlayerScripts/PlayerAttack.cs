@@ -1,5 +1,7 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -7,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     private WeaponManager weapon_Manager;
 
     public float fireRate = 15f;
-    public float nextTimeToFire;
+    private float nextTimeToFire;
     public float damage = 20f;
 
     private Animator zoomCameraAnim;
@@ -17,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     private GameObject crosshair;
 
     private bool is_Aiming;
+    private bool arrow_flying;
 
     [SerializeField]
     private GameObject arrow_Prefab, spear_Prefab;
@@ -30,6 +33,8 @@ public class PlayerAttack : MonoBehaviour
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
+
+        arrow_flying = false;
     }
     // Start is called before the first frame update
     void Start()
@@ -40,8 +45,10 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        WeaponShot();
-        ZoomInAndOut();
+
+         WeaponShot();
+         ZoomInAndOut();
+
     }
 
     void WeaponShot()
@@ -52,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
             //lijevi click (auto-shoot)
             if(Input.GetMouseButton(0) && Time.time > nextTimeToFire)
             {
-                nextTimeToFire = Time.time + 1f / fireRate;
+                nextTimeToFire = Time.time + 3.8f / fireRate;
 
                 weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
 
@@ -86,8 +93,9 @@ public class PlayerAttack : MonoBehaviour
                         if(weapon_Manager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.ARROW)
                         {
                             //arrow
-                            ThrowArrowOrSpear(true);
 
+                            ThrowArrowOrSpear(true);
+                            
 
                         }
                         else if(weapon_Manager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.SPEAR)
@@ -158,6 +166,7 @@ public class PlayerAttack : MonoBehaviour
             arrow.transform.position = arrow_Box_StartPosition.position;
 
             arrow.GetComponent<ArrowAndBowScript>().Launch(mainCam);
+            
         }
         else
         {
@@ -169,13 +178,46 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    /*IEnumerator WaitForNewArrowOrSpear()
+    {
+        yield return new WaitForSeconds(2.02f);
+        arrow_flying= false;
+    }*/
+
     void BulletFired()
     {
+
         RaycastHit hit;
+        Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit);
 
-        if(Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
-        {
+        //if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
+        //{
+            
+        Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward *10 , Color.red, duration:2f);
+        
+            
+            if (hit.transform.tag == Tags.ENEMY_TAG)
+            {
+                print("We hit " + hit.transform.gameObject.name);
 
+                hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
         }
+
+        //}
     }
+    /*
+    private void OnDrawGizmos()
+    {
+        RaycastHit Hitmark;
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out Hitmark))
+        {
+            Gizmos.DrawSphere(Hitmark.point, 0.1f);
+        }
+    }*/
+
+    
+
+  
+
+        
 }
