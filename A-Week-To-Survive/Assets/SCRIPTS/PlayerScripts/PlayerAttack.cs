@@ -193,7 +193,7 @@ public class PlayerAttack : MonoBehaviour
         //if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         //{
             
-        Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward *10 , Color.red, duration:2f);
+        //Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward *10 , Color.red, duration:2f);
         
             
             if (hit.transform.tag == Tags.ENEMY_TAG)

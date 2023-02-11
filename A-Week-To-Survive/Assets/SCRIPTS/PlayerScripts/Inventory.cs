@@ -7,35 +7,28 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Weapons[] weapons;
 
-    public Weapons testWeapon;
-    public Weapons testWeapon2;
+    private PlayerStats playerStats;
+
 
     private void Start()
     {
+        playerStats= GetComponent<PlayerStats>();
         InitVariables();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            AddItem(testWeapon);
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            AddItem(testWeapon2);
-        }
-    }
 
     public void AddItem(Weapons newItem)
     {
-        int newWeaponsIndex = (int)newItem.weaponType;
+        int newItemIndex = (int)newItem.weaponType;
 
-        if (weapons[newWeaponsIndex] != null)
+        if (weapons[newItemIndex] != null)
         {
-            RemoveItem(newWeaponsIndex);
+            RemoveItem(newItemIndex);
         }
-        weapons[newWeaponsIndex] = newItem;
+        weapons[newItemIndex] = newItem;
+
+        //Update weaponUI
+        playerStats.UpdateWeaponUI(newItem);
   
     }
     public void RemoveItem(int index) 
@@ -48,14 +41,12 @@ public class Inventory : MonoBehaviour
         return weapons[index];
     }
 
-    
-
-    
 
     private void InitVariables()
     {
         weapons = new Weapons[3];
     }
+
 }
 
 

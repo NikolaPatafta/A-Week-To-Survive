@@ -7,6 +7,11 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField]
     private Image health_Stats, stamina_Stats;
+    [SerializeField]
+    private Text Healthtext;
+
+    [SerializeField]
+    private WeaponUI weaponUI;
 
 
     //Na slici (in-game) imamo fill amount od 0 do 1, zato dijelimo helath sa 100
@@ -15,6 +20,8 @@ public class PlayerStats : MonoBehaviour
         healthValue /= 100f;
 
         health_Stats.fillAmount= healthValue;
+
+        Healthtext.text = (healthValue*100).ToString();
     }
 
     public void Display_StaminaStats(float staminaValue)
@@ -24,5 +31,9 @@ public class PlayerStats : MonoBehaviour
         stamina_Stats.fillAmount = staminaValue;
     }
 
+    public void UpdateWeaponUI(Weapons newWeapon)
+    {
+        weaponUI.UpdateInfo(newWeapon.icon, newWeapon.magazineSize, newWeapon.magazineSize);
+    }
 
 }
