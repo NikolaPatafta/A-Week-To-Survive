@@ -17,7 +17,7 @@ public class EquipmentManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             EquipWeapon(inventory.GetWeapons(0).prefab, 0);
@@ -32,7 +32,7 @@ public class EquipmentManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             EquipWeapon(inventory.GetWeapons(2).prefab, 2);
-        }
+        }*/
     }
 
     private void EquipWeapon(GameObject weaponObj, int weaponStyle)

@@ -33,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
+ 
 
         arrow_flying = false;
     }
@@ -63,6 +64,7 @@ public class PlayerAttack : MonoBehaviour
 
                 weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
 
+
                 BulletFired();
             }
 
@@ -73,7 +75,7 @@ public class PlayerAttack : MonoBehaviour
             {
 
                 //Axe
-                if(weapon_Manager.GetCurrentSelectedWeapon().tag == Tags.AXE_TAG)
+                if(weapon_Manager.GetCurrentSelectedWeapon().tag == Tags.AXE_TAG || weapon_Manager.GetCurrentSelectedWeapon().tag ==  Tags.HANDS_TAG)
                 {
                     weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
                 }
@@ -188,32 +190,38 @@ public class PlayerAttack : MonoBehaviour
     {
 
         RaycastHit hit;
-        Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit);
-
-        //if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
-        //{
-            
-        //Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward *10 , Color.red, duration:2f);
         
-            
+        //Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit);
+
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
+        {
+            Debug.Log(hit.collider.name);
+
+
+            Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 10 , Color.red, duration:2f);
+            Vector3 dir = hit.transform.position - hit.point;
+            Debug.DrawRay(hit.point, dir * 10.0f, Color.green);
+
             if (hit.transform.tag == Tags.ENEMY_TAG)
             {
+                
                 print("We hit " + hit.transform.gameObject.name);
 
+                
                 hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
         }
 
-        //}
+        }
     }
-    /*
+    
     private void OnDrawGizmos()
     {
         RaycastHit Hitmark;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out Hitmark))
         {
-            Gizmos.DrawSphere(Hitmark.point, 0.1f);
+            Gizmos.DrawSphere(Hitmark.point, 0.5f);
         }
-    }*/
+    }
 
     
 

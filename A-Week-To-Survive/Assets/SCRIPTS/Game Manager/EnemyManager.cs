@@ -8,14 +8,14 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager instance;
 
     [SerializeField]
-    private GameObject boar_Prefab, zombie_Prefab;
+    private GameObject boar_Prefab, zombie_Prefab, zombie2_Prefab;
 
-    public Transform[] zombie_SpawnPoints, boar_SpawnPoints;
+    public Transform[] zombie_SpawnPoints, boar_SpawnPoints, zombie2_SpawnPoints;
 
     [SerializeField]
-    private int zombie_Enemy_Count, boar_Enemy_Count;
+    private int zombie_Enemy_Count, boar_Enemy_Count, zombie2_Enemy_Count;
 
-    private int initial_Cannibal_Count, initial_Boar_Count;
+    private int initial_Cannibal_Count, initial_Boar_Count, initial_Zombie_Count;
 
     public float wait_Before_Spawn_Enemies_Time = 10f;
 
@@ -28,7 +28,8 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         initial_Cannibal_Count = zombie_Enemy_Count;
-        initial_Boar_Count= boar_Enemy_Count;
+        initial_Boar_Count = boar_Enemy_Count;
+        initial_Zombie_Count = zombie2_Enemy_Count;
 
         SpawnEnemies();
         StartCoroutine("CheckToSpawnEnemies");
@@ -46,6 +47,7 @@ public class EnemyManager : MonoBehaviour
     {
         SpawnZombies();
         SpawnBoars();
+        SpawnZombies2();
     }
 
     void SpawnZombies()
@@ -63,6 +65,24 @@ public class EnemyManager : MonoBehaviour
         }
         zombie_Enemy_Count = 0;
     }
+
+    void SpawnZombies2()
+    {
+        int index = 0;
+        for (int i = 0; i < zombie2_Enemy_Count; i++)
+        {
+            if (index >= zombie2_SpawnPoints.Length)
+            {
+                index = 0;
+            }
+
+            Instantiate(zombie2_Prefab, zombie2_SpawnPoints[index].position, Quaternion.identity);
+            index++;
+        }
+        zombie2_Enemy_Count = 0;
+
+    }
+
     void SpawnBoars()
     {
         int index = 0;
@@ -86,6 +106,7 @@ public class EnemyManager : MonoBehaviour
 
         SpawnZombies();
         SpawnBoars();
+        SpawnZombies2();
 
         StartCoroutine("CheckToSpawnEnemies");
     }
