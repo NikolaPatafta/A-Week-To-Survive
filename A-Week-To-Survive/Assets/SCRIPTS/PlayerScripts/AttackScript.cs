@@ -17,6 +17,8 @@ public class AttackScript : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            Debug.Log("We hit: " + hits[0].name);
+
             hits[0].gameObject.GetComponent<HealthScript>().ApplyDamage(damage);
 
             gameObject.SetActive(false);

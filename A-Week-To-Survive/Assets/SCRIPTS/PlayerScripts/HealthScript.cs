@@ -18,6 +18,7 @@ public class HealthScript : MonoBehaviour
     private EnemyAudio enemyAudio;
 
     private PlayerStats player_Stats;
+    private EnemyStats enemy_Stats;
 
     //kontrole za deathscreen
     private UIManager uiManager;
@@ -35,6 +36,7 @@ public class HealthScript : MonoBehaviour
 
             //get audio
             enemyAudio = GetComponentInChildren<EnemyAudio>();
+            enemy_Stats = GetComponent<EnemyStats>();
 
         }
         if(is_Player)
@@ -66,6 +68,7 @@ public class HealthScript : MonoBehaviour
 
         if(is_Boar || is_Cannibal)
         {
+            enemy_Stats.Display_EnemyHealth(health);
             //ako pogodimo enemy onda postavljamo chase distance na vecu distancu kako
             //bi nas mogli pronaci
             if(enemy_Controller.Enemy_State == EnemyState.PATROL)
@@ -88,6 +91,7 @@ public class HealthScript : MonoBehaviour
         //inace bi koristili isto kao i za Boar
         if (is_Cannibal)
         {
+
             GetComponent<Animator>().enabled = false;
             GetComponent<BoxCollider>().isTrigger = false;
             GetComponent<Rigidbody>().AddTorque(-transform.forward * 10f );
@@ -100,6 +104,7 @@ public class HealthScript : MonoBehaviour
 
             //zovi Enemy manager i spawnaj zombie
             EnemyManager.instance.EnemyDied(true);
+            Invoke("TurnOffGameObject", 3f);
 
         }
 
@@ -115,6 +120,7 @@ public class HealthScript : MonoBehaviour
 
             //zovi Enemy manager i spawnaj boar
             EnemyManager.instance.EnemyDied(false);
+            Invoke("TurnOffGameObject", 3f);
         }
 
         if (is_Player)

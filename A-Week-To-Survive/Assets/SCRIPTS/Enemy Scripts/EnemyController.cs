@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
 
         //dohvati audio skriptu
         enemy_Audio = GetComponentInChildren<EnemyAudio>();
-        box_Collider= GetComponentInChildren<BoxCollider>();
+        box_Collider= GetComponent<BoxCollider>();
 
         Debug.Log(box_Collider.gameObject.name);
     }
@@ -62,6 +62,8 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<BoxCollider>().isTrigger = true;
+
         enemy_State = EnemyState.PATROL;
 
         patrol_Timer = patrol_For_This_Time;
@@ -88,6 +90,13 @@ public class EnemyController : MonoBehaviour
        {
             Attack();
        }
+
+       if(GetComponent<BoxCollider>().isTrigger)
+        {
+            //Debug.Log("trueeeeee");
+        }
+
+       
     }
 
 
