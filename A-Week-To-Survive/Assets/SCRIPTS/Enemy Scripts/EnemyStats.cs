@@ -12,7 +12,6 @@ public class EnemyStats : MonoBehaviour
     void Awake()
     {
         healthamount = GetComponent<HealthScript>();
-
     }
     
     public void Display_EnemyHealth(float healthValue)
@@ -21,7 +20,7 @@ public class EnemyStats : MonoBehaviour
 
         healthbar.fillAmount = healthValue;
 
-
     }
+
 
 }
