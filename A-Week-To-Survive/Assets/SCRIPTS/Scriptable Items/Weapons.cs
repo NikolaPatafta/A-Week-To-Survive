@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new Weapon", menuName = "Items/Weapon")]
 public class Weapons : Items
 {
+    [Header("Weapons only")]
     public GameObject prefab;
     public int magazineSize;
     public int magazineCount;
