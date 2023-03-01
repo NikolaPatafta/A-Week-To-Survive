@@ -14,13 +14,13 @@ public class PlayerPickup : MonoBehaviour
     private Camera cam;
     private Inventory inventory;
 
+    [SerializeField]
+    private InventoryManager inventoryManager;
+
     private void Start()
     {
-
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         inventory = GetComponent<Inventory>();
-        //Debug.Log("Found: " + cam.name);
-
     }
 
 
@@ -37,8 +37,9 @@ public class PlayerPickup : MonoBehaviour
             {
                 
                 Debug.Log("Hit: " + hit.transform.name);
-                Weapons newItem = hit.transform.GetComponent<ItemObject>().item as Weapons;
-                inventory.AddItem(newItem);
+                Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
+                inventoryManager.AddItem(newItem);
+                //inventory.AddItem(newItem);
                 Destroy(hit.transform.gameObject);
             }
         }

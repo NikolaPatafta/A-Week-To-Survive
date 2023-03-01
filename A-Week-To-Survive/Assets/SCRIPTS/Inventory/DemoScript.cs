@@ -20,7 +20,7 @@ public class DemoScript : MonoBehaviour
         {
             Debug.Log("Received item");
         }
-        else Debug.Log("EMptyyy");
+        else Debug.Log("no item found");
     }
 
     public void UseSelectedItem()

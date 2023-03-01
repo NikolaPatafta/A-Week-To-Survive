@@ -90,12 +90,16 @@ public class EnemyController : MonoBehaviour
        {
             Attack();
        }
-
+       /*
        if(GetComponent<BoxCollider>().isTrigger)
         {
-            //Debug.Log("trueeeeee");
+            Debug.Log("Found: " + box_Collider.name);
         }
-
+       else
+        {
+            Debug.Log("Not found " + box_Collider);
+        }
+       */
        
     }
 

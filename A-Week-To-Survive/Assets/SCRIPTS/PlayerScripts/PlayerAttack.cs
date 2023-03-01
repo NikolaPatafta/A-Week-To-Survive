@@ -33,9 +33,7 @@ public class PlayerAttack : MonoBehaviour
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
- 
 
-        arrow_flying = false;
     }
     // Start is called before the first frame update
     void Start()
@@ -180,12 +178,6 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    /*IEnumerator WaitForNewArrowOrSpear()
-    {
-        yield return new WaitForSeconds(2.02f);
-        arrow_flying= false;
-    }*/
-
     void BulletFired()
     {
 
@@ -195,31 +187,18 @@ public class PlayerAttack : MonoBehaviour
 
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
-            Debug.Log(hit.collider.name);
 
-
-            Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 10 , Color.red, duration:2f);
-            Vector3 dir = hit.transform.position - hit.point;
-            Debug.DrawRay(hit.point, dir * 10.0f, Color.green);
+            //Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 10 , Color.red, duration:2f);
+            //Vector3 dir = hit.transform.position - hit.point;
 
             if (hit.transform.tag == Tags.ENEMY_TAG)
             {
                 
                 print("We hit " + hit.transform.gameObject.name);
 
-                
                 hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
         }
 
-        }
-    }
-    
-    private void OnDrawGizmos()
-    {
-        RaycastHit Hitmark;
-        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out Hitmark))
-        {
-            Gizmos.DrawSphere(Hitmark.point, 0.5f);
         }
     }
 

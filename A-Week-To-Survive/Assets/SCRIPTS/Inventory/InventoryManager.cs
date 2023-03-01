@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] inventorySlots;
+
+    public GameObject Hotbar;
+    public GameObject Inventory;
+    public GameObject Crosshair;
+
+    public GameObject player;
+
+    private Camera cam;
 
     public GameObject inventoryItemPrefab;
 
@@ -12,6 +21,12 @@ public class InventoryManager : MonoBehaviour
 
     //boje 
     int selectedSlot = -1;
+
+    private void Awake()
+    {
+        Hotbar.gameObject.SetActive(true);
+        Inventory.gameObject.SetActive(false);
+    }
 
     private void Start()
     {
@@ -28,6 +43,31 @@ public class InventoryManager : MonoBehaviour
             {
                 ChangeSelectedSlot(number - 1);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            TurnInventoryOfforOn();
+        }
+    }
+
+    void TurnInventoryOfforOn()
+    {
+        if(Inventory.gameObject.activeInHierarchy)
+        {
+            Inventory.SetActive(false);
+            Crosshair.SetActive(true);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            player.GetComponent<PlayerAttack>().enabled = true;   
+        }
+        else
+        {
+            Inventory.SetActive(true);
+            Crosshair.SetActive(false);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            player.GetComponent<PlayerAttack>().enabled = false;
+
         }
     }
 

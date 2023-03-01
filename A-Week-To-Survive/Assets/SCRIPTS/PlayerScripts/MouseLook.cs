@@ -11,24 +11,24 @@ public class MouseLook : MonoBehaviour
     [SerializeField]
     private bool invert;
 
-    [SerializeField]
+
     //Vidljiv ili nevidljiv cursor / crosshair
-    private bool can_Unlock = true;
+    //private bool can_Unlock = true;
     
     [SerializeField]
     private float sensitivity = 5f; //mouse sens
     
-    [SerializeField]
-    private int smooth_Steps = 10; //smooth korak
+    //[SerializeField]
+    //private int smooth_Steps = 10; //smooth korak
 
-    [SerializeField]
-    private float roll_Speed = 3f;
+    //SerializeField]
+    //private float roll_Speed = 3f;
 
-    [SerializeField]
-    private float smooth_Weight = 0.4f;
+    //[SerializeField]
+    //private float smooth_Weight = 0.4f;
 
-    [SerializeField]
-    private float roll_Angle = 10f;
+    //[SerializeField]
+    //private float roll_Angle = 10f;
 
     [SerializeField]
     private Vector2 default_look_Limits = new Vector2(-70f, 80f);
