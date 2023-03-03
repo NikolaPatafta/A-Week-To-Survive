@@ -14,9 +14,7 @@ public class WeaponManager : MonoBehaviour
     {
         current_Weapon_Index = 0;
         weapons[current_Weapon_Index].gameObject.SetActive(true);
-        TurnOnSelectedWeapon(6);
-
-        
+        TurnOnSelectedWeapon(6);      
     }
 
     // Update is called once per frame
@@ -51,7 +49,7 @@ public class WeaponManager : MonoBehaviour
 
     void TurnOnSelectedWeapon(int weaponIndex)
     {
-        if (current_Weapon_Index== weaponIndex)
+        if (current_Weapon_Index == weaponIndex)
         {
             return;
         }
