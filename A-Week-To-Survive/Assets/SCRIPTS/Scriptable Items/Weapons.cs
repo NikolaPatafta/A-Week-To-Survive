@@ -6,7 +6,6 @@ using UnityEngine;
 public class Weapons : Items
 {
     [Header("Weapons only")]
-    public GameObject prefab;
     public int magazineSize;
     public int magazineCount;
     public float range;

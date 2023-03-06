@@ -7,6 +7,12 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     private WeaponHandler[] weapons;
 
+    [SerializeField]
+    private InventoryManager inventoryManager;
+
+    [SerializeField]
+    private Transform weaponHolderPosition;
+
     private int current_Weapon_Index;
 
     // Start is called before the first frame update
@@ -22,27 +28,36 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            TurnOnSelectedWeapon(0);
+            ActivateInventoryItemInHotbar(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            TurnOnSelectedWeapon(1);
+            ActivateInventoryItemInHotbar(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            TurnOnSelectedWeapon(2);
+            ActivateInventoryItemInHotbar(2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            TurnOnSelectedWeapon(3);
+            ActivateInventoryItemInHotbar(3);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            TurnOnSelectedWeapon(4);
+            ActivateInventoryItemInHotbar(4);
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            TurnOnSelectedWeapon(5);
+            ActivateInventoryItemInHotbar(5);
+        }
+        //ova dva ostala po starom (turnonselectedweapon) metodi
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            TurnOnSelectedWeapon(6);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            TurnOnSelectedWeapon(7);
         }
 
     }
@@ -65,5 +80,10 @@ public class WeaponManager : MonoBehaviour
     public WeaponHandler GetCurrentSelectedWeapon()
     {
         return weapons[current_Weapon_Index];
+    }
+
+    private void ActivateInventoryItemInHotbar(int index)
+    {
+        Instantiate(inventoryManager.GetCurrentlySelectedItem().prefab, weaponHolderPosition);
     }
 }

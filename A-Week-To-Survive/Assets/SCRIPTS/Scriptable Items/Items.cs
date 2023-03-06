@@ -7,9 +7,11 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(menuName = "Items/Item")]
 public class Items : ScriptableObject
 {
-    public string name;
+    public string ItemsName;
     public string description;
     public Sprite icon;
+    [Header("Gameobject prefab")]
+    public GameObject prefab;
 
     [Header("UI ONLY")]
     public bool stackable = true;

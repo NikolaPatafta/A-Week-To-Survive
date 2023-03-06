@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject Hotbar;
     public GameObject Inventory;
     public GameObject Crosshair;
+    public Items currentlySelectedItem;
+    public InventorySlot inventorySlot;
 
     public GameObject player;
 
@@ -114,13 +116,25 @@ public class InventoryManager : MonoBehaviour
         return false;
 
     }
-
+    //dodaj instantiate tu umjesto weapon manager 
     void SpawnNewItem(Items item, InventorySlot slot)
     {
         Debug.Log("Spawned new " + item.name);
         GameObject newItemGameObject = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGameObject.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
+        currentlySelectedItem = item;
+        inventorySlot = slot;
+    }
+
+    public Items GetCurrentlySelectedItem()
+    {
+        return GetSelectedItem(false);
+    }
+
+    public InventorySlot GetCurrentlySelectedSlot()
+    {
+        return inventorySlot;
     }
 
     public Items GetSelectedItem(bool use)
