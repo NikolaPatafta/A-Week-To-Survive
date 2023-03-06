@@ -8,34 +8,46 @@ public class WeaponShooting : MonoBehaviour
     private Camera mainCam;
     private Items item;
     private Inventory inventory;
-    private EquipmentManager equipmentmanager;
+    private float lastShootTime = 0f;
+    [SerializeField]
+    private InventoryManager inventoryManager;
 
     private void Start()
     {
         mainCam = Camera.main;
         inventory = GetComponent<Inventory>();
-        equipmentmanager = GetComponent<EquipmentManager>();
     }
 
     private void Update()
     {
-        if (item != null)
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
+            Shoot();
+        }
+        
+    }
 
-            }
+    private void RayCastShoot(Weapons currentWeapon)
+    {
+        Ray ray = mainCam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height /2));
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit , currentWeapon.range))
+        {
+            Debug.Log(hit.transform.name);
         }
     }
 
     private void Shoot()
     {
-        Ray ray = mainCam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height /2));
-        RaycastHit hit;
+        Weapons currentWeapon = inventoryManager.GetCurrentlySelectedWeapon();
 
-        //if(Physics.Raycast(ray, inventory.GetWeapons(equipmentmanager.))
+        if(Time.time > lastShootTime + currentWeapon.fireRate)
         {
+            Debug.Log("Shoot");
+            lastShootTime = Time.time;  
 
+            RayCastShoot(currentWeapon);
         }
     }
 }

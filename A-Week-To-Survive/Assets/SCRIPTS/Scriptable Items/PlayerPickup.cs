@@ -39,7 +39,6 @@ public class PlayerPickup : MonoBehaviour
                 Debug.Log("Hit: " + hit.transform.name);
                 Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
                 inventoryManager.AddItem(newItem);
-                //inventory.AddItem(newItem);
                 Destroy(hit.transform.gameObject);
             }
         }

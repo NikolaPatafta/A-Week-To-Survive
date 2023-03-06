@@ -8,6 +8,7 @@ public class Weapons : Items
     [Header("Weapons only")]
     public int magazineSize;
     public int magazineCount;
+    public float fireRate;
     public float range;
     public WeaponType weaponType;
 }
