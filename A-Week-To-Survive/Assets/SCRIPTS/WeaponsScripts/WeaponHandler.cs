@@ -41,14 +41,15 @@ public class WeaponHandler : MonoBehaviour
 
     public GameObject attack_Point;
 
-    void Awake()
+    private void Awake()
     {
-        anim = GetComponent<Animator>();    
+        anim = GetComponent<Animator>();
+
     }
 
     public void ShootAnimation()
     {
-        anim.SetTrigger(AnimationTags.SHOOT_TRIGGER);
+        anim.SetTrigger("Shoot");
     }
 
     public void Aim(bool canAim)

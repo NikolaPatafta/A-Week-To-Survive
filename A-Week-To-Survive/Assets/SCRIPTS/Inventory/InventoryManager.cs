@@ -132,11 +132,6 @@ public class InventoryManager : MonoBehaviour
         return GetSelectedItem(false);
     }
 
-    public InventorySlot GetCurrentlySelectedSlot()
-    {
-        return inventorySlot;
-    }
-
     public Weapons GetCurrentlySelectedWeapon()
     {
         return GetSelectedItem(false) as Weapons;

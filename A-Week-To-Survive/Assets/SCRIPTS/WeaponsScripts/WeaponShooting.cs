@@ -6,16 +6,16 @@ public class WeaponShooting : MonoBehaviour
 {
     [SerializeField]
     private Camera mainCam;
-    private Items item;
-    private Inventory inventory;
     private float lastShootTime = 0f;
     [SerializeField]
     private InventoryManager inventoryManager;
+    [SerializeField]
+    private EquipmentManager equipmentManager;
+    private WeaponHandler weaponHandler;
 
     private void Start()
     {
         mainCam = Camera.main;
-        inventory = GetComponent<Inventory>();
     }
 
     private void Update()
@@ -44,10 +44,12 @@ public class WeaponShooting : MonoBehaviour
 
         if(Time.time > lastShootTime + currentWeapon.fireRate)
         {
-            Debug.Log("Shoot");
             lastShootTime = Time.time;  
 
             RayCastShoot(currentWeapon);
+            weaponHandler = GetComponentInChildren<WeaponHandler>();
+            weaponHandler.ShootAnimation();
+
         }
     }
 }

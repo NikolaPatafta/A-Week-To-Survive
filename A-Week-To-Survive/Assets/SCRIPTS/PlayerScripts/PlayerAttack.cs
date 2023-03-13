@@ -44,10 +44,10 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+         /*
          WeaponShot();
          ZoomInAndOut();
-
+         */
     }
 
     void WeaponShot()
@@ -62,8 +62,7 @@ public class PlayerAttack : MonoBehaviour
 
                 weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
 
-
-               BulletFired();
+               //BulletFired();
             }
 
         }
@@ -185,18 +184,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
-
-            //Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 10 , Color.red, duration:2f);
-            //Vector3 dir = hit.transform.position - hit.point;
-
             if (hit.transform.tag == Tags.ENEMY_TAG)
             {
-                
                 print("We hit " + hit.transform.gameObject.name);
 
                 hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
-        }
-
+            }
         }
     }
 

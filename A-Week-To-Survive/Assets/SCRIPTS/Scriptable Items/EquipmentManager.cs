@@ -13,8 +13,6 @@ public class EquipmentManager : MonoBehaviour
 
     //Equipment manager - Animations for hands https://www.youtube.com/watch?v=HrTrx_98e8s
 
-    private Animator anim = null;
-
     [SerializeField]
     private GameObject[] Toolbar;
 
@@ -25,12 +23,6 @@ public class EquipmentManager : MonoBehaviour
 
     [SerializeField]
     Weapons defaultweapon = null;
-
-    private void Start()
-    {
-        //anim = GetComponentInChildren<Animator>();
-        //Debug.Log("animator: " + anim.name);
-    }
 
     private void Update()
     {
@@ -57,7 +49,7 @@ public class EquipmentManager : MonoBehaviour
             Debug.Log("Weapon Unequiped");
             UnequipWeapon(); 
         }
-        else
+        else if (inventoryManager.GetCurrentlySelectedWeapon() != null)
         {
             currentlyEquipedWeapon = Instantiate(weapon.prefab, WeaponHolder);
             Debug.Log("Instantiated: " + currentlyEquipedWeapon);
