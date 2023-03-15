@@ -13,9 +13,32 @@ public class WeaponShooting : MonoBehaviour
     private EquipmentManager equipmentManager;
     private WeaponHandler weaponHandler;
 
+    //amunition
+    //***
+    //reload funkcije od pocetka i animacije na 11:15min (https://www.youtube.com/watch?v=ncsOjZHul2U)
+    //***
+
+    [SerializeField] private bool canShoot = true;
+    public bool canReload = true;   
+
+    [SerializeField] private int primaryCurrentAmmo;
+    [SerializeField] private int primaryCurrentAmmoStorage;
+
+    [SerializeField] private bool primaryIsEmpty = false;
+
+    private int secondaryCurrentAmmo;
+    private int secondaryCurrentAmmoStorage;
+
+    private Inventory inventory;
+    [SerializeField]
+    private Animator animator;
+
     private void Start()
     {
         mainCam = Camera.main;
+        inventory = GetComponent<Inventory>();
+        canShoot = true;
+        canReload = true;
     }
 
     private void Update()
@@ -24,6 +47,12 @@ public class WeaponShooting : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator = equipmentManager.InstantiatedGameObject().GetComponent<Animator>();
+            Reload();
+        }
+  
         
     }
 
@@ -40,16 +69,91 @@ public class WeaponShooting : MonoBehaviour
 
     private void Shoot()
     {
-        Weapons currentWeapon = inventoryManager.GetCurrentlySelectedWeapon();
+        CheckIfCanShoot();
 
-        if(Time.time > lastShootTime + currentWeapon.fireRate)
+        if (canShoot && canReload)
         {
-            lastShootTime = Time.time;  
+            Weapons currentWeapon = inventoryManager.GetCurrentlySelectedWeapon();
 
-            RayCastShoot(currentWeapon);
-            weaponHandler = GetComponentInChildren<WeaponHandler>();
-            weaponHandler.ShootAnimation();
+            if (Time.time > lastShootTime + currentWeapon.fireRate)
+            {
+                lastShootTime = Time.time;
 
+                RayCastShoot(currentWeapon);
+                weaponHandler = GetComponentInChildren<WeaponHandler>();
+                weaponHandler.ShootAnimation();
+                UseAmmo(1, 0);
+            }
         }
+        else Debug.Log("Magazine is empty");
+    }
+
+    private void UseAmmo(int currentAmmoUsed, int currentStoredAmmoUsed)
+    {
+        if (primaryCurrentAmmo <= 0)
+        {
+            primaryIsEmpty = true;
+            CheckIfCanShoot();
+        }
+        else
+        {
+            primaryCurrentAmmo -= currentAmmoUsed;
+            primaryCurrentAmmoStorage -= currentStoredAmmoUsed;
+        }
+    }
+
+    private void CheckIfCanShoot()
+    {
+        if(primaryIsEmpty)
+        {
+            canShoot = false;
+        }
+        else
+        {
+            canShoot = true;
+        }
+    }
+
+    public void InitAmmo(InventorySlot slot, Weapons weapon)
+    {
+        primaryCurrentAmmo = weapon.magazineSize;
+        primaryCurrentAmmoStorage = weapon.storedAmmo;
+
+        //secondary
+        /*if(slot == 1)
+        {
+            secondaryCurrentAmmo = weapon.magazineSize;
+            secondaryCurrentAmmoStorage = weapon.storedAmmo;
+        }*/
+
+    }
+
+    private void Reload()
+    {
+        if (canReload)
+        {
+            int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - primaryCurrentAmmo;
+            //ako imamo dovoljno municije za reload
+            if (primaryCurrentAmmoStorage >= ammoToReload)
+            {
+                //ako je magazine full
+                if (primaryCurrentAmmo == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
+                {
+                    Debug.Log("Magazine is already full!");
+                    return;
+                }
+
+                primaryCurrentAmmo += ammoToReload;
+                primaryCurrentAmmoStorage -= ammoToReload;
+
+                primaryIsEmpty = false;
+                CheckIfCanShoot();
+                
+
+            }
+
+            animator.SetTrigger("Reload");
+        }
+        else Debug.Log("Cant reload at the momment");
     }
 }

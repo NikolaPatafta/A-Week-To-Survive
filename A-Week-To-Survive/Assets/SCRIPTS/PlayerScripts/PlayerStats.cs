@@ -33,7 +33,7 @@ public class PlayerStats : MonoBehaviour
 
     public void UpdateWeaponUI(Weapons newWeapon)
     {
-        weaponUI.UpdateInfo(newWeapon.icon, newWeapon.magazineSize, newWeapon.magazineSize);
+        weaponUI.UpdateInfo(newWeapon.icon, newWeapon.magazineSize, newWeapon.storedAmmo);
     }
 
 }

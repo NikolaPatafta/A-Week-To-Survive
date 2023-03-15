@@ -33,7 +33,7 @@ public class WeaponHandler : MonoBehaviour
     private GameObject muzzleFlash;
 
     [SerializeField]
-    private AudioSource shootSound, reload_Sound, reload_SoundShotGun;
+    private AudioSource shootSound, reload_Sound, reload_Sound_2;
 
     public WeaponFireType fireType;
 
@@ -41,10 +41,12 @@ public class WeaponHandler : MonoBehaviour
 
     public GameObject attack_Point;
 
+    private WeaponShooting weaponShooting;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
-
+        weaponShooting = GetComponentInParent<WeaponShooting>();
     }
 
     public void ShootAnimation()
@@ -82,9 +84,9 @@ public class WeaponHandler : MonoBehaviour
         reload_Sound.Play();
     }
 
-    void Play_ShotgunReload2()
+    void Play_ReloadSound2()
     {
-        reload_SoundShotGun.Play();
+        reload_Sound_2.Play();
     }
 
     void Turn_On_AttackPoint()
@@ -98,6 +100,16 @@ public class WeaponHandler : MonoBehaviour
         {
             attack_Point.SetActive(false);
         }
+    }
+
+    public void StartReload()
+    {
+        weaponShooting.canReload = false;
+    }
+
+    public void EndReload()
+    {
+        weaponShooting.canReload = true;
     }
 
 }

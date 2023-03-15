@@ -19,10 +19,15 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField]
     private GameObject currentlyEquipedWeapon;
 
-    private int currentlySelectedSlot;
-
     [SerializeField]
     Weapons defaultweapon = null;
+
+    private PlayerStats playerstats;
+
+    private void Awake()
+    {   
+        playerstats = GetComponent<PlayerStats>();
+    }
 
     private void Update()
     {
@@ -52,10 +57,16 @@ public class EquipmentManager : MonoBehaviour
         else if (inventoryManager.GetCurrentlySelectedWeapon() != null)
         {
             currentlyEquipedWeapon = Instantiate(weapon.prefab, WeaponHolder);
-            Debug.Log("Instantiated: " + currentlyEquipedWeapon);
+            playerstats.UpdateWeaponUI(weapon);
         }
           
     }
+
+    public GameObject InstantiatedGameObject()
+    {
+        return currentlyEquipedWeapon;
+    }
+
 
     private void UnequipWeapon() 
     {

@@ -7,10 +7,14 @@ public class Weapons : Items
 {
     [Header("Weapons only")]
     public int magazineSize;
-    public int magazineCount;
+    public int storedAmmo;
     public float fireRate;
     public float range;
     public WeaponType weaponType;
+    
+    [Header("ZoomInOut")]
+    public bool zoomInOut = false;
 }
 
 public enum WeaponType { Melee, Pistol, AR, Shotgun, Sniper }
+public enum WeaponStyle { Primary, Secondary, Third}

@@ -4479,9 +4479,12 @@ MonoBehaviour:
   Hotbar: {fileID: 0}
   Inventory: {fileID: 0}
   Crosshair: {fileID: 0}
+  currentlySelectedItem: {fileID: 0}
+  inventorySlot: {fileID: 0}
   player: {fileID: 0}
   inventoryItemPrefab: {fileID: 1976339196945362623, guid: 3a530d4fc0e329145ab5b076fc870627, type: 3}
   maxStackOnItems: 5
+  weaponShooting: {fileID: 0}
 --- !u!4 &1088333715
 Transform:
   m_ObjectHideFlags: 0
@@ -4883,43 +4886,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 257.395
+      value: 257.521
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.062
+      value: 0.221
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 123.211
+      value: 123.662
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.83155465
+      value: 0.79016054
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12968768
+      value: -0.342795
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.088943735
+      value: 0.09585311
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.53271663
+      value: 0.49894902
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 18.086
+      value: -39.597
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.588
+      value: -14.321
       objectReference: {fileID: 0}
     - target: {fileID: 2707218298619083554, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 65.196
+      value: 69.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35348e9080359b84da707f35b155cb7c, type: 3}
@@ -6617,9 +6620,12 @@ MonoBehaviour:
   Hotbar: {fileID: 921895353}
   Inventory: {fileID: 1684412795}
   Crosshair: {fileID: 138268359}
+  currentlySelectedItem: {fileID: 0}
+  inventorySlot: {fileID: 0}
   player: {fileID: 231486433}
   inventoryItemPrefab: {fileID: 1976339196945362623, guid: 3a530d4fc0e329145ab5b076fc870627, type: 3}
   maxStackOnItems: 5
+  weaponShooting: {fileID: 0}
 --- !u!4 &1519108148
 Transform:
   m_ObjectHideFlags: 0

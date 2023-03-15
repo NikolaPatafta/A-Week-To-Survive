@@ -21,6 +21,9 @@ public class InventoryManager : MonoBehaviour
 
     public int maxStackOnItems = 5;
 
+    [SerializeField]
+    private WeaponShooting weaponShooting;
+
     //boje 
     int selectedSlot = -1;
 
@@ -92,7 +95,7 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            //ako nije null i ako je isti item koji trazimo i manji od max numbera
+            //ako nije null i ako je isti item koji trazimo i manji od max numbera onda dodaj item na item (itemstack)
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackOnItems && itemInSlot.item.stackable == true)
             {
                 itemInSlot.count++;
@@ -101,7 +104,7 @@ public class InventoryManager : MonoBehaviour
             }
 
         }
-        //Find any empty slot
+        //Pronaði prazan slot
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i]; 
@@ -116,7 +119,6 @@ public class InventoryManager : MonoBehaviour
         return false;
 
     }
-    //dodaj instantiate tu umjesto weapon manager 
     void SpawnNewItem(Items item, InventorySlot slot)
     {
         Debug.Log("Spawned new " + item.name);
@@ -125,6 +127,7 @@ public class InventoryManager : MonoBehaviour
         inventoryItem.InitialiseItem(item);
         currentlySelectedItem = item;
         inventorySlot = slot;
+        weaponShooting.InitAmmo(slot, item as Weapons);
     }
 
     public Items GetCurrentlySelectedItem()

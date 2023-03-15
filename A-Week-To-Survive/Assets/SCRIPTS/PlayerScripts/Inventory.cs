@@ -7,12 +7,9 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Weapons[] weapons;
 
-    private PlayerStats playerStats;
-
 
     private void Start()
     {
-        playerStats= GetComponent<PlayerStats>();
         InitVariables();
     }
 
@@ -26,9 +23,6 @@ public class Inventory : MonoBehaviour
             RemoveItem(newItemIndex);
         }
         weapons[newItemIndex] = newItem;
-
-        //Update weaponUI
-        playerStats.UpdateWeaponUI(newItem);
   
     }
     public void RemoveItem(int index) 

@@ -27,29 +27,28 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Transform arrow_Box_StartPosition;
 
+    [SerializeField]
+    private InventoryManager inventoryManager;
+
     void Awake()
     {
         weapon_Manager = GetComponent<WeaponManager>(); 
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
+    }
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-         /*
-         WeaponShot();
-         ZoomInAndOut();
-         */
+        if (inventoryManager.GetCurrentlySelectedWeapon() != null)
+        {
+            ZoomInAndOut();
+        }
+       
     }
-
+    /*
     void WeaponShot()
     {
         //za assault rifle 
@@ -103,19 +102,15 @@ public class PlayerAttack : MonoBehaviour
                             ThrowArrowOrSpear(false);
                         }
                     }
-
                 }
-
             }
-
         }
+    }//wep*/
 
-    }//wep
-
+    //Aim sa kamerom na oruzju
     void ZoomInAndOut()
     {
-        //Aim sa kamerom na oruzju
-        if(weapon_Manager.GetCurrentSelectedWeapon().weapon_aim == WeaponAim.AIM)
+        if (inventoryManager.GetCurrentlySelectedWeapon().zoomInOut == true)
         {
             //desni click clijamo
             if (Input.GetMouseButtonDown(1))
@@ -130,10 +125,15 @@ public class PlayerAttack : MonoBehaviour
                 zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
                 crosshair.SetActive(true);
             }
-        }//aim opcije
+        }
+
+        //aim opcije*/
 
         //self aim (bow, spear itd..)
-        if (weapon_Manager.GetCurrentSelectedWeapon().weapon_aim == WeaponAim.SELF_AIM)
+        //*********************************
+        //fixati bow and arrow!
+        //*********************************
+        if (inventoryManager.GetCurrentlySelectedWeapon()/*. == WeaponAim.SELF_AIM*/)
         {
             if (Input.GetMouseButtonDown(1))
             {
