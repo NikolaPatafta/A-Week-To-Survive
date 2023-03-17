@@ -12,7 +12,6 @@ public class PlayerPickup : MonoBehaviour
 
     
     private Camera cam;
-    private Inventory inventory;
 
     [SerializeField]
     private InventoryManager inventoryManager;
@@ -20,7 +19,6 @@ public class PlayerPickup : MonoBehaviour
     private void Start()
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
-        inventory = GetComponent<Inventory>();
     }
 
 
@@ -35,10 +33,20 @@ public class PlayerPickup : MonoBehaviour
             
             if(Physics.Raycast(ray, out hit, pickupRange, pickupLayer))
             {
-                
-                Debug.Log("Hit: " + hit.transform.name);
-                Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
-                inventoryManager.AddItem(newItem);
+                if (hit.transform.GetComponent<ItemObject>().item as Weapons)
+                {
+                    Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
+                    inventoryManager.AddItem(newItem);
+                    
+                }
+                else
+                {
+                    Consumable newItem = hit.transform.GetComponent<ItemObject>().item as Consumable;
+                    if(newItem.types == ConsumableType.Ammo)
+                    {
+                        Debug.Log("Pickup ammo");
+                    }
+                }
                 Destroy(hit.transform.gameObject);
             }
         }

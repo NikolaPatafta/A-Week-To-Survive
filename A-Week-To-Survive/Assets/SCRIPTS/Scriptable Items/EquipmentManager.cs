@@ -19,9 +19,6 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField]
     private GameObject currentlyEquipedWeapon;
 
-    [SerializeField]
-    Weapons defaultweapon = null;
-
     private PlayerStats playerstats;
 
     private void Awake()
@@ -38,12 +35,22 @@ public class EquipmentManager : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Alpha2))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
-
         }
         if(Input.GetKeyUp(KeyCode.Alpha3))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
-
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha4))
+        {
+            EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha5))
+        {
+            EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha6))
+        {
+            EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
         }
     }
 
@@ -51,7 +58,6 @@ public class EquipmentManager : MonoBehaviour
     {
         if (WeaponHolder.GetComponentInChildren<Animator>() != null)
         {
-            Debug.Log("Weapon Unequiped");
             UnequipWeapon(); 
         }
         else if (inventoryManager.GetCurrentlySelectedWeapon() != null)
@@ -66,7 +72,6 @@ public class EquipmentManager : MonoBehaviour
     {
         return currentlyEquipedWeapon;
     }
-
 
     private void UnequipWeapon() 
     {

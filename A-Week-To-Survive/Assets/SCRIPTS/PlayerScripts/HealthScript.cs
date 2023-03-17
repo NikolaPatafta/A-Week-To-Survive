@@ -141,7 +141,7 @@ public class HealthScript : MonoBehaviour
 
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerAttack>().enabled = false;
-            GetComponent<WeaponManager>().GetCurrentSelectedWeapon().gameObject.SetActive(false);
+            //GetComponent<WeaponManager>().GetCurrentSelectedWeapon().gameObject.SetActive(false);
 
 
             //UiManager ako je player dead

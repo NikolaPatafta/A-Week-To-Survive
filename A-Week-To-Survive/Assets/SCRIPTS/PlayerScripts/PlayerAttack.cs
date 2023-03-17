@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private WeaponManager weapon_Manager;
-
     public float fireRate = 15f;
     private float nextTimeToFire;
     public float damage = 20f;
@@ -32,7 +30,6 @@ public class PlayerAttack : MonoBehaviour
 
     void Awake()
     {
-        weapon_Manager = GetComponent<WeaponManager>(); 
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
@@ -137,7 +134,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                weapon_Manager.GetCurrentSelectedWeapon().Aim(true);
+                //weapon_Manager.GetCurrentSelectedWeapon().Aim(true);
 
                 is_Aiming= true;
 
@@ -145,7 +142,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (Input.GetMouseButtonUp(1))
             {
-                weapon_Manager.GetCurrentSelectedWeapon().Aim(false);
+                //weapon_Manager.GetCurrentSelectedWeapon().Aim(false);
 
                 is_Aiming = false;
 

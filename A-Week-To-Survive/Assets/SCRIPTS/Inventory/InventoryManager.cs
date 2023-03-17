@@ -25,7 +25,8 @@ public class InventoryManager : MonoBehaviour
     private WeaponShooting weaponShooting;
 
     //boje 
-    int selectedSlot = -1;
+    int selectedSlot = 0;
+    public int selectedInventorySlot = 0;
 
     private void Awake()
     {
@@ -107,7 +108,9 @@ public class InventoryManager : MonoBehaviour
         //Pronaði prazan slot
         for (int i = 0; i < inventorySlots.Length; i++)
         {
+            selectedInventorySlot = i;
             InventorySlot slot = inventorySlots[i]; 
+            Debug.Log("inv slot: " + i);
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
@@ -121,13 +124,12 @@ public class InventoryManager : MonoBehaviour
     }
     void SpawnNewItem(Items item, InventorySlot slot)
     {
-        Debug.Log("Spawned new " + item.name);
         GameObject newItemGameObject = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGameObject.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
         currentlySelectedItem = item;
         inventorySlot = slot;
-        weaponShooting.InitAmmo(slot, item as Weapons);
+        weaponShooting.InitAmmo(selectedInventorySlot, item as Weapons);
     }
 
     public Items GetCurrentlySelectedItem()

@@ -12,6 +12,8 @@ public class WeaponShooting : MonoBehaviour
     [SerializeField]
     private EquipmentManager equipmentManager;
     private WeaponHandler weaponHandler;
+    [SerializeField]
+    private PlayerStats playerStats;
 
     //amunition
     //***
@@ -19,26 +21,25 @@ public class WeaponShooting : MonoBehaviour
     //***
 
     [SerializeField] private bool canShoot = true;
-    public bool canReload = true;   
+    public bool canReload = true;
 
-    [SerializeField] private int primaryCurrentAmmo;
-    [SerializeField] private int primaryCurrentAmmoStorage;
+    [SerializeField] private int[] CurrentAmmo;
+    [SerializeField] private int[] CurrentAmmoStorage;
 
-    [SerializeField] private bool primaryIsEmpty = false;
+    [SerializeField] private bool weaponIsEmpty = false;
 
     private int secondaryCurrentAmmo;
     private int secondaryCurrentAmmoStorage;
 
-    private Inventory inventory;
     [SerializeField]
     private Animator animator;
 
     private void Start()
     {
         mainCam = Camera.main;
-        inventory = GetComponent<Inventory>();
         canShoot = true;
         canReload = true;
+        playerStats = GetComponent<PlayerStats>();  
     }
 
     private void Update()
@@ -50,10 +51,8 @@ public class WeaponShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             animator = equipmentManager.InstantiatedGameObject().GetComponent<Animator>();
-            Reload();
+            Reload(inventoryManager.selectedInventorySlot);
         }
-  
-        
     }
 
     private void RayCastShoot(Weapons currentWeapon)
@@ -69,7 +68,7 @@ public class WeaponShooting : MonoBehaviour
 
     private void Shoot()
     {
-        CheckIfCanShoot();
+        CheckIfCanShoot(inventoryManager.selectedInventorySlot);
 
         if (canShoot && canReload)
         {
@@ -82,29 +81,30 @@ public class WeaponShooting : MonoBehaviour
                 RayCastShoot(currentWeapon);
                 weaponHandler = GetComponentInChildren<WeaponHandler>();
                 weaponHandler.ShootAnimation();
-                UseAmmo(1, 0);
+                UseAmmo(inventoryManager.selectedInventorySlot, 1, 0);
             }
         }
         else Debug.Log("Magazine is empty");
     }
 
-    private void UseAmmo(int currentAmmoUsed, int currentStoredAmmoUsed)
+    private void UseAmmo(int slot, int currentAmmoUsed, int currentStoredAmmoUsed)
     {
-        if (primaryCurrentAmmo <= 0)
+        if (CurrentAmmo[slot] <= 0)
         {
-            primaryIsEmpty = true;
-            CheckIfCanShoot();
+            weaponIsEmpty = true;
+            CheckIfCanShoot(inventoryManager.selectedInventorySlot);
         }
         else
         {
-            primaryCurrentAmmo -= currentAmmoUsed;
-            primaryCurrentAmmoStorage -= currentStoredAmmoUsed;
+            CurrentAmmo[slot] -= currentAmmoUsed;
+            CurrentAmmoStorage[slot] -= currentStoredAmmoUsed;
+            playerStats.UpdateWeaponAmmoUI(CurrentAmmo[slot], CurrentAmmoStorage[slot]);
         }
     }
 
-    private void CheckIfCanShoot()
+    private void CheckIfCanShoot(int slot)
     {
-        if(primaryIsEmpty)
+        if(weaponIsEmpty)
         {
             canShoot = false;
         }
@@ -114,46 +114,46 @@ public class WeaponShooting : MonoBehaviour
         }
     }
 
-    public void InitAmmo(InventorySlot slot, Weapons weapon)
+    //fixati initialize ammo
+    public void InitAmmo(int slot, Weapons weapon)
     {
-        primaryCurrentAmmo = weapon.magazineSize;
-        primaryCurrentAmmoStorage = weapon.storedAmmo;
-
-        //secondary
-        /*if(slot == 1)
-        {
-            secondaryCurrentAmmo = weapon.magazineSize;
-            secondaryCurrentAmmoStorage = weapon.storedAmmo;
-        }*/
-
+        Debug.Log("Init ammo: " + slot);
+        CurrentAmmo[slot] = weapon.magazineSize;
+        CurrentAmmoStorage[slot] = weapon.storedAmmo;
     }
 
-    private void Reload()
+    private void AddAmmo(int slot, int currentAmmoAdded, int currentStoredAmmoAdded)
+    {
+        CurrentAmmo[slot] += currentAmmoAdded;
+        CurrentAmmoStorage[slot] += currentStoredAmmoAdded;
+    }
+
+    private void Reload(int slot)
     {
         if (canReload)
         {
-            int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - primaryCurrentAmmo;
+            int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - CurrentAmmo[slot];
             //ako imamo dovoljno municije za reload
-            if (primaryCurrentAmmoStorage >= ammoToReload)
+            if (CurrentAmmoStorage[slot] >= ammoToReload)
             {
                 //ako je magazine full
-                if (primaryCurrentAmmo == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
+                if (CurrentAmmo[slot] == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
                 {
                     Debug.Log("Magazine is already full!");
                     return;
                 }
 
-                primaryCurrentAmmo += ammoToReload;
-                primaryCurrentAmmoStorage -= ammoToReload;
+                AddAmmo(slot, ammoToReload, 0);
+                UseAmmo(slot, 0, ammoToReload);
 
-                primaryIsEmpty = false;
-                CheckIfCanShoot();
+                weaponIsEmpty = false;
+                CheckIfCanShoot(slot);
                 
 
             }
 
             animator.SetTrigger("Reload");
         }
-        else Debug.Log("Cant reload at the momment");
+        else Debug.Log("Cant reload at the momment!");
     }
 }
