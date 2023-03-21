@@ -21,6 +21,8 @@ public class EquipmentManager : MonoBehaviour
 
     private PlayerStats playerstats;
 
+    public int selectedSlot;
+
     private void Awake()
     {   
         playerstats = GetComponent<PlayerStats>();
@@ -31,28 +33,35 @@ public class EquipmentManager : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Alpha1))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
+            selectedSlot = 0;
         }
         if(Input.GetKeyUp(KeyCode.Alpha2))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
+            selectedSlot = 1;
         }
         if(Input.GetKeyUp(KeyCode.Alpha3))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
+            selectedSlot = 2;
         }
         if (Input.GetKeyUp(KeyCode.Alpha4))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
+            selectedSlot = 3;
         }
         if (Input.GetKeyUp(KeyCode.Alpha5))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
-        }
+            selectedSlot = 4;
+        }   
         if (Input.GetKeyUp(KeyCode.Alpha6))
         {
             EquipWeapon(inventoryManager.GetCurrentlySelectedWeapon());
+            selectedSlot = 5;
         }
     }
+
 
     private void EquipWeapon(Weapons weapon)
     {

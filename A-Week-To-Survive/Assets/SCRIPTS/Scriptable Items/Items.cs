@@ -24,6 +24,6 @@ public class Items : ScriptableObject
 //WIP
 public enum ItemType
 {
-    Tool,
-    BuildingBlock
+    Weapon,
+    Ammo
 }

@@ -47,7 +47,7 @@ public class EnemyManager : MonoBehaviour
     {
         SpawnZombies();
         SpawnBoars();
-        SpawnZombies2();
+        //SpawnZombies2();
     }
 
     void SpawnZombies()

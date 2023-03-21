@@ -6,6 +6,7 @@ using UnityEngine;
 public class Weapons : Items
 {
     [Header("Weapons only")]
+    public int damage;
     public int magazineSize;
     public int storedAmmo;
     public float fireRate;

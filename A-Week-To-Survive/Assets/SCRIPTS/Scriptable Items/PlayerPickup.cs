@@ -44,7 +44,7 @@ public class PlayerPickup : MonoBehaviour
                     Consumable newItem = hit.transform.GetComponent<ItemObject>().item as Consumable;
                     if(newItem.types == ConsumableType.Ammo)
                     {
-                        Debug.Log("Pickup ammo");
+                        inventoryManager.AddItem(newItem);
                     }
                 }
                 Destroy(hit.transform.gameObject);

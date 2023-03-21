@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
 {
     private EnemyAnimatior enemy_Anim;
     private NavMeshAgent navAgent;
+    private WhatEnemy whatEnemy;
 
     private EnemyState enemy_State;
 
@@ -41,10 +42,21 @@ public class EnemyController : MonoBehaviour
 
     private EnemyAudio enemy_Audio;
 
-    private BoxCollider box_Collider;
+    private CapsuleCollider capsuleCollider;
+    private BoxCollider boxCollider;
 
     void Awake()
     {
+        whatEnemy = GetComponent<WhatEnemy>();  
+
+        if(whatEnemy.Boar == true)
+        {
+            boxCollider = GetComponent<BoxCollider>();
+        }
+        if(whatEnemy.Cannibal == true)
+        {
+            capsuleCollider = GetComponent<CapsuleCollider>();
+        }
         //stanja enemy_Anim su imena animacija u Inspektoru za animacije
         enemy_Anim = GetComponent<EnemyAnimatior>();
         navAgent = GetComponent<NavMeshAgent>();
@@ -54,16 +66,11 @@ public class EnemyController : MonoBehaviour
 
         //dohvati audio skriptu
         enemy_Audio = GetComponentInChildren<EnemyAudio>();
-        box_Collider= GetComponent<BoxCollider>();
-
-        Debug.Log(box_Collider.gameObject.name);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<BoxCollider>().isTrigger = true;
-
         enemy_State = EnemyState.PATROL;
 
         patrol_Timer = patrol_For_This_Time;
@@ -90,16 +97,6 @@ public class EnemyController : MonoBehaviour
        {
             Attack();
        }
-       /*
-       if(GetComponent<BoxCollider>().isTrigger)
-        {
-            Debug.Log("Found: " + box_Collider.name);
-        }
-       else
-        {
-            Debug.Log("Not found " + box_Collider);
-        }
-       */
        
     }
 
@@ -191,8 +188,6 @@ public class EnemyController : MonoBehaviour
         }
 
     }//chase
-
-
 
     void Attack()
     {

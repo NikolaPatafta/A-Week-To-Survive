@@ -52,29 +52,30 @@ public class InventoryManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            TurnInventoryOfforOn();
+            if (Inventory.gameObject.activeInHierarchy)
+            {
+                TurnInventoryOfforOn(false);
+            }
+            else
+            {
+                TurnInventoryOfforOn(true);
+            }
+                
         }
     }
 
-    void TurnInventoryOfforOn()
+    void TurnInventoryOfforOn(bool state)
     {
-        if(Inventory.gameObject.activeInHierarchy)
+        Inventory.SetActive(state);
+        Crosshair.SetActive(!state);
+        Cursor.visible = state;
+        if(!state) 
         {
-            Inventory.SetActive(false);
-            Crosshair.SetActive(true);
-            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            player.GetComponent<PlayerAttack>().enabled = true;   
         }
-        else
-        {
-            Inventory.SetActive(true);
-            Crosshair.SetActive(false);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            player.GetComponent<PlayerAttack>().enabled = false;
-
-        }
+        else Cursor.lockState = CursorLockMode.None;
+        
+        player.GetComponent<WeaponShooting>().enabled = !state;   
     }
 
     //Mjenanje boja tijekom selected itema
@@ -110,7 +111,7 @@ public class InventoryManager : MonoBehaviour
         {
             selectedInventorySlot = i;
             InventorySlot slot = inventorySlots[i]; 
-            Debug.Log("inv slot: " + i);
+            // Debug.Log("inv slot: " + i);
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
@@ -129,7 +130,16 @@ public class InventoryManager : MonoBehaviour
         inventoryItem.InitialiseItem(item);
         currentlySelectedItem = item;
         inventorySlot = slot;
-        weaponShooting.InitAmmo(selectedInventorySlot, item as Weapons);
+        if(item.type == ItemType.Ammo)
+        {
+            weaponShooting.InitAmmoSecondaryMagazine(item as Consumable);
+            Debug.Log("Initialzied item: " + item.name);
+        }
+        else if(item.type == ItemType.Weapon)
+        {
+            weaponShooting.InitAmmoPrimaryMagazine(selectedInventorySlot, item as Weapons);
+        }
+
     }
 
     public Items GetCurrentlySelectedItem()

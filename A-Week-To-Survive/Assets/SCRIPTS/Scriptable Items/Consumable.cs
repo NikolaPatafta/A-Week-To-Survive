@@ -6,6 +6,7 @@ using UnityEngine;
 public class Consumable : Items
 {
     public ConsumableType types;
+    public int AmmoCount;
 }
 
 public enum ConsumableType { Medkit, Ammo}

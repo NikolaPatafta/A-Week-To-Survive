@@ -44,7 +44,7 @@ public class DayAndNightSystem : MonoBehaviour
         {
             displayMinutes = "0" + minutes.ToString();
         }
-        string displayTime = displayHours + ":" + displayMinutes + "h";
+        string displayTime = "Time: " + displayHours + ":" + displayMinutes;
 
         timeText.text = displayTime;
 

@@ -93,7 +93,7 @@ public class HealthScript : MonoBehaviour
         {
 
             GetComponent<Animator>().enabled = false;
-            GetComponent<BoxCollider>().isTrigger = false;
+            GetComponent<CapsuleCollider>().isTrigger = false;
             GetComponent<Rigidbody>().AddTorque(-(transform.forward * 20f));
 
             enemy_Controller.enabled = false;
