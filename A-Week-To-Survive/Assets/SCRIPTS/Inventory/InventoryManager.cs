@@ -100,6 +100,10 @@ public class InventoryManager : MonoBehaviour
             //ako nije null i ako je isti item koji trazimo i manji od max numbera onda dodaj item na item (itemstack)
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackOnItems && itemInSlot.item.stackable == true)
             {
+                if (item.type == ItemType.Ammo)
+                {
+                    weaponShooting.InitAmmoSecondaryMagazine(item as Consumable);
+                }
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
                 return true;
@@ -133,7 +137,6 @@ public class InventoryManager : MonoBehaviour
         if(item.type == ItemType.Ammo)
         {
             weaponShooting.InitAmmoSecondaryMagazine(item as Consumable);
-            Debug.Log("Initialzied item: " + item.name);
         }
         else if(item.type == ItemType.Weapon)
         {

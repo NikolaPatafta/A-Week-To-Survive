@@ -116,10 +116,12 @@ public class WeaponShooting : MonoBehaviour
     {
         if(CurrentAmmoStorage == 0) 
         {
+            Debug.Log("inicijalizerani ammo!");
             CurrentAmmoStorage = ammo.AmmoCount;
         }
         else
         {
+            Debug.Log("Twice");
             CurrentAmmoStorage += ammo.AmmoCount;
         }
         
@@ -139,7 +141,7 @@ public class WeaponShooting : MonoBehaviour
             if (CurrentAmmoStorage >= ammoToReload)
             {
                 //ako je magazine full
-                if (CurrentAmmo[slot] == inventoryManager.GetCurrentlySelectedWeapon().magazineSize && CurrentAmmo[slot] == 0)
+                if (CurrentAmmo[slot] == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
                 {
                     Debug.Log("Magazine is already full!");
                     return;
