@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     [SerializeField]
     private GameObject hudCanvas = null;
@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     private GameObject endCanvas = null;
 
     [SerializeField]
-    private AudioSource audioPause;
+    private AudioManager audioManager;
 
     private HealthScript checkifDead;
 
@@ -27,7 +27,6 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         checkifDead= GetComponent<HealthScript>();
-        audioPause.GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -55,7 +54,7 @@ public class UIManager : MonoBehaviour
         }
         else if (checkifDead.IsDead())
         {
-            MuteOrPlayAudio(true);
+            //MuteOrPlayAudio(true);
             UnlockCursor();
         }
        
@@ -82,7 +81,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = state ? 0 : 1;
      
         isPaused = state;
-        MuteOrPlayAudio(state);
+        //MuteOrPlayAudio(state);
 
     }
 
@@ -117,11 +116,13 @@ public class UIManager : MonoBehaviour
 
         if(audiostatus)
         {
-            audioPause.Pause();
+            audioManager.StopDayAudio();
+            audioManager.StopNightAudio();
         }
         else
         {
-            audioPause.Play();
+            audioManager.PlayDayAudio();
+            audioManager.StopNightAudio();
         }
     }
 

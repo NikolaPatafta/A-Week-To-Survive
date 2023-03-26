@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public float fireRate = 15f;
-    private float nextTimeToFire;
+    private float nextTimeToFire = 0f;
     public float damage = 20f;
 
     private Animator zoomCameraAnim;
@@ -15,7 +15,8 @@ public class PlayerAttack : MonoBehaviour
     private Camera mainCam;
     private GameObject crosshair;
 
-    private bool is_Aiming;
+    public bool is_Aiming;
+    public bool can_Shoot;
     private bool arrow_flying;
 
     [SerializeField]
@@ -26,12 +27,15 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     private InventoryManager inventoryManager;
+    private WeaponHandler weaponHandler;
+
 
     void Awake()
     {
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
+        
     }
 
 
@@ -40,115 +44,69 @@ public class PlayerAttack : MonoBehaviour
     {
         if (inventoryManager.GetCurrentlySelectedWeapon() != null)
         {
+            if(inventoryManager.GetCurrentlySelectedWeapon().zoomInOut == true && inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Bow)
+            {    
+                WeaponShot();
+            }
             ZoomInAndOut();
-        }
-       
+        }  
     }
-    /*
     void WeaponShot()
     {
-        //za assault rifle 
-        if (weapon_Manager.GetCurrentSelectedWeapon().fireType == WeaponFireType.MULTIPLE)
-        {
-            //lijevi click (auto-shoot)
-            if(Input.GetMouseButton(0) && Time.time > nextTimeToFire)
+        if (Input.GetMouseButtonDown(0))
+        { 
+            if (is_Aiming)
             {
-                nextTimeToFire = Time.time + 3.8f / fireRate;
-
-                weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
-
-               //BulletFired();
-            }
-
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                //Axe
-                if(weapon_Manager.GetCurrentSelectedWeapon().tag == Tags.AXE_TAG || weapon_Manager.GetCurrentSelectedWeapon().tag ==  Tags.HANDS_TAG)
+                weaponHandler = GetComponentInChildren<WeaponHandler>();
+                Weapons weapon = inventoryManager.GetCurrentlySelectedWeapon();
+                Debug.Log("can shoot " + can_Shoot);
+                if(can_Shoot && Time.time > nextTimeToFire + weapon.fireRate)
                 {
-                    weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
+                    nextTimeToFire = Time.time;
+                    ThrowArrowOrSpear(true);           
                 }
-                //Shoot
-
-                if (weapon_Manager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.BULLET)
+                /*else if(weapon_Manager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.SPEAR)
                 {
-                    weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
-                   BulletFired();
-                }
-                else
-                {
-                    if (is_Aiming)
-                    {
-                        weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
-
-                        if(weapon_Manager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.ARROW)
-                        {
-                            //arrow
-
-                            ThrowArrowOrSpear(true);
-                            
-
-                        }
-                        else if(weapon_Manager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.SPEAR)
-                        {
-                            //spear
-                            ThrowArrowOrSpear(false);
-                        }
-                    }
-                }
+                       //spear
+                       ThrowArrowOrSpear(false);
+                }*/
             }
         }
-    }//wep*/
+    }//wep
 
     //Aim sa kamerom na oruzju
     void ZoomInAndOut()
     {
-        if (inventoryManager.GetCurrentlySelectedWeapon().zoomInOut == true)
+       //desni click clijamo
+        if (Input.GetMouseButtonDown(1))
         {
-            //desni click clijamo
-            if (Input.GetMouseButtonDown(1))
-            {
-                zoomCameraAnim.Play(AnimationTags.ZOOM_IN_ANIM);
-                crosshair.SetActive(false);
-            }
-
-            //desni click ne ciljamo
-            if (Input.GetMouseButtonUp(1))
-            {
-                zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
-                crosshair.SetActive(true);
-            }
+            zoomCameraAnim.Play(AnimationTags.ZOOM_IN_ANIM);
+            crosshair.SetActive(false);
         }
 
-        //aim opcije*/
+        //desni click ne ciljamo
+        if (Input.GetMouseButtonUp(1))
+        {
+            zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
+            crosshair.SetActive(true);
+        }
 
-        //self aim (bow, spear itd..)
-        //*********************************
-        //fixati bow and arrow!
-        //*********************************
-        if (inventoryManager.GetCurrentlySelectedWeapon()/*. == WeaponAim.SELF_AIM*/)
+        
+        if(inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Bow)
         {
             if (Input.GetMouseButtonDown(1))
             {
-                //weapon_Manager.GetCurrentSelectedWeapon().Aim(true);
-
+                weaponHandler = GetComponentInChildren<WeaponHandler>();
+                weaponHandler.Aim(true);
                 is_Aiming= true;
-
             }
-
             if (Input.GetMouseButtonUp(1))
             {
-                //weapon_Manager.GetCurrentSelectedWeapon().Aim(false);
-
+                weaponHandler = GetComponentInChildren<WeaponHandler>();
+                weaponHandler.Aim(false);
                 is_Aiming = false;
-
             }
-
-        }//self aim
-
+        }
 
     }//ZoomInAndOut
 
@@ -160,8 +118,7 @@ public class PlayerAttack : MonoBehaviour
             GameObject arrow = Instantiate(arrow_Prefab);
             arrow.transform.position = arrow_Box_StartPosition.position;
 
-            arrow.GetComponent<ArrowAndBowScript>().Launch(mainCam);
-            
+            arrow.GetComponent<ArrowAndBowScript>().Launch(mainCam);    
         }
         else
         {
@@ -169,29 +126,7 @@ public class PlayerAttack : MonoBehaviour
             spear.transform.position = arrow_Box_StartPosition.position;
 
             spear.GetComponent<ArrowAndBowScript>().Launch(mainCam);
-
         }
     }
-
-    void BulletFired()
-    {
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
-        {
-            if (hit.transform.tag == Tags.ENEMY_TAG)
-            {
-                print("We hit " + hit.transform.gameObject.name);
-
-                hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
-            }
-        }
-    }
-
-    
-
-  
-
-        
+   
 }

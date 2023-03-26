@@ -43,17 +43,37 @@ public class WeaponShooting : MonoBehaviour
     {
         if (inventoryManager.GetCurrentlySelectedWeapon() != null)
         {
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (inventoryManager.GetCurrentlySelectedWeapon().weaponType != WeaponType.Melee)
             {
-                Shoot(equipmentManager.selectedSlot);
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    Shoot(equipmentManager.selectedSlot);
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    animator = equipmentManager.InstantiatedGameObject().GetComponent<Animator>();
+                    Reload(equipmentManager.selectedSlot);
+                }
             }
-            if (Input.GetKeyDown(KeyCode.R))
+            else if (inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Melee)
             {
-                animator = equipmentManager.InstantiatedGameObject().GetComponent<Animator>();
-                Reload(equipmentManager.selectedSlot);
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    AxeAttack();
+                }
+            }
+            else if (inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Bow)
+            {
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    BowAttack();
+                }
             }
         }
+
+
         playerStats.UpdateWeaponAmmoUI(CurrentAmmo[equipmentManager.selectedSlot], CurrentAmmoStorage);
+
         
     }
 
@@ -100,9 +120,20 @@ public class WeaponShooting : MonoBehaviour
 
     }
 
+    private void AxeAttack()
+    {
+        weaponHandler= GetComponentInChildren<WeaponHandler>();
+        weaponHandler.ShootAnimation();
+    }
+
+    private void BowAttack()
+    {
+        weaponHandler = GetComponentInChildren<WeaponHandler>();
+        weaponHandler.ShootAnimation();
+    }
+
     private void UseAmmo(int slot, int currentAmmoUsed, int currentStoredAmmoUsed)
     {
-        Debug.Log("Slot: " + slot);
         CurrentAmmo[slot] -= currentAmmoUsed;
         CurrentAmmoStorage -= currentStoredAmmoUsed;
     }
@@ -116,12 +147,10 @@ public class WeaponShooting : MonoBehaviour
     {
         if(CurrentAmmoStorage == 0) 
         {
-            Debug.Log("inicijalizerani ammo!");
             CurrentAmmoStorage = ammo.AmmoCount;
         }
         else
         {
-            Debug.Log("Twice");
             CurrentAmmoStorage += ammo.AmmoCount;
         }
         
@@ -187,4 +216,20 @@ public class WeaponShooting : MonoBehaviour
             weaponIsEmpty = false;
         }
     }
+    //old bullet fired method
+    /*void BulletFired()
+    {
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
+        {
+            if (hit.transform.tag == Tags.ENEMY_TAG)
+            {
+                print("We hit " + hit.transform.gameObject.name);
+
+                hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
+            }
+        }
+    }*/
 }

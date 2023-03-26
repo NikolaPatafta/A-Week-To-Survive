@@ -55,11 +55,14 @@ public class HealthScript : MonoBehaviour
     {
 
         if (is_Dead)
+        {
             return;
-
-
-        health -= damage;
-
+        }
+        else
+        {
+            health -= damage;
+        }
+           
         if (is_Player)
         {
             //display Health UI
@@ -127,13 +130,12 @@ public class HealthScript : MonoBehaviour
         if (is_Player)
         {
             //turn off enemies ako player umre (deaktiviraj skripte)
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY_TAG);
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
             for (int i = 0; i < enemies.Length; i++)
             {
-                enemies[i].GetComponent<EnemyController>().enabled = false;
                 Debug.Log("Enemies disabled: " + enemies[i].name);
-
+                enemies[i].GetComponent<EnemyController>().enabled = false;
             }
             EnemyManager.instance.StopSpawning();
 
@@ -141,28 +143,13 @@ public class HealthScript : MonoBehaviour
 
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerAttack>().enabled = false;
-            //GetComponent<WeaponManager>().GetCurrentSelectedWeapon().gameObject.SetActive(false);
-
+            GetComponent<WeaponShooting>().enabled = false;
 
             //UiManager ako je player dead
-            uiManager.SetActiveHud(false);/*
-            if (Cursor.lockState== CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
+            uiManager.SetActiveHud(false);
+
         }
 
-        /*
-        if(tag == Tags.PLAYER_TAG)
-        {
-            Invoke("RestartGame", 3f);
-        }
-        else
-        {
-            Invoke("TurnOffGameObject", 3f);
-        }*/
-
-        }//PlayerDied
     }
         void TurnOffGameObject()
         {

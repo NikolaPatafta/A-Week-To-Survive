@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +10,19 @@ public class DayAndNightSystem : MonoBehaviour
     public float currentTime;
     public float dayLengthMinutes;
     public Text timeText;
+    //public TextMeshProUGUI textMeshPro;
     
     private float rotationSpeed;
     private float midday;
     private float translateTime;
+    public int day = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         rotationSpeed = 360 / dayLengthMinutes / 60;
         midday = dayLengthMinutes * 60/2;
+        currentTime = 7.50f;
     }
 
     // Update is called once per frame
@@ -44,10 +49,20 @@ public class DayAndNightSystem : MonoBehaviour
         {
             displayMinutes = "0" + minutes.ToString();
         }
-        string displayTime = "Time: " + displayHours + ":" + displayMinutes;
+
+        if(currentTime >= midday * 2)
+        {
+            day++;
+            currentTime = 0;
+        }
+
+        string displayTime = "Day: " + day + " Time: " + displayHours + ":" + displayMinutes;
 
         timeText.text = displayTime;
 
+        //textMeshPro.text = displayTime;
+
         transform.Rotate(new Vector3(1, 0, 0) * rotationSpeed * Time.deltaTime);
     }
+
 }

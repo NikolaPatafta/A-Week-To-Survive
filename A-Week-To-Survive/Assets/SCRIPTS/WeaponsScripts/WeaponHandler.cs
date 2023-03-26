@@ -25,6 +25,7 @@ public enum WeaponBulletType
 
 public class WeaponHandler : MonoBehaviour
 {
+    [SerializeField]
     private Animator anim;
 
     public WeaponAim weapon_aim;
@@ -43,15 +44,23 @@ public class WeaponHandler : MonoBehaviour
 
     private WeaponShooting weaponShooting;
 
+    private PlayerAttack playerAttack;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
         weaponShooting = GetComponentInParent<WeaponShooting>();
+        playerAttack = GetComponentInParent<PlayerAttack>();
     }
 
     public void ShootAnimation()
     {
         anim.SetTrigger("Shoot");
+    }
+
+    public void StopAiming()
+    {
+        Aim(false);
     }
 
     public void Aim(bool canAim)
@@ -110,6 +119,18 @@ public class WeaponHandler : MonoBehaviour
     public void EndReload()
     {
         weaponShooting.canReload = true;
+    }
+
+    //bow 
+    public void CanShoot()
+    {
+        anim.SetBool("CanShoot", true);
+        playerAttack.can_Shoot = true;
+    }
+    public void CanNotShoot()
+    {
+        anim.SetBool("CanShoot", false);
+        playerAttack.can_Shoot = false;
     }
 
 }

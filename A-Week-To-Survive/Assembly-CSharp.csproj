@@ -59,6 +59,7 @@
     <Compile Include="Assets\SCRIPTS\PlayerScripts\AttackScript.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyController.cs" />
     <Compile Include="Assets\SCRIPTS\HelpScripts\TagHolder.cs" />
+    <Compile Include="Assets\SCRIPTS\Enemy Scripts\WhatEnemy.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerSprintAndCrouch.cs" />
     <Compile Include="Assets\SCRIPTS\UI\WeaponUI.cs" />
     <Compile Include="Assets\SCRIPTS\WeaponsScripts\WeaponHandler.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\UIElementController.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\evelator_controll.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerAxeSounds.cs" />
+    <Compile Include="Assets\SCRIPTS\Enemy Scripts\TestController.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerMovement.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\ItemObject.cs" />
     <Compile Include="Assets\SCRIPTS\Game Manager\DayAndNightSystem.cs" />
@@ -99,19 +101,24 @@
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Weapons.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\AnimationItemData.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\UIManager.cs" />
-    <Compile Include="Assets\SCRIPTS\Enemy Scripts\WhatEnemy.cs" />
-    <Compile Include="Assets\SCRIPTS\Enemy Scripts\TestController.cs" />
+    <Compile Include="Assets\SCRIPTS\UI\AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAAPreset2.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\Bokeh34.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\NatureAssets\BushGrassBend\Demo\Example3\README.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\NatureAssets\BushGrassBend\Demo\DOCUMENTATION.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\NatureAssets\BushGrassBend\Demo\Example1\README.txt" />
     <None Include="Assets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Readme.txt" />
     <None Include="Assets\NatureAssets\NatureStarterKit2\info.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\BuildingAssets\Village Buildings\Read me.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\LensFlareCreate.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionCurves.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\DLAA.shader" />
@@ -120,18 +127,33 @@
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAAPreset3.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\DepthOfField34.shader" />
     <None Include="Assets\Horror Ambient Album - 082318\Notes.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\NatureAssets\TGU Skybox Pack\Readme.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionCurvesSimple.shader" />
     <None Include="Assets\NatureAssets\BushGrassBend\Demo\Example2\README.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\SSAA.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\NFAA.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAA3Console.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\BuildingAssets\BuildingShed\BuildingShedInfo.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAA2.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionSelective.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\WeaponsAssets\Colt Python\Read_me.txt" />
     <None Include="Assets\BuildingAssets\Office building\Read me.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

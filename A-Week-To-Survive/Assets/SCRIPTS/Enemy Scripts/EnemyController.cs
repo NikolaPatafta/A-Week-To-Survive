@@ -200,7 +200,7 @@ public class EnemyController : MonoBehaviour
             enemy_Anim.Attack();
             attack_Timer = 0;
 
-            //pusti attack zvuk
+            //psusti attack zvuk
             enemy_Audio.Play_AttackSound();
         }
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
@@ -13,6 +15,7 @@ public class EnemyStats : MonoBehaviour
     {
         healthamount = GetComponent<HealthScript>();
     }
+
     
     public void Display_EnemyHealth(float healthValue)
     {

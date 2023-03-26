@@ -33,6 +33,7 @@ public class ArrowAndBowScript : MonoBehaviour
     void DeactivateGameObject()
     {
         gameObject.SetActive(false);
+        Destroy(gameObject);
         if (gameObject.activeInHierarchy)
         {
             gameObject.SetActive(true);
@@ -45,8 +46,8 @@ public class ArrowAndBowScript : MonoBehaviour
         if(target.tag == Tags.ENEMY_TAG)
         {
             target.GetComponent<HealthScript>().ApplyDamage(damage);
-
-            gameObject.SetActive(false);
+            
+            Destroy(gameObject);
         }
     }
 }

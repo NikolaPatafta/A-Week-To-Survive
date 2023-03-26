@@ -17,5 +17,4 @@ public class Weapons : Items
     public bool zoomInOut = false;
 }
 
-public enum WeaponType { Melee, Pistol, AR, Shotgun, Sniper }
-public enum WeaponStyle { Primary, Secondary, Third}
+public enum WeaponType { Melee, Pistol, AR, Shotgun, Sniper, Bow, Spear }
