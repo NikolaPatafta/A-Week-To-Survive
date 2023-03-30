@@ -15,6 +15,7 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         ActivateMainMenu(true);
+        Cursor.visible = true;
     }
 
     public void ActivateMainMenu(bool state)

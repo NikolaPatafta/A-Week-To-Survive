@@ -11,6 +11,7 @@ public class HealthScript : MonoBehaviour
 
     public float health = 100f;
     public bool is_Player, is_Boar, is_Cannibal;
+    public CameraShake cameraShake;
 
     private bool is_Dead;
     private bool playerDied;
@@ -67,6 +68,7 @@ public class HealthScript : MonoBehaviour
         {
             //display Health UI
             player_Stats.Display_HealthStats(health);
+            StartCoroutine(cameraShake.Shake());
         }
 
         if (is_Boar || is_Cannibal)

@@ -20,6 +20,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private AudioManager audioManager;
 
+    [SerializeField]
+    private GameObject optionsScreen;
+
+    [SerializeField]
+    private GameObject pauseScreenButtons;
+
     private HealthScript checkifDead;
 
     private CameraController camController = null;
@@ -50,6 +56,7 @@ public class UIManager : MonoBehaviour
             {
 
                 SetActivePause(false);
+                OptionsBackButton();
             }
         }
         else if (checkifDead.IsDead())
@@ -81,13 +88,33 @@ public class UIManager : MonoBehaviour
         Time.timeScale = state ? 0 : 1;
      
         isPaused = state;
-        //MuteOrPlayAudio(state);
+        if (!isPaused)
+        {
+            LockCursor();
+        }
 
+    }
+
+    public void SetActiveOptions()
+    {
+        if (!pauseCanvas.activeInHierarchy)
+        {
+            pauseCanvas.SetActive(true);
+        }
+        optionsScreen.SetActive(true);
+        pauseScreenButtons.SetActive(false);
+    }
+
+    public void OptionsBackButton()
+    {
+        optionsScreen.SetActive(false);
+        pauseScreenButtons.SetActive(true);
     }
 
     public void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
     public void UnlockCursor()
