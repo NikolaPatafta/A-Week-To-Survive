@@ -84,6 +84,7 @@ public class WeaponShooting : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit , currentWeapon.range))
         {
+            //Debug.DrawRay(ray.origin, ray.direction * currentWeapon.range, Color.red, 2f);
             Debug.Log(hit.transform.name);
             if(hit.transform.tag == "Enemy")
             {

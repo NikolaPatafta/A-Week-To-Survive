@@ -8,6 +8,7 @@ public class HealthScript : MonoBehaviour
     private EnemyAnimatior enemy_Anim;
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
+    private Rigidbody rigidbodyrb;
 
     public float health = 100f;
     public bool is_Player, is_Boar, is_Cannibal;
@@ -34,6 +35,8 @@ public class HealthScript : MonoBehaviour
             enemy_Anim = GetComponent<EnemyAnimatior>();
             enemy_Controller = GetComponent<EnemyController>();
             navAgent = GetComponent<NavMeshAgent>();
+            rigidbodyrb = GetComponent<Rigidbody>();
+
 
             //get audio
             enemyAudio = GetComponentInChildren<EnemyAudio>();
@@ -84,13 +87,13 @@ public class HealthScript : MonoBehaviour
         }
         if (health <= 0f)
         {
-            PlayerDied();
+            CheckWhoDied();
 
             is_Dead = true;
         }
     }
 
-    void PlayerDied()
+    void CheckWhoDied()
     {
         //posto canibal nema animacije, moramo koristiti sljedece komande
         //inace bi koristili isto kao i za Boar
@@ -98,8 +101,9 @@ public class HealthScript : MonoBehaviour
         {
 
             GetComponent<Animator>().enabled = false;
-            GetComponent<CapsuleCollider>().isTrigger = false;
-            GetComponent<Rigidbody>().AddTorque(-(transform.forward * 20f));
+            GetComponent<BoxCollider>().isTrigger = false;
+            rigidbodyrb.useGravity = true;
+            rigidbodyrb.AddTorque(-(transform.forward * 50f));
 
             enemy_Controller.enabled = false;
             navAgent.enabled = false;
@@ -110,8 +114,6 @@ public class HealthScript : MonoBehaviour
             
             //zovi Enemy manager i spawnaj zombie
             EnemyManager.instance.EnemyDied(true);
-
-
         }
 
         if (is_Boar)
@@ -156,6 +158,7 @@ public class HealthScript : MonoBehaviour
         void TurnOffGameObject()
         {
             gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
         IEnumerator DeadSound()

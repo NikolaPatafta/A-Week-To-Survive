@@ -14,7 +14,6 @@ public class EnemyController : MonoBehaviour
 {
     private EnemyAnimatior enemy_Anim;
     private NavMeshAgent navAgent;
-    private WhatEnemy whatEnemy;
 
     private EnemyState enemy_State;
 
@@ -42,21 +41,11 @@ public class EnemyController : MonoBehaviour
 
     private EnemyAudio enemy_Audio;
 
-    private CapsuleCollider capsuleCollider;
     private BoxCollider boxCollider;
 
     void Awake()
     {
-        whatEnemy = GetComponent<WhatEnemy>();  
-
-        if(whatEnemy.Boar == true)
-        {
-            boxCollider = GetComponent<BoxCollider>();
-        }
-        if(whatEnemy.Cannibal == true)
-        {
-            capsuleCollider = GetComponent<CapsuleCollider>();
-        }
+        boxCollider = GetComponent<BoxCollider>();
         //stanja enemy_Anim su imena animacija u Inspektoru za animacije
         enemy_Anim = GetComponent<EnemyAnimatior>();
         navAgent = GetComponent<NavMeshAgent>();
@@ -115,7 +104,7 @@ public class EnemyController : MonoBehaviour
             patrol_Timer = 0f;
 
         }
-        //ako se krecemo
+        //ako se enemy krece
         if(navAgent.velocity.sqrMagnitude > 0)
         {
             enemy_Anim.Walk(true);

@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - ArrowAndBowScript
     - AttackScript
     - AudioManager
+    - CameraShake
     - Consumable
     - DayAndNightSystem
     - DemoScript
@@ -131,15 +132,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 3668}
+      Script: {instanceID: 3670}
     - Class: 114
-      Script: {instanceID: 3914}
+      Script: {instanceID: 3916}
     - Class: 114
-      Script: {instanceID: 4178}
+      Script: {instanceID: 4180}
     - Class: 114
-      Script: {instanceID: 4412}
+      Script: {instanceID: 4414}
     - Class: 114
-      Script: {instanceID: 4468}
+      Script: {instanceID: 4470}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -282,35 +283,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3280}
     - Class: 114
-      Script: {instanceID: 3470}
+      Script: {instanceID: 3378}
     - Class: 114
-      Script: {instanceID: 3658}
+      Script: {instanceID: 3472}
     - Class: 114
-      Script: {instanceID: 3668}
+      Script: {instanceID: 3660}
     - Class: 114
-      Script: {instanceID: 3736}
+      Script: {instanceID: 3670}
     - Class: 114
-      Script: {instanceID: 3916}
+      Script: {instanceID: 3738}
     - Class: 114
-      Script: {instanceID: 4022}
+      Script: {instanceID: 3918}
     - Class: 114
-      Script: {instanceID: 4204}
+      Script: {instanceID: 4024}
     - Class: 114
-      Script: {instanceID: 4238}
+      Script: {instanceID: 4206}
     - Class: 114
-      Script: {instanceID: 4290}
+      Script: {instanceID: 4240}
     - Class: 114
-      Script: {instanceID: 4324}
+      Script: {instanceID: 4292}
     - Class: 114
-      Script: {instanceID: 4332}
+      Script: {instanceID: 4326}
     - Class: 114
-      Script: {instanceID: 4384}
+      Script: {instanceID: 4334}
     - Class: 114
-      Script: {instanceID: 4448}
+      Script: {instanceID: 4386}
     - Class: 114
-      Script: {instanceID: 4468}
+      Script: {instanceID: 4450}
     - Class: 114
-      Script: {instanceID: 4528}
+      Script: {instanceID: 4470}
+    - Class: 114
+      Script: {instanceID: 4530}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -828,13 +831,19 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraShake
+  - hash:
+      serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 2ec223872536e3a3dbc38bc3b1d1c44e
+      Hash: 74d74a53f8534f4135710ac572f0a69d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HealthScript
@@ -1072,6 +1081,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 50278896794e4a031f8e3bf78df6d3d6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnHordeZombies
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenuScene.unity
