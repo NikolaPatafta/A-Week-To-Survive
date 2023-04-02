@@ -17,6 +17,9 @@ public class DayAndNightSystem : MonoBehaviour
     private float translateTime;
     public int day = 1;
 
+    [SerializeField]
+    private SpawnHordeZombies spawnHordeZombies;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,10 @@ public class DayAndNightSystem : MonoBehaviour
         if(currentTime >= midday * 2)
         {
             day++;
+            if(day == 2)
+            {
+                spawnHordeZombies.StartCoroutine("spawnHordeZombies");
+            }  
             currentTime = 0;
         }
 

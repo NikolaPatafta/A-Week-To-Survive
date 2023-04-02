@@ -41,11 +41,10 @@ public class EnemyController : MonoBehaviour
 
     private EnemyAudio enemy_Audio;
 
-    private BoxCollider boxCollider;
+
 
     void Awake()
     {
-        boxCollider = GetComponent<BoxCollider>();
         //stanja enemy_Anim su imena animacija u Inspektoru za animacije
         enemy_Anim = GetComponent<EnemyAnimatior>();
         navAgent = GetComponent<NavMeshAgent>();
@@ -69,6 +68,7 @@ public class EnemyController : MonoBehaviour
 
         //zapamti vrijednost od chase_distance kako bi je mogli vratiti
         current_Chase_Distance = chase_Distance;
+
     }
 
 
@@ -86,6 +86,7 @@ public class EnemyController : MonoBehaviour
        {
             Attack();
        }
+       
        
     }
 

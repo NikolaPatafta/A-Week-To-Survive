@@ -10,17 +10,21 @@ public class EnemyStats : MonoBehaviour
     [SerializeField]private Image healthbar;
 
     private HealthScript healthamount;
+    private float thishealth;
 
     void Awake()
     {
         healthamount = GetComponent<HealthScript>();
     }
+    private void Update()
+    {
+        thishealth = healthamount.health;
+    }
 
-    
+
     public void Display_EnemyHealth(float healthValue)
     {
-        healthValue /= 100f;
-
+        healthValue /= thishealth;
         healthbar.fillAmount = healthValue;
 
     }
