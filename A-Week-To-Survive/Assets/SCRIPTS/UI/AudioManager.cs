@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
         if (Time.timeScale != 0)
         {
-            if (dayTime.currentTime >= 7 && dayTime.currentTime <= 24)
+            if (dayTime.currentHours >= 6 && dayTime.currentHours <= 19)
             {
                 if (!dayAudioSource.isPlaying)
                 {

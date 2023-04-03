@@ -32,13 +32,14 @@ ScriptsOnlyBuild:
     - PlayerPickup
     - PlayerSprintAndCrouch
     - PlayerStats
+    - PutObjectOnGround
     - SkinlessZombie.AnimationItemData
+    - SpawnHordeZombies
     - UIManager
     - WeaponHandler
     - WeaponShooting
     - WeaponUI
     - Weapons
-    - WhatEnemy
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -110,9 +111,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1502}
     - Class: 114
-      Script: {instanceID: 1698}
+      Script: {instanceID: 1700}
     - Class: 114
-      Script: {instanceID: 1778}
+      Script: {instanceID: 1780}
     - Class: 114
       Script: {instanceID: 2060}
     - Class: 114
@@ -124,23 +125,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2652}
     - Class: 114
-      Script: {instanceID: 2846}
+      Script: {instanceID: 2848}
     - Class: 114
-      Script: {instanceID: 2938}
+      Script: {instanceID: 2940}
     - Class: 114
-      Script: {instanceID: 2950}
+      Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3670}
+      Script: {instanceID: 3672}
     - Class: 114
-      Script: {instanceID: 3916}
+      Script: {instanceID: 3918}
     - Class: 114
-      Script: {instanceID: 4180}
+      Script: {instanceID: 4182}
     - Class: 114
-      Script: {instanceID: 4414}
+      Script: {instanceID: 4416}
     - Class: 114
-      Script: {instanceID: 4470}
+      Script: {instanceID: 4472}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -225,13 +226,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1670}
     - Class: 114
-      Script: {instanceID: 1698}
+      Script: {instanceID: 1672}
     - Class: 114
-      Script: {instanceID: 1778}
+      Script: {instanceID: 1700}
     - Class: 114
-      Script: {instanceID: 1940}
+      Script: {instanceID: 1780}
     - Class: 114
-      Script: {instanceID: 2024}
+      Script: {instanceID: 1942}
     - Class: 114
       Script: {instanceID: 2086}
     - Class: 114
@@ -249,71 +250,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2652}
     - Class: 114
-      Script: {instanceID: 2732}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2846}
+      Script: {instanceID: 2734}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2848}
     - Class: 114
       Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 2888}
+      Script: {instanceID: 2854}
     - Class: 114
-      Script: {instanceID: 2934}
+      Script: {instanceID: 2890}
     - Class: 114
-      Script: {instanceID: 2938}
+      Script: {instanceID: 2936}
     - Class: 114
-      Script: {instanceID: 2948}
+      Script: {instanceID: 2940}
     - Class: 114
       Script: {instanceID: 2950}
     - Class: 114
-      Script: {instanceID: 3000}
+      Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 3016}
+      Script: {instanceID: 3002}
     - Class: 114
-      Script: {instanceID: 3080}
+      Script: {instanceID: 3018}
     - Class: 114
-      Script: {instanceID: 3086}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3116}
+      Script: {instanceID: 3088}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 3118}
     - Class: 114
-      Script: {instanceID: 3274}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3280}
+      Script: {instanceID: 3276}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 3282}
     - Class: 114
-      Script: {instanceID: 3472}
+      Script: {instanceID: 3380}
     - Class: 114
-      Script: {instanceID: 3660}
+      Script: {instanceID: 3474}
     - Class: 114
-      Script: {instanceID: 3670}
+      Script: {instanceID: 3662}
     - Class: 114
-      Script: {instanceID: 3738}
+      Script: {instanceID: 3672}
     - Class: 114
-      Script: {instanceID: 3918}
+      Script: {instanceID: 3740}
     - Class: 114
-      Script: {instanceID: 4024}
+      Script: {instanceID: 3920}
     - Class: 114
-      Script: {instanceID: 4206}
+      Script: {instanceID: 4026}
     - Class: 114
-      Script: {instanceID: 4240}
+      Script: {instanceID: 4208}
     - Class: 114
-      Script: {instanceID: 4292}
+      Script: {instanceID: 4242}
     - Class: 114
-      Script: {instanceID: 4326}
+      Script: {instanceID: 4294}
     - Class: 114
-      Script: {instanceID: 4334}
+      Script: {instanceID: 4328}
     - Class: 114
-      Script: {instanceID: 4386}
+      Script: {instanceID: 4336}
     - Class: 114
-      Script: {instanceID: 4450}
+      Script: {instanceID: 4388}
     - Class: 114
-      Script: {instanceID: 4470}
+      Script: {instanceID: 4452}
     - Class: 114
-      Script: {instanceID: 4530}
+      Script: {instanceID: 4472}
+    - Class: 114
+      Script: {instanceID: 4532}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -417,6 +420,12 @@ ScriptsOnlyBuild:
     className: AttackScript
   - hash:
       serializedVersion: 2
+      Hash: 9bcc685c411830ca89b9f2cfaee0f63b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PutObjectOnGround
+  - hash:
+      serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -457,12 +466,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
-  - hash:
-      serializedVersion: 2
-      Hash: b14f037a7980846f45761481577f1584
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WhatEnemy
   - hash:
       serializedVersion: 2
       Hash: 800c50acba124432abb4cf0d47202e06
@@ -585,6 +588,12 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 7878d26b464c67fd47a88bc85713918e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnHordeZombies
+  - hash:
+      serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -663,7 +672,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: c6cc5432678d9f9926e0a5f61579f13d
+      Hash: cbc5b60656c920bdc007edbb97e28596
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DayAndNightSystem
@@ -1081,14 +1090,8 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: 50278896794e4a031f8e3bf78df6d3d6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SpawnHordeZombies
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenuScene.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive/AWTS/Builds/A-Week-To-Survive.exe
+  playerPath: E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive/AWTS/Builds/A-Week-To-Survive_Data/A-Week-To-Survive.exe

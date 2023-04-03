@@ -16,6 +16,7 @@ public class DayAndNightSystem : MonoBehaviour
     private float midday;
     private float translateTime;
     public int day = 1;
+    public float currentHours;
 
     [SerializeField]
     private SpawnHordeZombies spawnHordeZombies;
@@ -25,18 +26,19 @@ public class DayAndNightSystem : MonoBehaviour
     {
         rotationSpeed = 360 / dayLengthMinutes / 60;
         midday = dayLengthMinutes * 60/2;
-        currentTime = 7.50f;
+        currentTime = 7.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTime += 1 * Time.deltaTime;
+        currentTime += Time.deltaTime;
         translateTime = (currentTime / (midday * 2));
 
         float t = translateTime * 24f;
 
         float hours = Mathf.Floor(t);
+        currentHours = hours;
 
         string displayHours = hours.ToString();
 
@@ -56,7 +58,7 @@ public class DayAndNightSystem : MonoBehaviour
         if(currentTime >= midday * 2)
         {
             day++;
-            if(day == 2)
+            if(day == 2 || day == 7 || day == 14)
             {
                 spawnHordeZombies.StartCoroutine("spawnHordeZombies");
             }  

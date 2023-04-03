@@ -42,6 +42,7 @@ public class SpawnHordeZombies : MonoBehaviour
         Instantiate(hordeZombieprefab, new Vector3(x, 100, z), Quaternion.identity);
         hordeZombieprefab.gameObject.GetComponent<HealthScript>().health += addedHealth;
         hordeZombieprefab.gameObject.GetComponent<EnemyController>().chase_Distance = 100f;
+        Debug.Log("Spawned: " + hordeZombieprefab.gameObject.name);
 
     }
 }

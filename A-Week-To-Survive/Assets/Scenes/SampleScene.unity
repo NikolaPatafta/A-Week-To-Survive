@@ -3175,6 +3175,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465215486}
     m_Modifications:
+    - target: {fileID: 3210042277290794276, guid: dc719c2479d470a4bb87acfbd24f1cdb, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.046851564
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210042277290794276, guid: dc719c2479d470a4bb87acfbd24f1cdb, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.02677778
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210042277290794276, guid: dc719c2479d470a4bb87acfbd24f1cdb, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.0063852537
+      objectReference: {fileID: 0}
     - target: {fileID: 4338777389645705263, guid: dc719c2479d470a4bb87acfbd24f1cdb, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
@@ -5896,9 +5908,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 0
-  dayLengthMinutes: 0.14
+  dayLengthMinutes: 0.5
   timeText: {fileID: 969090545}
   day: 1
+  currentHours: 0
   spawnHordeZombies: {fileID: 484435563}
 --- !u!1 &722089356
 GameObject:
@@ -20563,7 +20576,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4534293371592903771, guid: 9252ab3428229714eb823589f1460a83, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9252ab3428229714eb823589f1460a83, type: 3}
 --- !u!1001 &6900901278867991165
 PrefabInstance:
