@@ -14,6 +14,8 @@ public class WeaponShooting : MonoBehaviour
     private WeaponHandler weaponHandler;
     [SerializeField]
     private PlayerStats playerStats;
+    [SerializeField]
+    private GameObject bloodParticles;
 
     //amunition
     //***
@@ -90,7 +92,8 @@ public class WeaponShooting : MonoBehaviour
             {
                 HealthScript healthScript = hit.transform.GetComponent<HealthScript>();
                 healthScript.ApplyDamage(currentWeapon.damage);
-
+                //Spawn blood particles
+                SpawnBloodParticles(hit.point, hit.normal);
             }
         }
     }
@@ -217,20 +220,10 @@ public class WeaponShooting : MonoBehaviour
             weaponIsEmpty = false;
         }
     }
-    //old bullet fired method
-    /*void BulletFired()
+
+    private void SpawnBloodParticles(Vector3 position, Vector3 normal)
     {
+        Instantiate(bloodParticles, position, Quaternion.FromToRotation(Vector3.up, normal));
+    }
 
-        RaycastHit hit;
-
-        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
-        {
-            if (hit.transform.tag == Tags.ENEMY_TAG)
-            {
-                print("We hit " + hit.transform.gameObject.name);
-
-                hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
-            }
-        }
-    }*/
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ public class DayAndNightSystem : MonoBehaviour
 
     [SerializeField]
     private SpawnHordeZombies spawnHordeZombies;
+    [SerializeField]
+    private HealthScript healthScript;
 
     // Start is called before the first frame update
     void Start()
@@ -32,46 +35,47 @@ public class DayAndNightSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime += Time.deltaTime;
-        translateTime = (currentTime / (midday * 2));
-
-        float t = translateTime * 24f;
-
-        float hours = Mathf.Floor(t);
-        currentHours = hours;
-
-        string displayHours = hours.ToString();
-
-        if(hours >= 24)
+        if (!healthScript.IsDead())
         {
-            displayHours = (hours - 24).ToString();
-        }
+            currentTime += Time.deltaTime;
+            translateTime = (currentTime / (midday * 2));
 
-        t *= 60;
-        float minutes = Mathf.Floor(t % 60);
-        string displayMinutes = minutes.ToString();
-        if(minutes < 10) 
-        {
-            displayMinutes = "0" + minutes.ToString();
-        }
+            float t = translateTime * 24f;
 
-        if(currentTime >= midday * 2)
-        {
-            day++;
-            if(day == 2 || day == 7 || day == 14)
+            float hours = Mathf.Floor(t);
+            currentHours = hours;
+
+            string displayHours = hours.ToString();
+
+            if (hours >= 24)
             {
-                spawnHordeZombies.StartCoroutine("spawnHordeZombies");
-            }  
-            currentTime = 0;
-        }
+                displayHours = (hours - 24).ToString();
+            }
 
-        string displayTime = "Day: " + day + " Time: " + displayHours + ":" + displayMinutes;
+            t *= 60;
+            float minutes = Mathf.Floor(t % 60);
+            string displayMinutes = minutes.ToString();
+            if (minutes < 10)
+            {
+                displayMinutes = "0" + minutes.ToString();
+            }
 
-        timeText.text = displayTime;
+            if (currentTime >= midday * 2)
+            {
+                day++;
+                if (day == 2 || day == 7 || day == 14)
+                {
+                    spawnHordeZombies.StartCoroutine("spawnHordeZombies");
+                }
+                currentTime = 0;
+            }
 
-        //textMeshPro.text = displayTime;
+            string displayTime = "Day: " + day + " Time: " + displayHours + ":" + displayMinutes;
 
-        transform.Rotate(new Vector3(1, 0, 0) * rotationSpeed * Time.deltaTime);
+            timeText.text = displayTime;
+
+            transform.Rotate(new Vector3(1, 0, 0) * rotationSpeed * Time.deltaTime);
+
+        }    
     }
-
 }
