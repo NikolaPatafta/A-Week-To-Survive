@@ -9,6 +9,7 @@ public class HealthScript : MonoBehaviour
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
     private Rigidbody rigidbodyrb;
+    private PlayPlayerSound playPlayerSound;
 
     public float health = 100f;
     public bool is_Player, is_Boar, is_Cannibal;
@@ -45,6 +46,7 @@ public class HealthScript : MonoBehaviour
         }
         if (is_Player)
         {
+            playPlayerSound = GetComponent<PlayPlayerSound>();  
             player_Stats = GetComponent<PlayerStats>();
         }
 
@@ -70,6 +72,7 @@ public class HealthScript : MonoBehaviour
         if (is_Player)
         {
             //display Health UI
+            playPlayerSound.PlayPlayerHurtSound();
             player_Stats.Display_HealthStats(health);
             StartCoroutine(cameraShake.Shake());
         }
@@ -142,6 +145,9 @@ public class HealthScript : MonoBehaviour
                 enemies[i].GetComponent<EnemyController>().enabled = false;
             }
             EnemyManager.instance.StopSpawning();
+
+            //play player died sound
+            playPlayerSound.PlayPlayerDeathSound();
 
             playerDied = true;
 
