@@ -98,41 +98,31 @@ public class HealthScript : MonoBehaviour
 
     void CheckWhoDied()
     {
-        //posto canibal nema animacije, moramo koristiti sljedece komande
-        //inace bi koristili isto kao i za Boar
-        if (is_Cannibal)
-        {
 
-            GetComponent<Animator>().enabled = false;
-            GetComponent<BoxCollider>().isTrigger = false;
-            rigidbodyrb.useGravity = true;
-            rigidbodyrb.AddTorque(-(transform.forward * 50f));
+        if (!is_Player)
+        {
+            Debug.Log("animation Triggered:" + enemy_Anim);
+            enemy_Anim.Dead();
 
             enemy_Controller.enabled = false;
             navAgent.enabled = false;
-            enemy_Anim.enabled = false;
+            //enemy_Anim.enabled = false;
 
             StartCoroutine(DeadSound());
-            Invoke("TurnOffGameObject", 3f);
-            
+
             //zovi Enemy manager i spawnaj zombie
-            EnemyManager.instance.EnemyDied(true);
+            if (is_Cannibal)
+            {
+                EnemyManager.instance.EnemyDied(true);
+            }
+            else
+            {
+                EnemyManager.instance.EnemyDied(false);
+            }
+            
+            Invoke("TurnOffGameObject", 5f);
         }
 
-        if (is_Boar)
-        {
-            navAgent.velocity = Vector3.zero;
-            navAgent.isStopped = true;
-            enemy_Controller.enabled = false;
-
-            enemy_Anim.Dead();
-
-            StartCoroutine(DeadSound());
-
-            //zovi Enemy manager i spawnaj boar
-            EnemyManager.instance.EnemyDied(false);
-            Invoke("TurnOffGameObject", 3f);
-        }
 
         if (is_Player)
         {
