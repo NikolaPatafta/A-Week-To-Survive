@@ -7,9 +7,12 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    private Weapons weapon;
+
     [Header("InventoryItems")]
     public Image image;
     public Text countText;
+    public int ammoCount = 0;
 
     [HideInInspector]
     public Items item;
@@ -19,6 +22,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [HideInInspector]
     public Transform parentAfterDrag;
+
+
+    public void CheckIfWeapon()
+    {
+        if (item.type == ItemType.Weapon && item != null)
+        {
+            weapon = item as Weapons;
+            ammoCount = weapon.magazineSize;
+        }
+    }
 
     public void RefreshCount()
     {
@@ -33,6 +46,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         item = newItem;
         image.sprite = newItem.icon;
         RefreshCount();
+        CheckIfWeapon();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

@@ -26,6 +26,7 @@ public class WeaponShooting : MonoBehaviour
     public bool canReload = true;
 
     [SerializeField] private int[] CurrentAmmo;
+    [SerializeField] public GameObject[] inventorySlots;  
     [SerializeField] private int CurrentAmmoStorage = 0;
 
     [SerializeField] private bool weaponIsEmpty = false;
@@ -38,7 +39,6 @@ public class WeaponShooting : MonoBehaviour
         mainCam = Camera.main;
         canShoot = true;
         canReload = true;
-        playerStats = GetComponent<PlayerStats>();  
     }
 
     private void Update()
@@ -72,11 +72,11 @@ public class WeaponShooting : MonoBehaviour
                 }
             }
         }
+        if (inventorySlots[equipmentManager.selectedSlot].GetComponentInChildren<InventoryItem>() != null) 
+        {
+            UpdateWeaponUIInfo(equipmentManager.selectedSlot);
+        }
 
-
-        playerStats.UpdateWeaponAmmoUI(CurrentAmmo[equipmentManager.selectedSlot], CurrentAmmoStorage);
-
-        
     }
 
     private void RayCastShoot(Weapons currentWeapon)
@@ -87,7 +87,6 @@ public class WeaponShooting : MonoBehaviour
         if(Physics.Raycast(ray, out hit , currentWeapon.range))
         {
             //Debug.DrawRay(ray.origin, ray.direction * currentWeapon.range, Color.red, 2f);
-            Debug.Log(hit.transform.name);
             if(hit.transform.tag == "Enemy")
             {
                 HealthScript healthScript = hit.transform.GetComponent<HealthScript>();
@@ -138,13 +137,15 @@ public class WeaponShooting : MonoBehaviour
 
     private void UseAmmo(int slot, int currentAmmoUsed, int currentStoredAmmoUsed)
     {
-        CurrentAmmo[slot] -= currentAmmoUsed;
+        InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
+        inventoryItem.ammoCount -= currentAmmoUsed;
         CurrentAmmoStorage -= currentStoredAmmoUsed;
     }
 
     private void AddAmmo(int slot, int currentAmmoAdded, int currentStoredAmmoAdded)
     {
-        CurrentAmmo[slot] += currentAmmoAdded;   
+        InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
+        inventoryItem.ammoCount += currentAmmoAdded; 
     }
 
     public void InitAmmoSecondaryMagazine(Consumable ammo)
@@ -162,19 +163,20 @@ public class WeaponShooting : MonoBehaviour
 
     public void InitAmmoPrimaryMagazine(int slot, Weapons weapon)
     {
-        CurrentAmmo[slot] = weapon.magazineSize;   
+        //CurrentAmmo[slot] = weapon.magazineSize;   
     }
 
     private void Reload(int slot)
     {
         if (canReload)
         {
-            int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - CurrentAmmo[slot];
+            InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
+            int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - inventoryItem.ammoCount;
             //ako imamo dovoljno municije za reload
             if (CurrentAmmoStorage >= ammoToReload)
             {
                 //ako je magazine full
-                if (CurrentAmmo[slot] == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
+                if (inventoryItem.ammoCount == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
                 {
                     Debug.Log("Magazine is already full!");
                     return;
@@ -186,7 +188,7 @@ public class WeaponShooting : MonoBehaviour
                 weaponIsEmpty = false;
                 CheckIfCanShoot(slot);
 
-            }
+            }//reload
             if (CurrentAmmoStorage < ammoToReload && CurrentAmmoStorage != 0)
             {
                 animator.SetTrigger("Reload");
@@ -197,6 +199,7 @@ public class WeaponShooting : MonoBehaviour
                 weaponIsEmpty = false;
                 CheckIfCanShoot(slot);
             }
+            //ako je magazine prazan
             else if (CurrentAmmoStorage == 0)
             {
                 Debug.Log("No ammo to reload!");
@@ -209,7 +212,9 @@ public class WeaponShooting : MonoBehaviour
 
     private void CheckIfCanShoot(int slot)
     {
-        if (CurrentAmmo[slot] <= 0)
+        InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
+
+        if (inventoryItem.ammoCount <= 0)
         {
             canShoot = false;
             weaponIsEmpty = true;
@@ -219,6 +224,12 @@ public class WeaponShooting : MonoBehaviour
             canShoot = true;
             weaponIsEmpty = false;
         }
+    }
+
+    private void UpdateWeaponUIInfo(int slot)
+    {
+        InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
+        playerStats.UpdateWeaponAmmoUI(inventoryItem.ammoCount, CurrentAmmoStorage);
     }
 
     private void SpawnBloodParticles(Vector3 position, Vector3 normal)
