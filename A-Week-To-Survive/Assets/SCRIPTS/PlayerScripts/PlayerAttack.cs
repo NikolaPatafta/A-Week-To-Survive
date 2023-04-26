@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     private bool zoomed;
 
     private Camera mainCam;
-    private GameObject crosshair;
+    
 
     public bool is_Aiming;
     public bool can_Shoot;
@@ -29,11 +29,13 @@ public class PlayerAttack : MonoBehaviour
     private InventoryManager inventoryManager;
     private WeaponHandler weaponHandler;
 
+    [SerializeField]
+    private GameObject crosshair;
+
 
     void Awake()
     {
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
-        crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCam = Camera.main;
         
     }

@@ -56,9 +56,27 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SCRIPTS\PlayerScripts\AttackScript.cs" />
-    <Compile Include="Assets\PutObjectOnGround.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyController.cs" />
+    <Compile Include="Assets\SCRIPTS\Enemy Scripts\SpawnHordeZombies.cs" />
+    <Compile Include="Assets\BuildingAssets\Office building\scripts\evelator_controll.cs" />
+    <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerMovement.cs" />
+    <Compile Include="Assets\SCRIPTS\Scriptable Items\ItemObject.cs" />
+    <Compile Include="Assets\SCRIPTS\Game Manager\DayAndNightSystem.cs" />
+    <Compile Include="Assets\SCRIPTS\Scriptable Items\Consumable.cs" />
+    <Compile Include="Assets\SCRIPTS\MainMenu\OptionsScreen.cs" />
+    <Compile Include="Assets\SCRIPTS\WeaponsScripts\ArrowAndBowScript.cs" />
+    <Compile Include="Assets\SCRIPTS\Inventory\InventoryManager.cs" />
+    <Compile Include="Assets\SCRIPTS\Scriptable Items\Items.cs" />
+    <Compile Include="Assets\SCRIPTS\Inventory\InventorySlot.cs" />
+    <Compile Include="Assets\SCRIPTS\PlayerScripts\CameraShake.cs" />
+    <Compile Include="Assets\BuildingAssets\Office building\scripts\pass_on_parent.cs" />
+    <Compile Include="Assets\SCRIPTS\Enemy Scripts\CannibalController.cs" />
+    <Compile Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Scripts\GunfireController.cs" />
+    <Compile Include="Assets\BuildingAssets\Office building\scripts\DoorAction.cs" />
+    <Compile Include="Assets\SCRIPTS\WeaponsScripts\WeaponShooting.cs" />
+    <Compile Include="Assets\SCRIPTS\Scriptable Items\PlayerPickup.cs" />
+    <Compile Include="Assets\SCRIPTS\PlayerScripts\AttackScript.cs" />
+    <Compile Include="Assets\SCRIPTS\Enemy Scripts\PutObjectOnGround.cs" />
     <Compile Include="Assets\SCRIPTS\HelpScripts\TagHolder.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerSprintAndCrouch.cs" />
     <Compile Include="Assets\SCRIPTS\UI\WeaponUI.cs" />
@@ -68,60 +86,41 @@
     <Compile Include="Assets\SCRIPTS\MainMenu\MainMenuManager.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Fix_elevator_fall.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\UIElementController.cs" />
-    <Compile Include="Assets\SCRIPTS\Enemy Scripts\SpawnHordeZombies.cs" />
-    <Compile Include="Assets\BuildingAssets\Office building\scripts\evelator_controll.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerAxeSounds.cs" />
+    <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayPlayerSound.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\TestController.cs" />
-    <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerMovement.cs" />
-    <Compile Include="Assets\SCRIPTS\Scriptable Items\ItemObject.cs" />
-    <Compile Include="Assets\SCRIPTS\Game Manager\DayAndNightSystem.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Door.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerStats.cs" />
-    <Compile Include="Assets\SCRIPTS\Scriptable Items\Consumable.cs" />
-    <Compile Include="Assets\SCRIPTS\MainMenu\OptionsScreen.cs" />
-    <Compile Include="Assets\SCRIPTS\WeaponsScripts\ArrowAndBowScript.cs" />
-    <Compile Include="Assets\SCRIPTS\Inventory\InventoryManager.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerAttack.cs" />
     <Compile Include="Assets\SCRIPTS\Game Manager\EnemyManager.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\AnimationController.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyAudio.cs" />
-    <Compile Include="Assets\SCRIPTS\Scriptable Items\Items.cs" />
-    <Compile Include="Assets\SCRIPTS\Inventory\InventorySlot.cs" />
-    <Compile Include="Assets\SCRIPTS\PlayerScripts\CameraShake.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\HealthScript.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyAnimatior.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\MainMenuAudioManager.cs" />
-    <Compile Include="Assets\BuildingAssets\Office building\scripts\pass_on_parent.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventoryItem.cs" />
-    <Compile Include="Assets\SCRIPTS\Enemy Scripts\CannibalController.cs" />
-    <Compile Include="Assets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Scripts\GunfireController.cs" />
-    <Compile Include="Assets\BuildingAssets\Office building\scripts\DoorAction.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\EquipmentManager.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyStats.cs" />
-    <Compile Include="Assets\SCRIPTS\WeaponsScripts\WeaponShooting.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\DemoScript.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerFootSteps.cs" />
-    <Compile Include="Assets\SCRIPTS\Scriptable Items\PlayerPickup.cs" />
     <Compile Include="Assets\SCRIPTS\UI\AudioManager.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Weapons.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\AnimationItemData.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\UIManager.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\DontDestroyOnLoad.cs" />
-    <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayPlayerSound.cs" />
+    <Compile Include="Assets\NatureAssets\HDRP_Oak_Tree\Scripts\Oak_CameraMove.cs" />
+    <Compile Include="Assets\NatureAssets\HDRP_Oak_Tree\Scripts\Offer\LightingTools_Offer.cs" />
+    <Compile Include="Assets\NatureAssets\HDRP_Oak_Tree\Scripts\Offer\ALIyerEdonAssets_Lighting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAAPreset2.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\Bokeh34.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\NatureAssets\BushGrassBend\Demo\Example3\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\NatureAssets\BushGrassBend\Demo\DOCUMENTATION.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\NatureAssets\BushGrassBend\Demo\Example1\README.txt" />
-    <None Include="Assets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Readme.txt" />
-    <None Include="Assets\NatureAssets\NatureStarterKit2\info.txt" />
+    <None Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Readme.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\BuildingAssets\Village Buildings\Read me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -132,7 +131,7 @@
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BlendForBloom.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAAPreset3.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\DepthOfField34.shader" />
-    <None Include="Assets\Horror Ambient Album - 082318\Notes.txt" />
+    <None Include="Assets\MY AUDIO\Horror Ambient Album - 082318\Notes.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -145,7 +144,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionCurvesSimple.shader" />
-    <None Include="Assets\NatureAssets\BushGrassBend\Demo\Example2\README.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\SSAA.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\NFAA.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAA3Console.shader" />
@@ -160,6 +158,7 @@
     <None Include="Assets\BuildingAssets\Office building\Read me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\NatureAssets\HDRP_Oak_Tree\Help\Quick Start.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -729,8 +728,20 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>E:\Unity Installs\2020.3.30f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
@@ -738,14 +749,29 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -756,8 +782,17 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
