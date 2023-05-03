@@ -13,6 +13,7 @@ public enum EnemyState
 public class EnemyController : MonoBehaviour
 {
     private EnemyAnimatior enemy_Anim;
+    [SerializeField]
     private NavMeshAgent navAgent;
 
     private EnemyState enemy_State;
@@ -25,9 +26,11 @@ public class EnemyController : MonoBehaviour
     public float attack_Distance = 1f;
     public float chase_After_Attack_Distance = 2f;
 
+    [HideInInspector]
     public float patrol_Radius_Min = 20f, patrol_Radius_Max = 60f;
 
     //kolko dugo ce se kretati u jednom smjeru, prije nego dodjelimo drugi smjer
+    [HideInInspector]
     public float patrol_For_This_Time = 15f;
 
     private float patrol_Timer;
@@ -47,7 +50,7 @@ public class EnemyController : MonoBehaviour
     {
         //stanja enemy_Anim su imena animacija u Inspektoru za animacije
         enemy_Anim = GetComponent<EnemyAnimatior>();
-        navAgent = GetComponent<NavMeshAgent>();
+        //navAgent = GetComponent<NavMeshAgent>();
 
         //dohvati playera
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;

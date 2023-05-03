@@ -24,7 +24,7 @@ public class EnemyStats : MonoBehaviour
 
     public void Display_EnemyHealth(float healthValue)
     {
-        healthValue /= thishealth;
+        healthValue /= 100;
         healthbar.fillAmount = healthValue;
 
     }

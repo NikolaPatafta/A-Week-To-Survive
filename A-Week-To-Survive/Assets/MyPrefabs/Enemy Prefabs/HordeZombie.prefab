@@ -2597,7 +2597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1baf7e951959d644287674e8ef7f1a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHordeZombie: 0
+  navAgent: {fileID: 20628216}
   walk_Speed: 0.5
   run_Speed: 3
   chase_Distance: 20
@@ -2608,7 +2608,6 @@ MonoBehaviour:
   patrol_For_This_Time: 15
   wait_Before_Attack: 1.6
   attack_Point: {fileID: 1432349247}
-  HordeZombies: {fileID: 0}
 --- !u!114 &7627058085262546102
 MonoBehaviour:
   m_ObjectHideFlags: 0
