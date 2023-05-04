@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 4186380190220799722}
   - component: {fileID: 23880712291472197}
   - component: {fileID: 2953975360368304130}
+  - component: {fileID: 3340392209770964329}
   m_Layer: 10
   m_Name: Ghoul
   m_TagString: Enemy
@@ -1081,7 +1082,7 @@ MonoBehaviour:
   navAgent: {fileID: 2953975360368304130}
   walk_Speed: 3
   run_Speed: 6
-  chase_Distance: 18
+  chase_Distance: 100
   attack_Distance: 2
   chase_After_Attack_Distance: 0.5
   patrol_Radius_Min: 20
@@ -1101,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c6ec5512a004c4f9ec8d8454bd4c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 204
   is_Player: 0
   is_Boar: 0
   is_Cannibal: 1
@@ -1169,6 +1170,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3340392209770964329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2952679139863828406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbafdf7942d73954ba7b4086121e1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1 &2952682640588544082
 GameObject:
   m_ObjectHideFlags: 0

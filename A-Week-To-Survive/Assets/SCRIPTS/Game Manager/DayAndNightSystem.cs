@@ -23,6 +23,8 @@ public class DayAndNightSystem : MonoBehaviour
     private SpawnHordeZombies spawnHordeZombies;
     [SerializeField]
     private HealthScript healthScript;
+    [SerializeField]
+    private Transform sunLight;
 
     // Start is called before the first frame update
     void Start()

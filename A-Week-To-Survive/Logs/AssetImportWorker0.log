@@ -15,11 +15,11 @@ E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51440
+51915
 Successfully changed project path to: E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive
 E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 82.66 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 144.85 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.30f1 (1fb1bf06830e)
 [Subsystems] Discovering subsystems at path E:/Unity Installs/2020.3.30f1/Editor/Data/Resources/UnitySubsystems
@@ -35,73 +35,73 @@ Initialize mono
 Mono path[0] = 'E:/Unity Installs/2020.3.30f1/Editor/Data/Managed'
 Mono path[1] = 'E:/Unity Installs/2020.3.30f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'E:/Unity Installs/2020.3.30f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56104
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56276
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: E:/Unity Installs/2020.3.30f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001569 seconds.
+Registered in 0.249157 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 86.60 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 79.09 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.779 seconds
+- Completed reload, in  5.084 seconds
 Domain Reload Profiling:
-	ReloadAssembly (779ms)
-		BeginReloadAssembly (100ms)
+	ReloadAssembly (5084ms)
+		BeginReloadAssembly (3625ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (594ms)
-			LoadAssemblies (100ms)
+		EndReloadAssembly (997ms)
+			LoadAssemblies (3625ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (182ms)
+			SetupTypeCache (609ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (36ms)
-			SetupLoadedEditorAssemblies (258ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (239ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (87ms)
-				BeforeProcessingInitializeOnLoad (19ms)
-				ProcessInitializeOnLoadAttributes (107ms)
-				ProcessInitializeOnLoadMethodAttributes (39ms)
+				RefreshPlugins (79ms)
+				BeforeProcessingInitializeOnLoad (18ms)
+				ProcessInitializeOnLoadAttributes (97ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004397 seconds.
+Registered in 0.643554 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 87.03 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 79.09 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.428 seconds
+- Completed reload, in  6.507 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1429ms)
-		BeginReloadAssembly (211ms)
+	ReloadAssembly (6512ms)
+		BeginReloadAssembly (203ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (23ms)
-		EndReloadAssembly (1148ms)
-			LoadAssemblies (150ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (6241ms)
+			LoadAssemblies (3392ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (383ms)
+			SetupTypeCache (1158ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (60ms)
-			SetupLoadedEditorAssemblies (448ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (1527ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (87ms)
-				BeforeProcessingInitializeOnLoad (97ms)
-				ProcessInitializeOnLoadAttributes (243ms)
-				ProcessInitializeOnLoadMethodAttributes (12ms)
+				RefreshPlugins (79ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (493ms)
+				ProcessInitializeOnLoadMethodAttributes (853ms)
 				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -109,15 +109,15 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2892 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 232.5 MB.
-System memory in use after: 232.7 MB.
+System memory in use before: 232.6 MB.
+System memory in use after: 232.8 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3380.
-Total: 3.862600 ms (FindLiveObjects: 0.281900 ms CreateObjectMapping: 0.098100 ms MarkObjects: 3.445900 ms  DeleteObjects: 0.035700 ms)
+Total: 3.930100 ms (FindLiveObjects: 0.276300 ms CreateObjectMapping: 0.082600 ms MarkObjects: 3.534700 ms  DeleteObjects: 0.035400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -131,60 +131,601 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/MYAnimations/ZombieAnimations/ZombieDeath.anim
-  artifactKey: Guid(c2336053b11a20a448d28691bb326f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MYAnimations/ZombieAnimations/ZombieDeath.anim using Guid(c2336053b11a20a448d28691bb326f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e323f61ffadb7ac99295a315034c83b') in 0.079251 seconds 
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-16_comp_light.exr
+  artifactKey: Guid(cf03bb414d690db4592356992b65227d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-16_comp_light.exr using Guid(cf03bb414d690db4592356992b65227d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a9dd7382a0658e7f71c026ade0e552c') in 0.263371 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 85.923916 seconds.
-  path: Assets/1stPerson/Models/Characters/Canibal/Cannibal Animations/Cannibal Attack.anim
-  artifactKey: Guid(e6ca0f9484ccbdb4e92de623beade668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/1stPerson/Models/Characters/Canibal/Cannibal Animations/Cannibal Attack.anim using Guid(e6ca0f9484ccbdb4e92de623beade668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03f5698fbdef13d60220ef092ff1f6a9') in 0.053913 seconds 
+  Time since last request: 0.000220 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-9_comp_light.exr
+  artifactKey: Guid(885714a0c5dfd014d8094d56dfa9d649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-9_comp_light.exr using Guid(885714a0c5dfd014d8094d56dfa9d649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91ac8430eff6edc69e2ba145fa89c0b0') in 0.152752 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-19_comp_light.exr
+  artifactKey: Guid(53860ca948d63a74bb9ed7c2dce0abd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-19_comp_light.exr using Guid(53860ca948d63a74bb9ed7c2dce0abd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02026e5512ac5582355dd7b37abe4173') in 0.263293 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Down.fbx
+  artifactKey: Guid(96243d9e8e642c94bacb4dc73a2cd70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Down.fbx using Guid(96243d9e8e642c94bacb4dc73a2cd70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e47f9ac4c408ab703ff3ac6198bd195b') in 0.085140 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/BuildingAssets/Abandoned buildings/Meshes/abandoned_buildings/pole_wood.FBX
+  artifactKey: Guid(77c06ca420e78434081606379e5612a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Abandoned buildings/Meshes/abandoned_buildings/pole_wood.FBX using Guid(77c06ca420e78434081606379e5612a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90263300a193ab3ac0cff7bac54e282f') in 0.284300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Walk.fbx
+  artifactKey: Guid(7575115d0aa0fab4ebf863ab419e8bcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Walk.fbx using Guid(7575115d0aa0fab4ebf863ab419e8bcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c25099866824e7e0a719ff6e9482a3a6') in 0.017898 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Idle.fbx
+  artifactKey: Guid(941b20e480fd8e243b9a918fb933af6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Idle.fbx using Guid(941b20e480fd8e243b9a918fb933af6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8e499ae818d400987c5fb0966684597') in 0.029081 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-1_comp_light.exr
+  artifactKey: Guid(63a49ca25a2d26445823e620bed71f52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-1_comp_light.exr using Guid(63a49ca25a2d26445823e620bed71f52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8a8fcb2af55a4188b45c8b60d444350') in 0.125593 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Up.fbx
+  artifactKey: Guid(2c48b9e1c3fe40d468cdca6cef9ac591) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Up.fbx using Guid(2c48b9e1c3fe40d468cdca6cef9ac591) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b18397c39b4f9c0154c46cff4e473ce') in 0.033326 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_front.png
+  artifactKey: Guid(52f1c609ba1446e42b523d520cdf3f8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_front.png using Guid(52f1c609ba1446e42b523d520cdf3f8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef142648df702340a6c697600c1ddc41') in 0.087793 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-2_comp_dir.png
+  artifactKey: Guid(5df5a393332b9e34fb8562bfc9d96ec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-2_comp_dir.png using Guid(5df5a393332b9e34fb8562bfc9d96ec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b92542b1d9058fde5c1935490ef5cd70') in 0.106771 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Walk.fbx
+  artifactKey: Guid(f1af54f78effe6d4582fea2a0cabd2b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Walk.fbx using Guid(f1af54f78effe6d4582fea2a0cabd2b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8374b4517de3c12f0e3115579963f650') in 0.032230 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/BuildingAssets/Office building/textures/Elevator emission graphics/Elevator Light Off.png
+  artifactKey: Guid(8c62f8a73796f6c4093a580bcc4fa39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/textures/Elevator emission graphics/Elevator Light Off.png using Guid(8c62f8a73796f6c4093a580bcc4fa39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffca5df6fa360ea9113c3986f65e640b') in 0.053779 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Run.fbx
+  artifactKey: Guid(fdbee6af3751e444bacf537b7d4fa842) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Run.fbx using Guid(fdbee6af3751e444bacf537b7d4fa842) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3efa9610bd10a77044d0cf7f7724f202') in 0.084793 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Run.fbx
+  artifactKey: Guid(4479630972b288c4c85c1ece1d8740cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Run.fbx using Guid(4479630972b288c4c85c1ece1d8740cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ebd947e00f15a7889d012c61b13be82') in 0.042727 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Run.fbx
+  artifactKey: Guid(05f32150a4371b14baaec3eb2f66995a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Run.fbx using Guid(05f32150a4371b14baaec3eb2f66995a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38e035d4d30a4f87b773743df7b4acc9') in 0.030115 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-5_comp_light.exr
+  artifactKey: Guid(bf58b6098b216564593cce941eccaa2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-5_comp_light.exr using Guid(bf58b6098b216564593cce941eccaa2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '019db9d6aaeaafad67f3a4843ee5b234') in 0.264433 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000350 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-7_comp_dir.png
+  artifactKey: Guid(912bbca3965e2dc4c9e4af2ca81eefdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-7_comp_dir.png using Guid(912bbca3965e2dc4c9e4af2ca81eefdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '543905f99e82dc9e7621f90f14cdfb86') in 0.089773 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-16_comp_dir.png
+  artifactKey: Guid(1ce08e942c1b7bb44afcab59c4e95c70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-16_comp_dir.png using Guid(1ce08e942c1b7bb44afcab59c4e95c70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c8df1896380a1ba7f01076ee2566a63') in 0.093785 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_down.png
+  artifactKey: Guid(3474da24e64a1b64faa40409d922642a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_down.png using Guid(3474da24e64a1b64faa40409d922642a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bcde592c0c7aa663422ac5fb6d7fdba') in 0.065501 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Walk.fbx
+  artifactKey: Guid(611862d1d6c14f645863fcea71e9de16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Walk.fbx using Guid(611862d1d6c14f645863fcea71e9de16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ee115c9d0dc3ca14a080c36ac201e81') in 0.095939 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/LightingData.asset
+  artifactKey: Guid(f2de524f6aaff624fbdca6f131b25f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/LightingData.asset using Guid(f2de524f6aaff624fbdca6f131b25f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Lighting data asset ‘LightingData’ is inconsistent because 248 files out of 1240 are missing.  Please use Generate Lighting to rebuild the lighting data.
+ -> (artifact id: 'de9d22fa5deeaf14833972d55077a428') in 0.316661 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-21_comp_dir.png
+  artifactKey: Guid(20ebb97138bcfaf40bbb13e9463afa66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-21_comp_dir.png using Guid(20ebb97138bcfaf40bbb13e9463afa66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78701d08a4d971cd4280d6d41880418d') in 0.099168 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-11_comp_light.exr
+  artifactKey: Guid(58bb4c7f3843db948be2b0f04e0df74f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-11_comp_light.exr using Guid(58bb4c7f3843db948be2b0f04e0df74f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6d02ff31882ce01d74e0309d9509bf3') in 0.115465 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Up.fbx
+  artifactKey: Guid(b497d0a597993a944b12d3d0c86ded65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Up.fbx using Guid(b497d0a597993a944b12d3d0c86ded65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f673429b749ff5b2a7a896f05801f467') in 0.033364 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-6_comp_dir.png
+  artifactKey: Guid(81d888d251f02d64985730c0ab9912eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-6_comp_dir.png using Guid(81d888d251f02d64985730c0ab9912eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa040cdd92da9f98a7c61e2869e43d04') in 0.106628 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-6_comp_light.exr
+  artifactKey: Guid(02923104dcfe50040944662c70573667) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-6_comp_light.exr using Guid(02923104dcfe50040944662c70573667) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90b65672b012d7750f5bcdd18a3d08a5') in 0.157405 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-15_comp_light.exr
+  artifactKey: Guid(e1284c97faf7ada41b676980cdcbd3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-15_comp_light.exr using Guid(e1284c97faf7ada41b676980cdcbd3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd13c9e2c6ddbdfdc4e0a59cf105c016') in 0.197998 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-12_comp_light.exr
+  artifactKey: Guid(56a7d9bb163c2854f98ef00c4215302a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-12_comp_light.exr using Guid(56a7d9bb163c2854f98ef00c4215302a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79df8b35e90f45398ba76a58e5681b2d') in 0.149849 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-14_comp_light.exr
+  artifactKey: Guid(04fcece9acacf31478c3d7db1dc74cac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-14_comp_light.exr using Guid(04fcece9acacf31478c3d7db1dc74cac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2988d750c6c0aa2fc1fe34c20900304f') in 0.262923 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000394 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-10_comp_light.exr
+  artifactKey: Guid(eaadba574a1a2f040b3bdeecfb9b895b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-10_comp_light.exr using Guid(eaadba574a1a2f040b3bdeecfb9b895b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abb65c95f0f7457fb40986b9866665c8') in 0.148993 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Idle.fbx
+  artifactKey: Guid(1f6bff1b76efc0a41ab002189e61bfba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Idle.fbx using Guid(1f6bff1b76efc0a41ab002189e61bfba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ea6c9e1ea9cf7e4735ba82ed60382ca') in 0.017828 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Down.fbx
+  artifactKey: Guid(0f0c040c9e6e20a4f912df514f332589) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Down.fbx using Guid(0f0c040c9e6e20a4f912df514f332589) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'affc2436736abd3826ef073b9e4ac59b') in 0.026666 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/ICONS/LightEffect.png
+  artifactKey: Guid(5d85b847ee306ad4199b0df87cbd0c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ICONS/LightEffect.png using Guid(5d85b847ee306ad4199b0df87cbd0c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '229cb168c8f9df62bc52e93e9b47634c') in 0.052709 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/MY MATERIALS/Light_Mat.mat
+  artifactKey: Guid(58ec0d917b5802545ae6b89ba4e60529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MY MATERIALS/Light_Mat.mat using Guid(58ec0d917b5802545ae6b89ba4e60529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42bf9a5ccf6155ab3fd0bffcd4fa6f91') in 0.048260 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Scenes/SampleScene/LightingData.asset
+  artifactKey: Guid(8ceca8883234702418052da5e2b5ff3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene/LightingData.asset using Guid(8ceca8883234702418052da5e2b5ff3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d24365bde41efe329f14aef22f688aa') in 0.025685 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-18_comp_light.exr
+  artifactKey: Guid(e1a955ff10066f645be3a590391d0cc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-18_comp_light.exr using Guid(e1a955ff10066f645be3a590391d0cc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c81f56221a36a7efe884bdb19481c6db') in 0.175835 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/ZombieAssets/SkinlessZombie/SkinlessZombie/Demo/Night/LightingData.asset
+  artifactKey: Guid(4437e52497d6d144fadc2f55fbd16e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ZombieAssets/SkinlessZombie/SkinlessZombie/Demo/Night/LightingData.asset using Guid(4437e52497d6d144fadc2f55fbd16e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01287332927412a9548ccf5c9f1a8c43') in 0.030648 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Walk.fbx
+  artifactKey: Guid(c4c6a8bffc475444aa44f59f4d5ff63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Walk.fbx using Guid(c4c6a8bffc475444aa44f59f4d5ff63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3ed7ec0adcfaec7d4e15f8f2abcf234') in 0.018080 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-20_comp_light.exr
+  artifactKey: Guid(6b903298e0e9e4940afccdd3194d570f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-20_comp_light.exr using Guid(6b903298e0e9e4940afccdd3194d570f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1073899c129344de7af05ab986440e70') in 0.120162 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight.mat
+  artifactKey: Guid(bda78b9face15004da6578098f28d80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight.mat using Guid(bda78b9face15004da6578098f28d80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5007ba022df422daa4b9b24bf58f1c7') in 0.381910 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-5_comp_dir.png
+  artifactKey: Guid(7fcb2ea6abe1d284ebf8d992b168aa95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-5_comp_dir.png using Guid(7fcb2ea6abe1d284ebf8d992b168aa95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dfbdcba05bca27cb8b955066010152f') in 0.095441 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Walk.fbx
+  artifactKey: Guid(01f8422721d5aee4fa2690fefb83bb3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Walk.fbx using Guid(01f8422721d5aee4fa2690fefb83bb3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e9e0d114e249f1be9a74d99a9c9f0ef') in 0.043803 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-13_comp_dir.png
+  artifactKey: Guid(d19c85bcf8fdcad498c818f56eb8c339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-13_comp_dir.png using Guid(d19c85bcf8fdcad498c818f56eb8c339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d179a4d6bbd08d390443dce5473400b') in 0.085334 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Run.fbx
+  artifactKey: Guid(7412af9e165853546a753e77fc9083b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Run.fbx using Guid(7412af9e165853546a753e77fc9083b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b66bff696ea64e70da214aa84d6b139') in 0.017627 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Down.fbx
+  artifactKey: Guid(cc8f872bc96cc2c4188440f55ecea873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Down.fbx using Guid(cc8f872bc96cc2c4188440f55ecea873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c257703fe4aa129f13b65a559358aad') in 0.035852 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_up.png
+  artifactKey: Guid(37fe8bc8c23935947938c26f7de190a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_up.png using Guid(37fe8bc8c23935947938c26f7de190a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4797bc9522c9c033b52b608747442b1c') in 0.015234 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-3_comp_light.exr
+  artifactKey: Guid(ba7fb54251b40534089e6456e8caf64c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-3_comp_light.exr using Guid(ba7fb54251b40534089e6456e8caf64c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5c5465b1c6fec26765afba63acf6236') in 0.144726 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Up.fbx
+  artifactKey: Guid(cb5680b03f3c2e24a83fbceddabc9470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Up.fbx using Guid(cb5680b03f3c2e24a83fbceddabc9470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1006bfb2c89f3b2c3f9e7d253ae907c3') in 0.017800 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000285 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-4_comp_light.exr
+  artifactKey: Guid(78931c364f30c6043a1c7aa08f62a147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-4_comp_light.exr using Guid(78931c364f30c6043a1c7aa08f62a147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36385e4b0fed4b166c5485495beff066') in 0.144078 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/BuildingAssets/Office building/Prefabs/Climb poles Prefab.prefab
+  artifactKey: Guid(9cae3c9688e051e4fa6c097ea2d17a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/Prefabs/Climb poles Prefab.prefab using Guid(9cae3c9688e051e4fa6c097ea2d17a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87e7bae2280ec90b935c1ad1950bd287') in 0.314175 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Down.fbx
+  artifactKey: Guid(7566b96d16794a34384635aa75d1dcce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/Knife/Low Poly Arms Knife Down.fbx using Guid(7566b96d16794a34384635aa75d1dcce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d1ad028613085d2d6e80fe87dd62f55') in 0.050342 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-7_comp_light.exr
+  artifactKey: Guid(f36944972ce8ff1458bb00892ee076e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-7_comp_light.exr using Guid(f36944972ce8ff1458bb00892ee076e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '111619296230dc1184df9ce3c1e7e987') in 0.189267 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_back.png
+  artifactKey: Guid(cd4d766d22873cd4bb00802ed9408c71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_back.png using Guid(cd4d766d22873cd4bb00802ed9408c71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b43c0edf627cbb499020a3ccc049e73f') in 0.023075 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-12_comp_dir.png
+  artifactKey: Guid(b2d9a40f2ad355b4b977772dd168e788) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-12_comp_dir.png using Guid(b2d9a40f2ad355b4b977772dd168e788) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fa7aaa0cd4b35b4af0da419f8e27a78') in 0.088148 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/BuildingAssets/Abandoned buildings/Textures/abandoned_buildings/T_pole_wood_D.tga
+  artifactKey: Guid(5f3c18e55a4fd2d4c82d9c4363f16bf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Abandoned buildings/Textures/abandoned_buildings/T_pole_wood_D.tga using Guid(5f3c18e55a4fd2d4c82d9c4363f16bf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dcf795d65c91d840d578c9dadb2caf3') in 0.045775 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/NatureAssets/GrassFlowers/Demo/DemoGrassFlowers/LightingData.asset
+  artifactKey: Guid(5490dd165db8d15458e920b5c398e991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/GrassFlowers/Demo/DemoGrassFlowers/LightingData.asset using Guid(5490dd165db8d15458e920b5c398e991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4075624e1e730ebaec7d2eb5fc60be42') in 0.036699 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Idle.fbx
+  artifactKey: Guid(05d8dc88dd87ae04c913f80d3229e84f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M1911/Low Poly Arms M1911 Idle.fbx using Guid(05d8dc88dd87ae04c913f80d3229e84f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c10cfe19c9ba12279e164807b48c81c') in 0.017124 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-0_comp_dir.png
+  artifactKey: Guid(72515671816a6a9418400aafa8fa340a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-0_comp_dir.png using Guid(72515671816a6a9418400aafa8fa340a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '615b4cb65f1e0066f1b46db2ea6c4e1a') in 0.083683 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Up.fbx
+  artifactKey: Guid(ad4a0d9f07e9cad43b533bd3d298401a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Up.fbx using Guid(ad4a0d9f07e9cad43b533bd3d298401a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6127605263fff656b36ac43b84d90c15') in 0.046266 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Run.fbx
+  artifactKey: Guid(3c0e624212557b84491c7f875dbc8a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Run.fbx using Guid(3c0e624212557b84491c7f875dbc8a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ef5061bacae5e6e13c037a72980df08') in 0.017393 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Idle.fbx
+  artifactKey: Guid(a9155fc63dad4d942a9cc73af1b8916c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Idle.fbx using Guid(a9155fc63dad4d942a9cc73af1b8916c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e10da1d76f7105fc296223f86dfa65d7') in 0.017990 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_right.png
+  artifactKey: Guid(a5d78a51d731a1d4b894429fb552db1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_right.png using Guid(a5d78a51d731a1d4b894429fb552db1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8e9bb5480f5c9e4bc2ed3b780c8262b') in 0.019798 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/BuildingAssets/Office building/textures/Props/used/Climb poles.png
+  artifactKey: Guid(7ee0cfab06eec4d41a113d6d99a30e2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/textures/Props/used/Climb poles.png using Guid(7ee0cfab06eec4d41a113d6d99a30e2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7855cb75be54a83c9e36238566d8bb4b') in 0.023944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/BuildingAssets/Abandoned buildings/Materials/abandoned_buildings/M_pole_wood.mat
+  artifactKey: Guid(9bd4c726aa41d904bba9a49b0a77dfa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Abandoned buildings/Materials/abandoned_buildings/M_pole_wood.mat using Guid(9bd4c726aa41d904bba9a49b0a77dfa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1a73fdf852d506d767bfb2545d544d6') in 0.035132 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-8_comp_light.exr
+  artifactKey: Guid(12986cbff227ddc40a2890bf950dc522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-8_comp_light.exr using Guid(12986cbff227ddc40a2890bf950dc522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12cf264613ac1e4e2e36809f61323341') in 0.118441 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Idle.fbx
+  artifactKey: Guid(8d49c1764912c574eb2272e5a9e3c9c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/M24/Low Poly Arms M24 Idle.fbx using Guid(8d49c1764912c574eb2272e5a9e3c9c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d66acbf61baeb54d5f451e57a925992') in 0.032610 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-20_comp_dir.png
+  artifactKey: Guid(c97e2beba7e82ea429bd8c25bbda5dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-20_comp_dir.png using Guid(c97e2beba7e82ea429bd8c25bbda5dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9d0b4ce997808a9a4b67eac180e31d4') in 0.076525 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-0_comp_light.exr
+  artifactKey: Guid(f61df4c75110e654dac6706eea7848a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-0_comp_light.exr using Guid(f61df4c75110e654dac6706eea7848a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bcd28c244f3e071f225f6d3cff049ba') in 0.172035 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000414 seconds.
+  path: Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Down.fbx
+  artifactKey: Guid(ba06f887ae3eae84aa914eb2c22cf791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/AK-47/Low Poly Arms AK47 Down.fbx using Guid(ba06f887ae3eae84aa914eb2c22cf791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ae3eb3102b38eb90e5f93fdc421e43d') in 0.044814 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-17_comp_light.exr
+  artifactKey: Guid(09a8305588ee819408c5727f60c933b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-17_comp_light.exr using Guid(09a8305588ee819408c5727f60c933b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3715d47d0cca5473cbd5dbb4f83ef61a') in 0.246461 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/BuildingAssets/Abandoned buildings/Textures/abandoned_buildings/T_pole_wood_N.tga
+  artifactKey: Guid(830ea18a95633bf4a962284fa6618f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Abandoned buildings/Textures/abandoned_buildings/T_pole_wood_N.tga using Guid(830ea18a95633bf4a962284fa6618f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '238a591950de6b3fd637d54b6c00ae81') in 0.053165 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-15_comp_dir.png
+  artifactKey: Guid(0865a0e65f8e323438669093ba314e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-15_comp_dir.png using Guid(0865a0e65f8e323438669093ba314e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5948c10bbaacccff9c228d62b0918a2c') in 0.087678 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-14_comp_dir.png
+  artifactKey: Guid(24a2903042644d940b9bab1831736de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-14_comp_dir.png using Guid(24a2903042644d940b9bab1831736de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3124f548c1a7a2c8c8c15230db447e3') in 0.086089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/BuildingAssets/Office building/meshes/office building.fbx
+  artifactKey: Guid(18cd780e6948a554a850b2d047ebf8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/meshes/office building.fbx using Guid(18cd780e6948a554a850b2d047ebf8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0d6cbccd4c6b55b23dc946a5f97d4e7') in 3.111061 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-3_comp_dir.png
+  artifactKey: Guid(dbf1cd4616f53bf4da9507e23cb7acd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-3_comp_dir.png using Guid(dbf1cd4616f53bf4da9507e23cb7acd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4c8a2615de10aab69704c9c4fbe64fb') in 0.099243 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/BuildingAssets/Office building/material props/Climb poles.mat
+  artifactKey: Guid(f4a653cf4f5715b49b9f918c5e8a8648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/material props/Climb poles.mat using Guid(f4a653cf4f5715b49b9f918c5e8a8648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c8282c675111e9cd0f2ac3280928e3e') in 0.013766 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_left.png
+  artifactKey: Guid(1fda112cfd7f8bf4f9213e4b5156e643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NatureAssets/TGU Skybox Pack/Urbanlight/Urbanlight_left.png using Guid(1fda112cfd7f8bf4f9213e4b5156e643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0320bc40627b9b1bc09d27de0ab48daa') in 0.013706 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-8_comp_dir.png
+  artifactKey: Guid(3414f1f1af6a5944f88d03405b56edec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-8_comp_dir.png using Guid(3414f1f1af6a5944f88d03405b56edec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '267a468fb0595ab882da85d3792f7983') in 0.108867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-10_comp_dir.png
+  artifactKey: Guid(064ed9a9077bb1d4e9ae37137f8c49b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-10_comp_dir.png using Guid(064ed9a9077bb1d4e9ae37137f8c49b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '760939e5faef8abb39d67e2054e7e608') in 0.088163 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-17_comp_dir.png
+  artifactKey: Guid(eccd46f50798d0740a9d4fa66504be0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-17_comp_dir.png using Guid(eccd46f50798d0740a9d4fa66504be0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fffe2592a1bd1c16a811234bbd366bc') in 0.074327 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-11_comp_dir.png
+  artifactKey: Guid(521ec07fb4276a645987e5f781e2dfba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-11_comp_dir.png using Guid(521ec07fb4276a645987e5f781e2dfba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32489e9f8db21fba357a4f5d896ac246') in 0.090066 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/BuildingAssets/Office building/textures/Elevator emission graphics/Elevator Light On.png
+  artifactKey: Guid(a3fe2e9c7edcbca49aa9660496af7af2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/textures/Elevator emission graphics/Elevator Light On.png using Guid(a3fe2e9c7edcbca49aa9660496af7af2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '003edab835f44483bb58ae26355c1033') in 0.067536 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-2_comp_light.exr
+  artifactKey: Guid(36006f86e6b490148a46f7d48d4176a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-2_comp_light.exr using Guid(36006f86e6b490148a46f7d48d4176a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '693eeb2f94ecbcb5b935bf932d01e619') in 0.267612 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000319 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-9_comp_dir.png
+  artifactKey: Guid(0206fcccff929ac449587444eadb1d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-9_comp_dir.png using Guid(0206fcccff929ac449587444eadb1d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e146ed049a531206f8dde2aa5e3e301c') in 0.091028 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-4_comp_dir.png
+  artifactKey: Guid(a392b43b6f8f0ef48bc2ad04942672e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-4_comp_dir.png using Guid(a392b43b6f8f0ef48bc2ad04942672e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0676c55819748c3bab1abfe00d636e1c') in 0.100569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Up.fbx
+  artifactKey: Guid(02454f3eca6ca7646b8bea28e68ae735) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MYAnimations/Weapons/RemingtonShotgun/Low Poly Arms Remington 870 Up.fbx using Guid(02454f3eca6ca7646b8bea28e68ae735) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc8b115dc8ab15738cbab71ea902e74d') in 0.033078 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-21_comp_light.exr
+  artifactKey: Guid(6987eca8c3cf4784d94e31c455e0d305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-21_comp_light.exr using Guid(6987eca8c3cf4784d94e31c455e0d305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b36ff901498a12473269fb4703d0341c') in 0.106113 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-19_comp_dir.png
+  artifactKey: Guid(f38457d571912074fadad8e488a35f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-19_comp_dir.png using Guid(f38457d571912074fadad8e488a35f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46fe2b81e92cf6115d428a5726627f6c') in 0.087691 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-18_comp_dir.png
+  artifactKey: Guid(d3316cfe895522d4bbd3339258e50a6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-18_comp_dir.png using Guid(d3316cfe895522d4bbd3339258e50a6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d8a70dffd3b4463e71f4272b06b608e') in 0.079122 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-1_comp_dir.png
+  artifactKey: Guid(425ea868fbf93ba4cab30ec73d144d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-1_comp_dir.png using Guid(425ea868fbf93ba4cab30ec73d144d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e827c6b67ea1feef7872d5dae7cee1ae') in 0.071278 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/BuildingAssets/Office building/scene/office building/Lightmap-13_comp_light.exr
+  artifactKey: Guid(ac0d34c04ecd638489cde53c6495ef58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/scene/office building/Lightmap-13_comp_light.exr using Guid(ac0d34c04ecd638489cde53c6495ef58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4372719a2dcabc295354c10921409cc8') in 0.133663 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004850 seconds.
+Registered in 0.004278 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.230 seconds
+- Completed reload, in  1.252 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1231ms)
-		BeginReloadAssembly (153ms)
+	ReloadAssembly (1253ms)
+		BeginReloadAssembly (165ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (37ms)
-		EndReloadAssembly (1007ms)
-			LoadAssemblies (150ms)
+			CreateAndSetChildDomain (39ms)
+		EndReloadAssembly (1022ms)
+			LoadAssemblies (135ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (359ms)
+			SetupTypeCache (351ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (52ms)
-			SetupLoadedEditorAssemblies (343ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (348ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (95ms)
-				ProcessInitializeOnLoadAttributes (228ms)
+				BeforeProcessingInitializeOnLoad (92ms)
+				ProcessInitializeOnLoadAttributes (236ms)
 				ProcessInitializeOnLoadMethodAttributes (11ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
+			AwakeInstancesAfterBackupRestoration (19ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2752 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 222.3 MB.
-System memory in use after: 222.5 MB.
+System memory in use before: 243.3 MB.
+System memory in use after: 243.5 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3382.
-Total: 4.539800 ms (FindLiveObjects: 0.374700 ms CreateObjectMapping: 0.110000 ms MarkObjects: 4.025000 ms  DeleteObjects: 0.028900 ms)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3472.
+Total: 3.836700 ms (FindLiveObjects: 0.300300 ms CreateObjectMapping: 0.083300 ms MarkObjects: 3.413600 ms  DeleteObjects: 0.038400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -197,162 +738,68 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005079 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.312 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1316ms)
-		BeginReloadAssembly (245ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (19ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (91ms)
-		EndReloadAssembly (995ms)
-			LoadAssemblies (157ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (365ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (339ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (93ms)
-				ProcessInitializeOnLoadAttributes (226ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
-				AfterProcessingInitializeOnLoad (3ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2752 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 222.4 MB.
-System memory in use after: 222.6 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3384.
-Total: 3.784700 ms (FindLiveObjects: 0.274800 ms CreateObjectMapping: 0.078700 ms MarkObjects: 3.398800 ms  DeleteObjects: 0.030900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 1916.783310 seconds.
+  path: Assets/Scenes/SampleScene/Global Volume Profile.asset
+  artifactKey: Guid(98dfc1ed78ea7f241b8c8f3a1380355a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene/Global Volume Profile.asset using Guid(98dfc1ed78ea7f241b8c8f3a1380355a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9e4991ceb8c02d09f434c92a77f3211') in 0.038756 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 151.775168 seconds.
+  path: Assets/Scenes/SampleScene/Global Volume Profile.asset
+  artifactKey: Guid(98dfc1ed78ea7f241b8c8f3a1380355a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene/Global Volume Profile.asset using Guid(98dfc1ed78ea7f241b8c8f3a1380355a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33193b52075b1306088541b6ed55fa26') in 0.003887 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 76.644412 seconds.
+  path: Assets/ITEMS/UniversalRenderPipelineAsset.asset
+  artifactKey: Guid(2dd873736032a964c8ce6a234bb64b4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ITEMS/UniversalRenderPipelineAsset.asset using Guid(2dd873736032a964c8ce6a234bb64b4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8c8a8fc370244be2bc113356a39ab2e') in 0.007742 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004293 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.169 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1170ms)
-		BeginReloadAssembly (142ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (34ms)
-		EndReloadAssembly (962ms)
-			LoadAssemblies (136ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (339ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (50ms)
-			SetupLoadedEditorAssemblies (336ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (94ms)
-				ProcessInitializeOnLoadAttributes (222ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
-				AfterProcessingInitializeOnLoad (3ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2752 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 222.4 MB.
-System memory in use after: 222.6 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3386.
-Total: 3.582800 ms (FindLiveObjects: 0.283600 ms CreateObjectMapping: 0.081300 ms MarkObjects: 3.194300 ms  DeleteObjects: 0.022400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004925 seconds.
+Registered in 0.004202 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.150 seconds
+- Completed reload, in  1.411 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1151ms)
-		BeginReloadAssembly (137ms)
+	ReloadAssembly (1411ms)
+		BeginReloadAssembly (162ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (9ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (32ms)
-		EndReloadAssembly (948ms)
-			LoadAssemblies (131ms)
+			CreateAndSetChildDomain (42ms)
+		EndReloadAssembly (1164ms)
+			LoadAssemblies (151ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (340ms)
+			SetupTypeCache (434ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (331ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (374ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (89ms)
-				ProcessInitializeOnLoadAttributes (222ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (250ms)
+				ProcessInitializeOnLoadMethodAttributes (13ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
+			AwakeInstancesAfterBackupRestoration (20ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2752 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 222.4 MB.
-System memory in use after: 222.6 MB.
+Unloading 2753 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 243.4 MB.
+System memory in use after: 243.6 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3388.
-Total: 3.921800 ms (FindLiveObjects: 0.275200 ms CreateObjectMapping: 0.085300 ms MarkObjects: 3.535000 ms  DeleteObjects: 0.024900 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3475.
+Total: 4.531600 ms (FindLiveObjects: 0.281200 ms CreateObjectMapping: 0.082600 ms MarkObjects: 4.136400 ms  DeleteObjects: 0.029400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -367,28 +814,28 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004894 seconds.
+Registered in 0.004274 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.158 seconds
+- Completed reload, in  1.206 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1158ms)
+	ReloadAssembly (1206ms)
 		BeginReloadAssembly (140ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (33ms)
-		EndReloadAssembly (946ms)
-			LoadAssemblies (135ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (998ms)
+			LoadAssemblies (139ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (336ms)
+			SetupTypeCache (349ms)
 			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (331ms)
+			SetupLoadedEditorAssemblies (330ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (1ms)
@@ -399,16 +846,16 @@ Domain Reload Profiling:
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.00 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2752 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 222.4 MB.
-System memory in use after: 222.6 MB.
+System memory in use before: 243.4 MB.
+System memory in use after: 243.6 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3390.
-Total: 3.565200 ms (FindLiveObjects: 0.269300 ms CreateObjectMapping: 0.082300 ms MarkObjects: 3.191000 ms  DeleteObjects: 0.021600 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3477.
+Total: 3.639200 ms (FindLiveObjects: 0.286600 ms CreateObjectMapping: 0.089800 ms MarkObjects: 3.239400 ms  DeleteObjects: 0.022500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -423,110 +870,48 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004374 seconds.
+Registered in 0.004298 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.155 seconds
+- Completed reload, in  1.209 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1155ms)
-		BeginReloadAssembly (136ms)
+	ReloadAssembly (1210ms)
+		BeginReloadAssembly (140ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (31ms)
-		EndReloadAssembly (953ms)
-			LoadAssemblies (130ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (1001ms)
+			LoadAssemblies (132ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
 			SetupTypeCache (344ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (329ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (91ms)
-				ProcessInitializeOnLoadAttributes (218ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
-				AfterProcessingInitializeOnLoad (3ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2752 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 222.4 MB.
-System memory in use after: 222.6 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3392.
-Total: 4.019300 ms (FindLiveObjects: 0.285500 ms CreateObjectMapping: 0.084200 ms MarkObjects: 3.623800 ms  DeleteObjects: 0.024200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 5759.500112 seconds.
-  path: Assets/MyPrefabs/Enemy Prefabs/Ghoul.prefab
-  artifactKey: Guid(75cb5c40313cad147827d9d248bdb18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyPrefabs/Enemy Prefabs/Ghoul.prefab using Guid(75cb5c40313cad147827d9d248bdb18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da0c8c703d65460eba1e6f47a442acb3') in 0.657658 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.073065 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.08 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.510 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1516ms)
-		BeginReloadAssembly (300ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (30ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (120ms)
-		EndReloadAssembly (1142ms)
-			LoadAssemblies (181ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (403ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (362ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (327ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (111ms)
-				ProcessInitializeOnLoadAttributes (230ms)
+				BeforeProcessingInitializeOnLoad (90ms)
+				ProcessInitializeOnLoadAttributes (217ms)
 				ProcessInitializeOnLoadMethodAttributes (11ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (20ms)
+			AwakeInstancesAfterBackupRestoration (19ms)
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2752 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 241.3 MB.
-System memory in use after: 241.5 MB.
+System memory in use before: 243.4 MB.
+System memory in use after: 243.6 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3440.
-Total: 3.815400 ms (FindLiveObjects: 0.279900 ms CreateObjectMapping: 0.081600 ms MarkObjects: 3.423400 ms  DeleteObjects: 0.029600 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3479.
+Total: 4.108000 ms (FindLiveObjects: 0.369500 ms CreateObjectMapping: 0.143300 ms MarkObjects: 3.557500 ms  DeleteObjects: 0.036600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
