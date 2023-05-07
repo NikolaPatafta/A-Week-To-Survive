@@ -8,7 +8,6 @@ public class HealthScript : MonoBehaviour
     private EnemyAnimatior enemy_Anim;
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
-    private Rigidbody rigidbodyrb;
     private PlayPlayerSound playPlayerSound;
 
     public float health = 100f;
@@ -24,19 +23,21 @@ public class HealthScript : MonoBehaviour
     private EnemyStats enemy_Stats;
 
     //kontrole za deathscreen
+    [SerializeField]
     private UIManager uiManager;
+
+    [SerializeField]
+    private BloodScreenEffect bloodScreenEffect;
 
     void Awake()
     {
         is_Dead = false;
-        uiManager = GetComponent<UIManager>();
 
         if (is_Boar || is_Cannibal)
         {
             enemy_Anim = GetComponent<EnemyAnimatior>();
             enemy_Controller = GetComponent<EnemyController>();
             navAgent = GetComponent<NavMeshAgent>();
-            rigidbodyrb = GetComponent<Rigidbody>();
 
 
             //get audio
@@ -75,6 +76,7 @@ public class HealthScript : MonoBehaviour
             playPlayerSound.PlayPlayerHurtSound();
             player_Stats.Display_HealthStats(health);
             StartCoroutine(cameraShake.Shake());
+            bloodScreenEffect.ChangeAlpha();
         }
 
         if (is_Boar || is_Cannibal)

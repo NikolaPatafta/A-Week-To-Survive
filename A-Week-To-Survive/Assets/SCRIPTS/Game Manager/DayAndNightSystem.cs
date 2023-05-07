@@ -18,20 +18,27 @@ public class DayAndNightSystem : MonoBehaviour
     private float translateTime;
     public int day = 1;
     public float currentHours;
+    public bool isDay = true;
 
     [SerializeField]
     private SpawnHordeZombies spawnHordeZombies;
     [SerializeField]
     private HealthScript healthScript;
-    [SerializeField]
-    private Transform sunLight;
 
     // Start is called before the first frame update
     void Start()
     {
         rotationSpeed = 360 / dayLengthMinutes / 60;
         midday = dayLengthMinutes * 60/2;
-        currentTime = 7.5f;
+        if(dayLengthMinutes == 5)
+        {
+            currentTime = 75f;
+        }
+        else if(dayLengthMinutes == 10)
+        {
+            currentTime = 150f;
+        }
+        
     }
 
     // Update is called once per frame
@@ -62,15 +69,9 @@ public class DayAndNightSystem : MonoBehaviour
                 displayMinutes = "0" + minutes.ToString();
             }
 
-            if (currentTime >= midday * 2)
-            {
-                day++;
-                if (day == 2 || day == 7 || day == 14)
-                {
-                    spawnHordeZombies.StartCoroutine("spawnHordeZombies");
-                }
-                currentTime = 0;
-            }
+            DaytoSpawnHorde();
+
+            CheckDayTime();
 
             string displayTime = "Day: " + day + " Time: " + displayHours + ":" + displayMinutes;
 
@@ -78,6 +79,32 @@ public class DayAndNightSystem : MonoBehaviour
 
             transform.Rotate(new Vector3(1, 0, 0) * rotationSpeed * Time.deltaTime);
 
-        }    
+        }
+    }
+
+
+    private void CheckDayTime()
+    {
+        if (currentHours >= 6 && currentHours <= 19)
+        {
+            isDay = true;
+        }
+        else
+        {
+            isDay = false;
+        }
+    }
+
+    public void DaytoSpawnHorde()
+    {
+        if (currentTime >= midday * 2)
+        {
+            day++;
+            if (day == 2 || day == 7 || day == 14)
+            {
+                spawnHordeZombies.StartCoroutine("spawnHordeZombies");
+            }
+            currentTime = 0;
+        }
     }
 }

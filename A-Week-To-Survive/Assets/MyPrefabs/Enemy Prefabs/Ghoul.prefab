@@ -1082,7 +1082,7 @@ MonoBehaviour:
   navAgent: {fileID: 2953975360368304130}
   walk_Speed: 3
   run_Speed: 6
-  chase_Distance: 100
+  chase_Distance: 25
   attack_Distance: 2
   chase_After_Attack_Distance: 0.5
   patrol_Radius_Min: 20
@@ -1107,6 +1107,8 @@ MonoBehaviour:
   is_Boar: 0
   is_Cannibal: 1
   cameraShake: {fileID: 0}
+  uiManager: {fileID: 0}
+  bloodScreenEffect: {fileID: 0}
 --- !u!114 &5988350689283535049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2895,7 +2897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  radius: 5
+  radius: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
