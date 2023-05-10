@@ -103,7 +103,6 @@ public class HealthScript : MonoBehaviour
 
         if (!is_Player)
         {
-            Debug.Log("animation Triggered:" + enemy_Anim);
             enemy_Anim.Dead();
 
             enemy_Controller.enabled = false;

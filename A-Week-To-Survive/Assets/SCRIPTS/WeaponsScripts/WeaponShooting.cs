@@ -45,19 +45,8 @@ public class WeaponShooting : MonoBehaviour
     {
         if (inventoryManager.GetCurrentlySelectedWeapon() != null)
         {
-            if (inventoryManager.GetCurrentlySelectedWeapon().weaponType != WeaponType.Melee)
-            {
-                if (Input.GetKey(KeyCode.Mouse0))
-                {
-                    Shoot(equipmentManager.selectedSlot);
-                }
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    animator = equipmentManager.InstantiatedGameObject().GetComponent<Animator>();
-                    Reload(equipmentManager.selectedSlot);
-                }
-            }
-            else if (inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Melee)
+            
+            if (inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Melee)
             {
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -69,6 +58,19 @@ public class WeaponShooting : MonoBehaviour
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
                     BowAttack();
+                }
+            }
+
+            else 
+            {
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    Shoot(equipmentManager.selectedSlot);
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    animator = equipmentManager.InstantiatedGameObject().GetComponent<Animator>();
+                    Reload(equipmentManager.selectedSlot);
                 }
             }
         }

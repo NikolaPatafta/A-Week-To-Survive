@@ -59,6 +59,7 @@ public class PlayerAttack : MonoBehaviour
         { 
             if (is_Aiming)
             {
+                Debug.Log("is_Aiming: " + is_Aiming);
                 weaponHandler = GetComponentInChildren<WeaponHandler>();
                 Weapons weapon = inventoryManager.GetCurrentlySelectedWeapon();
                 Debug.Log("can shoot " + can_Shoot);
