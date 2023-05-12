@@ -8,19 +8,39 @@ public class AttackScript : MonoBehaviour
     public float damage = 2f;
     public float radius = 1f;
     public LayerMask layerMask;
+    public LayerMask destructibleMask;
+
+    [SerializeField]
+    private EnemyDestructible enemyDestructible;
+
 
 
     void Update()
     {
-        //return collider array
-        Collider[] hits = Physics.OverlapSphere(transform.position, radius, layerMask);
-
-        if (hits.Length > 0)
+        if (!enemyDestructible.destructableState)
         {
-            hits[0].gameObject.GetComponent<HealthScript>().ApplyDamage(damage);
+            //return collider array
+            Collider[] hits = Physics.OverlapSphere(transform.position, radius, layerMask);
 
-            gameObject.SetActive(false);
+            if (hits.Length > 0)
+            {
+                hits[0].gameObject.GetComponent<HealthScript>().ApplyDamage(damage);
+
+                gameObject.SetActive(false);
+            }
         }
+        else
+        {
+            Collider[] hits = Physics.OverlapSphere(transform.position, radius, destructibleMask);
+
+            if (hits.Length > 0)
+            {
+                hits[0].gameObject.GetComponent<DoorHealth>().DamageDoor(damage);
+
+                gameObject.SetActive(false);
+            }
+        }
+        
         
     }
 }

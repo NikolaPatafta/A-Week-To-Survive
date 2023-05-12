@@ -18,19 +18,15 @@ public class DoorAction : MonoBehaviour {
 
             Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out hit);
             
-                
-                if (hit.transform.tag == "door")
-                {
-
+            Debug.Log("Hit: " + hit.collider);
+            if (hit.transform.tag == "door")
+            {
                 hit.transform.gameObject.GetComponent<Door>().ActionDoor();
-
-
-                }
-
-                if(hit.collider.gameObject.name == "Button floor 1")
-                {
+            }
+            /*
+            if(hit.collider.gameObject.name == "Button floor 1")
+            {
                 hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 1");
-
             }
             if (hit.collider.gameObject.name == "Button floor 2")
             {
@@ -52,7 +48,7 @@ public class DoorAction : MonoBehaviour {
             {
                 hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 6");
             }
-
+            */
 
 
         }

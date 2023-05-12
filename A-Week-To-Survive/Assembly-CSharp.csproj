@@ -67,6 +67,7 @@
     <Compile Include="Assets\SCRIPTS\MainMenu\OptionsScreen.cs" />
     <Compile Include="Assets\SCRIPTS\WeaponsScripts\ArrowAndBowScript.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventoryManager.cs" />
+    <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyDestructible.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Items.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\CameraShake.cs" />
@@ -74,11 +75,13 @@
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\CannibalController.cs" />
     <Compile Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Scripts\GunfireController.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\DoorAction.cs" />
+    <Compile Include="Assets\SCRIPTS\DoorController\DoorHealth.cs" />
     <Compile Include="Assets\SCRIPTS\WeaponsScripts\WeaponShooting.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\PlayerPickup.cs" />
     <Compile Include="Assets\NatureAssets\HDRP_Oak_Tree\Scripts\Offer\ALIyerEdonAssets_Lighting.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\AttackScript.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\PutObjectOnGround.cs" />
+    <Compile Include="Assets\SCRIPTS\DoorController\DoorController.cs" />
     <Compile Include="Assets\SCRIPTS\HelpScripts\TagHolder.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerSprintAndCrouch.cs" />
     <Compile Include="Assets\SCRIPTS\UI\WeaponUI.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Fix_elevator_fall.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\UIElementController.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerAxeSounds.cs" />
+    <Compile Include="Assets\SCRIPTS\PlayerScripts\BloodScreenEffect.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayPlayerSound.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\TestController.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Door.cs" />
@@ -111,7 +115,7 @@
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\AnimationItemData.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\UIManager.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\DontDestroyOnLoad.cs" />
-    <Compile Include="Assets\SCRIPTS\PlayerScripts\BloodScreenEffect.cs" />
+    <Compile Include="Assets\SCRIPTS\Terrain\NavMeshManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAAPreset2.shader" />

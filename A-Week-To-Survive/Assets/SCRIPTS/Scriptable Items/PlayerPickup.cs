@@ -10,7 +10,11 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField]
     private LayerMask pickupLayer;
 
-    
+    [SerializeField]
+    private float doorActionRange = 1.8f;
+    [SerializeField]
+    private LayerMask doorMask;
+
     private Camera cam;
 
     [SerializeField]
@@ -25,30 +29,44 @@ public class PlayerPickup : MonoBehaviour
     private void Update()
     {
         
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
-            
+
             if(Physics.Raycast(ray, out hit, pickupRange, pickupLayer))
             {
-                if (hit.transform.GetComponent<ItemObject>().item as Weapons)
-                {
-                    Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
-                    inventoryManager.AddItem(newItem);
-                    
-                }
-                else
-                {
-                    Consumable newItem = hit.transform.GetComponent<ItemObject>().item as Consumable;
-                    if(newItem.types == ConsumableType.Ammo)
-                    {
-                        inventoryManager.AddItem(newItem);
-                    }
-                }
-                Destroy(hit.transform.gameObject);
+                PickupWeapons(hit.transform);
+            }
+            if(Physics.Raycast(ray, out hit, doorActionRange, doorMask))
+            {
+                CallAnimation(hit.transform);                       
             }
         }
+    }
+
+    private void PickupWeapons(Transform hit)
+    {
+        if (hit.transform.GetComponent<ItemObject>().item as Weapons)
+        {
+            Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
+            inventoryManager.AddItem(newItem);
+
+        }
+        else
+        {
+            Consumable newItem = hit.transform.GetComponent<ItemObject>().item as Consumable;
+            if (newItem.types == ConsumableType.Ammo)
+            {
+                inventoryManager.AddItem(newItem);
+            }
+        }
+        Destroy(hit.transform.gameObject);
+    }
+
+    private void CallAnimation(Transform doorTrans)
+    {
+        DoorController door = doorTrans.transform.GetComponent<DoorController>();
+        door.PlayDoorAnimation();
     }
 }

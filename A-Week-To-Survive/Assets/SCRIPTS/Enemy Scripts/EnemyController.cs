@@ -7,7 +7,8 @@ public enum EnemyState
 {
     PATROL,
     CHASE,
-    ATTACK
+    ATTACK,
+    DESTROY
 }
 
 public class EnemyController : MonoBehaviour
@@ -15,6 +16,9 @@ public class EnemyController : MonoBehaviour
     private EnemyAnimatior enemy_Anim;
     [SerializeField]
     private NavMeshAgent navAgent;
+
+    [SerializeField]
+    private EnemyDestructible enemyDestructible;
 
     private EnemyState enemy_State;
 
@@ -37,12 +41,13 @@ public class EnemyController : MonoBehaviour
 
     public float wait_Before_Attack = 2f;
     private float attack_Timer;
-
+    [SerializeField]
     private Transform target;
 
     public GameObject attack_Point;
 
     private EnemyAudio enemy_Audio;
+
 
 
 
@@ -89,7 +94,20 @@ public class EnemyController : MonoBehaviour
        {
             Attack();
        }
-       
+       if(enemy_State == EnemyState.DESTROY)
+       {
+            if (enemyDestructible.destructableObject != null)
+            {
+                target = enemyDestructible.destructableObject.transform;
+                Attack();
+
+            }
+            else
+            {
+                target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+                enemy_State = EnemyState.PATROL;
+            }
+       }
        
     }
 
@@ -142,6 +160,12 @@ public class EnemyController : MonoBehaviour
         //postavi poziciju playera kao destinaciju jer lovimo playera
         navAgent.SetDestination(target.position);
 
+        if (navAgent.pathPending && enemy_State != EnemyState.DESTROY)
+        {
+            DestroyBarrier();
+            //enemy_State = EnemyState.DESTROY;
+        }
+
         if (navAgent.velocity.sqrMagnitude > 0)
         {
             enemy_Anim.Run(true);
@@ -163,6 +187,8 @@ public class EnemyController : MonoBehaviour
             {
                 chase_Distance = current_Chase_Distance;
             }
+
+            
         }
         //igrac izadje van vidika od neprijatelja
         else if (Vector3.Distance(transform.position, target.position) > chase_Distance)
@@ -204,7 +230,19 @@ public class EnemyController : MonoBehaviour
             
         }
 
+        
+
     }//attack
+
+    void DestroyBarrier()
+    {
+        enemyDestructible.RayCastBarrier();
+        if (enemyDestructible.destructableState)
+        {
+            enemy_State = EnemyState.DESTROY;
+        }
+        
+    }
 
 
 
