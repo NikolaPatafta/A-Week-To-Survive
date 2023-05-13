@@ -82,7 +82,7 @@ public class EquipmentManager : MonoBehaviour
         return currentlyEquipedWeapon;
     }
 
-    private void UnequipWeapon() 
+    public void UnequipWeapon() 
     {
         if (currentlyEquipedWeapon != null )
         {

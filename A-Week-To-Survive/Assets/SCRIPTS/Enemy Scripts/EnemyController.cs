@@ -29,7 +29,9 @@ public class EnemyController : MonoBehaviour
     private float current_Chase_Distance;
     public float attack_Distance = 1f;
     public float chase_After_Attack_Distance = 2f;
+    public bool currentState;
 
+    //radijus kretanja od mjesta spawnanja zombija
     [HideInInspector]
     public float patrol_Radius_Min = 20f, patrol_Radius_Max = 60f;
 
@@ -43,6 +45,7 @@ public class EnemyController : MonoBehaviour
     private float attack_Timer;
     [SerializeField]
     private Transform target;
+    private Transform player;
 
     public GameObject attack_Point;
 
@@ -59,9 +62,12 @@ public class EnemyController : MonoBehaviour
 
         //dohvati playera
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+        player = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
 
         //dohvati audio skriptu
         enemy_Audio = GetComponentInChildren<EnemyAudio>();
+
+        currentState = navAgent.pathPending;
     }
 
     // Start is called before the first frame update
@@ -82,6 +88,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+
        if(enemy_State == EnemyState.PATROL)
        {
             Patrol();
@@ -94,21 +101,7 @@ public class EnemyController : MonoBehaviour
        {
             Attack();
        }
-       if(enemy_State == EnemyState.DESTROY)
-       {
-            if (enemyDestructible.destructableObject != null)
-            {
-                target = enemyDestructible.destructableObject.transform;
-                Attack();
 
-            }
-            else
-            {
-                target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
-                enemy_State = EnemyState.PATROL;
-            }
-       }
-       
     }
 
 
@@ -140,11 +133,7 @@ public class EnemyController : MonoBehaviour
         if(Vector3.Distance(transform.position, target.position) <= chase_Distance)
         {
             enemy_Anim.Walk(false);
-
             enemy_State = EnemyState.CHASE;
-
-            //play audio kad nas neprijatelj vidi
-
             enemy_Audio.Play_ScreamSound();
 
         }
@@ -159,12 +148,6 @@ public class EnemyController : MonoBehaviour
 
         //postavi poziciju playera kao destinaciju jer lovimo playera
         navAgent.SetDestination(target.position);
-
-        if (navAgent.pathPending && enemy_State != EnemyState.DESTROY)
-        {
-            DestroyBarrier();
-            //enemy_State = EnemyState.DESTROY;
-        }
 
         if (navAgent.velocity.sqrMagnitude > 0)
         {
@@ -187,7 +170,6 @@ public class EnemyController : MonoBehaviour
             {
                 chase_Distance = current_Chase_Distance;
             }
-
             
         }
         //igrac izadje van vidika od neprijatelja
@@ -203,9 +185,7 @@ public class EnemyController : MonoBehaviour
             {
                 chase_Distance = current_Chase_Distance;
             }
-
         }
-
     }//chase
 
     void Attack()
@@ -234,15 +214,22 @@ public class EnemyController : MonoBehaviour
 
     }//attack
 
-    void DestroyBarrier()
+    /*void FindBarrier()
     {
+        currentState = navAgent.pathPending;
         enemyDestructible.RayCastBarrier();
-        if (enemyDestructible.destructableState)
+        if(enemyDestructible.destructableObject != null)
         {
-            enemy_State = EnemyState.DESTROY;
+            target = enemyDestructible.destructableObject;
         }
+        else
+        {
+            target = player;         
+        }
+        Debug.Log("Target: " + target);
         
-    }
+
+    }*/
 
 
 

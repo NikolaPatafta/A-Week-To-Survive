@@ -60,6 +60,10 @@ public class PlayerPickup : MonoBehaviour
             {
                 inventoryManager.AddItem(newItem);
             }
+            else if (newItem.types == ConsumableType.Medkit)
+            {
+                inventoryManager.AddItem(newItem);
+            }
         }
         Destroy(hit.transform.gameObject);
     }

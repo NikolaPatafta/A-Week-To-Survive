@@ -98,6 +98,17 @@ public class HealthScript : MonoBehaviour
         }
     }
 
+    public void AddHealth(int healthvalue)
+    {
+        health += healthvalue;
+        if(health >= 100)
+        {
+            health = 100;
+        }
+        player_Stats.Display_HealthStats(health);
+        bloodScreenEffect.ChangeAlpha();
+    }
+
     void CheckWhoDied()
     {
 

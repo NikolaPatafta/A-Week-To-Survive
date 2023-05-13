@@ -16,6 +16,7 @@ public class WeaponShooting : MonoBehaviour
     private PlayerStats playerStats;
     [SerializeField]
     private GameObject bloodParticles;
+    private HealthScript healthScript;
 
     //amunition
     //***
@@ -45,10 +46,14 @@ public class WeaponShooting : MonoBehaviour
     {
         if (inventoryManager.GetCurrentlySelectedWeapon() != null)
         {
-            
+
             if (inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Melee)
             {
-                if (Input.GetKey(KeyCode.Mouse0))
+                if (inventoryManager.GetCurrentlySelectedWeapon().type == ItemType.Consumable && (Input.GetKey(KeyCode.Mouse0)))
+                {
+                    ConsumableUse();
+                }
+                else if (Input.GetKey(KeyCode.Mouse0))
                 {
                     AxeAttack();
                 }
@@ -61,7 +66,7 @@ public class WeaponShooting : MonoBehaviour
                 }
             }
 
-            else 
+            else
             {
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -78,7 +83,6 @@ public class WeaponShooting : MonoBehaviour
         {
             UpdateWeaponUIInfo(equipmentManager.selectedSlot);
         }
-
     }
 
     private void RayCastShoot(Weapons currentWeapon)
@@ -137,6 +141,15 @@ public class WeaponShooting : MonoBehaviour
         weaponHandler.ShootAnimation();
     }
 
+    private void ConsumableUse()
+    {
+        Debug.Log("Added health!");
+        healthScript = GetComponentInParent<HealthScript>();    
+        healthScript.AddHealth(10);     
+        inventoryManager.GetSelectedItem(true);
+        equipmentManager.UnequipWeapon();
+    }
+
     private void UseAmmo(int slot, int currentAmmoUsed, int currentStoredAmmoUsed)
     {
         InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
@@ -161,11 +174,6 @@ public class WeaponShooting : MonoBehaviour
             CurrentAmmoStorage += ammo.AmmoCount;
         }
         
-    }
-
-    public void InitAmmoPrimaryMagazine(int slot, Weapons weapon)
-    {
-        //CurrentAmmo[slot] = weapon.magazineSize;   
     }
 
     private void Reload(int slot)

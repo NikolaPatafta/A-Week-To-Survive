@@ -25,5 +25,6 @@ public class Items : ScriptableObject
 public enum ItemType
 {
     Weapon,
-    Ammo
+    Ammo,
+    Consumable
 }

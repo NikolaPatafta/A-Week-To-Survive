@@ -67,7 +67,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         //ako imamo staminu onda trci
         if(sprint_Value > 0f)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching && Input.GetKey(KeyCode.W))
             {
                 playerMovement.speed = sprint_Speed;
 
@@ -92,7 +92,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && !isCrouching)
+        if(Input.GetKey(KeyCode.LeftShift) && !isCrouching && Input.GetKey(KeyCode.W))
         {
             sprint_Value -= sprint_Treshold * Time.deltaTime;
 
@@ -112,8 +112,15 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         {
             if(sprint_Value != 100f)
             {
-                sprint_Value += (sprint_Treshold / 2f) * Time.deltaTime;
-
+                if (isCrouching)
+                {
+                    sprint_Value += (sprint_Treshold / 2f) * Time.deltaTime * 1.5f;
+                }
+                else
+                {
+                    sprint_Value += (sprint_Treshold / 2f) * Time.deltaTime;
+                }
+                
                 player_Stats.Display_StaminaStats(sprint_Value);
 
                 if(sprint_Value > 100f)

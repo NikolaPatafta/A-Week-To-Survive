@@ -13,15 +13,31 @@ public class BloodScreenEffect : MonoBehaviour
 
     //samo za pregled u inspektoru
     private float currentHealth;
+    private float temphealth;
+
+    private void Start()
+    {
+        temphealth = healthScript.health;
+    }
 
 
     public void ChangeAlpha()
     {
         currentHealth = healthScript.health;
-
         currentHealth /= 1000;
 
-        bloodEffectImage.color += new Color (0, 0, 0, currentHealth);
+        if (currentHealth < temphealth)
+        {    
+            bloodEffectImage.color += new Color(0, 0, 0, currentHealth);
+            temphealth = currentHealth; 
+        }
+        else
+        {
+            bloodEffectImage.color -= new Color(0, 0, 0, currentHealth);
+            temphealth = currentHealth;
+        }
+
+        
     }
 
     

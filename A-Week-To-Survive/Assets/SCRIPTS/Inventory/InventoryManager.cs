@@ -138,10 +138,7 @@ public class InventoryManager : MonoBehaviour
         {
             weaponShooting.InitAmmoSecondaryMagazine(item as Consumable);
         }
-        else if(item.type == ItemType.Weapon)
-        {
-            weaponShooting.InitAmmoPrimaryMagazine(selectedInventorySlot, item as Weapons);
-        }
+
 
     }
 
