@@ -10,11 +10,6 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField]
     private LayerMask pickupLayer;
 
-    [SerializeField]
-    private float doorActionRange = 1.8f;
-    [SerializeField]
-    private LayerMask doorMask;
-
     private Camera cam;
 
     [SerializeField]
@@ -37,10 +32,6 @@ public class PlayerPickup : MonoBehaviour
             if(Physics.Raycast(ray, out hit, pickupRange, pickupLayer))
             {
                 PickupWeapons(hit.transform);
-            }
-            if(Physics.Raycast(ray, out hit, doorActionRange, doorMask))
-            {
-                CallAnimation(hit.transform);                       
             }
         }
     }
@@ -68,9 +59,4 @@ public class PlayerPickup : MonoBehaviour
         Destroy(hit.transform.gameObject);
     }
 
-    private void CallAnimation(Transform doorTrans)
-    {
-        DoorController door = doorTrans.transform.GetComponent<DoorController>();
-        door.PlayDoorAnimation();
-    }
 }

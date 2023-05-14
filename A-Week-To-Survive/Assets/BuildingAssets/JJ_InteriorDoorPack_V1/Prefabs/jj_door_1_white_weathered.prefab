@@ -15,11 +15,12 @@ GameObject:
   - component: {fileID: 1941922976}
   - component: {fileID: 1941922975}
   - component: {fileID: 4842005845158581637}
+  - component: {fileID: 1875131086}
   m_Layer: 14
   m_Name: doorWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4716468972294172
@@ -97,8 +98,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.91890275, y: 1.9499999, z: 0.040926475}
-  m_Center: {x: -0.44893128, y: 0.97499985, z: -0.011339353}
+  m_Size: {x: 0.9189028, y: 1.9499999, z: 0.11509727}
+  m_Center: {x: -0.44893125, y: 0.97499996, z: -0.048424765}
 --- !u!95 &1941922976
 Animator:
   serializedVersion: 3
@@ -143,6 +144,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+--- !u!208 &1875131086
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526170674894502}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.45900002, y: 0.975, z: 0.020000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.44900003, y: 0.975, z: -0.011000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &1546866186244504
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,12 +171,12 @@ GameObject:
   - component: {fileID: 4010859196364772}
   - component: {fileID: 33054106736233338}
   - component: {fileID: 23100516516946502}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: jj_door_1_white_weathered
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4010859196364772
 Transform:
@@ -240,7 +257,7 @@ GameObject:
   m_Name: doorKnob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4097244817786526
