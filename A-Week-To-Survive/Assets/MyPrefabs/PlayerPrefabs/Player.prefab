@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 1365947234}
   - component: {fileID: 4122215952898594653}
   - component: {fileID: 1160938971003294350}
+  - component: {fileID: 1365947244}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -1044,6 +1045,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloodEffectImage: {fileID: 0}
   healthScript: {fileID: 8330952319239436615}
+--- !u!114 &1365947244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421709402249289437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d9ec454f6094647a85c2778e7174fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorActionRange: 1.8
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 16384
+  cam: {fileID: 8237109962305959491}
+  textMeshPro: {fileID: 0}
 --- !u!1 &4719361826538165078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1271,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 13367
+    m_Bits: 29751
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

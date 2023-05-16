@@ -7,6 +7,7 @@ public class EnemyAnimatior : MonoBehaviour
 
     private Animator anim;
 
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -30,5 +31,7 @@ public class EnemyAnimatior : MonoBehaviour
     {
         anim.SetTrigger(AnimationTags.DEAD_TRIGGER);
     }
+
+
 }
 

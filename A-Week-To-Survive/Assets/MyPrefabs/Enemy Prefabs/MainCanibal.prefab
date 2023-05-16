@@ -1532,15 +1532,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navAgent: {fileID: 3100686847505241849}
+  enemyDestructible: {fileID: 155626767}
   walk_Speed: 0.5
-  run_Speed: 1.8
+  run_Speed: 1
   chase_Distance: 20
   attack_Distance: 1.8
   chase_After_Attack_Distance: 0.5
+  currentState: 0
   patrol_Radius_Min: 20
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
   wait_Before_Attack: 1.6
+  target: {fileID: 0}
   attack_Point: {fileID: 5037960033027897929}
 --- !u!114 &1371402848328619537
 MonoBehaviour:
@@ -2057,6 +2060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1836638480158308722}
+  - component: {fileID: 155626767}
   m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
@@ -2078,6 +2082,23 @@ Transform:
   m_Father: {fileID: 1836638480158308690}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155626767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836638480158008658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5da4a4036de4646a375c17ff30a625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructibleDoor:
+    serializedVersion: 2
+    m_Bits: 16384
+  destructableState: 0
+  destructableObject: {fileID: 0}
 --- !u!1 &1836638480158008660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2531,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cbca5f23ddb894c848bda8729f6d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hurtClips:
+  - {fileID: 8300000, guid: 8a8209b3ad6d488428fd3d1f9107fb2f, type: 3}
+  - {fileID: 8300000, guid: 971a39f00e08d5c43822450e3616fc26, type: 3}
   scream_Clip: {fileID: 8300000, guid: 64299035385fd9a428a5a8e3c4ecc7ee, type: 3}
   die_Clip: {fileID: 8300000, guid: cc5d0701b7e264a488ef8b8a3bff299e, type: 3}
   attack_Clips:

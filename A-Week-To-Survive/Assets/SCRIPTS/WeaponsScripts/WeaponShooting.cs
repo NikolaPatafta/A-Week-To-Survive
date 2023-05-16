@@ -99,6 +99,8 @@ public class WeaponShooting : MonoBehaviour
                 healthScript.ApplyDamage(currentWeapon.damage);
                 //Spawn blood particles
                 SpawnBloodParticles(hit.point, hit.normal);
+                EnemyController enemyController = hit.transform.GetComponent<EnemyController>();
+                enemyController.CallPlayZombieHurtSound();
             }
         }
     }

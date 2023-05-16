@@ -764,6 +764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cbca5f23ddb894c848bda8729f6d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hurtClips:
+  - {fileID: 8300000, guid: 8a8209b3ad6d488428fd3d1f9107fb2f, type: 3}
+  - {fileID: 8300000, guid: 971a39f00e08d5c43822450e3616fc26, type: 3}
   scream_Clip: {fileID: 8300000, guid: 57e83485ea31f7e4c94eac5a08da8302, type: 3}
   die_Clip: {fileID: 8300000, guid: cc5d0701b7e264a488ef8b8a3bff299e, type: 3}
   attack_Clips:
@@ -2582,15 +2585,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navAgent: {fileID: 20628216}
+  enemyDestructible: {fileID: 0}
   walk_Speed: 0.5
   run_Speed: 3
   chase_Distance: 25
   attack_Distance: 1.8
   chase_After_Attack_Distance: 0.5
+  currentState: 0
   patrol_Radius_Min: 20
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
   wait_Before_Attack: 1.6
+  target: {fileID: 0}
   attack_Point: {fileID: 1432349247}
 --- !u!114 &7627058085262546102
 MonoBehaviour:

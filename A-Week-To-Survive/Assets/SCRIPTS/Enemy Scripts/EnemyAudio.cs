@@ -7,14 +7,25 @@ public class EnemyAudio : MonoBehaviour
     private AudioSource audioSource;
 
     [SerializeField]
+    private AudioClip[] hurtClips;
+
+    [SerializeField]
     private AudioClip scream_Clip, die_Clip;
 
     [SerializeField]
     private AudioClip[] attack_Clips;
 
+    private float time;
+    private float timedifference = 1.5f;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;  
     }
 
     public void Play_ScreamSound()
@@ -33,6 +44,17 @@ public class EnemyAudio : MonoBehaviour
     {
         audioSource.clip = die_Clip;
         audioSource.Play();
+    }
+
+    public void PlayZombieHurtSound()
+    {
+        if(time > timedifference)
+        {
+            audioSource.clip = hurtClips[Random.Range(0, hurtClips.Length)];
+            audioSource.Play();
+            time = 0;
+        }
+        
     }
 
 

@@ -265,6 +265,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void CallPlayZombieHurtSound()
+    {
+        enemy_Audio.PlayZombieHurtSound();
+    }
+
     public EnemyState Enemy_State
     {
         //dozvoljava
