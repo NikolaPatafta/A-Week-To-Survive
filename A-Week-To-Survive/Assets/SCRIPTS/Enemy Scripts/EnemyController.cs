@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private EnemyDestructible enemyDestructible;
 
+    public DayAndNightSystem dayAndNightSystem;
+    private bool isitDay = false;
+
+
     private EnemyState enemy_State;
 
     public float walk_Speed = 0.5f;
@@ -82,6 +86,8 @@ public class EnemyController : MonoBehaviour
 
         //zapamti vrijednost od chase_distance kako bi je mogli vratiti
         current_Chase_Distance = chase_Distance;
+
+        //dayAndNightSystem = FindObjectOfType<DayAndNightSystem>();
 
     }
 
@@ -229,7 +235,23 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Target: " + target);
         
 
-    }*/
+    } Find Barrier*/
+
+    void ChangeZombieSpeed()
+    {
+        if (isitDay != dayAndNightSystem.isDay)
+        {
+            run_Speed /= 2;
+            isitDay = true;
+        }
+        else 
+        {
+            run_Speed *= 2;
+            isitDay = false;
+        }
+
+    }
+
 
 
 

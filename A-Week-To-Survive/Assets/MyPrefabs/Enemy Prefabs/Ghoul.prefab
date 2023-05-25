@@ -1084,9 +1084,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navAgent: {fileID: 2953975360368304130}
   enemyDestructible: {fileID: 0}
+  dayAndNightSystem: {fileID: 0}
   walk_Speed: 3
   run_Speed: 6
-  chase_Distance: 25
+  chase_Distance: 200
   attack_Distance: 2
   chase_After_Attack_Distance: 0.5
   currentState: 0
@@ -1108,7 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c6ec5512a004c4f9ec8d8454bd4c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 204
+  health: 208
   is_Player: 0
   is_Boar: 0
   is_Cannibal: 1

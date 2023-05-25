@@ -38,6 +38,10 @@ public class DayAndNightSystem : MonoBehaviour
         {
             currentTime = 150f;
         }
+        else if(dayLengthMinutes == 0.5)
+        {
+            currentTime = 7.5f;
+        }
         
     }
 
