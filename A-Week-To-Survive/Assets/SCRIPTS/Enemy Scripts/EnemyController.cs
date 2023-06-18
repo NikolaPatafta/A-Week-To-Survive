@@ -56,8 +56,6 @@ public class EnemyController : MonoBehaviour
     private EnemyAudio enemy_Audio;
 
 
-
-
     void Awake()
     {
         //stanja enemy_Anim su imena animacija u Inspektoru za animacije

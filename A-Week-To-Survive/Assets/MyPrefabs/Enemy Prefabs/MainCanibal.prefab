@@ -1423,6 +1423,7 @@ GameObject:
   - component: {fileID: 1371402848328619537}
   - component: {fileID: 2387985967075887711}
   - component: {fileID: 7487887322863210984}
+  - component: {fileID: 42704011}
   m_Layer: 10
   m_Name: MainCanibal
   m_TagString: Enemy
@@ -1591,6 +1592,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5862427, y: 1.81155, z: 0.44274902}
   m_Center: {x: -0.033294678, y: 0.9019955, z: -0.026397705}
+--- !u!114 &42704011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836638480158008640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f19788657758b343a837c3f44a2c995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 7
+  angle: 100
+  player: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 32768
+  canSeePlayer: 0
 --- !u!1 &1836638480158008642
 GameObject:
   m_ObjectHideFlags: 0
