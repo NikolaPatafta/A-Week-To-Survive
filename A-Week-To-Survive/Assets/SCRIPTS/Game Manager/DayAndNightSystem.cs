@@ -24,6 +24,8 @@ public class DayAndNightSystem : MonoBehaviour
     private SpawnHordeZombies spawnHordeZombies;
     [SerializeField]
     private HealthScript healthScript;
+    [SerializeField]
+    private UIManager uiManager;
 
     // Start is called before the first frame update
     void Start()
@@ -48,44 +50,46 @@ public class DayAndNightSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!healthScript.IsDead())
+        if (!uiManager.isPaused)
         {
-            currentTime += Time.deltaTime;
-            translateTime = (currentTime / (midday * 2));
-
-            float t = translateTime * 24f;
-
-            float hours = Mathf.Floor(t);
-            currentHours = hours;
-
-            string displayHours = hours.ToString();
-
-            if (hours >= 24)
+            if (!healthScript.IsDead())
             {
-                displayHours = (hours - 24).ToString();
+                currentTime += Time.deltaTime;
+                translateTime = (currentTime / (midday * 2));
+
+                float t = translateTime * 24f;
+
+                float hours = Mathf.Floor(t);
+                currentHours = hours;
+
+                string displayHours = hours.ToString();
+
+                if (hours >= 24)
+                {
+                    displayHours = (hours - 24).ToString();
+                }
+
+                t *= 60;
+                float minutes = Mathf.Floor(t % 60);
+                string displayMinutes = minutes.ToString();
+                if (minutes < 10)
+                {
+                    displayMinutes = "0" + minutes.ToString();
+                }
+
+                DaytoSpawnHorde();
+
+                CheckDayTime();
+
+                string displayTime = "Day: " + day + " Time: " + displayHours + ":" + displayMinutes;
+
+                timeText.text = displayTime;
+
+                transform.Rotate(new Vector3(1, 0, 0) * rotationSpeed * Time.deltaTime);
+
             }
-
-            t *= 60;
-            float minutes = Mathf.Floor(t % 60);
-            string displayMinutes = minutes.ToString();
-            if (minutes < 10)
-            {
-                displayMinutes = "0" + minutes.ToString();
-            }
-
-            DaytoSpawnHorde();
-
-            CheckDayTime();
-
-            string displayTime = "Day: " + day + " Time: " + displayHours + ":" + displayMinutes;
-
-            timeText.text = displayTime;
-
-            transform.Rotate(new Vector3(1, 0, 0) * rotationSpeed * Time.deltaTime);
-
-        }
+        }  
     }
-
 
     private void CheckDayTime()
     {

@@ -158,6 +158,7 @@ public class HealthScript : MonoBehaviour
             GetComponent<WeaponShooting>().enabled = false;
 
             //UiManager ako je player dead
+            uiManager.isPaused = true;   
             uiManager.SetActiveHud(false);
 
         }

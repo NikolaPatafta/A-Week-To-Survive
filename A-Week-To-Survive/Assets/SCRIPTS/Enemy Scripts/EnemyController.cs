@@ -20,6 +20,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private EnemyDestructible enemyDestructible;
 
+    [SerializeField]
+    private UIManager uIManager;
+
     public DayAndNightSystem dayAndNightSystem;
     private bool isitDay = false;
 
@@ -68,6 +71,7 @@ public class EnemyController : MonoBehaviour
 
         //dohvati audio skriptu
         enemy_Audio = GetComponentInChildren<EnemyAudio>();
+        uIManager = GameObject.FindWithTag(Tags.PLAYER_TAG).GetComponent<UIManager>();
 
         currentState = navAgent.pathPending;
     }
@@ -92,20 +96,21 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-
-       if(enemy_State == EnemyState.PATROL)
-       {
-            Patrol();
-       } 
-       if (enemy_State == EnemyState.CHASE)
-       {
-            Chase();
-       }
-       if(enemy_State == EnemyState.ATTACK)
-       {
-            Attack();
-       }
-
+        if(!uIManager.isPaused) 
+        {
+            if (enemy_State == EnemyState.PATROL)
+            {
+                Patrol();
+            }
+            if (enemy_State == EnemyState.CHASE)
+            {
+                Chase();
+            }
+            if (enemy_State == EnemyState.ATTACK)
+            {
+                Attack();
+            }
+        }
     }
 
 

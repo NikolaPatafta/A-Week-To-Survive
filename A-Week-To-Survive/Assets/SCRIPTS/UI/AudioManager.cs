@@ -14,14 +14,14 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        StopDayAudio();
-        StopNightAudio();
+        FirstStopDayAudio();
+        FirstStopNightAudio();
     }
 
     void Update()
     {
 
-        if (Time.timeScale != 0)
+        if (!uiManager.isPaused)
         {
             if (dayTime.isDay)
             {
@@ -54,7 +54,7 @@ public class AudioManager : MonoBehaviour
 
     public void StopDayAudio()
     {
-        dayAudioSource.Stop();
+        dayAudioSource.Pause();
     }
     public void PlayNightAudio()
     {
@@ -62,6 +62,16 @@ public class AudioManager : MonoBehaviour
     }
 
     public void StopNightAudio()
+    {
+        nightAudioSource.Pause();
+    }
+
+    public void FirstStopDayAudio()
+    {
+        dayAudioSource.Stop();
+    }
+
+    public void FirstStopNightAudio()
     {
         nightAudioSource.Stop();
     }

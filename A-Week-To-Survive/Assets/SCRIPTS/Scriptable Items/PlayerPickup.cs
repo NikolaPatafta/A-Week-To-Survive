@@ -1,29 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
-    [SerializeField]
-    private float pickupRange;
-    [SerializeField]
-    private LayerMask pickupLayer;
+    [SerializeField] private float pickupRange;
+    [SerializeField] private LayerMask pickupLayer;
+    [SerializeField] private Camera cam;
+    [SerializeField] private TextMeshProUGUI textMeshPro;
+    [SerializeField] private InventoryManager inventoryManager;
 
-    private Camera cam;
-
-    [SerializeField]
-    private InventoryManager inventoryManager;
+    private float picturealpha;
 
     private void Start()
     {
-        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        picturealpha = textMeshPro.color.a;
     }
 
 
     private void Update()
     {
-        
+        RayCastPickupWeapons();
         if (Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
@@ -57,6 +56,29 @@ public class PlayerPickup : MonoBehaviour
             }
         }
         Destroy(hit.transform.gameObject);
+    }
+
+    private void RayCastPickupWeapons()
+    {
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, pickupRange, pickupLayer))
+        {
+            string currentWeapon = hit.transform.GetComponent<ItemObject>().item.name;
+            textMeshPro.text = "Pickup: " + currentWeapon;
+            if (picturealpha <= 0)
+            {
+                picturealpha -= (Time.deltaTime / 10);
+                textMeshPro.color -= new Color(0, 0, 0, picturealpha);
+            }
+        }
+        else
+        {
+
+            textMeshPro.color = new Color(255, 255, 255, 0);
+            picturealpha = 0;
+        }
     }
 
 }

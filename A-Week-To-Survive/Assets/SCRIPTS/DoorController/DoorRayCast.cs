@@ -6,18 +6,16 @@ using UnityEngine;
 public class DoorRayCast : MonoBehaviour
 {
     [SerializeField] private float doorActionRange = 1.8f;
-
     [SerializeField] private LayerMask doorMask;
-
     [SerializeField] private Camera cam;
-
     [SerializeField] private TextMeshProUGUI textMeshPro;
-
+    
     private float picturealpha;
+    private string interactButton = "E";
 
     private void Start()
     {
-        picturealpha = textMeshPro.color.a;    
+        picturealpha = textMeshPro.color.a;
     }
 
     private void Update()
@@ -41,7 +39,8 @@ public class DoorRayCast : MonoBehaviour
         RaycastHit hit;
 
         if(Physics.Raycast(ray, out hit, doorActionRange, doorMask))
-        {       
+        {
+            textMeshPro.text = "Interact '" + interactButton + "'";
             if(picturealpha <= 0)
             {
                 picturealpha -= (Time.deltaTime / 10);
