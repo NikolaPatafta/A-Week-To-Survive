@@ -71,7 +71,7 @@ public class EnemyController : MonoBehaviour
 
         //dohvati audio skriptu
         enemy_Audio = GetComponentInChildren<EnemyAudio>();
-        uIManager = GameObject.FindWithTag(Tags.PLAYER_TAG).GetComponent<UIManager>();
+        uIManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
 
         currentState = navAgent.pathPending;
     }

@@ -26,14 +26,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject pauseScreenButtons;
 
+    [SerializeField]
     private HealthScript checkifDead;
 
     private CameraController camController = null;
-
-    private void Awake()
-    {
-        checkifDead= GetComponent<HealthScript>();
-    }
 
     private void Start()
     {
@@ -88,9 +84,13 @@ public class UIManager : MonoBehaviour
         Time.timeScale = state ? 0 : 1;
      
         isPaused = state;
-        if (!isPaused)
+        if (isPaused)
         {
             LockCursor();
+        }
+        else
+        {
+            UnlockCursor();
         }
 
     }

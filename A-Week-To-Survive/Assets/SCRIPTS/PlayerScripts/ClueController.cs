@@ -10,14 +10,13 @@ public class ClueController : MonoBehaviour
     [SerializeField] GameObject CluesCanvas;
     [SerializeField] TextMeshProUGUI textMeshPro;
     [SerializeField] TextMeshProUGUI skipText;
+    [SerializeField] private UIManager uiManager;
 
-    private UIManager uiManager;
     private float pictureAlpha1 = 0f;
     private float pictureAlpha2 = 0f;
 
     private void Start()
     {
-        uiManager = GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).GetComponent<UIManager>();
         pictureAlpha1 = Background.color.a;
         pictureAlpha2 = textMeshPro.color.a;
     }
@@ -35,6 +34,7 @@ public class ClueController : MonoBehaviour
                 textMeshPro.color -= new Color(0, 0, 0, pictureAlpha2);
                 if(pictureAlpha2 <= -0.15f)
                 {
+                    uiManager.gameObject.SetActive(true);
                     SkipText();
                 }
             }
@@ -45,7 +45,7 @@ public class ClueController : MonoBehaviour
     {
         skipText.color = new Color(0, 0, 0, 1);
         if (Input.GetKeyDown(KeyCode.Space))
-        {
+        {       
             CluesCanvas.gameObject.SetActive(false);
             uiManager.isPaused = false;
         }

@@ -9,6 +9,7 @@ public class CluePickup : MonoBehaviour
     [SerializeField] LayerMask clueMask;
     [SerializeField] TextMeshProUGUI textMeshPro;
     [SerializeField] UIManager uiManager;
+    [SerializeField] GameObject ClueGameObject;
     private string ClueTag_1 = "Clue_1";
     private string ClueTag_2 = "Clue_2";
     private string ClueTag_3 = "Clue_3";
@@ -29,12 +30,14 @@ public class CluePickup : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, pickupRange, clueMask))
         {
-            Debug.Log("Found: " + hit.transform.name);
-            if (picturealpha <= 0)
+            if (hit.transform.CompareTag(ClueTag_1))
             {
-                picturealpha -= (Time.deltaTime / 10);
-                textMeshPro.color -= new Color(0, 0, 0, picturealpha);
-            }    
+                if (picturealpha <= 0)
+                {
+                    picturealpha -= (Time.deltaTime / 10);
+                    textMeshPro.color -= new Color(0, 0, 0, picturealpha);
+                }
+            }           
         }
         else
         {
@@ -44,7 +47,9 @@ public class CluePickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            uiManager.isPaused = true;  
+            uiManager.isPaused = true; 
+            ClueGameObject.gameObject.SetActive(true);
+            uiManager.gameObject.SetActive(false);
         }
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(CheckForClues());
