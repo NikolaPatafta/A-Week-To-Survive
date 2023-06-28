@@ -7,20 +7,21 @@ public class CluePickup : MonoBehaviour
 {
     [SerializeField] Camera cam;
     [SerializeField] LayerMask clueMask;
-    [SerializeField] TextMeshProUGUI textMeshPro;
+    [SerializeField] TextMeshProUGUI interactText;
     [SerializeField] UIManager uiManager;
     [SerializeField] GameObject ClueGameObject;
-    private string ClueTag_1 = "Clue_1";
-    private string ClueTag_2 = "Clue_2";
-    private string ClueTag_3 = "Clue_3";
 
-    private float pickupRange = 10f;
+    [SerializeField]
+    private string[] clueList;   
+
+    private float pickupRange = 5f;
     private float picturealpha;
+    private int clueListCounter = 0;
 
     private void Start()
     {
         StartCoroutine(CheckForClues());
-        picturealpha = textMeshPro.color.a;
+        picturealpha = interactText.color.a;
         
     }
 
@@ -30,27 +31,32 @@ public class CluePickup : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, pickupRange, clueMask))
         {
-            if (hit.transform.CompareTag(ClueTag_1))
+            Debug.Log("Raycasting!");
+            if (hit.transform.CompareTag(clueList[clueListCounter]))
             {
+                Debug.Log("Found tag: " + clueList[clueListCounter]);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    clueListCounter++;
+                    uiManager.isPaused = true;
+                    ClueGameObject.gameObject.SetActive(true);
+                    uiManager.gameObject.SetActive(false);
+                }
+                
                 if (picturealpha <= 0)
                 {
+                    Debug.Log("Changing picture properties!");
                     picturealpha -= (Time.deltaTime / 10);
-                    textMeshPro.color -= new Color(0, 0, 0, picturealpha);
+                    interactText.color -= new Color(0, 0, 0, picturealpha);
                 }
             }           
         }
         else
         {
-            textMeshPro.color = new Color(255, 255, 255, 0);
+            interactText.color = new Color(255, 255, 255, 0);
             picturealpha = 0;
         }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            uiManager.isPaused = true; 
-            ClueGameObject.gameObject.SetActive(true);
-            uiManager.gameObject.SetActive(false);
-        }
+        
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(CheckForClues());
     }

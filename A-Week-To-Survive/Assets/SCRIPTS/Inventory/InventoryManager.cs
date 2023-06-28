@@ -10,16 +10,17 @@ public class InventoryManager : MonoBehaviour
     public GameObject Hotbar;
     public GameObject Inventory;
     public GameObject Crosshair;
+    
     public Items currentlySelectedItem;
     public InventorySlot inventorySlot;
+    public UIManager uiManager;
 
     public GameObject player;
-
-    private Camera cam;
 
     public GameObject inventoryItemPrefab;
 
     public int maxStackOnItems = 5;
+    public bool isInventoryOn;
 
     [SerializeField]
     private WeaponShooting weaponShooting;
@@ -64,16 +65,21 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void TurnInventoryOfforOn(bool state)
+    public void TurnInventoryOfforOn(bool state)
     {
         Inventory.SetActive(state);
         Crosshair.SetActive(!state);
         Cursor.visible = state;
-        if(!state) 
+        isInventoryOn = state;
+
+        if (!isInventoryOn && !uiManager.isPaused)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            uiManager.LockCursor();
         }
-        else Cursor.lockState = CursorLockMode.None;
+        else if (isInventoryOn && !uiManager.isPaused)
+        {
+            uiManager.UnlockCursor();
+        }
         
         player.GetComponent<WeaponShooting>().enabled = !state;   
     }

@@ -23,7 +23,6 @@ public class ClueController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("PictureAl " + pictureAlpha1);
         if (pictureAlpha1 <= 0)
         {
             pictureAlpha1 -= (Time.deltaTime / 30);

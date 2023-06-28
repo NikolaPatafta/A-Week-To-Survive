@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -29,17 +30,18 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private HealthScript checkifDead;
 
-    private CameraController camController = null;
+    [SerializeField]
+    private InventoryManager invManager;
+
 
     private void Start()
     {
         SetActiveHud(true);
-        camController= GetComponentInChildren<CameraController>();
     }
 
     private void Update()
     {
-
+        Debug.Log(Cursor.lockState);
         if (!checkifDead.IsDead())
         {
             
@@ -57,7 +59,6 @@ public class UIManager : MonoBehaviour
         }
         else if (checkifDead.IsDead())
         {
-            //MuteOrPlayAudio(true);
             UnlockCursor();
         }
        
@@ -84,11 +85,16 @@ public class UIManager : MonoBehaviour
         Time.timeScale = state ? 0 : 1;
      
         isPaused = state;
-        if (isPaused)
+        if (!isPaused && !invManager.isInventoryOn)
         {
             LockCursor();
         }
-        else
+        else if (!isPaused && invManager.isInventoryOn)
+        { 
+            invManager.TurnInventoryOfforOn(false);
+            LockCursor();         
+        }
+        else if (isPaused)
         {
             UnlockCursor();
         }
@@ -114,7 +120,6 @@ public class UIManager : MonoBehaviour
     public void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
     }
 
     public void UnlockCursor()
@@ -136,21 +141,6 @@ public class UIManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
-    }
-
-    void MuteOrPlayAudio(bool audiostatus)
-    {
-
-        if(audiostatus)
-        {
-            audioManager.StopDayAudio();
-            audioManager.StopNightAudio();
-        }
-        else
-        {
-            audioManager.PlayDayAudio();
-            audioManager.StopNightAudio();
-        }
     }
 
   
