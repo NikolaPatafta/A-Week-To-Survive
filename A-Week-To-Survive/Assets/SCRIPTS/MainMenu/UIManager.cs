@@ -41,7 +41,6 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Cursor.lockState);
         if (!checkifDead.IsDead())
         {
             
