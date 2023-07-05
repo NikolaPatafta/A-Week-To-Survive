@@ -26,12 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveThePlayer()
     {
-        //Skripta TagHolder -> Klasa Axis
         move_Direction = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
 
         //Transform iz lokalne var u world space
         move_Direction = transform.TransformDirection(move_Direction);
-        move_Direction *= speed * Time.deltaTime; //deltaTime - vremenski razmak izmedju framova
+        //deltaTime - vremenski razmak izmedju framova
+        move_Direction *= speed * Time.deltaTime; 
 
         ApplyGravity();
         character_Controller.Move(move_Direction);
