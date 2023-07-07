@@ -28,7 +28,16 @@ public class DoorRayCast : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, doorActionRange, doorMask))
             {
-                CallAnimation(hit.transform);
+                if(hit.transform.tag != "Key")
+                {
+                    CallAnimation(hit.transform);
+                }
+                else if (hit.collider.tag == "Key")
+                {
+                    //play audio line
+                    hit.transform.gameObject.SetActive(false);
+                }
+
             }
         }
     }
@@ -46,7 +55,7 @@ public class DoorRayCast : MonoBehaviour
                 picturealpha -= (Time.deltaTime / 10);
                 textMeshPro.color -= new Color(0, 0, 0, picturealpha);
             }   
-        }
+        }   
         else
         {
 

@@ -31,7 +31,6 @@ public class CluePickup : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, pickupRange, clueMask))
         {
-            Debug.Log("Raycasting!");
             if (hit.transform.CompareTag(clueList[clueListCounter]))
             {
                 Debug.Log("Found tag: " + clueList[clueListCounter]);
