@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
 
-        if (!uiManager.isPaused)
+        if (!uiManager.isPaused && !uiManager.isCutScenePlaying)
         {
             if (dayTime.isDay)
             {

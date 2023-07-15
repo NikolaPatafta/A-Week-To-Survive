@@ -75,6 +75,7 @@
     <Compile Include="Assets\NatureAssets\HDRP_Oak_Tree\Scripts\Offer\LightingTools_Offer.cs" />
     <Compile Include="Assets\SCRIPTS\Game Manager\EnemyManager.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\MainMenuAudioManager.cs" />
+    <Compile Include="Assets\SCRIPTS\CutScenes Trigger Scripts\CutScene Controller.cs" />
     <Compile Include="Assets\SCRIPTS\Scenes\MainMenuSceneLoader.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayPlayerSound.cs" />
     <Compile Include="Assets\BuildingAssets\FurnishedCabin\Scripts\MoveObjectController.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\UIElementController.cs" />
     <Compile Include="Assets\BuildingAssets\FreeOpenBuilding_1.1.2\FOB_1\Scripts\DoorMech.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\MouseLook.cs" />
+    <Compile Include="Assets\SCRIPTS\CutScenes Trigger Scripts\CutSceneTrigger.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerSprintAndCrouch.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\AnimationItemData.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyAudio.cs" />
@@ -811,6 +813,9 @@
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
@@ -891,6 +896,9 @@
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>

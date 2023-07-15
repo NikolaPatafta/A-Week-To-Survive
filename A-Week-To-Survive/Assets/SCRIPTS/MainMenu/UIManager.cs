@@ -8,9 +8,10 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public bool isPaused = false;
+    public bool isCutScenePlaying = false;
 
     [SerializeField]
-    private GameObject hudCanvas = null;
+    private GameObject playerCanvas = null;
 
     [SerializeField]
     private GameObject pauseCanvas = null;
@@ -43,18 +44,25 @@ public class UIManager : MonoBehaviour
     {
         if (!checkifDead.IsDead())
         {
+            if (!isCutScenePlaying)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+                {
+                    SetActivePause(true);
+                }
+                else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+                {
+
+                    SetActivePause(false);
+                    OptionsBackButton();
+                }
+            }
+            else
+            {
+                playerCanvas.SetActive(false);
+            }
             
-            if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
-            {
-                SetActivePause(true);
-
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
-            {
-
-                SetActivePause(false);
-                OptionsBackButton();
-            }
+            
         }
         else if (checkifDead.IsDead())
         {
@@ -67,7 +75,7 @@ public class UIManager : MonoBehaviour
     public void SetActiveHud(bool state)
     {
 
-        hudCanvas.SetActive(state);
+        playerCanvas.SetActive(state);
         endCanvas.SetActive(!state);
         if (!checkifDead.IsDead())
         {
@@ -76,22 +84,28 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void CutSceneIsPlaying(bool state)
+    {
+        playerCanvas.SetActive(!state);
+        isCutScenePlaying = state;
+    }
+
     public void SetActivePause(bool state)
     {
         pauseCanvas.SetActive(state);
-        hudCanvas.SetActive(!state);
+        playerCanvas.SetActive(!state);
 
         Time.timeScale = state ? 0 : 1;
-     
+
         isPaused = state;
         if (!isPaused && !invManager.isInventoryOn)
         {
             LockCursor();
         }
         else if (!isPaused && invManager.isInventoryOn)
-        { 
+        {
             invManager.TurnInventoryOfforOn(false);
-            LockCursor();         
+            LockCursor();
         }
         else if (isPaused)
         {

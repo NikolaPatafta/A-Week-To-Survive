@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79cb9ecc0d4a6d428ab98a681a33897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAreaShownRange: {x: -0.73193383, y: 75.80617}
+  timeAreaShownRange: {x: -0.6815504, y: 75.85656}
   trackScale: 1
   playRangeEnabled: 0
-  timeAreaPlayRange: {x: 3.4028235e+38, y: 3.4028235e+38}
-  windowTime: 35.39524989143635
+  windowTime: 1.4
   verticalScroll: 0
-  showMarkerHeader: 1
   sequencerHeaderWidth: 315
+  m_TimeAreaPlayRange:
+    start: 3.4028234663852886e+38
+    end: 3.4028234663852886e+38
   m_Keys:
   - {fileID: -1734058649802259391, guid: 82863e62ad9f48c4a9fe334c890f7564, type: 2}
   - {fileID: -8725317853718350202, guid: 82863e62ad9f48c4a9fe334c890f7564, type: 2}
@@ -37,6 +38,7 @@ MonoBehaviour:
   - {fileID: 990363605742584182, guid: 82863e62ad9f48c4a9fe334c890f7564, type: 2}
   - {fileID: 7487557087428875116, guid: 82863e62ad9f48c4a9fe334c890f7564, type: 2}
   - {fileID: 6385734186800720189, guid: 82863e62ad9f48c4a9fe334c890f7564, type: 2}
+  - {fileID: 2506814555191015043, guid: 82863e62ad9f48c4a9fe334c890f7564, type: 2}
   m_Vals:
   - collapsed: 0
     showMarkers: 1
@@ -614,3 +616,41 @@ MonoBehaviour:
     trackHeightExtension: 0
     m_MarkerTimeStampsKeys: 
     m_MarkerTimeStampsValues: 
+  - collapsed: 1
+    showMarkers: 1
+    showInlineCurves: 0
+    inlineAnimationCurveHeight: 100
+    lastInlineCurveDataID: -1
+    inlineCurvesState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    inlineCurvesShownAreaInsideMargins:
+      serializedVersion: 2
+      x: 1
+      y: 1
+      width: 1
+      height: 1
+    trackHeightExtension: 0
+    m_MarkerTimeStampsKeys: 
+    m_MarkerTimeStampsValues: 
+  m_Version: 1
+  deprecated_timeAreaPlayRange: {x: 3.4028235e+38, y: 3.4028235e+38}

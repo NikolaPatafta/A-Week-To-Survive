@@ -10,25 +10,10 @@ public class MouseLook : MonoBehaviour
 
     [SerializeField]
     private bool invert;
-
-
-    //Vidljiv ili nevidljiv cursor / crosshair
-    //private bool can_Unlock = true;
     
     [SerializeField]
-    private float sensitivity = 5f; //mouse sens
+    private float sensitivity = 5f; 
     
-    //[SerializeField]
-    //private int smooth_Steps = 10; //smooth korak
-
-    //SerializeField]
-    //private float roll_Speed = 3f;
-
-    //[SerializeField]
-    //private float smooth_Weight = 0.4f;
-
-    //[SerializeField]
-    //private float roll_Angle = 10f;
 
     [SerializeField]
     private Vector2 default_look_Limits = new Vector2(-70f, 80f);
@@ -50,34 +35,14 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LockAndUnlockCursor();
         if (Cursor.lockState == CursorLockMode.Locked) 
         {
             LookAround();
         }
     }
 
-    //unlocking and locking Cursor (vidljivost ili nevidljivost kursora)
-    void LockAndUnlockCursor()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(Cursor.lockState == CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible= false;
-            }
-        }
-
-    }
     void LookAround()
     {
-        //varijable spremljene u tag holder skripti za lakse snalazenje
-        //postavljamo varijablu Mouse_Y u Vector2 na mjesto X jer se rotira suprotno od smjera kretanja, isto tako i za Mouse_X
         current_Mouse_Look = new Vector2(Input.GetAxis(MouseAxis.MOUSE_Y), Input.GetAxis(MouseAxis.MOUSE_X)); 
 
         look_Angles.x += current_Mouse_Look.x * sensitivity * (invert ? 1f : -1f);   //if invert normalni look na mouse, if false onda obrnuto (if,else)
