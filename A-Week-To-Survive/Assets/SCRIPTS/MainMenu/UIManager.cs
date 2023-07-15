@@ -10,30 +10,14 @@ public class UIManager : MonoBehaviour
     public bool isPaused = false;
     public bool isCutScenePlaying = false;
 
-    [SerializeField]
-    private GameObject playerCanvas = null;
-
-    [SerializeField]
-    private GameObject pauseCanvas = null;
-
-    [SerializeField]
-    private GameObject endCanvas = null;
-
-    [SerializeField]
-    private AudioManager audioManager;
-
-    [SerializeField]
-    private GameObject optionsScreen;
-
-    [SerializeField]
-    private GameObject pauseScreenButtons;
-
-    [SerializeField]
-    private HealthScript checkifDead;
-
-    [SerializeField]
-    private InventoryManager invManager;
-
+    [SerializeField] private GameObject playerCanvas = null;
+    [SerializeField] private GameObject pauseCanvas = null;
+    [SerializeField] private GameObject endCanvas = null;
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private GameObject optionsScreen;
+    [SerializeField] private GameObject pauseScreenButtons;
+    [SerializeField] private HealthScript checkifDead;
+    [SerializeField] private InventoryManager invManager;
 
     private void Start()
     {
