@@ -5,13 +5,8 @@ using UnityEngine.UI;
 
 public class BloodScreenEffect : MonoBehaviour
 {
-    [SerializeField]
-    private Image bloodEffectImage;
-
-    [SerializeField]
-    private HealthScript healthScript;
-
-    //samo za pregled u inspektoru
+    [SerializeField] private Image bloodEffectImage;
+    [SerializeField] private HealthScript healthScript;
     private float currentHealth;
     private float temphealth;
 
@@ -19,7 +14,6 @@ public class BloodScreenEffect : MonoBehaviour
     {
         temphealth = healthScript.health;
     }
-
 
     public void ChangeAlpha()
     {

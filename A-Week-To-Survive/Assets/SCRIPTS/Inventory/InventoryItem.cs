@@ -41,7 +41,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
 
 
-    public void InitialiseItem(Items newItem)
+    public void InitialiseItem(Items newItem)   
     {
         item = newItem;
         image.sprite = newItem.icon;

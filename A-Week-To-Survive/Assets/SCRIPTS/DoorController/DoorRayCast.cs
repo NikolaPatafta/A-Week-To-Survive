@@ -9,6 +9,7 @@ public class DoorRayCast : MonoBehaviour
     [SerializeField] private LayerMask doorMask;
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI textMeshPro;
+    [SerializeField] private PlayPlayerSound playSound;
     
     private float picturealpha;
     private string interactButton = "E";
@@ -34,8 +35,8 @@ public class DoorRayCast : MonoBehaviour
                 }
                 else if (hit.collider.tag == "Key")
                 {
-                    //play audio line
-                    hit.transform.gameObject.SetActive(false);
+                    hit.transform.gameObject.GetComponent<KeyTrigger>().enabled = true;
+                    playSound.PlayThinkingSound();
                 }
 
             }

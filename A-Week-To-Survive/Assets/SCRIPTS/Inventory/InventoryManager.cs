@@ -22,8 +22,7 @@ public class InventoryManager : MonoBehaviour
     public int maxStackOnItems = 5;
     public bool isInventoryOn;
 
-    [SerializeField]
-    private WeaponShooting weaponShooting;
+    [SerializeField] private WeaponShooting weaponShooting;
 
     //boje 
     int selectedSlot = 0;
@@ -42,7 +41,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        //provjeravamo input od 1-7 za inventory slotove
         if(Input.inputString != null)
         {
             bool isNumber = int.TryParse(Input.inputString, out int number);
@@ -103,8 +101,10 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            //ako nije null i ako je isti item koji trazimo i manji od max numbera onda dodaj item na item (itemstack)
-            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackOnItems && itemInSlot.item.stackable == true)
+            //ako nije null i ako je isti item koji trazimo i manji od max numbera
+            //onda dodaj item na item (itemstack)
+            if (itemInSlot != null && itemInSlot.item == item && 
+                itemInSlot.count < maxStackOnItems && itemInSlot.item.stackable == true)
             {
                 if (item.type == ItemType.Ammo)
                 {
@@ -116,7 +116,7 @@ public class InventoryManager : MonoBehaviour
             }
 
         }
-        //Pronaði prazan slot
+        //Pronaði prazan utor
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             selectedInventorySlot = i;

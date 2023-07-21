@@ -16,7 +16,7 @@ public class CutSceneTrigger : MonoBehaviour
     public bool cutSceneWasPlayed = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (!cutSceneWasPlayed)
+        if (!cutSceneWasPlayed && other.tag.Equals("Player"))
         {
             equipmentManager.UnequipWeapon();
             cutScene.SetActive(true);

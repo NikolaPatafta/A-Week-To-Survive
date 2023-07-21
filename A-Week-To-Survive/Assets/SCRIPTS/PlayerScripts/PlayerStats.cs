@@ -14,20 +14,16 @@ public class PlayerStats : MonoBehaviour
     private WeaponUI weaponUI;
 
 
-    //Na slici (in-game) imamo fill amount od 0 do 1, zato dijelimo helath sa 100
     public void Display_HealthStats (float healthValue)
     {
         healthValue /= 100f;
-
         health_Stats.fillAmount= healthValue;
-
         Healthtext.text = (healthValue*100).ToString();
     }
 
     public void Display_StaminaStats(float staminaValue)
     {
         staminaValue /= 100f;
-
         stamina_Stats.fillAmount = staminaValue;
     }
 

@@ -23,16 +23,6 @@ public class PlayerPickup : MonoBehaviour
     private void Update()
     {
         RayCastPickupWeapons();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-            RaycastHit hit;
-
-            if(Physics.Raycast(ray, out hit, pickupRange, pickupLayer))
-            {
-                PickupWeapons(hit.transform);
-            }
-        }
     }
 
     private void PickupWeapons(Transform hit)
@@ -41,7 +31,6 @@ public class PlayerPickup : MonoBehaviour
         {
             Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
             inventoryManager.AddItem(newItem);
-
         }
         else
         {
@@ -72,10 +61,13 @@ public class PlayerPickup : MonoBehaviour
                 picturealpha -= (Time.deltaTime / 10);
                 textMeshPro.color -= new Color(0, 0, 0, picturealpha);
             }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PickupWeapons(hit.transform);
+            }
         }
         else
         {
-
             textMeshPro.color = new Color(255, 255, 255, 0);
             picturealpha = 0;
         }

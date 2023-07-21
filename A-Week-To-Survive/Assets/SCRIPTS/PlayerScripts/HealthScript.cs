@@ -11,7 +11,7 @@ public class HealthScript : MonoBehaviour
     private PlayPlayerSound playPlayerSound;
 
     public float health = 100f;
-    public bool is_Player, is_Boar, is_Cannibal;
+    public bool is_Player, is_Boar, is_Zombie;
     public CameraShake cameraShake;
 
     private bool is_Dead;
@@ -23,8 +23,7 @@ public class HealthScript : MonoBehaviour
     private EnemyStats enemy_Stats;
 
     //kontrole za deathscreen
-    [SerializeField]
-    private UIManager uiManager;
+    [SerializeField] private UIManager uiManager;
 
     [SerializeField]
     private BloodScreenEffect bloodScreenEffect;
@@ -33,14 +32,11 @@ public class HealthScript : MonoBehaviour
     {
         is_Dead = false;
 
-        if (is_Boar || is_Cannibal)
+        if (is_Boar || is_Zombie)
         {
             enemy_Anim = GetComponent<EnemyAnimatior>();
             enemy_Controller = GetComponent<EnemyController>();
             navAgent = GetComponent<NavMeshAgent>();
-
-
-            //get audio
             enemyAudio = GetComponentInChildren<EnemyAudio>();
             enemy_Stats = GetComponent<EnemyStats>();
 
@@ -60,7 +56,6 @@ public class HealthScript : MonoBehaviour
 
     public void ApplyDamage(float damage)
     {
-
         if (is_Dead)
         {
             return;
@@ -68,8 +63,7 @@ public class HealthScript : MonoBehaviour
         else
         {
             health -= damage;
-        }
-           
+        }      
         if (is_Player)
         {
             //display Health UI
@@ -78,22 +72,17 @@ public class HealthScript : MonoBehaviour
             StartCoroutine(cameraShake.Shake());
             bloodScreenEffect.ChangeAlpha();
         }
-
-        if (is_Boar || is_Cannibal)
+        if (is_Boar || is_Zombie)
         {
             enemy_Stats.Display_EnemyHealth(health);
-            //ako pogodimo enemy onda postavljamo chase distance na vecu distancu kako
-            //bi nas mogli pronaci
             if (enemy_Controller.Enemy_State == EnemyState.PATROL)
             {
                 enemy_Controller.chase_Distance = 50f;
             }
-
         }
         if (health <= 0f)
         {
             CheckWhoDied();
-
             is_Dead = true;
         }
     }
@@ -111,46 +100,33 @@ public class HealthScript : MonoBehaviour
 
     void CheckWhoDied()
     {
-
         if (!is_Player)
         {
             enemy_Anim.Dead();
-
             enemy_Controller.enabled = false;
             navAgent.enabled = false;
-            //enemy_Anim.enabled = false;
-
             StartCoroutine(DeadSound());
 
-            //zovi Enemy manager i spawnaj zombie
-            if (is_Cannibal)
+            if (is_Zombie)
             {
                 EnemyManager.instance.EnemyDied(true);
             }
             else
             {
                 EnemyManager.instance.EnemyDied(false);
-            }
-            
+            }    
             Invoke("TurnOffGameObject", 5f);
         }
 
-
         if (is_Player)
         {
-            //turn off enemies ako player umre (deaktiviraj skripte)
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
             for (int i = 0; i < enemies.Length; i++)
             {
-                Debug.Log("Enemies disabled: " + enemies[i].name);
                 enemies[i].GetComponent<EnemyController>().enabled = false;
             }
             EnemyManager.instance.StopSpawning();
-
-            //play player died sound
             playPlayerSound.PlayPlayerDeathSound();
-
             playerDied = true;
 
             GetComponent<PlayerMovement>().enabled = false;
@@ -160,9 +136,7 @@ public class HealthScript : MonoBehaviour
             //UiManager ako je player dead
             uiManager.isPaused = true;   
             uiManager.SetActiveHud(false);
-
         }
-
     }
         void TurnOffGameObject()
         {

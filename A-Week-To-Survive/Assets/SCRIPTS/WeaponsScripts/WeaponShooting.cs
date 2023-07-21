@@ -24,16 +24,11 @@ public class WeaponShooting : MonoBehaviour
     //***
 
     [SerializeField] private bool canShoot = true;
-    public bool canReload = true;
-
-    [SerializeField] private int[] CurrentAmmo;
+    public bool canReload = true; 
     [SerializeField] public GameObject[] inventorySlots;  
     [SerializeField] private int CurrentAmmoStorage = 0;
-
     [SerializeField] private bool weaponIsEmpty = false;
-
-    [SerializeField]
-    private Animator animator;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -65,7 +60,6 @@ public class WeaponShooting : MonoBehaviour
                     BowAttack();
                 }
             }
-
             else
             {
                 if (Input.GetKey(KeyCode.Mouse0))
@@ -108,11 +102,6 @@ public class WeaponShooting : MonoBehaviour
     private void Shoot(int slot)
     {
         CheckIfCanShoot(equipmentManager.selectedSlot);
-        if (CurrentAmmo[slot] <= 0)
-        {
-            weaponIsEmpty = true;
-        }
-
         if (canShoot && canReload)
         {
             Weapons currentWeapon = inventoryManager.GetCurrentlySelectedWeapon();
@@ -182,20 +171,24 @@ public class WeaponShooting : MonoBehaviour
     {
         if (canReload)
         {
+            
             InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
             int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - inventoryItem.ammoCount;
+            
             //ako imamo dovoljno municije za reload
-            if (CurrentAmmoStorage >= ammoToReload)
+            if (CurrentAmmoStorage >= ammoToReload && CurrentAmmoStorage !>= 0)
             {
+                       
                 //ako je magazine full
                 if (inventoryItem.ammoCount == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
                 {
                     Debug.Log("Magazine is already full!");
                     return;
                 }
-                animator.SetTrigger("Reload");
+                animator.SetTrigger("Reload");           
                 AddAmmo(slot, ammoToReload, 0);
                 UseAmmo(slot, 0, ammoToReload);
+
 
                 weaponIsEmpty = false;
                 CheckIfCanShoot(slot);
@@ -203,11 +196,11 @@ public class WeaponShooting : MonoBehaviour
             }//reload
             if (CurrentAmmoStorage < ammoToReload && CurrentAmmoStorage != 0)
             {
+                int finalReload = CurrentAmmoStorage;
                 animator.SetTrigger("Reload");
-                AddAmmo(slot, CurrentAmmoStorage, 0);
-                UseAmmo(slot, 0, CurrentAmmoStorage);
-                CurrentAmmoStorage = 0;
-                
+                AddAmmo(slot, finalReload, 0);
+                UseAmmo(slot, 0, finalReload);
+                CurrentAmmoStorage = 0;         
                 weaponIsEmpty = false;
                 CheckIfCanShoot(slot);
             }
@@ -216,8 +209,6 @@ public class WeaponShooting : MonoBehaviour
             {
                 Debug.Log("No ammo to reload!");
             }
-
-            
         }
         else Debug.Log("Cant reload at the momment!");
     }

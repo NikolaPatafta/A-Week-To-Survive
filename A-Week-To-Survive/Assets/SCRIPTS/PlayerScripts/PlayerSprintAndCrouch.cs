@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSprintAndCrouch : MonoBehaviour
 {
+    [SerializeField] CharacterController characterController;
     private PlayerMovement playerMovement; 
 
     public float sprint_Speed = 10f;
@@ -11,21 +12,21 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     public float crouch_Speed = 2f;
 
     private Transform look_Root;
-    private float stand_Height = 1.6f;
-    private float crouch_Height = 1f;
+    private float stand_Height = 1.8f;
+    private float crouch_Height = 1.6f;
 
     private bool isCrouching;
 
     private PlayerFootSteps player_FootSteps;
 
-    //Zvuk za footsteps
+    //Zvuk za korake
     private float sprint_Volume = 1f;
     private float crouch_Volume = 0.1f;
     private float walk_Volume_min = 0.2f;
     private float walk_Volume_max = 0.6f;
     //***
 
-    //Razmak izmedju footstep zvukova (u sekundama)
+    //Razmak izmedju koraka (u sekundama)
     private float walk_Step_Distance = 0.4f;
     private float sprint_Step_Distance = 0.25f;
     private float crouch_Step_Distance = 0.5f;
@@ -36,15 +37,11 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     private float sprint_Value = 100f;
     private float sprint_Treshold = 10f;
 
-    // Start is called before the first frame update
     void Awake()
     {
         playerMovement= GetComponent<PlayerMovement>(); 
-
-        look_Root = transform.GetChild(0); 
-        
+        look_Root = transform.GetChild(0);        
         player_FootSteps= GetComponentInChildren<PlayerFootSteps>();
-
         player_Stats = GetComponent<PlayerStats>();
     }
 
@@ -55,7 +52,6 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         player_FootSteps.step_Distance= walk_Step_Distance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Sprint(); 
@@ -64,8 +60,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     void Sprint()
     {
-        //ako imamo staminu onda trci
-        if(sprint_Value > 0f)
+
+        if (sprint_Value > 0f)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching && Input.GetKey(KeyCode.W))
             {
@@ -89,14 +85,14 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             player_FootSteps.volume_Min = walk_Volume_min;
             player_FootSteps.volume_Max = walk_Volume_max;
             //*** 
-            
+
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && !isCrouching && Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && Input.GetKey(KeyCode.W))
         {
             sprint_Value -= sprint_Treshold * Time.deltaTime;
 
-            if(sprint_Value <= 0f)
+            if (sprint_Value <= 0f)
             {
                 sprint_Value = 0f;
 
@@ -106,11 +102,10 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 player_FootSteps.volume_Max = walk_Volume_max;
                 WaitBeforeSprint();
             }
-            player_Stats.Display_StaminaStats(sprint_Value);
         }
         else
         {
-            if(sprint_Value != 100f)
+            if (sprint_Value != 100f)
             {
                 if (isCrouching)
                 {
@@ -120,15 +115,14 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 {
                     sprint_Value += (sprint_Treshold / 2f) * Time.deltaTime;
                 }
-                
-                player_Stats.Display_StaminaStats(sprint_Value);
 
-                if(sprint_Value > 100f)
+                if (sprint_Value > 100f)
                 {
                     sprint_Value = 100f;
                 }
             }
-        }
+        }   
+        player_Stats.Display_StaminaStats(sprint_Value);
 
     }//sprint
 
@@ -142,8 +136,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 look_Root.localPosition = new Vector3(0f, stand_Height, 0f);
                 playerMovement.speed = move_Speed;
 
-                isCrouching = false;  
-
+                isCrouching = false;
+                characterController.height = stand_Height;
             }
             //if not crouching - crouch
             else 
@@ -158,20 +152,14 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 //***
 
                 isCrouching = true;
-
+                characterController.height = crouch_Height;  
             }
 
         }
     }
 
-    void Moving()
-    {
-        //if(player is moving then use sprint bar)
-    }
-
     IEnumerator WaitBeforeSprint()
     {
         yield return new WaitForSeconds(2f);
-
     }
 }

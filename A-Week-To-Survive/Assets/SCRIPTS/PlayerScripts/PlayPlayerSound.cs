@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class PlayPlayerSound : MonoBehaviour
 {
-    public AudioSource[] playerAudioSources;
-    public AudioSource playerDeathSound;
+    public AudioClip[] playerHurtSources;
+    public AudioClip playerDeadSound;
+    public AudioClip playerThinkingSound;
+    public AudioSource playSpecificSound;
 
     public void PlayPlayerHurtSound()
     {
-        int i = 0;
-        i = Random.Range(0, playerAudioSources.Length);
-        playerAudioSources[i].Play();
+        playSpecificSound.clip = playerHurtSources[Random.Range(0, playerHurtSources.Length)];
+        playSpecificSound.Play();   
     }
 
     public void PlayPlayerDeathSound()
     {
-        playerDeathSound.Play();
+        playSpecificSound.clip = playerDeadSound;
+        playSpecificSound.Play();
+    }
+
+    public void PlayThinkingSound()
+    {
+        playSpecificSound.clip = playerThinkingSound;
+        playSpecificSound.Play();   
     }
 }
