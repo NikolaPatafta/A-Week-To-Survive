@@ -8,12 +8,13 @@ public class CameraShake : MonoBehaviour
     //private Camera fpCamera;
     //private Transform damage;
     private float duration = 0.15f;
+    public Camera cam;
 
     public IEnumerator Shake()
     {
         if(Time.timeScale != 0)
         {
-            Quaternion originalPos = transform.localRotation;
+            Quaternion originalPos = cam.transform.localRotation;
 
             float elapsed = 0f;
 
@@ -21,13 +22,13 @@ public class CameraShake : MonoBehaviour
             {
                 float z = Random.Range(3f, 5f);
 
-                transform.localRotation = Quaternion.Euler(originalPos.x, originalPos.y, z);
+                cam.transform.localRotation = Quaternion.Euler(originalPos.x, originalPos.y, z);
 
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
         }   
     }

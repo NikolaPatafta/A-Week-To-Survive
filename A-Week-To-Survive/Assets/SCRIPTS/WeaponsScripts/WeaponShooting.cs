@@ -90,7 +90,7 @@ public class WeaponShooting : MonoBehaviour
             if(hit.transform.tag == "Enemy")
             {
                 HealthScript healthScript = hit.transform.GetComponent<HealthScript>();
-                healthScript.ApplyDamage(currentWeapon.damage);
+                healthScript.ApplyDamage(currentWeapon.damage, hit.transform);
                 //Spawn blood particles
                 SpawnBloodParticles(hit.point, hit.normal);
                 EnemyController enemyController = hit.transform.GetComponent<EnemyController>();

@@ -54,7 +54,7 @@ public class HealthScript : MonoBehaviour
         return playerDied;
     }
 
-    public void ApplyDamage(float damage)
+    public void ApplyDamage(float damage, Transform target)
     {
         if (is_Dead)
         {
@@ -82,7 +82,7 @@ public class HealthScript : MonoBehaviour
         }
         if (health <= 0f)
         {
-            CheckWhoDied();
+            CheckWhoDied(target);
             is_Dead = true;
         }
     }
@@ -98,10 +98,11 @@ public class HealthScript : MonoBehaviour
         bloodScreenEffect.ChangeAlpha();
     }
 
-    void CheckWhoDied()
+    void CheckWhoDied(Transform target)
     {
         if (!is_Player)
         {
+            target.transform.GetComponent<BoxCollider>().enabled = false;   
             enemy_Anim.Dead();
             enemy_Controller.enabled = false;
             navAgent.enabled = false;

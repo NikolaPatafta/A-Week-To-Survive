@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using TMPro.EditorUtilities;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class DayAndNightSystem : MonoBehaviour
 {
     public float currentTime;
     public float dayLengthMinutes;
-    public Text timeText;
+    public TextMeshProUGUI timeText;
     //public TextMeshProUGUI textMeshPro;
     
     private float rotationSpeed;

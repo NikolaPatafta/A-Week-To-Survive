@@ -45,7 +45,7 @@ public class ArrowAndBowScript : MonoBehaviour
         //nakon dodira s gameobjektom dekativiramo game object
         if(target.tag == Tags.ENEMY_TAG)
         {
-            target.GetComponent<HealthScript>().ApplyDamage(damage);
+            target.GetComponent<HealthScript>().ApplyDamage(damage, target.transform);
             
             Destroy(gameObject);
         }
