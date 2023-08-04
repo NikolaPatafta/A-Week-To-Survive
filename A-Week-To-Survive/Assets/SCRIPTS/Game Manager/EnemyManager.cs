@@ -7,19 +7,13 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager instance;
 
-    [SerializeField]
-    private GameObject boar_Prefab, zombie_Prefab, zombie2_Prefab;
-
-    public Transform[] zombie_SpawnPoints, boar_SpawnPoints, zombie2_SpawnPoints;
-
-    [SerializeField]
-    private int zombie_Enemy_Count, boar_Enemy_Count, zombie2_Enemy_Count;
+    [SerializeField] private GameObject boar_Prefab, zombie_Prefab, zombie2_Prefab; 
+    [SerializeField] private int zombie_Enemy_Count, boar_Enemy_Count, zombie2_Enemy_Count;
 
     private int initial_Cannibal_Count, initial_Boar_Count, initial_Zombie_Count;
-
     public float wait_Before_Spawn_Enemies_Time = 10f;
+    public Transform[] zombie_SpawnPoints, boar_SpawnPoints, zombie2_SpawnPoints;
 
-    // Start is called before the first frame update
     void Awake()
     {
         MakeInstance();
@@ -59,7 +53,6 @@ public class EnemyManager : MonoBehaviour
             {
                 index = 0;
             }
-
             Instantiate(zombie_Prefab, zombie_SpawnPoints[index].position, Quaternion.identity);
             index++;
         }
@@ -75,7 +68,6 @@ public class EnemyManager : MonoBehaviour
             {
                 index = 0;
             }
-
             Instantiate(zombie2_Prefab, zombie2_SpawnPoints[index].position, Quaternion.identity);
             index++;
         }
@@ -92,7 +84,6 @@ public class EnemyManager : MonoBehaviour
             {
                 index = 0;
             }
-
             Instantiate(boar_Prefab, boar_SpawnPoints[index].position, Quaternion.identity);
             index++;
         }
@@ -103,11 +94,7 @@ public class EnemyManager : MonoBehaviour
     IEnumerator CheckToSpawnEnemies()
     {
         yield return new WaitForSeconds(wait_Before_Spawn_Enemies_Time);
-
-        SpawnZombies();
-        SpawnBoars();
-        SpawnZombies2();
-
+        SpawnEnemies();
         StartCoroutine("CheckToSpawnEnemies");
     }
 
@@ -136,7 +123,5 @@ public class EnemyManager : MonoBehaviour
     public void StopSpawning()
     {
         StopCoroutine("CheckToSpawnEnemies");
-    }
-
-   
+    }  
 }

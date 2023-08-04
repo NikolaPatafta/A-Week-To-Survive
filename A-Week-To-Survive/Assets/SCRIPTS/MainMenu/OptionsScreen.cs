@@ -3,22 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+//Audio settings https://www.youtube.com/watch?v=tepGwzd-zRg
 
 public class OptionsScreen : MonoBehaviour
 {
     public Toggle fullScreenTog, vSyncTog;
-
     public List<ResItem> resolutions = new List<ResItem>();
     private int selectedResolution;
-
-    public Text resolutionLabel;
-
-    //Audio settings https://www.youtube.com/watch?v=tepGwzd-zRg
+    public Text resolutionLabel; 
     public AudioMixer theMixer;
     public Text masterLabel, musicLabel, SFXLabel;
     public Slider masterSlider, musicSlider, SFXslider;
 
-    // Start is called before the first frame update
     void Start()
     {
         fullScreenTog.isOn = Screen.fullScreen;
@@ -39,7 +35,6 @@ public class OptionsScreen : MonoBehaviour
             {
                 foundRes = true;
                 selectedResolution = i;
-
                 UpdateResolutionLabel();
             }
         }
@@ -51,7 +46,6 @@ public class OptionsScreen : MonoBehaviour
 
             resolutions.Add(newRes);
             selectedResolution = resolutions.Count - 1;
-
             UpdateResolutionLabel();
         }
 
@@ -66,12 +60,6 @@ public class OptionsScreen : MonoBehaviour
         masterLabel.text = Mathf.RoundToInt(masterSlider.value + 80).ToString();
         musicLabel.text = Mathf.RoundToInt(musicSlider.value + 80).ToString();
         SFXLabel.text = Mathf.RoundToInt(SFXslider.value + 80).ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     
     public void ResLeft()

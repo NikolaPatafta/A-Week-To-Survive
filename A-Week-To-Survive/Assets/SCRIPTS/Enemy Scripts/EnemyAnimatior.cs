@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class EnemyAnimatior : MonoBehaviour
 {
-
     private Animator anim;
-
 
     void Awake()
     {

@@ -43,7 +43,7 @@ public class ClueController : MonoBehaviour
     private void SkipText()
     {
         skipText.color = new Color(0, 0, 0, 1);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {       
             CluesCanvas.gameObject.SetActive(false);
             uiManager.isPaused = false;

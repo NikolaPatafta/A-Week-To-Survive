@@ -7,10 +7,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource dayAudioSource;
     public AudioSource nightAudioSource;
 
-    [SerializeField]
-    private DayAndNightSystem dayTime;
-    [SerializeField]
-    private UIManager uiManager;
+    [SerializeField] private DayAndNightSystem dayTime;
+    [SerializeField] private UIManager uiManager;
 
     void Awake()
     {

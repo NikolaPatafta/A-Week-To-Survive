@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
-using TMPro.EditorUtilities;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,9 +10,6 @@ public class DayAndNightSystem : MonoBehaviour
 {
     public float currentTime;
     public float dayLengthMinutes;
-    public TextMeshProUGUI timeText;
-    //public TextMeshProUGUI textMeshPro;
-    
     private float rotationSpeed;
     private float midday;
     private float translateTime;
@@ -21,14 +17,11 @@ public class DayAndNightSystem : MonoBehaviour
     public float currentHours;
     public bool isDay = true;
 
-    [SerializeField]
-    private SpawnHordeZombies spawnHordeZombies;
-    [SerializeField]
-    private HealthScript healthScript;
-    [SerializeField]
-    private UIManager uiManager;
+    [SerializeField] private SpawnHordeZombies spawnHordeZombies;
+    [SerializeField] private HealthScript healthScript;
+    [SerializeField] private UIManager uiManager;
+    public TextMeshProUGUI timeText;
 
-    // Start is called before the first frame update
     void Start()
     {
         rotationSpeed = 360 / dayLengthMinutes / 60;
@@ -44,11 +37,9 @@ public class DayAndNightSystem : MonoBehaviour
         else if(dayLengthMinutes == 0.5)
         {
             currentTime = 7.5f;
-        }
-        
+        } 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!uiManager.isPaused)

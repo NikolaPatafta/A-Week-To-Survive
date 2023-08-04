@@ -1,7 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,8 +15,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject optionsScreen;
     [SerializeField] private GameObject pauseScreenButtons;
-    [SerializeField] private HealthScript checkifDead;
+    [SerializeField] private HealthScript healthScript;
     [SerializeField] private InventoryManager invManager;
+    [SerializeField] private MouseLook mouseLook;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (!checkifDead.IsDead())
+        if (!healthScript.IsDead())
         {
             if (!isCutScenePlaying)
             {
@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
                 {
-
                     SetActivePause(false);
                     OptionsBackButton();
                 }
@@ -44,11 +43,9 @@ public class UIManager : MonoBehaviour
             else
             {
                 playerCanvas.SetActive(false);
-            }
-            
-            
+            }   
         }
-        else if (checkifDead.IsDead())
+        else if (healthScript.IsDead())
         {
             UnlockCursor();
         }
@@ -61,7 +58,7 @@ public class UIManager : MonoBehaviour
 
         playerCanvas.SetActive(state);
         endCanvas.SetActive(!state);
-        if (!checkifDead.IsDead())
+        if (!healthScript.IsDead())
         {
             pauseCanvas.SetActive(!state);
         }
@@ -78,6 +75,7 @@ public class UIManager : MonoBehaviour
     {
         pauseCanvas.SetActive(state);
         playerCanvas.SetActive(!state);
+
 
         Time.timeScale = state ? 0 : 1;
 
@@ -138,6 +136,14 @@ public class UIManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void SavePlayer()
+    {
+    }
+
+    public void LoadPlayer()
+    {
     }
 
   

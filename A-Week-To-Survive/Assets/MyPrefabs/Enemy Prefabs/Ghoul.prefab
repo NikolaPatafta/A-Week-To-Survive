@@ -168,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1151830183274311246
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1124,7 +1124,9 @@ MonoBehaviour:
   navAgent: {fileID: 2953975360368304130}
   enemyDestructible: {fileID: 0}
   uIManager: {fileID: 0}
+  target: {fileID: 0}
   dayAndNightSystem: {fileID: 0}
+  attack_Point: {fileID: 3446960891670574202}
   walk_Speed: 3
   run_Speed: 6
   chase_Distance: 200
@@ -1135,8 +1137,6 @@ MonoBehaviour:
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
   wait_Before_Attack: 1.61
-  target: {fileID: 0}
-  attack_Point: {fileID: 3446960891670574202}
 --- !u!114 &761991293223889791
 MonoBehaviour:
   m_ObjectHideFlags: 0

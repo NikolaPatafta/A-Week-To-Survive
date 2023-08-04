@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class WeaponShooting : MonoBehaviour
 {
-    [SerializeField]
-    private Camera mainCam;
-    private float lastShootTime = 0f;
-    [SerializeField]
-    private InventoryManager inventoryManager;
-    [SerializeField]
-    private EquipmentManager equipmentManager;
-    private WeaponHandler weaponHandler;
-    [SerializeField]
-    private PlayerStats playerStats;
-    [SerializeField]
-    private GameObject bloodParticles;
-    private HealthScript healthScript;
-
     //amunition
     //***
     //reload funkcije od pocetka i animacije na 11:15min (https://www.youtube.com/watch?v=ncsOjZHul2U)
     //***
 
+    [SerializeField] private Camera mainCam;
+    [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private EquipmentManager equipmentManager;  
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private GameObject bloodParticles;
+    
+    private HealthScript healthScript;
+    private WeaponHandler weaponHandler;
+    private float lastShootTime = 0f;
+    public bool canReload = true;
+
     [SerializeField] private bool canShoot = true;
-    public bool canReload = true; 
     [SerializeField] public GameObject[] inventorySlots;  
     [SerializeField] private int CurrentAmmoStorage = 0;
     [SerializeField] private bool weaponIsEmpty = false;
@@ -86,7 +82,6 @@ public class WeaponShooting : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit , currentWeapon.range))
         {
-            //Debug.DrawRay(ray.origin, ray.direction * currentWeapon.range, Color.red, 2f);
             if(hit.transform.tag == "Enemy")
             {
                 HealthScript healthScript = hit.transform.GetComponent<HealthScript>();
@@ -170,15 +165,12 @@ public class WeaponShooting : MonoBehaviour
     private void Reload(int slot)
     {
         if (canReload)
-        {
-            
+        {         
             InventoryItem inventoryItem = inventorySlots[slot].GetComponentInChildren<InventoryItem>();
-            int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - inventoryItem.ammoCount;
-            
+            int ammoToReload = inventoryManager.GetCurrentlySelectedWeapon().magazineSize - inventoryItem.ammoCount;         
             //ako imamo dovoljno municije za reload
             if (CurrentAmmoStorage >= ammoToReload && CurrentAmmoStorage !>= 0)
-            {
-                       
+            {                   
                 //ako je magazine full
                 if (inventoryItem.ammoCount == inventoryManager.GetCurrentlySelectedWeapon().magazineSize)
                 {
@@ -188,8 +180,6 @@ public class WeaponShooting : MonoBehaviour
                 animator.SetTrigger("Reload");           
                 AddAmmo(slot, ammoToReload, 0);
                 UseAmmo(slot, 0, ammoToReload);
-
-
                 weaponIsEmpty = false;
                 CheckIfCanShoot(slot);
 

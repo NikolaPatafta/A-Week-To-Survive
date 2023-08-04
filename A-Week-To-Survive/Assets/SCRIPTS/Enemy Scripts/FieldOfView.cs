@@ -42,7 +42,6 @@ public class FieldOfView : MonoBehaviour
             Transform target = rangeChecks[0].transform;
             //normalized gives value between 0 and 1
             Vector3 directionToTarget = (target.position - transform.position).normalized;
-
             if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);

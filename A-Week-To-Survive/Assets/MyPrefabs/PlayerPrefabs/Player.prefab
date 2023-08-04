@@ -1904,7 +1904,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3421709402249289437}
-  m_LocalRotation: {x: -0, y: 0.012580412, z: -0, w: 0.9999209}
+  m_LocalRotation: {x: 0, y: 0.012583478, z: 0, w: 0.99992085}
   m_LocalPosition: {x: 324, y: 0.08, z: 882.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1914,7 +1914,7 @@ Transform:
   - {fileID: 332346705}
   - {fileID: 1062241017}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 1.442, z: 0}
 --- !u!143 &7345085534056062518
 CharacterController:
@@ -2051,7 +2051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpForce: 10
+  gravity: 35
+  jumpForce: 8
 --- !u!114 &9071727842266994172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,7 +2105,7 @@ MonoBehaviour:
   health: 100
   is_Player: 1
   is_Boar: 0
-  is_Cannibal: 0
+  is_Zombie: 0
   cameraShake: {fileID: 1766550208}
   uiManager: {fileID: 0}
   bloodScreenEffect: {fileID: 1160938971003294350}
@@ -2160,9 +2161,8 @@ MonoBehaviour:
   equipmentManager: {fileID: 262455008229307008}
   playerStats: {fileID: 2927946997852429079}
   bloodParticles: {fileID: 1489630815151834747, guid: fa0686f3f13ef9149a0372ad722b99d0, type: 3}
-  canShoot: 1
   canReload: 1
-  CurrentAmmo: 000000000000000000000000000000000000000000000000
+  canShoot: 1
   inventorySlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -2645,6 +2645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbaa33db17e497498abd7d5720b4d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 8237109962305959491}
 --- !u!114 &2183605330345798744
 MonoBehaviour:
   m_ObjectHideFlags: 0

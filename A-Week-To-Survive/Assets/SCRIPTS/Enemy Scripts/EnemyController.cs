@@ -8,25 +8,21 @@ public enum EnemyState
     PATROL,
     CHASE,
     ATTACK,
-    DESTROY
+
 }
 
 public class EnemyController : MonoBehaviour
-{
-    private EnemyAnimatior enemy_Anim;
-    [SerializeField]
-    private NavMeshAgent navAgent;
-
-    [SerializeField]
-    private EnemyDestructible enemyDestructible;
-
-    [SerializeField]
-    private UIManager uIManager;
-
+{ 
+    [SerializeField] private NavMeshAgent navAgent;
+    [SerializeField] private EnemyDestructible enemyDestructible;
+    [SerializeField] private UIManager uIManager;
+    [SerializeField] private Transform target;
     public DayAndNightSystem dayAndNightSystem;
+    public GameObject attack_Point;
+    private EnemyAudio enemy_Audio;
+    private EnemyAnimatior enemy_Anim;
+
     private bool isitDay = false;
-
-
     private EnemyState enemy_State;
 
     public float walk_Speed = 0.5f;
@@ -39,44 +35,27 @@ public class EnemyController : MonoBehaviour
     public bool currentState;
 
     //radijus kretanja od mjesta spawnanja zombija
-    [HideInInspector]
-    public float patrol_Radius_Min = 20f, patrol_Radius_Max = 60f;
+    [HideInInspector] public float patrol_Radius_Min = 20f, patrol_Radius_Max = 60f;
 
     //kolko dugo ce se kretati u jednom smjeru, prije nego dodjelimo drugi smjer
-    [HideInInspector]
-    public float patrol_For_This_Time = 15f;
-
+    [HideInInspector] public float patrol_For_This_Time = 15f;
     private float patrol_Timer;
-
     public float wait_Before_Attack = 2f;
     private float attack_Timer;
-    [SerializeField]
-    private Transform target;
-    private Transform player;
 
-    public GameObject attack_Point;
-
-    private EnemyAudio enemy_Audio;
+    
 
 
     void Awake()
     {
-        //stanja enemy_Anim su imena animacija u Inspektoru za animacije
         enemy_Anim = GetComponent<EnemyAnimatior>();
-        //navAgent = GetComponent<NavMeshAgent>();
-
         //dohvati playera
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
-        player = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
-
-        //dohvati audio skriptu
         enemy_Audio = GetComponentInChildren<EnemyAudio>();
         uIManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
-
-        currentState = navAgent.pathPending;
+        dayAndNightSystem = FindObjectOfType<DayAndNightSystem>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         enemy_State = EnemyState.PATROL;
@@ -89,8 +68,7 @@ public class EnemyController : MonoBehaviour
         //zapamti vrijednost od chase_distance kako bi je mogli vratiti
         current_Chase_Distance = chase_Distance;
 
-        //dayAndNightSystem = FindObjectOfType<DayAndNightSystem>();
-
+        
     }
 
 
@@ -116,17 +94,15 @@ public class EnemyController : MonoBehaviour
 
     void Patrol()
     {
+        ChangeZombieSpeed();
         navAgent.isStopped= false;
         navAgent.speed = walk_Speed;
-
         patrol_Timer += Time.deltaTime;
 
         if(patrol_Timer > patrol_For_This_Time)
         {
             SetNewRandomDestination();
-
             patrol_Timer = 0f;
-
         }
         //ako se enemy krece
         if(navAgent.velocity.sqrMagnitude > 0)
@@ -137,7 +113,6 @@ public class EnemyController : MonoBehaviour
         {
             enemy_Anim.Walk(false);
         }
-
         //testiraj razmak izmedju playera i neprijatelja za chase distance
         if(Vector3.Distance(transform.position, target.position) <= chase_Distance)
         {
@@ -201,22 +176,18 @@ public class EnemyController : MonoBehaviour
     {
         navAgent.velocity = Vector3.zero;
         navAgent.isStopped = true;
-
         attack_Timer += Time.deltaTime;
         if(attack_Timer > wait_Before_Attack)
         {
             enemy_Anim.Attack();
             attack_Timer = 0;
-
-            //psusti attack zvuk
             enemy_Audio.Play_AttackSound();
         }
-
-        //dajemo malu prednost igracu kako bi lakse pobjegao sa ovim + chase_After_Attack_Distance kako neprijatelj nebi odma poceo trcati
+        //dajemo malu prednost igracu kako bi lakse pobjegao sa ovim + chase_After_Attack_Distance
+        //kako neprijatelj nebi odma poceo trcati
         if (Vector3.Distance(transform.position, target.position) > attack_Distance + chase_After_Attack_Distance)
         {
-            enemy_State = EnemyState.CHASE;
-            
+            enemy_State = EnemyState.CHASE;   
         }
 
         
@@ -265,7 +236,6 @@ public class EnemyController : MonoBehaviour
 
         Vector3 randDir = Random.insideUnitSphere * rand_Radius;
         randDir += transform.position;
-
         NavMeshHit navHit;
 
         //Ako je random position van navigacijskog podrucja (out of world) - kalkulira novu poziciju

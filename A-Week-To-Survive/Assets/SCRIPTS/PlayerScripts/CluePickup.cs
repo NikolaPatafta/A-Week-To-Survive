@@ -10,9 +10,7 @@ public class CluePickup : MonoBehaviour
     [SerializeField] TextMeshProUGUI interactText;
     [SerializeField] UIManager uiManager;
     [SerializeField] GameObject ClueGameObject;
-
-    [SerializeField]
-    private string[] clueList;   
+    [SerializeField] private string[] clueList;   
 
     private float pickupRange = 5f;
     private float picturealpha;
@@ -33,7 +31,6 @@ public class CluePickup : MonoBehaviour
         {
             if (hit.transform.CompareTag(clueList[clueListCounter]))
             {
-                Debug.Log("Found tag: " + clueList[clueListCounter]);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     clueListCounter++;
@@ -44,7 +41,6 @@ public class CluePickup : MonoBehaviour
                 
                 if (picturealpha <= 0)
                 {
-                    Debug.Log("Changing picture properties!");
                     picturealpha -= (Time.deltaTime / 10);
                     interactText.color -= new Color(0, 0, 0, picturealpha);
                 }
@@ -55,8 +51,7 @@ public class CluePickup : MonoBehaviour
             interactText.color = new Color(255, 255, 255, 0);
             picturealpha = 0;
         }
-        
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         StartCoroutine(CheckForClues());
     }
 
