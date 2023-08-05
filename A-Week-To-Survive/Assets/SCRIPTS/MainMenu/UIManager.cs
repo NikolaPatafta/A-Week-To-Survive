@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoBehaviour, IDataPersistence
 {
     public bool isPaused = false;
     public bool isCutScenePlaying = false;
+    public int scoreCounter;
 
     [SerializeField] private GameObject playerCanvas = null;
     [SerializeField] private GameObject pauseCanvas = null;
@@ -18,10 +20,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private HealthScript healthScript;
     [SerializeField] private InventoryManager invManager;
     [SerializeField] private MouseLook mouseLook;
+    [SerializeField] private TextMeshProUGUI scoreText; 
 
     private void Start()
     {
         SetActiveHud(true);
+        scoreText.text = "Score: " + scoreCounter;
     }
 
     private void Update()
@@ -75,7 +79,7 @@ public class UIManager : MonoBehaviour
     {
         pauseCanvas.SetActive(state);
         playerCanvas.SetActive(!state);
-
+        
 
         Time.timeScale = state ? 0 : 1;
 
@@ -93,6 +97,7 @@ public class UIManager : MonoBehaviour
         {
             UnlockCursor();
         }
+
 
     }
 
@@ -138,13 +143,22 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void SavePlayer()
+    public void IncreaseScore()
     {
+        scoreCounter++;
+        scoreText.text = "Score: " + scoreCounter;
     }
 
-    public void LoadPlayer()
+    public void LoadData(GameData data)
     {
+        this.scoreCounter = data.scoreCounter;
     }
+
+    public void SaveData(ref GameData data)
+    {
+        data.scoreCounter = this.scoreCounter;
+    }
+
 
   
 }

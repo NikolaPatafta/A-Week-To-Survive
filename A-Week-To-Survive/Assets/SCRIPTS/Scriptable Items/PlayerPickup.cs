@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class PlayerPickup : MonoBehaviour
 {
@@ -12,11 +14,12 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private InventoryManager inventoryManager;
 
+
     private float picturealpha;
 
     private void Start()
     {
-        picturealpha = textMeshPro.color.a;
+        picturealpha = textMeshPro.color.a;  
     }
 
 

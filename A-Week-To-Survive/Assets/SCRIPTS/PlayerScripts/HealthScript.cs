@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class HealthScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class HealthScript : MonoBehaviour
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
     private PlayPlayerSound playPlayerSound;
+    private Transform player;
 
     public float health = 100f;
     public bool is_Player, is_Boar, is_Zombie;
@@ -24,9 +26,7 @@ public class HealthScript : MonoBehaviour
 
     //kontrole za deathscreen
     [SerializeField] private UIManager uiManager;
-
-    [SerializeField]
-    private BloodScreenEffect bloodScreenEffect;
+    [SerializeField] private BloodScreenEffect bloodScreenEffect;
 
     void Awake()
     {
@@ -39,6 +39,9 @@ public class HealthScript : MonoBehaviour
             navAgent = GetComponent<NavMeshAgent>();
             enemyAudio = GetComponentInChildren<EnemyAudio>();
             enemy_Stats = GetComponent<EnemyStats>();
+            uiManager = FindAnyObjectByType<UIManager>();
+            player = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+            bloodScreenEffect = player.transform.GetComponent<BloodScreenEffect>();
 
         }
         if (is_Player)
@@ -46,7 +49,6 @@ public class HealthScript : MonoBehaviour
             playPlayerSound = GetComponent<PlayPlayerSound>();  
             player_Stats = GetComponent<PlayerStats>();
         }
-
     }
 
     public bool IsDead()
@@ -82,6 +84,7 @@ public class HealthScript : MonoBehaviour
         }
         if (health <= 0f)
         {
+            uiManager.IncreaseScore();
             CheckWhoDied(target);
             is_Dead = true;
         }
@@ -102,6 +105,7 @@ public class HealthScript : MonoBehaviour
     {
         if (!is_Player)
         {
+            
             target.transform.GetComponent<BoxCollider>().enabled = false;   
             enemy_Anim.Dead();
             enemy_Controller.enabled = false;
@@ -117,6 +121,7 @@ public class HealthScript : MonoBehaviour
                 EnemyManager.instance.EnemyDied(false);
             }    
             Invoke("TurnOffGameObject", 5f);
+            
         }
 
         if (is_Player)

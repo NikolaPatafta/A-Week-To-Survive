@@ -15,6 +15,7 @@ public class BloodScreenEffect : MonoBehaviour
         temphealth = healthScript.health;
     }
 
+
     public void ChangeAlpha()
     {
         currentHealth = healthScript.health;
@@ -29,9 +30,7 @@ public class BloodScreenEffect : MonoBehaviour
         {
             bloodEffectImage.color -= new Color(0, 0, 0, currentHealth);
             temphealth = currentHealth;
-        }
-
-        
+        }   
     }
 
     

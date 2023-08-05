@@ -61,6 +61,7 @@
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerMovement.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\AnimationController.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\PlayerPickup.cs" />
+    <Compile Include="Assets\SCRIPTS\DataSaving\DataPersistenceManager.cs" />
     <Compile Include="Assets\SCRIPTS\Scenes\SkipIntroController.cs" />
     <Compile Include="Assets\SCRIPTS\WeaponsScripts\WeaponHandler.cs" />
     <Compile Include="Assets\SCRIPTS\UI\AudioManager.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Fix_elevator_fall.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\TestController.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\pass_on_parent.cs" />
+    <Compile Include="Assets\SCRIPTS\DataSaving\FileDataHandler.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\CannibalController.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyDestructible.cs" />
@@ -103,7 +105,6 @@
     <Compile Include="Assets\SCRIPTS\WeaponsScripts\ArrowAndBowScript.cs" />
     <Compile Include="Assets\BuildingAssets\FurnishedCabin\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Consumable.cs" />
-    <Compile Include="Assets\SCRIPTS\Serialization\PlayerData.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\BuildingAssets\FreeOpenBuilding_1.1.2\FOB_1\Scripts\DrawerMech.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\ClueController.cs" />
@@ -117,7 +118,6 @@
     <Compile Include="Assets\SCRIPTS\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\SCRIPTS\UI\WeaponUI.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerFootSteps.cs" />
-    <Compile Include="Assets\SCRIPTS\Serialization\SaveData.cs" />
     <Compile Include="Assets\SCRIPTS\Scenes\LoadMainScene.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Weapons.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\EquipmentManager.cs" />
@@ -126,6 +126,7 @@
     <Compile Include="Assets\SCRIPTS\DoorController\DoorController.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\AttackScript.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\evelator_controll.cs" />
+    <Compile Include="Assets\SCRIPTS\DataSaving\iDataPersistence.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\UIManager.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventoryManager.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\FieldOfView.cs" />
@@ -134,7 +135,7 @@
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\CameraController.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Door.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\MainMenuManager.cs" />
-    <Compile Include="Assets\SCRIPTS\Serialization\SerializationManager.cs" />
+    <Compile Include="Assets\SCRIPTS\DataSaving\Data\GameData.cs" />
     <Compile Include="Assets\BuildingAssets\FenceLayout\FenceLayout.cs" />
     <Compile Include="Assets\SCRIPTS\DoorController\DoorRayCast.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyController.cs" />
