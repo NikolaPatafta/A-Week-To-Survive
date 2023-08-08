@@ -100,6 +100,8 @@ public class DayAndNightSystem : MonoBehaviour
         if (currentTime >= midday * 2)
         {
             day++;
+            uiManager.dayCounter = day; 
+
             if (day == 2 || day == 7 || day == 14)
             {
                 spawnHordeZombies.StartCoroutine("spawnHordeZombies");

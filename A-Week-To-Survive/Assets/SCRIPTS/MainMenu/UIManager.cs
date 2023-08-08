@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour, IDataPersistence
     public bool isPaused = false;
     public bool isCutScenePlaying = false;
     public int scoreCounter;
+    public int dayCounter;
 
     [SerializeField] private GameObject playerCanvas = null;
     [SerializeField] private GameObject pauseCanvas = null;
@@ -152,11 +153,13 @@ public class UIManager : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.scoreCounter = data.scoreCounter;
+        this.dayCounter = data.dayCounter;
     }
 
     public void SaveData(ref GameData data)
     {
         data.scoreCounter = this.scoreCounter;
+        data.dayCounter = this.dayCounter;
     }
 
 

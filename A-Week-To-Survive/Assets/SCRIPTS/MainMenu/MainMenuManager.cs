@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [Header("Menu navigation")]
+    [SerializeField] private SaveSlotsMenu saveSlotsMenu;
 
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button continueGameButton;
+    [SerializeField] private Button loadGameButton;
 
     private void Start()
     {
@@ -20,6 +23,7 @@ public class MainMenuManager : MonoBehaviour
         if(!DataPersistenceManager.instance.hasGameData())
         {
             continueGameButton.interactable = false;
+            loadGameButton.interactable = false;
         }
     }
 
@@ -41,9 +45,14 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnNewGameClicked()
     {
-        DisableMenuButtons();
-        DataPersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync(2);
+        saveSlotsMenu.ActivateMenu(false);
+        DeactivateMenu();
+    }
+
+    public void OnLoadGameClicked()
+    {
+        saveSlotsMenu.ActivateMenu(true);
+        DeactivateMenu();
     }
 
     public void OnContinueGameClicked()
@@ -56,6 +65,16 @@ public class MainMenuManager : MonoBehaviour
     {
         newGameButton.interactable = false;
         continueGameButton.interactable = false;
+    }
+
+    public void ActivateMenu()
+    {
+        this.gameObject.SetActive(true);    
+    }
+
+    public void DeactivateMenu()
+    {
+        this.gameObject.SetActive(false);
     }
     
 
