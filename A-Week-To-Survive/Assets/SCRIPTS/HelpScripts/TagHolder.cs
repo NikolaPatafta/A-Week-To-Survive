@@ -43,4 +43,6 @@ public class Tags
     public const string PLAYER_TAG = "Player";
     public const string ENEMY_TAG = "Enemy";
     public const string SCORE_TAG = "ScoreText";
+
+    public const string DOOR_MANAGER = "DoorManager";
 }

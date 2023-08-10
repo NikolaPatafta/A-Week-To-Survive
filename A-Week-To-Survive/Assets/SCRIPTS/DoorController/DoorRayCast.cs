@@ -68,8 +68,8 @@ public class DoorRayCast : MonoBehaviour
 
     private void CallAnimation(Transform doorTrans)
     {
-        DoorController door = doorTrans.transform.GetComponent<DoorController>();
-        door.PlayDoorAnimation();
+        DoorController door = doorTrans.transform.GetComponentInParent<DoorController>();
+        door.ToggleDoor();
     }
 
 

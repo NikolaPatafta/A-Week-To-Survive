@@ -4,36 +4,51 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    private Animator doorAnimator;
-    [SerializeField]
-    private AudioClip doorOpen;
-    [SerializeField]
-    private AudioClip doorClose;
-    [SerializeField]
-    private AudioSource doorSource;
+    private Transform doorPrefab;
+    private DoorManager doorManager;
+    public float openRot = 90;
+    public float closeRot = 0f;
+    public float speed = 5f;
+    public bool opening;
 
-    private bool isDoorOpen = false;
 
     private void Awake()
     {
-        doorAnimator = GetComponent<Animator>();
+        doorPrefab = GetComponent<Transform>();
+        doorManager = FindAnyObjectByType<DoorManager>();
     }
 
-    public void PlayDoorAnimation()
+    private void FixedUpdate()
     {
-        if (!isDoorOpen)
+        Vector3 currentRot = doorPrefab.transform.localEulerAngles;
+        if (opening)
         {
-            doorAnimator.Play("DoorOpen");
-            doorSource.clip = doorOpen;
-            doorSource.Play();
-            isDoorOpen = true;
+            if(currentRot.y < openRot)
+            {
+                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, openRot, currentRot.z), speed * Time.deltaTime);
+                
+            }
         }
         else
         {
-            doorAnimator.Play("DoorClose");
-            doorSource.clip = doorClose;
-            doorSource.Play();
-            isDoorOpen = false;
+            if(currentRot.y > closeRot)
+            {
+                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, closeRot, currentRot.z), speed * Time.deltaTime);
+            }
+
+        }
+    }
+
+    public void ToggleDoor()
+    {
+        opening = !opening; 
+        if (opening)
+        {
+            doorManager.PlayAudioDoorOpen();
+        }
+        else
+        {
+            doorManager.PlayAudioDoorClose();
         }
     }
 
