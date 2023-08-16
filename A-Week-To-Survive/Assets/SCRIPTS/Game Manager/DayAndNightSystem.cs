@@ -13,35 +13,53 @@ public class DayAndNightSystem : MonoBehaviour
     private float rotationSpeed;
     private float midday;
     private float translateTime;
-    public int day = 1;
+    public int day = 1;   
     public float currentHours;
     public bool isDay = true;
 
     [SerializeField] private SpawnHordeZombies spawnHordeZombies;
     [SerializeField] private HealthScript healthScript;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private ProgressionManager progressionManager;
     public TextMeshProUGUI timeText;
+
+    [Header("Game Stage Controllers")]
+    public int gameStage = 0;
+    public int interDaysCounter = 7;
+    public int removeBorderNumber = 0;
 
     void Start()
     {
         rotationSpeed = 360 / dayLengthMinutes / 60;
         midday = dayLengthMinutes * 60/2;
-        if(dayLengthMinutes == 5)
-        {
-            currentTime = 75f;
-        }
-        else if(dayLengthMinutes == 10)
+
+        if (dayLengthMinutes == 10)
         {
             currentTime = 150f;
+        }
+        else if (dayLengthMinutes == 5)
+        {
+            currentTime = 75f;
         }
         else if(dayLengthMinutes == 0.5)
         {
             currentTime = 7.5f;
-        } 
+        }
+        else if(dayLengthMinutes == 0.05)
+        {
+            currentTime = 0.75f;
+        }
     }
 
     void Update()
     {
+        if (interDaysCounter == day)
+        {
+            Debug.Log("Reached the day!");
+            progressionManager.RemoveLevelBorder(removeBorderNumber);
+            removeBorderNumber++;
+            interDaysCounter = interDaysCounter + 7;
+        }
         if (!uiManager.isPaused)
         {
             if (!healthScript.IsDead())
@@ -80,7 +98,7 @@ public class DayAndNightSystem : MonoBehaviour
                 transform.Rotate(new Vector3(1, 0, 0) * rotationSpeed * Time.deltaTime);
 
             }
-        }  
+        }
     }
 
     private void CheckDayTime()
@@ -108,5 +126,6 @@ public class DayAndNightSystem : MonoBehaviour
             }
             currentTime = 0;
         }
+       
     }
 }

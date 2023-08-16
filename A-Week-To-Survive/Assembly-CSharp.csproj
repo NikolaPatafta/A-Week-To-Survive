@@ -68,6 +68,7 @@
     <Compile Include="Assets\NatureAssets\HDRP_Oak_Tree\Scripts\Offer\ALIyerEdonAssets_Lighting.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Fix_elevator_fall.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\TestController.cs" />
+    <Compile Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorReflectionScript.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\pass_on_parent.cs" />
     <Compile Include="Assets\SCRIPTS\DataSaving\FileDataHandler.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\CannibalController.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\SCRIPTS\MainMenu\MainMenuAudioManager.cs" />
     <Compile Include="Assets\SCRIPTS\CutScenes Trigger Scripts\CutScene Controller.cs" />
     <Compile Include="Assets\SCRIPTS\Scenes\MainMenuSceneLoader.cs" />
+    <Compile Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorCameraScript.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayPlayerSound.cs" />
     <Compile Include="Assets\BuildingAssets\FurnishedCabin\Scripts\MoveObjectController.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyAnimatior.cs" />
@@ -117,10 +119,12 @@
     <Compile Include="Assets\SCRIPTS\MainMenu\SaveGameScripts\SaveSlot.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\CameraShake.cs" />
     <Compile Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Scripts\GunfireController.cs" />
+    <Compile Include="Assets\SCRIPTS\Game Manager\ProgressionManager.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\DoorAction.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\DemoScript.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\SCRIPTS\UI\WeaponUI.cs" />
+    <Compile Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorScript.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerFootSteps.cs" />
     <Compile Include="Assets\SCRIPTS\Scenes\LoadMainScene.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Weapons.cs" />
@@ -143,6 +147,7 @@
     <Compile Include="Assets\BuildingAssets\FenceLayout\FenceLayout.cs" />
     <Compile Include="Assets\SCRIPTS\DoorController\DoorRayCast.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyController.cs" />
+    <Compile Include="Assets\BuildingAssets\MagicMirror\Demo\DemoScript.cs" />
     <Compile Include="Assets\SCRIPTS\DoorController\DoorHealth.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,14 +157,17 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\VehicleAssets\Military Vehicle\Humvee Info.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\BuildingAssets\MagicMirror\Prefab\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Readme.txt" />
+    <None Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorShader.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\BuildingAssets\Village Buildings\Read me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\LensFlareCreate.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionCurves.shader" />
+    <None Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorShaderBumpMap.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\DLAA.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BrightPassFilter2.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BlendForBloom.shader" />
@@ -174,6 +182,7 @@
     <None Include="Assets\VehicleAssets\_ApocalypticVehiclesPack\SpecGrayscaleGlassSF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorShaderOld.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\NatureAssets\TGU Skybox Pack\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />

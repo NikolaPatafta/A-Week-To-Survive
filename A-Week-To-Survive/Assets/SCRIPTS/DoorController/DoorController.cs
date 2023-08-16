@@ -10,6 +10,7 @@ public class DoorController : MonoBehaviour
     public float closeRot = 0f;
     public float speed = 5f;
     public bool opening;
+    public bool reversed;
 
 
     private void Awake()
@@ -21,21 +22,35 @@ public class DoorController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 currentRot = doorPrefab.transform.localEulerAngles;
-        if (opening)
+        if (opening && !reversed)
         {
             if(currentRot.y < openRot)
             {
-                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, openRot, currentRot.z), speed * Time.deltaTime);
+                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, (new Vector3(currentRot.x, openRot, currentRot.z)), speed * Time.deltaTime);
                 
             }
         }
-        else
+        else if (!reversed)
         {
             if(currentRot.y > closeRot)
             {
-                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, closeRot, currentRot.z), speed * Time.deltaTime);
+                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, (new Vector3(currentRot.x, closeRot, currentRot.z)), speed * Time.deltaTime);
             }
 
+        }
+        if(opening && reversed)
+        {
+            if(currentRot.y > openRot)
+            {
+                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, openRot, currentRot.z), speed * Time.deltaTime);
+            }
+        }
+        else if (reversed)
+        {
+            if(currentRot.y < closeRot)
+            {
+                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, closeRot, currentRot.z), speed * Time.deltaTime);
+            }
         }
     }
 

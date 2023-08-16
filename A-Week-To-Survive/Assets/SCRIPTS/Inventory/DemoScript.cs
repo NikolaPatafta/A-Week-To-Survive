@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DemoScript : MonoBehaviour
+/*public class DemoScript : MonoBehaviour
 {
     public InventoryManager inventoryManager;
     public Items[] itemsToPickup;
@@ -33,4 +33,4 @@ public class DemoScript : MonoBehaviour
         else Debug.Log("was used");
     }
 
-}
+}*/
