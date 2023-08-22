@@ -72,7 +72,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if(!uIManager.isPaused) 
         {

@@ -105,21 +105,12 @@ public class HealthScript : MonoBehaviour
     {
         if (!is_Player)
         {
-            
+            EnemyManager.instance.LowerEnemyCounter();
             target.transform.GetComponent<BoxCollider>().enabled = false;   
             enemy_Anim.Dead();
             enemy_Controller.enabled = false;
             navAgent.enabled = false;
-            StartCoroutine(DeadSound());
-
-            if (is_Zombie)
-            {
-                EnemyManager.instance.EnemyDied(true);
-            }
-            else
-            {
-                EnemyManager.instance.EnemyDied(false);
-            }    
+            StartCoroutine(DeadSound());    
             Invoke("TurnOffGameObject", 5f);
             
         }
