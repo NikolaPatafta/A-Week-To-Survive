@@ -30,24 +30,15 @@ public class PlayerPickup : MonoBehaviour
 
     private void PickupWeapons(Transform hit)
     {
-        if (hit.transform.GetComponent<ItemObject>().item as Weapons)
+        if (hit.transform.GetComponent<ItemObject>())
         {
-            Items newItem = hit.transform.GetComponent<ItemObject>().item as Items;
+            Debug.Log("adding: " + hit.transform.name);
+            Items newItem = hit.transform.GetComponent<ItemObject>().item;
             inventoryManager.AddItem(newItem);
+
+            Destroy(hit.transform.gameObject);
         }
-        else
-        {
-            Consumable newItem = hit.transform.GetComponent<ItemObject>().item as Consumable;
-            if (newItem.types == ConsumableType.Ammo)
-            {
-                inventoryManager.AddItem(newItem);
-            }
-            else if (newItem.types == ConsumableType.Medkit)
-            {
-                inventoryManager.AddItem(newItem);
-            }
-        }
-        Destroy(hit.transform.gameObject);
+        
     }
 
     private void RayCastPickupWeapons()
@@ -67,6 +58,7 @@ public class PlayerPickup : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 PickupWeapons(hit.transform);
+                
             }
         }
         else

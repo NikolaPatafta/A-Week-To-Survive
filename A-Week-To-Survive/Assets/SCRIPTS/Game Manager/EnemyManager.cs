@@ -51,9 +51,6 @@ public class EnemyManager : MonoBehaviour
             randomPosition.y = terrain.SampleHeight(randomPosition);
             GameObject agent = Instantiate(spawnableEnemy[Random.Range(0, spawnableEnemy.Length)], randomPosition, Quaternion.identity);
             NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
-
-            Debug.Log("Spawned " + agent.name + " at " + randomPosition);
-
             if (navAgent != null)
             {
                 navAgent.Warp(randomPosition);
