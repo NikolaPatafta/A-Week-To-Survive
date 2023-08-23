@@ -135,7 +135,7 @@ public class HealthScript : MonoBehaviour
             uiManager.SetActiveHud(false);
         }
     }
-        void TurnOffGameObject()
+        public void TurnOffGameObject()
         {
             gameObject.SetActive(false);
             Destroy(gameObject);

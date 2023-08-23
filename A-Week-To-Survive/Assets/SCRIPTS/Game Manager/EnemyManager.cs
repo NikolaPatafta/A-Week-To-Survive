@@ -13,10 +13,12 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private NavMeshSurface navMeshSurface;
     public Transform player;
 
-    private int spawnableEnemyCount = 5;
+    private int spawnableEnemyCount = 10;
     private int currentEnemyCount;
-    private int maxSpawnRadius = 50;
-    private int minSpawnRadius = 40;
+    private int spawnableBoarCount = 3;
+    private int currentBoarCount;
+    private int maxSpawnRadius = 60;
+    private int minSpawnRadius = 45;
     
     void Awake()
     {
@@ -27,6 +29,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("SpawnEnemy");
+        StartCoroutine("SpawnBoar");
     }
 
     void MakeInstance()
@@ -39,7 +42,8 @@ public class EnemyManager : MonoBehaviour
 
     public void StopSpawning()
     {
-        StopCoroutine("CheckToSpawnEnemies");
+        StopCoroutine("SpawnEnemy");
+        StopCoroutine("SpawnBoar");
     }
 
     private IEnumerator SpawnEnemy()
@@ -61,6 +65,26 @@ public class EnemyManager : MonoBehaviour
         StartCoroutine("SpawnEnemy");
     }
 
+    private IEnumerator SpawnBoar()
+    {
+        if (currentBoarCount < spawnableBoarCount)
+        {
+            yield return new WaitForSeconds(20);
+            Vector3 randomPosition = GetRandomPosition();
+            randomPosition.y = terrain.SampleHeight(randomPosition);
+            GameObject agent = Instantiate(spawnableEnemy[Random.Range(0, spawnableEnemy.Length)], randomPosition, Quaternion.identity);
+            NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
+            if (navAgent != null)
+            {
+                navAgent.Warp(randomPosition);
+            }
+            currentBoarCount++;
+        }
+        yield return null;
+        StartCoroutine("SpawnBoar");
+    }
+
+
     private Vector3 GetRandomPosition()
     {
         Vector3 randomDirection = Random.insideUnitSphere;
@@ -77,5 +101,10 @@ public class EnemyManager : MonoBehaviour
     public void LowerEnemyCounter()
     {
         currentEnemyCount--;
+    }
+
+    public void LowerBoarCounter()
+    {
+        currentBoarCount--;
     }
 }
