@@ -13,6 +13,7 @@ public class EquipmentManager : MonoBehaviour
 
     private PlayerStats playerstats;
     public int selectedSlot;
+    public bool isWeaponEquiped;
 
     private void Awake()
     {   
@@ -42,6 +43,7 @@ public class EquipmentManager : MonoBehaviour
         {
             currentlyEquipedWeapon = Instantiate(weapon.prefab, WeaponHolder);
             playerstats.UpdateWeaponUI(weapon);
+            isWeaponEquiped = true;
         }     
     }
 
@@ -56,5 +58,6 @@ public class EquipmentManager : MonoBehaviour
         {
             Destroy(currentlyEquipedWeapon);
         }
+        isWeaponEquiped = false;
     }
 }

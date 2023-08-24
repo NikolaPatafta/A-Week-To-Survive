@@ -35,7 +35,7 @@ public class WeaponShooting : MonoBehaviour
 
     private void Update()
     {
-        if (inventoryManager.GetCurrentlySelectedWeapon() != null)
+        if (inventoryManager.GetCurrentlySelectedWeapon() != null && equipmentManager.isWeaponEquiped)
         {
 
             if (inventoryManager.GetCurrentlySelectedWeapon().weaponType == WeaponType.Melee)

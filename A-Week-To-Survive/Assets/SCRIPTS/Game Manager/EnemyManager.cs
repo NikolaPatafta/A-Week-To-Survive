@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using Unity.AI.Navigation;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,11 +21,12 @@ public class EnemyManager : MonoBehaviour
     private int currentBoarCount;
     private int maxSpawnRadius = 60;
     private int minSpawnRadius = 45;
-    
+    public float maxSlopeAngle = 45;
+
     void Awake()
     {
         MakeInstance();
-        player = FindObjectOfType<PlayerMovement>().transform;  
+        player = FindObjectOfType<PlayerMovement>().transform;
     }
 
     void Start()
@@ -48,7 +51,7 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        if(currentEnemyCount < spawnableEnemyCount)
+        if (currentEnemyCount < spawnableEnemyCount)
         {
             yield return new WaitForSeconds(3);
             Vector3 randomPosition = GetRandomPosition();
@@ -59,7 +62,7 @@ public class EnemyManager : MonoBehaviour
             {
                 navAgent.Warp(randomPosition);
             }
-            currentEnemyCount++;         
+            currentEnemyCount++;
         }
         yield return null;
         StartCoroutine("SpawnEnemy");
@@ -96,7 +99,7 @@ public class EnemyManager : MonoBehaviour
 
         return randomPosition;
     }
-    
+
 
     public void LowerEnemyCounter()
     {

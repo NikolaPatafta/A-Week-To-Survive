@@ -7,14 +7,9 @@ public class DespawnManager : MonoBehaviour
     [SerializeField] private EnemyManager enemyManager;
     private HealthScript healthScript;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("zombie entered collider!");
-    }
-
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy") && other.name.Equals("Boar"))
+        if (other.CompareTag("Enemy"))
         {
             healthScript = other.transform.GetComponent<HealthScript>();
             healthScript.TurnOffGameObject();
