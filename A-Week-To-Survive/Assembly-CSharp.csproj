@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerMovement.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\MeteorSwarmScript.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\AnimationController.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\PlayerPickup.cs" />
     <Compile Include="Assets\SCRIPTS\DataSaving\DataPersistenceManager.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorReflectionScript.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\pass_on_parent.cs" />
     <Compile Include="Assets\SCRIPTS\DataSaving\FileDataHandler.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireLightScript.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\CannibalController.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\SCRIPTS\DoorController\DoorManager.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayPlayerSound.cs" />
     <Compile Include="Assets\BuildingAssets\FurnishedCabin\Scripts\MoveObjectController.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyAnimatior.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireConstantBaseScript.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Items.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerAxeSounds.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\ItemObject.cs" />
@@ -108,6 +111,8 @@
     <Compile Include="Assets\SCRIPTS\PlayerScripts\BloodScreenEffect.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\DespawnManager.cs" />
     <Compile Include="Assets\SCRIPTS\WeaponsScripts\ArrowAndBowScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireBaseScript.cs" />
+    <Compile Include="Assets\PyroParticles\Demo\DemoScript.cs" />
     <Compile Include="Assets\BuildingAssets\FurnishedCabin\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Consumable.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\DontDestroyOnLoad.cs" />
@@ -128,7 +133,9 @@
     <Compile Include="Assets\SCRIPTS\UI\WeaponUI.cs" />
     <Compile Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorScript.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerFootSteps.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireProjectileScript.cs" />
     <Compile Include="Assets\SCRIPTS\Scenes\LoadMainScene.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Weapons.cs" />
     <Compile Include="Assets\FastScriptReload\Examples\Scripts\Graph.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\EquipmentManager.cs" />
@@ -149,9 +156,11 @@
     <Compile Include="Assets\SCRIPTS\MainMenu\MainMenuManager.cs" />
     <Compile Include="Assets\SCRIPTS\DataSaving\Data\GameData.cs" />
     <Compile Include="Assets\BuildingAssets\FenceLayout\FenceLayout.cs" />
+    <Compile Include="Assets\PyroParticles\Demo\DemoScriptEditor.cs" />
     <Compile Include="Assets\SCRIPTS\DoorController\DoorRayCast.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyController.cs" />
     <Compile Include="Assets\BuildingAssets\MagicMirror\Demo\DemoScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
     <Compile Include="Assets\SCRIPTS\DoorController\DoorHealth.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +176,7 @@
     <None Include="Assets\FastScriptReload\Plugins\ImmersiveVrToolsCommon\ImmersiveVRTools.Common.Runtime.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Readme.txt" />
     <None Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorShader.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -195,6 +205,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorShaderOld.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BlurAndFlares.shader" />
+    <None Include="Assets\PyroParticles\Readme.txt" />
     <None Include="Assets\NatureAssets\TGU Skybox Pack\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\FastScriptReload\Plugins\Harmony\net48\0Harmony.dll" />

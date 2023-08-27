@@ -15,7 +15,7 @@ E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive
 -logFile
 Logs/AssetImportWorker3.log
 -srvPort
-58863
+60697
 Successfully changed project path to: E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive
 E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,11 +49,11 @@ E:/Unity Projects/A-Week-To-Survive/A-Week-To-Survive
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [4056] Host "[IP] 192.168.1.104 [Port] 0 [Flags] 2 [Guid] 2788581256 [EditorId] 2788581256 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-82JGJFI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [22932] Host "[IP] 192.168.1.104 [Port] 0 [Flags] 2 [Guid] 3430003267 [EditorId] 3430003267 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-82JGJFI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [4056] Host "[IP] 192.168.1.104 [Port] 0 [Flags] 2 [Guid] 2788581256 [EditorId] 2788581256 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-82JGJFI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [22932] Host "[IP] 192.168.1.104 [Port] 0 [Flags] 2 [Guid] 3430003267 [EditorId] 3430003267 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-82JGJFI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 19.32 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 18.17 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.4f1 (35713cd46cd7)
 [Subsystems] Discovering subsystems at path E:/Unity Installs/2022.3.4f1/Editor/Data/Resources/UnitySubsystems
@@ -69,44 +69,44 @@ Initialize mono
 Mono path[0] = 'E:/Unity Installs/2022.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'E:/Unity Installs/2022.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'E:/Unity Installs/2022.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56244
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56700
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: E:/Unity Installs/2022.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.162082 seconds.
-- Loaded All Assemblies, in  1.770 seconds
+Registered in 0.005453 seconds.
+- Loaded All Assemblies, in  0.465 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.396 seconds
-Domain Reload Profiling: 2166ms
-	BeginReloadAssembly (137ms)
+- Finished resetting the current domain, in  0.373 seconds
+Domain Reload Profiling: 838ms
+	BeginReloadAssembly (145ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (255ms)
-	RebuildNativeTypeToScriptingClass (21ms)
-	initialDomainReloadingComplete (229ms)
-	LoadAllAssembliesAndSetupDomain (1127ms)
-		LoadAssemblies (137ms)
+	RebuildCommonClasses (51ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (68ms)
+	LoadAllAssembliesAndSetupDomain (187ms)
+		LoadAssemblies (143ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1122ms)
-			TypeCache.Refresh (1121ms)
-				TypeCache.ScanAssembly (849ms)
+		AnalyzeDomain (182ms)
+			TypeCache.Refresh (181ms)
+				TypeCache.ScanAssembly (167ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (396ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (373ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (318ms)
+		SetupLoadedEditorAssemblies (291ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (11ms)
 			SetLoadedEditorAssemblies (10ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (215ms)
-			ProcessInitializeOnLoadMethodAttributes (79ms)
+			ProcessInitializeOnLoadAttributes (196ms)
+			ProcessInitializeOnLoadMethodAttributes (72ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -114,56 +114,57 @@ Domain Reload Profiling: 2166ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in 10.150 seconds
-Refreshing native plugins compatible for Editor in 5.66 ms, found 2 plugins.
+- Loaded All Assemblies, in  1.281 seconds
+Refreshing native plugins compatible for Editor in 5.90 ms, found 2 plugins.
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.481 seconds
-Domain Reload Profiling: 12631ms
-	BeginReloadAssembly (232ms)
+- Finished resetting the current domain, in  2.077 seconds
+Domain Reload Profiling: 3358ms
+	BeginReloadAssembly (206ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (30ms)
-	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (19ms)
-	initialDomainReloadingComplete (121ms)
-	LoadAllAssembliesAndSetupDomain (9727ms)
-		LoadAssemblies (8881ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (56ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (129ms)
+	LoadAllAssembliesAndSetupDomain (876ms)
+		LoadAssemblies (440ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (991ms)
-			TypeCache.Refresh (948ms)
-				TypeCache.ScanAssembly (871ms)
-			ScanForSourceGeneratedMonoScriptInfo (26ms)
-			ResolveRequiredComponents (17ms)
-	FinalizeReload (2482ms)
+		AnalyzeDomain (543ms)
+			TypeCache.Refresh (500ms)
+				TypeCache.ScanAssembly (481ms)
+			ScanForSourceGeneratedMonoScriptInfo (29ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (2078ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2233ms)
+		SetupLoadedEditorAssemblies (1841ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (6ms)
-			SetLoadedEditorAssemblies (5ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (83ms)
-			ProcessInitializeOnLoadAttributes (2042ms)
-			ProcessInitializeOnLoadMethodAttributes (94ms)
-			AfterProcessingInitializeOnLoad (4ms)
+			BeforeProcessingInitializeOnLoad (78ms)
+			ProcessInitializeOnLoadAttributes (1646ms)
+			ProcessInitializeOnLoadMethodAttributes (100ms)
+			AfterProcessingInitializeOnLoad (6ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (11ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 7.94 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 5.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3719 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 81 unused Assets / (393.0 KB). Loaded Objects now: 4271.
-Memory consumption went from 282.0 MB to 281.7 MB.
-Total: 5.504200 ms (FindLiveObjects: 0.438400 ms CreateObjectMapping: 0.119000 ms MarkObjects: 4.681900 ms  DeleteObjects: 0.263200 ms)
+Memory consumption went from 281.9 MB to 281.5 MB.
+Total: 4.358300 ms (FindLiveObjects: 0.386800 ms CreateObjectMapping: 0.110800 ms MarkObjects: 3.682200 ms  DeleteObjects: 0.177100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
@@ -173,42 +174,130 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1363859.980191 seconds.
-  path: Assets/AudioSamples/Horror Violin - Sound Effect.mp3
-  artifactKey: Guid(9ad61efff0b80b847bb2c5fb3ffadffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AudioSamples/Horror Violin - Sound Effect.mp3 using Guid(9ad61efff0b80b847bb2c5fb3ffadffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ef783877b1e7c3dfbe54eae1b586f02') in 0.029715 seconds
+  Time since last request: 1449159.227015 seconds.
+  path: Assets/Build01/Build01_pfefab.prefab
+  artifactKey: Guid(4d37e49a7ff11c64da046512cfdd7743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Build01/Build01_pfefab.prefab using Guid(4d37e49a7ff11c64da046512cfdd7743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b8c2b461cef8cdcd70ce84608cdae80') in 0.040772 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 63
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/BuildingAssets/Office building/material props/Coffee Cup.mat
+  artifactKey: Guid(c4e568fb4b445c2418e5a8e006427aaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Office building/material props/Coffee Cup.mat using Guid(c4e568fb4b445c2418e5a8e006427aaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfff8f44c97b787dd5d6238c44212dcd') in 0.001425 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/AudioSamples/[YT2mp3.info] - TV Static Noise Sound Effect - Bzz (128kbps).mp3
-  artifactKey: Guid(56d0ffa52be9a1c46b2f026a554d393c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AudioSamples/[YT2mp3.info] - TV Static Noise Sound Effect - Bzz (128kbps).mp3 using Guid(56d0ffa52be9a1c46b2f026a554d393c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dacd0bcba047e6eb2e4ed5102002837') in 0.001244 seconds
+  Time since last request: 0.987028 seconds.
+  path: Assets/BuildingAssets/FenceLayout/Example/FencePanel.prefab
+  artifactKey: Guid(b9c7a183a7a2e004cb24435cb080a708) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/FenceLayout/Example/FencePanel.prefab using Guid(b9c7a183a7a2e004cb24435cb080a708) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a44a4d5b56408bbed1a57efd2feecaa9') in 0.028615 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 16
+========================================================================
+Received Import Request.
+  Time since last request: 0.033232 seconds.
+  path: Assets/1stPerson/Sounds/DoorSounds/Heavy Wood Door Closing  Free Sound Effect.mp3
+  artifactKey: Guid(84aafa3d9820fba4c86e661b249a714d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/1stPerson/Sounds/DoorSounds/Heavy Wood Door Closing  Free Sound Effect.mp3 using Guid(84aafa3d9820fba4c86e661b249a714d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '571adfd8037a86371d2de813a99a0614') in 0.001123 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Video/TVStaticRenderTexture.renderTexture
-  artifactKey: Guid(bbb654bc99c2ddf4697af88b873dd824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Video/TVStaticRenderTexture.renderTexture using Guid(bbb654bc99c2ddf4697af88b873dd824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '432409ecc6afe0d6239a9996a8586070') in 0.008874 seconds
+  Time since last request: 0.147336 seconds.
+  path: Assets/Build01/TiledMaterials&Textures/Texture/Tiled/Kafel02/Kafel02_Height.tga
+  artifactKey: Guid(0af73e4e6d93ffa48bdea24d10ca60a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Build01/TiledMaterials&Textures/Texture/Tiled/Kafel02/Kafel02_Height.tga using Guid(0af73e4e6d93ffa48bdea24d10ca60a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0930e2d9cf0772c87a1b4f06b440aabc') in 0.017287 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/BuildingAssets/FurnishedCabin/Meshes/TV.fbx
-  artifactKey: Guid(fc85b0ed6feee4d46a876935af58e858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/BuildingAssets/FurnishedCabin/Meshes/TV.fbx using Guid(fc85b0ed6feee4d46a876935af58e858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59dff9dc7da7ba2652b8cbc723a38e25') in 0.040799 seconds
+  Time since last request: 0.000017 seconds.
+  path: Assets/Tools/Dnk_Dev/KitchenRustyKnife/Materials/KitchenRustyKnifeMat.mat
+  artifactKey: Guid(dce2d55b9aa58aa43a5ab50bd454c644) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tools/Dnk_Dev/KitchenRustyKnife/Materials/KitchenRustyKnifeMat.mat using Guid(dce2d55b9aa58aa43a5ab50bd454c644) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdb6fc102e41d61222b15ab07d314465') in 0.001139 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Build01/TiledMaterials&Textures/Texture/Tiled/Kafel02/Kafel02_Normal.tga
+  artifactKey: Guid(5161e622018db96448c34f93ba3c8342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Build01/TiledMaterials&Textures/Texture/Tiled/Kafel02/Kafel02_Normal.tga using Guid(5161e622018db96448c34f93ba3c8342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20d1636a9702f2cbf50af126372ddd81') in 0.008004 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.086195 seconds.
+  path: Assets/Tools/Dnk_Dev/KitchenRustyKnife/Materials/M_KitchenRustyKnife.mat
+  artifactKey: Guid(335b227d01db337489304730b2b04c66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tools/Dnk_Dev/KitchenRustyKnife/Materials/M_KitchenRustyKnife.mat using Guid(335b227d01db337489304730b2b04c66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a56dfd67a2dfca89e02124183b886547') in 0.001316 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/BuildingAssets/Assets_FenceChained/models/Materials/metal_fence-1.mat
+  artifactKey: Guid(7b2405b9286794840873c049383b02fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Assets_FenceChained/models/Materials/metal_fence-1.mat using Guid(7b2405b9286794840873c049383b02fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a624f243dc9f57844fa8b9970e05bef') in 0.012733 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.556100 seconds.
+  path: Assets/BuildingAssets/Assets_FenceChained/models/Materials/jpgs/metal_fence-1_NORMAL.jpg
+  artifactKey: Guid(49db42e617f24974e84719fa9ae2e295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Assets_FenceChained/models/Materials/jpgs/metal_fence-1_NORMAL.jpg using Guid(49db42e617f24974e84719fa9ae2e295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36e14c18ded9c680ce7050e3825ed01a') in 0.026125 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.008589 seconds.
+  path: Assets/BuildingAssets/Assets_FenceChained/models/Materials/metal_fence-1_specular.tga
+  artifactKey: Guid(2ca69883c541ffa4c9a496e6178c90ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingAssets/Assets_FenceChained/models/Materials/metal_fence-1_specular.tga using Guid(2ca69883c541ffa4c9a496e6178c90ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2fdcb920dc9a1d9e7ef72b1bda90449') in 0.002886 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 770.212953 seconds.
+  path: Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Ashes_01.tga
+  artifactKey: Guid(b9f0879f436c46149a1181e72f0b7848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Ashes_01.tga using Guid(b9f0879f436c46149a1181e72f0b7848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8301682445d48c567f95b252665ad591') in 0.002111 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 18.527042 seconds.
+  path: Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Noise_08.tga
+  artifactKey: Guid(4c7b88daf72dcdb4d85c35517cee3224) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Noise_08.tga using Guid(4c7b88daf72dcdb4d85c35517cee3224) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07b3391399548b94b4cc1e5131475b0a') in 0.001880 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.002433 seconds.
+  path: Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Noise_01.tga
+  artifactKey: Guid(78f9606de07f24a4f9ff540cc0087f36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Noise_01.tga using Guid(78f9606de07f24a4f9ff540cc0087f36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14798ab63ab1deeae8accaae4e5b8dca') in 0.001714 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
   Time since last request: 0.000018 seconds.
-  path: Assets/BuildingAssets/FurnishedCabin/Meshes/Materials/Doors_TVStand_MAT.mat
-  artifactKey: Guid(cdbe46314d4b7ab4ca61d18f0462c8ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/BuildingAssets/FurnishedCabin/Meshes/Materials/Doors_TVStand_MAT.mat using Guid(cdbe46314d4b7ab4ca61d18f0462c8ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e52fb4d7fc2c1f6acd9784e565314ac') in 0.011621 seconds
+  path: Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Gradient_Up_Down_01.tga
+  artifactKey: Guid(e4032b025693bfb47ae0e50da323b3b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Gradient_Up_Down_01.tga using Guid(e4032b025693bfb47ae0e50da323b3b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb5189669875db3bc7900b2ccd033395') in 0.002940 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 11.844815 seconds.
+  path: Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Noise_Normal_01.tga
+  artifactKey: Guid(8df04d0fe9f306340b1fbbc2f035bdd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Vefects/VFX/Free Fire/Textures/T_VFX_Noise_Normal_01.tga using Guid(8df04d0fe9f306340b1fbbc2f035bdd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0cfeeb9e4cefca402098336c6d7835e') in 0.001423 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
