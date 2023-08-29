@@ -7,6 +7,11 @@ public class DespawnManager : MonoBehaviour
     [SerializeField] private EnemyManager enemyManager;
     private HealthScript healthScript;
 
+    private void Start()
+    {
+        Debug.Log("Hello");
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Enemy"))

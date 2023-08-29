@@ -68,6 +68,7 @@
     <Compile Include="Assets\SCRIPTS\UI\AudioManager.cs" />
     <Compile Include="Assets\NatureAssets\HDRP_Oak_Tree\Scripts\Offer\ALIyerEdonAssets_Lighting.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\Fix_elevator_fall.cs" />
+    <Compile Include="Assets\SCRIPTS\DoorScripts\DoorRayCast.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\TestController.cs" />
     <Compile Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorReflectionScript.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\pass_on_parent.cs" />
@@ -75,7 +76,6 @@
     <Compile Include="Assets\PyroParticles\Prefab\Script\FireLightScript.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\CannibalController.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventoryItem.cs" />
-    <Compile Include="Assets\SCRIPTS\DoorController\DoorManager.cs" />
     <Compile Include="Assets\SCRIPTS\CutScenes Trigger Scripts\CutScenesManager.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyDestructible.cs" />
     <Compile Include="Assets\SCRIPTS\UI\MiniMap.cs" />
@@ -95,6 +95,7 @@
     <Compile Include="Assets\SCRIPTS\Scriptable Items\ItemObject.cs" />
     <Compile Include="Assets\ZombieAssets\SkinlessZombie\SkinlessZombie\Demo Scripts\UIElementController.cs" />
     <Compile Include="Assets\BuildingAssets\FreeOpenBuilding_1.1.2\FOB_1\Scripts\DoorMech.cs" />
+    <Compile Include="Assets\SCRIPTS\DoorScripts\DoorController.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\MouseLook.cs" />
     <Compile Include="Assets\SCRIPTS\CutScenes Trigger Scripts\CutSceneTrigger.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerSprintAndCrouch.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyAudio.cs" />
     <Compile Include="Assets\SCRIPTS\CutScenes Trigger Scripts\KeyTrigger.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\PutObjectOnGround.cs" />
+    <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyAI.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\HealthScript.cs" />
     <Compile Include="Assets\SCRIPTS\Terrain\NavMeshManager.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\PlayerAttack.cs" />
@@ -116,7 +118,6 @@
     <Compile Include="Assets\BuildingAssets\FurnishedCabin\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Consumable.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\DontDestroyOnLoad.cs" />
-    <Compile Include="Assets\FastScriptReload\Examples\Scripts\FunctionLibrary.cs" />
     <Compile Include="Assets\BuildingAssets\FreeOpenBuilding_1.1.2\FOB_1\Scripts\DrawerMech.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\ClueController.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\OptionsScreen.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyStats.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\SaveGameScripts\SaveSlot.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\CameraShake.cs" />
+    <Compile Include="Assets\SCRIPTS\DoorScripts\DoorManager.cs" />
     <Compile Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Scripts\GunfireController.cs" />
     <Compile Include="Assets\SCRIPTS\Game Manager\ProgressionManager.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\DoorAction.cs" />
@@ -137,14 +139,14 @@
     <Compile Include="Assets\SCRIPTS\Scenes\LoadMainScene.cs" />
     <Compile Include="Assets\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\Weapons.cs" />
-    <Compile Include="Assets\FastScriptReload\Examples\Scripts\Graph.cs" />
+    <Compile Include="Assets\SCRIPTS\DoorScripts\ObstacleController.cs" />
     <Compile Include="Assets\SCRIPTS\Scriptable Items\EquipmentManager.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\SpawnHordeZombies.cs" />
     <Compile Include="Assets\SCRIPTS\Game Manager\DayAndNightSystem.cs" />
-    <Compile Include="Assets\SCRIPTS\DoorController\DoorController.cs" />
     <Compile Include="Assets\SCRIPTS\PlayerScripts\AttackScript.cs" />
     <Compile Include="Assets\BuildingAssets\Office building\scripts\evelator_controll.cs" />
     <Compile Include="Assets\SCRIPTS\Game Manager\SpecialItemsManager.cs" />
+    <Compile Include="Assets\SCRIPTS\DoorScripts\DoorHealth.cs" />
     <Compile Include="Assets\SCRIPTS\DataSaving\iDataPersistence.cs" />
     <Compile Include="Assets\SCRIPTS\MainMenu\UIManager.cs" />
     <Compile Include="Assets\SCRIPTS\Inventory\InventoryManager.cs" />
@@ -157,11 +159,9 @@
     <Compile Include="Assets\SCRIPTS\DataSaving\Data\GameData.cs" />
     <Compile Include="Assets\BuildingAssets\FenceLayout\FenceLayout.cs" />
     <Compile Include="Assets\PyroParticles\Demo\DemoScriptEditor.cs" />
-    <Compile Include="Assets\SCRIPTS\DoorController\DoorRayCast.cs" />
     <Compile Include="Assets\SCRIPTS\Enemy Scripts\EnemyController.cs" />
     <Compile Include="Assets\BuildingAssets\MagicMirror\Demo\DemoScript.cs" />
     <Compile Include="Assets\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
-    <Compile Include="Assets\SCRIPTS\DoorController\DoorHealth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAAPreset2.shader" />
@@ -172,23 +172,17 @@
     <None Include="Assets\MyPrefabs\FPS_Hands - WIP\---Read---.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\BuildingAssets\MagicMirror\Prefab\Readme.txt" />
-    <None Include="Assets\FastScriptReload\Plugins\Harmony\HarmonyLicense.txt" />
-    <None Include="Assets\FastScriptReload\Plugins\ImmersiveVrToolsCommon\ImmersiveVRTools.Common.Runtime.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="Assets\WeaponsAssets\BigRookGames\_AssetPacks\Stylized Weapon Pack\M4 Scoped Assault Rifle\Readme.txt" />
     <None Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorShader.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_DepthOfField\SeparableWeightedBlurDof34.shader" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\System.Collections.Immutable.dll" />
-    <None Include="Assets\FastScriptReload\Plugins\ImmersiveVrToolsCommon\ImmersiveVRToolsCommonLicense.txt" />
     <None Include="Assets\BuildingAssets\Village Buildings\Read me.txt" />
-    <None Include="Assets\FastScriptReload\Third-Party Notices.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\LensFlareCreate.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionCurves.shader" />
     <None Include="Assets\BuildingAssets\MagicMirror\Prefab\MirrorShaderBumpMap.shader" />
-    <None Include="Assets\FastScriptReload\Examples\Point\Point Surface.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\DLAA.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BrightPassFilter2.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_BloomAndFlares\BlendForBloom.shader" />
@@ -208,17 +202,11 @@
     <None Include="Assets\PyroParticles\Readme.txt" />
     <None Include="Assets\NatureAssets\TGU Skybox Pack\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\FastScriptReload\Plugins\Harmony\net48\0Harmony.dll" />
-    <None Include="Assets\FastScriptReload\Plugins\Harmony\net48\0Harmony.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\System.Reflection.Metadata.dll" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionCurvesSimple.shader" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\SSAA.shader" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\RoslynLicense.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\NFAA.shader" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\System.Threading.Tasks.Extensions.dll" />
     <None Include="Assets\1stPerson\Shaders\Standard\_Antialiasing\FXAA3Console.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\BuildingAssets\BuildingShed\BuildingShedInfo.txt" />
@@ -228,15 +216,11 @@
     <None Include="Assets\BuildingAssets\FreeOpenBuilding_1.1.2\FOB_Props\Texture\UseTextureFromBuildingFolder.txt" />
     <None Include="Assets\1stPerson\Shaders\Standard\ColorCorrectionSelective.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\Microsoft.CodeAnalysis.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\Microsoft.CSharp.dll" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\FastScriptReload\Plugins\Roslyn\Microsoft.CSharp.dll.IMPORTANT.txt.txt" />
     <None Include="Assets\WeaponsAssets\Colt Python\Read_me.txt" />
     <None Include="Assets\BuildingAssets\Office building\Read me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\FastScriptReload\Plugins\ImmersiveVrToolsCommon\ImmersiveVRTools.Common.Editor.dll" />
     <None Include="Assets\VehicleAssets\_ApocalypticVehiclesPack\SpecGrayscaleSF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\NatureAssets\HDRP_Oak_Tree\Help\Quick Start.txt" />

@@ -8,7 +8,7 @@ public enum EnemyState
     PATROL,
     CHASE,
     ATTACK,
-
+    ATTACKOBSTACLE
 }
 
 public class EnemyController : MonoBehaviour
@@ -19,8 +19,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform target;
     public DayAndNightSystem dayAndNightSystem;
     public GameObject attack_Point;
+    private AttackScript attackScript;
     private EnemyAudio enemy_Audio;
     private EnemyAnimatior enemy_Anim;
+    private NavMeshPath navMeshPath;
+
+    [Header("Obstacles Config:")]
+    private ObstacleController currentObstacle;
+    public float obstacleAttackDistance = 2f;
+    public LayerMask obstacleLayer;
+    public LayerMask defaultMask;
 
     private bool isitDay = false;
     private EnemyState enemy_State;
@@ -32,6 +40,7 @@ public class EnemyController : MonoBehaviour
     private float current_Chase_Distance;
     public float attack_Distance = 1f;
     public float chase_After_Attack_Distance = 2f;
+    
     public bool currentState;
 
     //radijus kretanja od mjesta spawnanja zombija
@@ -42,6 +51,7 @@ public class EnemyController : MonoBehaviour
     private float patrol_Timer;
     public float wait_Before_Attack = 2f;
     private float attack_Timer;
+    private float attack_Obstacle_Timer;
 
     
 
@@ -64,15 +74,16 @@ public class EnemyController : MonoBehaviour
 
         //kada zombie dolazi do playera - napadni odmah
         attack_Timer = wait_Before_Attack;
+        attack_Obstacle_Timer = wait_Before_Attack;
 
         //zapamti vrijednost od chase_distance kako bi je mogli vratiti
         current_Chase_Distance = chase_Distance;
 
-        
+        navMeshPath = new NavMeshPath();
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         if(!uIManager.isPaused) 
         {
@@ -82,13 +93,30 @@ public class EnemyController : MonoBehaviour
             }
             if (enemy_State == EnemyState.CHASE)
             {
-                Chase();
+                if (!IsPlayerReachable())
+                {
+                    AttackObstacleBehavior();
+                    enemy_State = EnemyState.ATTACKOBSTACLE;
+                }
+                else
+                {
+                    Enemy_State = EnemyState.CHASE;
+                    Chase();
+                    
+                }
+                
             }
             if (enemy_State == EnemyState.ATTACK)
             {
                 Attack();
             }
+            if(enemy_State == EnemyState.ATTACKOBSTACLE)
+            {
+                AttackObstacleBehavior();
+            }
         }
+        Debug.Log("Enemy_state: " + enemy_State);
+        Debug.Log("Isplayereachable: " + IsPlayerReachable());
     }
 
 
@@ -174,6 +202,8 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
+        attackScript = attack_Point.GetComponent<AttackScript>();
+        attackScript.attackingPlayer = true;
         navAgent.velocity = Vector3.zero;
         navAgent.isStopped = true;
         attack_Timer += Time.deltaTime;
@@ -194,22 +224,91 @@ public class EnemyController : MonoBehaviour
 
     }//attack
 
-    /*void FindBarrier()
+    void AttackObstacle()
     {
-        currentState = navAgent.pathPending;
-        enemyDestructible.RayCastBarrier();
-        if(enemyDestructible.destructableObject != null)
+        attackScript = attack_Point.GetComponent<AttackScript>();
+        attackScript.attackingPlayer = false;
+        navAgent.velocity = Vector3.zero;
+        navAgent.isStopped = true;
+        attack_Obstacle_Timer += Time.deltaTime;
+        enemy_Anim.Run(false);
+        if (attack_Obstacle_Timer > wait_Before_Attack)
         {
-            target = enemyDestructible.destructableObject;
+            
+            enemy_Anim.Attack();
+            attack_Obstacle_Timer = 0;
+            enemy_Audio.Play_AttackSound();
+            currentObstacle.DamageObstacle();
+            Debug.Log("we are here now");
+            Debug.Log("NavAgent status is stopped: " + navAgent.isStopped);
+        }
+        if(currentObstacle.health <= 0)
+        {
+            enemy_State = EnemyState.PATROL;
+        }
+        
+
+
+    }
+
+    private void AttackObstacleBehavior()
+    {
+        if(currentObstacle == null)
+        {
+            Debug.Log("Finding closeset obsticale");
+            FindClosestObstacle();
+        }
+
+        else if(currentObstacle != null)
+        {
+            navAgent.SetDestination(currentObstacle.transform.position);
+            if(Vector3.Distance(transform.position, currentObstacle.transform.position) < obstacleAttackDistance)
+            {
+                Debug.Log("hello we are here rn");
+                navAgent.isStopped = true;
+                AttackObstacle();
+            }
         }
         else
         {
-            target = player;         
+            currentObstacle = null;
         }
-        Debug.Log("Target: " + target);
-        
+    }
 
-    } Find Barrier*/
+    private void FindClosestObstacle()
+    {
+        Collider[] obstacles = Physics.OverlapSphere(transform.position, obstacleAttackDistance, obstacleLayer);
+        float closestDistance = Mathf.Infinity;
+
+        foreach(Collider obstacleCollider in obstacles)
+        {
+            ObstacleController obstacle = obstacleCollider.GetComponent<ObstacleController>();
+            if(obstacle != null)
+            {
+                float distance = Vector3.Distance(transform.position, obstacle.transform.position);
+                if(distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    currentObstacle = obstacle;
+                    Debug.Log("found: " + currentObstacle);
+                }
+            }
+        }
+    }
+
+    private bool IsPlayerReachable()
+    {
+        navAgent.CalculatePath(target.position, navMeshPath);
+        if(navMeshPath.status != NavMeshPathStatus.PathComplete)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
 
     void ChangeZombieSpeed()
     {
