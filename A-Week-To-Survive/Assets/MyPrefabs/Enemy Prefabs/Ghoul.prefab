@@ -1127,9 +1127,16 @@ MonoBehaviour:
   target: {fileID: 0}
   dayAndNightSystem: {fileID: 0}
   attack_Point: {fileID: 3446960891670574202}
+  obstacleAttackDistance: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  defaultMask:
+    serializedVersion: 2
+    m_Bits: 114231
   walk_Speed: 3
   run_Speed: 6
-  chase_Distance: 200
+  chase_Distance: 100
   attack_Distance: 2
   chase_After_Attack_Distance: 0.5
   currentState: 0
@@ -1149,7 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c6ec5512a004c4f9ec8d8454bd4c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 208
+  health: 212
   is_Player: 0
   is_Boar: 0
   is_Zombie: 1
@@ -3011,6 +3018,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackingPlayer: 0
 --- !u!1 &3791484617503375808
 GameObject:
   m_ObjectHideFlags: 0

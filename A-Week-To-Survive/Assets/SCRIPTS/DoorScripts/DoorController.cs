@@ -21,37 +21,18 @@ public class DoorController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 currentRot = doorPrefab.transform.localEulerAngles;
-        if (opening && !reversed)
-        {
-            if(currentRot.y < openRot)
-            {
-                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, (new Vector3(currentRot.x, openRot, currentRot.z)), speed * Time.deltaTime);
-                
-            }
-        }
-        else if (!reversed)
-        {
-            if(currentRot.y > closeRot)
-            {
-                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, (new Vector3(currentRot.x, closeRot, currentRot.z)), speed * Time.deltaTime);
-            }
+        Quaternion targetRotQuaternion;
 
-        }
-        if(opening && reversed)
+        if (opening)
         {
-            if(currentRot.y > openRot)
-            {
-                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, openRot, currentRot.z), speed * Time.deltaTime);
-            }
+            targetRotQuaternion = Quaternion.Euler(0, reversed ? openRot : -openRot, 0);
         }
-        else if (reversed)
+        else
         {
-            if(currentRot.y < closeRot)
-            {
-                doorPrefab.transform.localEulerAngles = Vector3.Lerp(currentRot, new Vector3(currentRot.x, closeRot, currentRot.z), speed * Time.deltaTime);
-            }
+            targetRotQuaternion = Quaternion.Euler(0, reversed ? closeRot : -closeRot, 0);
         }
+
+        doorPrefab.localRotation = Quaternion.Lerp(doorPrefab.localRotation, targetRotQuaternion, speed * Time.deltaTime);
     }
 
     public void ToggleDoor()

@@ -55,7 +55,6 @@ public class DayAndNightSystem : MonoBehaviour
     {
         if (interDaysCounter == day)
         {
-            Debug.Log("Reached the day!");
             progressionManager.RemoveLevelBorder(removeBorderNumber);
             removeBorderNumber++;
             interDaysCounter = interDaysCounter + 7;

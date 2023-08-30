@@ -1594,6 +1594,13 @@ MonoBehaviour:
   target: {fileID: 0}
   dayAndNightSystem: {fileID: 0}
   attack_Point: {fileID: 5037960033027897929}
+  obstacleAttackDistance: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  defaultMask:
+    serializedVersion: 2
+    m_Bits: 114231
   walk_Speed: 0.5
   run_Speed: 1
   chase_Distance: 20
@@ -2699,6 +2706,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackingPlayer: 0
 --- !u!1 &7258917030857379749
 GameObject:
   m_ObjectHideFlags: 0

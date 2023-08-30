@@ -49,6 +49,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackingPlayer: 0
 --- !u!1 &143683637675693288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2556,7 @@ Transform:
   - {fileID: 5346434264842939665}
   - {fileID: 5133100805273194768}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4338777389645705263
 Animator:
@@ -2668,7 +2672,16 @@ MonoBehaviour:
   navAgent: {fileID: 20628216}
   enemyDestructible: {fileID: 0}
   uIManager: {fileID: 0}
+  target: {fileID: 0}
   dayAndNightSystem: {fileID: 0}
+  attack_Point: {fileID: 1432349247}
+  obstacleAttackDistance: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  defaultMask:
+    serializedVersion: 2
+    m_Bits: 114231
   walk_Speed: 0.5
   run_Speed: 1
   chase_Distance: 25
@@ -2679,8 +2692,6 @@ MonoBehaviour:
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
   wait_Before_Attack: 1.6
-  target: {fileID: 0}
-  attack_Point: {fileID: 1432349247}
 --- !u!114 &7627058085262546102
 MonoBehaviour:
   m_ObjectHideFlags: 0

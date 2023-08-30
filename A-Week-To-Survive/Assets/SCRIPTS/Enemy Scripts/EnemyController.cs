@@ -115,8 +115,6 @@ public class EnemyController : MonoBehaviour
                 AttackObstacleBehavior();
             }
         }
-        Debug.Log("Enemy_state: " + enemy_State);
-        Debug.Log("Isplayereachable: " + IsPlayerReachable());
     }
 
 
@@ -239,8 +237,6 @@ public class EnemyController : MonoBehaviour
             attack_Obstacle_Timer = 0;
             enemy_Audio.Play_AttackSound();
             currentObstacle.DamageObstacle();
-            Debug.Log("we are here now");
-            Debug.Log("NavAgent status is stopped: " + navAgent.isStopped);
         }
         if(currentObstacle.health <= 0)
         {
@@ -255,7 +251,6 @@ public class EnemyController : MonoBehaviour
     {
         if(currentObstacle == null)
         {
-            Debug.Log("Finding closeset obsticale");
             FindClosestObstacle();
         }
 
@@ -264,7 +259,6 @@ public class EnemyController : MonoBehaviour
             navAgent.SetDestination(currentObstacle.transform.position);
             if(Vector3.Distance(transform.position, currentObstacle.transform.position) < obstacleAttackDistance)
             {
-                Debug.Log("hello we are here rn");
                 navAgent.isStopped = true;
                 AttackObstacle();
             }
@@ -272,6 +266,7 @@ public class EnemyController : MonoBehaviour
         else
         {
             currentObstacle = null;
+            navAgent.isStopped = false;
         }
     }
 
@@ -290,7 +285,6 @@ public class EnemyController : MonoBehaviour
                 {
                     closestDistance = distance;
                     currentObstacle = obstacle;
-                    Debug.Log("found: " + currentObstacle);
                 }
             }
         }
