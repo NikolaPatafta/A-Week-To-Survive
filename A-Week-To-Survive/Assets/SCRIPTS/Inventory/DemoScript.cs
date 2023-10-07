@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class DemoScript : MonoBehaviour
-{
+public class DemoScript : MonoBehaviour
+{/*
     public InventoryManager inventoryManager;
     public Items[] itemsToPickup;
 
@@ -31,6 +31,5 @@ using UnityEngine;
             Debug.Log("Use item");
         }
         else Debug.Log("was used");
-    }
-
-}*/
+    }*/
+}

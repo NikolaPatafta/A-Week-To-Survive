@@ -211,8 +211,6 @@ public class EnemyController : MonoBehaviour
             attack_Timer = 0;
             enemy_Audio.Play_AttackSound();
         }
-        //dajemo malu prednost igracu kako bi lakse pobjegao sa ovim + chase_After_Attack_Distance
-        //kako neprijatelj nebi odma poceo trcati
         if (Vector3.Distance(transform.position, target.position) > attack_Distance + chase_After_Attack_Distance)
         {
             enemy_State = EnemyState.CHASE;   

@@ -60,6 +60,7 @@ public class EnemyManager : MonoBehaviour
             NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
             if (navAgent != null)
             {
+                Debug.Log("Spawned: " + agent.name);
                 navAgent.Warp(randomPosition);
             }
             currentEnemyCount++;
@@ -79,6 +80,7 @@ public class EnemyManager : MonoBehaviour
             NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
             if (navAgent != null)
             {
+                Debug.Log("Spawned: " + agent.name);
                 navAgent.Warp(randomPosition);
             }
             currentBoarCount++;
