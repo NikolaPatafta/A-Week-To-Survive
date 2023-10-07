@@ -6,29 +6,47 @@ public class PlayerFootSteps : MonoBehaviour
 {
     private AudioSource footstep_Sound;
 
-    [SerializeField]
-    private AudioClip[] footstep_Clip;
+    [SerializeField] private AudioClip[] footstep_Clip;
+    [HideInInspector] public float step_Distance;
+    [HideInInspector] public float volume_Min, volume_Max;
 
-    private CharacterController character_Controller;
-
-    [HideInInspector]
-    public float volume_Min, volume_Max;
-
+    public float rayCastDistance = 1.87f;
     private float accumulated_Distance;
-
-    [HideInInspector]
-    public float step_Distance;
-    // Start is called before the first frame update
+    private bool hitTerrain;
+    private CharacterController character_Controller;
+    
     void Awake()
     {
         footstep_Sound = GetComponent<AudioSource>();
-
         character_Controller = GetComponentInParent<CharacterController>();
     }
 
     void Update()
     {
         CheckToPlayFootStepSound();
+        RayCastOnGround();
+    }
+
+    private void RayCastOnGround()
+    {
+        Vector3 offset = transform.position + new Vector3(0f, 1f, 0f);
+        RaycastHit hit;
+
+        if(Physics.Raycast(offset, Vector3.down ,out hit, rayCastDistance))   
+        {
+            if (hit.collider.CompareTag("Terrain"))
+            {
+                hitTerrain = true;
+            }
+            else
+            {
+                hitTerrain = false;
+            }
+        }
+        else
+        {
+            hitTerrain = true;
+        }
     }
 
     void CheckToPlayFootStepSound()
@@ -46,9 +64,15 @@ public class PlayerFootSteps : MonoBehaviour
             if(accumulated_Distance > step_Distance) 
             {
                 footstep_Sound.volume = Random.Range(volume_Min, volume_Max);
-                footstep_Sound.clip = footstep_Clip[Random.Range(0, footstep_Clip.Length)];
+                if(hitTerrain)
+                {
+                    footstep_Sound.clip = footstep_Clip[Random.Range(0, 3)];
+                }
+                else
+                {
+                    footstep_Sound.clip = footstep_Clip[Random.Range(4, footstep_Clip.Length)];
+                } 
                 footstep_Sound.Play();
-
                 accumulated_Distance = 0f;
 
             }       
@@ -58,4 +82,5 @@ public class PlayerFootSteps : MonoBehaviour
             accumulated_Distance = 0f;
         }
     }
+
 }
