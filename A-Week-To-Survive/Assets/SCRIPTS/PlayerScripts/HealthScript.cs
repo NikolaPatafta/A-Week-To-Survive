@@ -11,9 +11,10 @@ public class HealthScript : MonoBehaviour
     private EnemyController enemy_Controller;
     private PlayPlayerSound playPlayerSound;
     private Transform player;
+    private SpawnHordeZombies spawnHordeZombies;
 
     public float health = 100f;
-    public bool is_Player, is_Boar, is_Zombie;
+    public bool is_Player, is_Boar, is_Zombie, is_HordeZombie = false;
     public CameraShake cameraShake;
 
     private bool is_Dead;
@@ -42,6 +43,10 @@ public class HealthScript : MonoBehaviour
             uiManager = FindAnyObjectByType<UIManager>();
             player = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
             bloodScreenEffect = player.transform.GetComponent<BloodScreenEffect>();
+            if(is_HordeZombie)
+            {
+                spawnHordeZombies = FindAnyObjectByType<SpawnHordeZombies>();
+            }
 
         }
         if (is_Player)
@@ -105,6 +110,11 @@ public class HealthScript : MonoBehaviour
     {
         if (!is_Player)
         {
+            if (is_HordeZombie)
+            {
+                Debug.Log("Transform of " + target.name + " is: " + target.transform.position);
+                spawnHordeZombies.ZombieKilled(target);
+            }
             EnemyManager.instance.LowerEnemyCounter();
             target.transform.GetComponent<BoxCollider>().enabled = false;   
             enemy_Anim.Dead();
