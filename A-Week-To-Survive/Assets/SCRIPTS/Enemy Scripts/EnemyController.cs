@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform target;
     public DayAndNightSystem dayAndNightSystem;
     public GameObject attack_Point;
+    public bool inCombat = false;
     private AttackScript attackScript;
     private EnemyAudio enemy_Audio;
     private EnemyAnimatior enemy_Anim;
@@ -40,8 +41,7 @@ public class EnemyController : MonoBehaviour
     private float current_Chase_Distance;
     public float attack_Distance = 1f;
     public float chase_After_Attack_Distance = 2f;
-    
-    public bool currentState;
+
 
     //radijus kretanja od mjesta spawnanja zombija
     [HideInInspector] public float patrol_Radius_Min = 20f, patrol_Radius_Max = 60f;
@@ -120,10 +120,15 @@ public class EnemyController : MonoBehaviour
 
     void Patrol()
     {
-        ChangeZombieSpeed();
-        navAgent.isStopped= false;
+        //ChangeZombieSpeed();
+        navAgent.isStopped = false;
         navAgent.speed = walk_Speed;
         patrol_Timer += Time.deltaTime;
+
+        if (inCombat)
+        {
+            inCombat = false;
+        }
 
         if(patrol_Timer > patrol_For_This_Time)
         {
@@ -154,7 +159,12 @@ public class EnemyController : MonoBehaviour
     void Chase()
     {
         navAgent.isStopped = false;
-        navAgent.speed = run_Speed; 
+        navAgent.speed = run_Speed;
+        
+        if(!inCombat)
+        {
+            inCombat = true;
+        }
 
         //postavi poziciju playera kao destinaciju jer lovimo playera
         navAgent.SetDestination(target.position);
@@ -202,8 +212,8 @@ public class EnemyController : MonoBehaviour
     {
         attackScript = attack_Point.GetComponent<AttackScript>();
         attackScript.attackingPlayer = true;
-        navAgent.velocity = Vector3.zero;
-        navAgent.isStopped = true;
+        //navAgent.velocity = Vector3.zero;
+        //navAgent.isStopped = true;
         attack_Timer += Time.deltaTime;
         if(attack_Timer > wait_Before_Attack)
         {
@@ -302,7 +312,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    void ChangeZombieSpeed()
+    /*void ChangeZombieSpeed()
     {
         if (isitDay != dayAndNightSystem.isDay)
         {
@@ -315,7 +325,7 @@ public class EnemyController : MonoBehaviour
             isitDay = false;
         }
 
-    }
+    }*/
 
 
 

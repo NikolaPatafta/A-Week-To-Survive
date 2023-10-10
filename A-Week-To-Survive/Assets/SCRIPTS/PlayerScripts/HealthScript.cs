@@ -118,6 +118,7 @@ public class HealthScript : MonoBehaviour
             EnemyManager.instance.LowerEnemyCounter();
             target.transform.GetComponent<BoxCollider>().enabled = false;   
             enemy_Anim.Dead();
+            enemy_Controller.inCombat = false;
             enemy_Controller.enabled = false;
             navAgent.enabled = false;
             StartCoroutine(DeadSound());    

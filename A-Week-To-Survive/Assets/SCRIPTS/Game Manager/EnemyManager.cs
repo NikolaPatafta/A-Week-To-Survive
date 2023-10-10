@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private NavMeshSurface navMeshSurface;
     public Transform player;
 
-    private int spawnableEnemyCount = 10;
+    private int spawnableEnemyCount = 15;
     private int currentEnemyCount;
     private int spawnableBoarCount = 3;
     private int currentBoarCount;
@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("SpawnEnemy");
-        StartCoroutine("SpawnBoar");
+        //StartCoroutine("SpawnBoar");
     }
 
     void MakeInstance()
@@ -55,14 +55,35 @@ public class EnemyManager : MonoBehaviour
         {
             yield return new WaitForSeconds(3);
             Vector3 randomPosition = GetRandomPosition();
-            randomPosition.y = terrain.SampleHeight(randomPosition);
-            GameObject agent = Instantiate(spawnableEnemy[Random.Range(0, spawnableEnemy.Length)], randomPosition, Quaternion.identity);
-            NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
-            if (navAgent != null)
+            //new code start
+            float terrainHeight = terrain.SampleHeight(randomPosition);
+            Vector3 terrainNormal = terrain.terrainData.GetInterpolatedNormal(randomPosition.x / terrain.terrainData.size.x, randomPosition.z / terrain.terrainData.size.z);
+            float slopeAngle = Vector3.Angle(Vector3.up, terrainNormal);
+            if(slopeAngle <= 45)
             {
-                navAgent.Warp(randomPosition);
+                randomPosition.y = terrainHeight;
+
+                NavMeshHit hit;
+                if(NavMesh.SamplePosition(randomPosition, out hit, 1.0f, NavMesh.AllAreas))
+                {
+                    GameObject agent = Instantiate(spawnableEnemy[Random.Range(0, spawnableEnemy.Length)], randomPosition, Quaternion.identity);
+                    NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
+                    if (navAgent != null)
+                    {
+                        navAgent.Warp(randomPosition);
+                    }
+                    currentEnemyCount++;
+                }
+                else
+                {
+                    Debug.Log("Could not spawn enemy on NavMesh!");
+                }
             }
-            currentEnemyCount++;
+            else
+            {
+                Debug.Log("Could not spawn enemy!");
+            }
+            //new code end  
         }
         yield return null;
         StartCoroutine("SpawnEnemy");

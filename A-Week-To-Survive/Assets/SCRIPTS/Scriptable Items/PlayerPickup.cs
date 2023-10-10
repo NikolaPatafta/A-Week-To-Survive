@@ -38,7 +38,6 @@ public class PlayerPickup : MonoBehaviour
     {
         if (hit.transform.GetComponent<ItemObject>())
         {
-            Debug.Log("adding: " + hit.transform.name);
             Items newItem = hit.transform.GetComponent<ItemObject>().item;
             inventoryManager.AddItem(newItem);
 
@@ -55,7 +54,6 @@ public class PlayerPickup : MonoBehaviour
         if (Physics.Raycast(ray, out hit, pickupRange, pickupLayer))
         {
             string currentWeapon = hit.transform.GetComponent<ItemObject>().item.name;
-            pickupLayerText.text = "Pickup: " + currentWeapon;
             if (picturealpha <= 0)
             {
                 picturealpha -= (Time.deltaTime / 10);

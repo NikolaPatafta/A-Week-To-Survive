@@ -10,9 +10,12 @@ public class DoorRayCast : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private PlayPlayerSound playSound;
+    [SerializeField] private Canvas canNotOpenDoor;
     
+    [HideInInspector] public bool canOpenDoor = true;
     private float picturealpha;
     private string interactButton = "E";
+
 
     private void Start()
     {
@@ -29,7 +32,7 @@ public class DoorRayCast : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, doorActionRange, doorMask))
             {
-                if(hit.transform.tag != "Key")
+                if (hit.transform.tag != "Key")
                 {
                     CallAnimation(hit.transform);
                 }
@@ -48,15 +51,15 @@ public class DoorRayCast : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit, doorActionRange, doorMask))
+        if (Physics.Raycast(ray, out hit, doorActionRange, doorMask))
         {
             textMeshPro.text = "Interact '" + interactButton + "'";
-            if(picturealpha <= 0)
+            if (picturealpha <= 0)
             {
                 picturealpha -= (Time.deltaTime / 10);
                 textMeshPro.color -= new Color(0, 0, 0, picturealpha);
-            }   
-        }   
+            }
+        }
         else
         {
 

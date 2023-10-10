@@ -11,6 +11,7 @@ public class DoorController : MonoBehaviour
     public float speed = 5f;
     public bool opening;
     public bool reversed;
+    public bool specialDoor = false;
 
 
     private void Awake()

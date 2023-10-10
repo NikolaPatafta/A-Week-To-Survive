@@ -131,12 +131,12 @@ public class UIManager : MonoBehaviour, IDataPersistence
 
     public void Restart()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync(2);
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void Quit()
