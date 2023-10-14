@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
+    private DoorManager doorManager;
     public int health = 100;
+
+    private void Start()
+    {
+        doorManager = FindObjectOfType<DoorManager>();
+        Debug.Log("Found: " + doorManager); 
+    }
 
     public void DamageObstacle()
     {
         health = health - 10;
+        doorManager.PlayAudioDoorHit();
         if(health <= 0)
-
         {
+            doorManager.PlayAudioDoorBreak();
             Destroy(gameObject);
         }
-
     }
+
 
 }

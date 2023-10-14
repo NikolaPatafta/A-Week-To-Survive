@@ -2556,7 +2556,7 @@ Transform:
   - {fileID: 5346434264842939665}
   - {fileID: 5133100805273194768}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4338777389645705263
 Animator:
@@ -2675,6 +2675,7 @@ MonoBehaviour:
   target: {fileID: 0}
   dayAndNightSystem: {fileID: 0}
   attack_Point: {fileID: 1432349247}
+  inCombat: 0
   obstacleAttackDistance: 2
   obstacleLayer:
     serializedVersion: 2
@@ -2687,11 +2688,10 @@ MonoBehaviour:
   chase_Distance: 25
   attack_Distance: 1.8
   chase_After_Attack_Distance: 0.5
-  currentState: 0
   patrol_Radius_Min: 20
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
-  wait_Before_Attack: 1.6
+  wait_Before_Attack: 1.85
 --- !u!114 &7627058085262546102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2708,6 +2708,7 @@ MonoBehaviour:
   is_Player: 0
   is_Boar: 0
   is_Zombie: 1
+  is_HordeZombie: 0
   cameraShake: {fileID: 0}
   uiManager: {fileID: 0}
   bloodScreenEffect: {fileID: 0}

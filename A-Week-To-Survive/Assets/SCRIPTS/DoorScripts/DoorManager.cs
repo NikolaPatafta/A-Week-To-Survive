@@ -6,6 +6,8 @@ public class DoorManager : MonoBehaviour
 {
     [SerializeField] private AudioClip doorOpen;
     [SerializeField] private AudioClip doorClose;
+    [SerializeField] private AudioClip doorHit;
+    [SerializeField] private AudioClip doorBreak;
     [SerializeField] private AudioSource doorSource;
 
     public void PlayAudioDoorOpen()
@@ -17,6 +19,18 @@ public class DoorManager : MonoBehaviour
     public void PlayAudioDoorClose()
     {
         doorSource.clip = doorClose;
+        doorSource.Play();
+    }
+
+    public void PlayAudioDoorHit()
+    {
+        doorSource.clip = doorHit;
+        doorSource.Play();
+    }
+
+    public void PlayAudioDoorBreak()
+    {
+        doorSource.clip = doorBreak; 
         doorSource.Play();
     }
 }

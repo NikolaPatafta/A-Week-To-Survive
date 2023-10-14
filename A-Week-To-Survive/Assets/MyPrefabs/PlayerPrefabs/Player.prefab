@@ -1890,6 +1890,7 @@ GameObject:
   - component: {fileID: 1160938971003294350}
   - component: {fileID: 1365947244}
   - component: {fileID: 4736503056968284781}
+  - component: {fileID: 8879036507645844979}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -1914,7 +1915,7 @@ Transform:
   - {fileID: 332346705}
   - {fileID: 1062241017}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 1.442, z: 0}
 --- !u!143 &7345085534056062518
 CharacterController:
@@ -1938,7 +1939,7 @@ CharacterController:
   m_Height: 1.8
   m_Radius: 0.35
   m_SlopeLimit: 55
-  m_StepOffset: 0.2
+  m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1, z: 0}
@@ -2106,6 +2107,7 @@ MonoBehaviour:
   is_Player: 1
   is_Boar: 0
   is_Zombie: 0
+  is_HordeZombie: 0
   cameraShake: {fileID: 1766550208}
   uiManager: {fileID: 0}
   bloodScreenEffect: {fileID: 1160938971003294350}
@@ -2141,9 +2143,14 @@ MonoBehaviour:
   pickupLayer:
     serializedVersion: 2
     m_Bits: 4096
+  specialItem:
+    serializedVersion: 2
+    m_Bits: 65536
   cam: {fileID: 8237109962305959491}
-  textMeshPro: {fileID: 0}
+  pickupLayerText: {fileID: 0}
+  specialLayerText: {fileID: 0}
   inventoryManager: {fileID: 0}
+  specialItemsManager: {fileID: 0}
 --- !u!114 &6715867892191226767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,6 +2203,7 @@ MonoBehaviour:
   - {fileID: 0}
   currentlyEquipedWeapon: {fileID: 3285539752741340975}
   selectedSlot: 0
+  isWeaponEquiped: 0
 --- !u!114 &4122215952898594653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,6 +2258,8 @@ MonoBehaviour:
   cam: {fileID: 8237109962305959491}
   textMeshPro: {fileID: 0}
   playSound: {fileID: 4122215952898594653}
+  canNotOpenDoor: {fileID: 0}
+  canOpenDoor: 1
 --- !u!114 &4736503056968284781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2273,6 +2283,27 @@ MonoBehaviour:
   - Clue_1
   - Clue_2
   - Clue_3
+--- !u!135 &8879036507645844979
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421709402249289437}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 100
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4719361826538165078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4991615193962601208}
   m_LocalRotation: {x: -0, y: -0.0002482282, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.00000011920929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2383,7 +2414,7 @@ MonoBehaviour:
     FieldOfView: 60.000004
     OrthographicSize: 5
     NearClipPlane: 0.2
-    FarClipPlane: 500
+    FarClipPlane: 350
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -2565,8 +2596,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8237109962305959489}
-  m_LocalRotation: {x: -0, y: -0.00024822727, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.00024822817, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00000011920929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2606,14 +2637,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.2
-  far clip plane: 500
+  far clip plane: 350
   field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 62519
+    m_Bits: 128055
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2871,9 +2902,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0761d807b3ae1d4598a50357cb58a5e, type: 3}
   - {fileID: 8300000, guid: f27be18648dcceb46a46397f5c4c2e62, type: 3}
   - {fileID: 8300000, guid: 3005916a05630f2439d211eaa6faba3d, type: 3}
+  - {fileID: 8300000, guid: 46100fda67d57774b93da415dd7c9e4f, type: 3}
+  - {fileID: 8300000, guid: 64508016c866a4e4a8ab0f5b020e5836, type: 3}
+  - {fileID: 8300000, guid: ebefe735b9b904d4dab6e70b96f6f263, type: 3}
+  - {fileID: 8300000, guid: 72b4382cae039794bb0dd0df6fb3e292, type: 3}
+  - {fileID: 8300000, guid: af08ef3832215854f9bdaf450911ee8d, type: 3}
+  - {fileID: 8300000, guid: f8d171ce8bbdbab4bb4728814885a4a5, type: 3}
+  step_Distance: 0
   volume_Min: 0
   volume_Max: 0
-  step_Distance: 0
+  rayCastDistance: 1.87
 --- !u!1 &8580506985085997698
 GameObject:
   m_ObjectHideFlags: 0
