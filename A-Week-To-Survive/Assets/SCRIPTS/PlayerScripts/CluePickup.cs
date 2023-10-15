@@ -9,9 +9,10 @@ public class CluePickup : MonoBehaviour
     [SerializeField] LayerMask clueMask;
     [SerializeField] TextMeshProUGUI interactText;
     [SerializeField] UIManager uiManager;
-    [SerializeField] GameObject ClueGameObject;
-    [SerializeField] private string[] clueList;   
+    [SerializeField] GameObject[] ClueGameObject;
+    [SerializeField] private string[] clueList;
 
+    private ClueController clueController;
     private float pickupRange = 5f;
     private float picturealpha;
     private int clueListCounter = 0;
@@ -20,7 +21,6 @@ public class CluePickup : MonoBehaviour
     {
         StartCoroutine(CheckForClues());
         picturealpha = interactText.color.a;
-        
     }
 
     private IEnumerator CheckForClues()
@@ -32,11 +32,12 @@ public class CluePickup : MonoBehaviour
             if (hit.transform.CompareTag(clueList[clueListCounter]))
             {
                 if (Input.GetKeyDown(KeyCode.E))
-                {
-                    clueListCounter++;
+                {   
                     uiManager.isPaused = true;
-                    ClueGameObject.gameObject.SetActive(true);
-                    uiManager.gameObject.SetActive(false);
+                    ClueGameObject[clueListCounter].gameObject.SetActive(true);
+                    clueController = FindObjectOfType<ClueController>();
+                    clueController.clueCounter = clueListCounter;
+                    clueListCounter++;
                 }
                 
                 if (picturealpha <= 0)
@@ -51,7 +52,7 @@ public class CluePickup : MonoBehaviour
             interactText.color = new Color(255, 255, 255, 0);
             picturealpha = 0;
         }
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.01f);
         StartCoroutine(CheckForClues());
     }
 

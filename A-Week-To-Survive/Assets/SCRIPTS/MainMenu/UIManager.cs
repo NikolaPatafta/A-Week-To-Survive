@@ -48,13 +48,13 @@ public class UIManager : MonoBehaviour, IDataPersistence
             else
             {
                 playerCanvas.SetActive(false);
-            }   
+            }
         }
         else if (healthScript.IsDead())
         {
             UnlockCursor();
         }
-       
+
 
     }
 
@@ -76,15 +76,19 @@ public class UIManager : MonoBehaviour, IDataPersistence
         isCutScenePlaying = state;
     }
 
+    public void HardPause(bool state)
+    {
+        Time.timeScale = state ? 0 : 1; 
+    }
+
     public void SetActivePause(bool state)
     {
         pauseCanvas.SetActive(state);
         playerCanvas.SetActive(!state);
-        
 
         Time.timeScale = state ? 0 : 1;
-
         isPaused = state;
+
         if (!isPaused && !invManager.isInventoryOn)
         {
             LockCursor();

@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject[] spawnableEnemy;
     [SerializeField] private Terrain terrain;
     [SerializeField] private NavMeshSurface navMeshSurface;
+    [SerializeField] private UIManager uiManager;
     public Transform player;
 
     private int spawnableEnemyCount = 15;
@@ -86,7 +87,12 @@ public class EnemyManager : MonoBehaviour
             //new code end  
         }
         yield return null;
-        StartCoroutine("SpawnEnemy");
+        
+        if(!uiManager.isPaused)
+        {
+            StartCoroutine("SpawnEnemy");
+        }
+        
     }
 
     private IEnumerator SpawnBoar()
@@ -106,7 +112,10 @@ public class EnemyManager : MonoBehaviour
             currentBoarCount++;
         }
         yield return null;
-        StartCoroutine("SpawnBoar");
+        if (!uiManager.isPaused)
+        {
+            StartCoroutine("SpawnBoar");
+        }  
     }
 
 

@@ -10,7 +10,6 @@ public class ObstacleController : MonoBehaviour
     private void Start()
     {
         doorManager = FindObjectOfType<DoorManager>();
-        Debug.Log("Found: " + doorManager); 
     }
 
     public void DamageObstacle()
