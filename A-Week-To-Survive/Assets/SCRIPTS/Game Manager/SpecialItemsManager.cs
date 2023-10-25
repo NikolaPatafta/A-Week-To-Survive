@@ -7,7 +7,7 @@ public class SpecialItemsManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
 
-    private int collectableCounter;
+    private int collectableCounter = 0;
 
     public void SpecialItemCollected()
     {
@@ -18,7 +18,7 @@ public class SpecialItemsManager : MonoBehaviour
 
     public void AllSpecialItemsCollected()
     {
-        if (collectableCounter == 5)
+        if (collectableCounter == 4)
         {
             //unlocked 3rd cutscene when collected all items
 
