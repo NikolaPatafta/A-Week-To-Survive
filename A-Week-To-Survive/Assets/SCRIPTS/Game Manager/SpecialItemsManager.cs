@@ -21,7 +21,6 @@ public class SpecialItemsManager : MonoBehaviour
         if (collectableCounter == 4)
         {
             //unlocked 3rd cutscene when collected all items
-
             audioSource.Play();
         }
     }
