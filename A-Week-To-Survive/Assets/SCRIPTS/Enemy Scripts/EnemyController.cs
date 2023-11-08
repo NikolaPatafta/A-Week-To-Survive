@@ -14,7 +14,6 @@ public enum EnemyState
 public class EnemyController : MonoBehaviour
 { 
     [SerializeField] private NavMeshAgent navAgent;
-    [SerializeField] private EnemyDestructible enemyDestructible;
     [SerializeField] private UIManager uIManager;
     [SerializeField] private Transform target;
     public DayAndNightSystem dayAndNightSystem;

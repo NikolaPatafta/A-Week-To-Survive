@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    [SerializeField] private GameObject doorBlocker;  
+    [SerializeField] private GameObject doorBlocker;
+    [SerializeField] private GameObject[] cutSceneTriggers;
     
     private DoorRayCast player;
     private EnemyController[] enemy;
@@ -34,7 +35,12 @@ public class CombatManager : MonoBehaviour
         }
         doorBlocker.gameObject.SetActive(anyEnemyInCombat);
         
-        yield return new WaitForSeconds(2);
+        for (int i = 0; i < cutSceneTriggers.Length; i++)
+        {
+            cutSceneTriggers[i].gameObject.SetActive(!anyEnemyInCombat);
+        }
+        
+        yield return new WaitForSeconds(1);
         StartCoroutine(CombatCheck());
     }
 }

@@ -22,6 +22,7 @@ public class CutScenesManager : MonoBehaviour
         mouseLook.enabled = !playing;
         playerSound.enabled = !playing;
         doorRayCast.enabled = !playing;
+        Debug.Log("Is CutScene playing?: " + playing);
     }
 
 

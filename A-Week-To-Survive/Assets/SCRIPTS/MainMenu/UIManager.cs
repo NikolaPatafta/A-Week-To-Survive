@@ -72,6 +72,7 @@ public class UIManager : MonoBehaviour, IDataPersistence
 
     public void CutSceneIsPlaying(bool state)
     {
+        Debug.Log("UiManager CutSceneIsPlaying status: " + state);
         playerCanvas.SetActive(!state);
         isCutScenePlaying = state;
     }

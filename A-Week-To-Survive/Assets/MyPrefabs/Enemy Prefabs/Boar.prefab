@@ -49,6 +49,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackingPlayer: 0
 --- !u!1 &3532931006884275345
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,19 +572,26 @@ MonoBehaviour:
   navAgent: {fileID: 5794726076097612346}
   enemyDestructible: {fileID: 0}
   uIManager: {fileID: 0}
+  target: {fileID: 0}
   dayAndNightSystem: {fileID: 0}
-  walk_Speed: 0.3
+  attack_Point: {fileID: 2502973548677698163}
+  inCombat: 0
+  obstacleAttackDistance: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  defaultMask:
+    serializedVersion: 2
+    m_Bits: 0
+  walk_Speed: 0.4
   run_Speed: 1
-  chase_Distance: 7
+  chase_Distance: 9
   attack_Distance: 2.4
   chase_After_Attack_Distance: 1
-  currentState: 0
   patrol_Radius_Min: 20
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
   wait_Before_Attack: 1.85
-  target: {fileID: 0}
-  attack_Point: {fileID: 2502973548677698163}
 --- !u!95 &5175953211322313896
 Animator:
   serializedVersion: 5
@@ -618,6 +629,7 @@ MonoBehaviour:
   is_Player: 0
   is_Boar: 1
   is_Zombie: 0
+  is_HordeZombie: 0
   cameraShake: {fileID: 0}
   uiManager: {fileID: 0}
   bloodScreenEffect: {fileID: 0}
