@@ -6,20 +6,25 @@ using UnityEngine.UI;
 public class EnemyStats : MonoBehaviour
 {
     [SerializeField] private Image healthbar;
-    private HealthScript healthamount;
+    private HealthScript healthScript;
     private float thishealth;
 
     void Awake()
     {
-        healthamount = GetComponent<HealthScript>();
+        healthScript = GetComponent<HealthScript>();
     }
     private void Update()
     {
-        thishealth = healthamount.health;
+        float currentHealth = healthScript.health;
+        float maxHealth = healthScript.maxHealth;
+
+        float healthValue = currentHealth / maxHealth;
+
+        Display_EnemyHealth(healthValue);
     }
     public void Display_EnemyHealth(float healthValue)
     {
-        healthValue /= 100;
+        healthValue= Mathf.Clamp01(healthValue);
         healthbar.fillAmount = healthValue;
     }
 }

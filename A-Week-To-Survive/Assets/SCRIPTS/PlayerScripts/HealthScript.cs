@@ -14,6 +14,9 @@ public class HealthScript : MonoBehaviour
     private SpawnHordeZombies spawnHordeZombies;
 
     public float health = 100f;
+    //samo za kalkulaciju u Enemystats skripti
+    [HideInInspector] public float maxHealth;
+
     public bool is_Player, is_Boar, is_Zombie, is_HordeZombie = false;
     public CameraShake cameraShake;
 
@@ -47,6 +50,7 @@ public class HealthScript : MonoBehaviour
             {
                 spawnHordeZombies = FindAnyObjectByType<SpawnHordeZombies>();
             }
+            maxHealth = health;
 
         }
         if (is_Player)
@@ -81,7 +85,7 @@ public class HealthScript : MonoBehaviour
         }
         if (is_Boar || is_Zombie)
         {
-            enemy_Stats.Display_EnemyHealth(health);
+            //enemy_Stats.Display_EnemyHealth(health);
             if (enemy_Controller.Enemy_State == EnemyState.PATROL)
             {
                 enemy_Controller.chase_Distance = 50f;
