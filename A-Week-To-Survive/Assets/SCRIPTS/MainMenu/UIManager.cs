@@ -21,7 +21,8 @@ public class UIManager : MonoBehaviour, IDataPersistence
     [SerializeField] private HealthScript healthScript;
     [SerializeField] private InventoryManager invManager;
     [SerializeField] private MouseLook mouseLook;
-    [SerializeField] private TextMeshProUGUI scoreText; 
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private EnemyManager enemyManager;
 
     private void Start()
     {
@@ -72,9 +73,9 @@ public class UIManager : MonoBehaviour, IDataPersistence
 
     public void CutSceneIsPlaying(bool state)
     {
-        Debug.Log("UiManager CutSceneIsPlaying status: " + state);
         playerCanvas.SetActive(!state);
         isCutScenePlaying = state;
+        //enemyManager.enabled = !state;
     }
 
     public void HardPause(bool state)

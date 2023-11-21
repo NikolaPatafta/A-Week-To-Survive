@@ -85,7 +85,6 @@ public class HealthScript : MonoBehaviour
         }
         if (is_Boar || is_Zombie)
         {
-            //enemy_Stats.Display_EnemyHealth(health);
             if (enemy_Controller.Enemy_State == EnemyState.PATROL)
             {
                 enemy_Controller.chase_Distance = 50f;

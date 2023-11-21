@@ -19,7 +19,6 @@ public class DespawnManager : MonoBehaviour
             healthScript = other.transform.GetComponent<HealthScript>();
             healthScript.TurnOffGameObject();
             enemyManager.LowerEnemyCounter();
-            Debug.Log("Disabled : " + other.name);
         }
         
     }

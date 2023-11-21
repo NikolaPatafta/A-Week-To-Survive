@@ -11,6 +11,7 @@ public class CutScenesManager : MonoBehaviour
     [SerializeField] private MouseLook mouseLook;
     [SerializeField] private PlayerFootSteps playerSound;
     [SerializeField] private DoorRayCast doorRayCast;
+    [SerializeField] private EnemyManager enemyManager;
 
     public void PlayingCutScene(bool playing)
     {
@@ -22,7 +23,8 @@ public class CutScenesManager : MonoBehaviour
         mouseLook.enabled = !playing;
         playerSound.enabled = !playing;
         doorRayCast.enabled = !playing;
-        Debug.Log("Is CutScene playing?: " + playing);
+        enemyManager.enabled = !playing;
+        Debug.Log("EnemyManager: " + enemyManager.enabled);
     }
 
 

@@ -11,6 +11,7 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager instance;
    
     [SerializeField] private GameObject[] spawnableEnemy;
+    [SerializeField] private GameObject spawnableBoar;
     [SerializeField] private Terrain terrain;
     [SerializeField] private NavMeshSurface navMeshSurface;
     [SerializeField] private UIManager uiManager;
@@ -33,7 +34,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("SpawnEnemy");
-        //StartCoroutine("SpawnBoar");
+        StartCoroutine("SpawnBoar");
     }
 
     void MakeInstance()
@@ -54,9 +55,8 @@ public class EnemyManager : MonoBehaviour
     {
         if (currentEnemyCount < spawnableEnemyCount)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(4);
             Vector3 randomPosition = GetRandomPosition();
-            //new code start
             float terrainHeight = terrain.SampleHeight(randomPosition);
             Vector3 terrainNormal = terrain.terrainData.GetInterpolatedNormal(randomPosition.x / terrain.terrainData.size.x, randomPosition.z / terrain.terrainData.size.z);
             float slopeAngle = Vector3.Angle(Vector3.up, terrainNormal);
@@ -84,7 +84,6 @@ public class EnemyManager : MonoBehaviour
             {
                 Debug.Log("Could not spawn enemy!");
             }
-            //new code end  
         }
         yield return null;
         
@@ -99,19 +98,38 @@ public class EnemyManager : MonoBehaviour
     {
         if (currentBoarCount < spawnableBoarCount)
         {
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(25);
             Vector3 randomPosition = GetRandomPosition();
-            randomPosition.y = terrain.SampleHeight(randomPosition);
-            GameObject agent = Instantiate(spawnableEnemy[Random.Range(0, spawnableEnemy.Length)], randomPosition, Quaternion.identity);
-            NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
-            if (navAgent != null)
+            float terrainHeight = terrain.SampleHeight(randomPosition);
+            Vector3 terrainNormal = terrain.terrainData.GetInterpolatedNormal(randomPosition.x / terrain.terrainData.size.x, randomPosition.z / terrain.terrainData.size.z);
+            float slopeAngle = Vector3.Angle(Vector3.up, terrainNormal);
+            if (slopeAngle <= 45)
             {
-                Debug.Log("Spawned: " + agent.name);
-                navAgent.Warp(randomPosition);
+                randomPosition.y = terrainHeight;
+
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(randomPosition, out hit, 1.0f, NavMesh.AllAreas))
+                {
+                    GameObject agent = Instantiate(spawnableBoar, randomPosition, Quaternion.identity);
+                    NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
+                    if (navAgent != null)
+                    {
+                        navAgent.Warp(randomPosition);
+                    }
+                    currentBoarCount++;
+                }
+                else
+                {
+                    Debug.Log("Could not spawn enemy on NavMesh!");
+                }
             }
-            currentBoarCount++;
+            else
+            {
+                Debug.Log("Could not spawn enemy!");
+            }
         }
         yield return null;
+
         if (!uiManager.isPaused)
         {
             StartCoroutine("SpawnBoar");
