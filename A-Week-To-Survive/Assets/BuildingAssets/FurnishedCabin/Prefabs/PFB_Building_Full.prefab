@@ -129,7 +129,7 @@ Transform:
   - {fileID: 2307276905862205304}
   - {fileID: 3431188392644219564}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &191052
 GameObject:
@@ -529,9 +529,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50626bdf23c48a54582c6b0f02234a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpen: {fileID: 8300000, guid: 870530d2587ce32468e738a1dd45e30d, type: 3}
-  doorClose: {fileID: 8300000, guid: 84aafa3d9820fba4c86e661b249a714d, type: 3}
-  doorSource: {fileID: 0}
+  openRot: 90
+  closeRot: 0
+  speed: 5
+  opening: 0
+  reversed: 0
+  specialDoor: 0
 --- !u!95 &1122785164916341746
 Animator:
   serializedVersion: 5
@@ -4496,9 +4499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50626bdf23c48a54582c6b0f02234a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpen: {fileID: 8300000, guid: 870530d2587ce32468e738a1dd45e30d, type: 3}
-  doorClose: {fileID: 8300000, guid: 84aafa3d9820fba4c86e661b249a714d, type: 3}
-  doorSource: {fileID: 0}
+  openRot: 90
+  closeRot: 0
+  speed: 5
+  opening: 0
+  reversed: 0
+  specialDoor: 0
 --- !u!95 &4758460110006154458
 Animator:
   serializedVersion: 5
@@ -11696,9 +11702,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50626bdf23c48a54582c6b0f02234a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpen: {fileID: 8300000, guid: 870530d2587ce32468e738a1dd45e30d, type: 3}
-  doorClose: {fileID: 8300000, guid: 84aafa3d9820fba4c86e661b249a714d, type: 3}
-  doorSource: {fileID: 0}
+  openRot: 90
+  closeRot: 0
+  speed: 5
+  opening: 0
+  reversed: 0
+  specialDoor: 0
 --- !u!95 &5604558388034403645
 Animator:
   serializedVersion: 5

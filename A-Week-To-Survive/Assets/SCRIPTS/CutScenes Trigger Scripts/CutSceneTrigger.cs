@@ -6,8 +6,14 @@ public class CutSceneTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject cutScene;
     [SerializeField] private CutScenesManager cutSceneManager;
+    private BoxCollider triggerCollider;
 
     public bool cutSceneWasPlayed = false;
+
+    public void Start()
+    {
+        triggerCollider = GetComponent<BoxCollider>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +23,8 @@ public class CutSceneTrigger : MonoBehaviour
             cutSceneManager.PlayingCutScene(true);
             gameObject.SetActive(false);
             Debug.Log("Triggered CutScene!");
+            triggerCollider.enabled = false;
+
         } 
     }
 

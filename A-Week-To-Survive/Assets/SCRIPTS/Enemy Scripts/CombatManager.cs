@@ -28,7 +28,6 @@ public class CombatManager : MonoBehaviour
         {
             if (enemyController.inCombat)
             {
-                Debug.Log("Found " + enemyController.name + " in combat.");
                 anyEnemyInCombat = true;
                 break;
             }

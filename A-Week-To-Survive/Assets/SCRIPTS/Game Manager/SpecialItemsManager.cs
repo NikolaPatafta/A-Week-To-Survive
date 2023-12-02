@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpecialItemsManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject _3rdCutScene;
 
     private int collectableCounter = 0;
 
@@ -22,6 +23,7 @@ public class SpecialItemsManager : MonoBehaviour
         {
             //unlocked 3rd cutscene when collected all items
             audioSource.Play();
+            _3rdCutScene.gameObject.SetActive(true);
         }
     }
 

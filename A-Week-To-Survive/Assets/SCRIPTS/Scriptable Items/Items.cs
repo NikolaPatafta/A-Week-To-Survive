@@ -25,5 +25,6 @@ public enum ItemType
 {
     Weapon,
     Ammo,
-    Consumable
+    Consumable,
+    Special
 }

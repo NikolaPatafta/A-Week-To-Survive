@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     {
         healthValue /= 100f;
         health_Stats.fillAmount= healthValue;
-        Healthtext.text = (healthValue*100).ToString();
+        Healthtext.text = Mathf.RoundToInt(healthValue*100).ToString();
     }
 
     public void Display_StaminaStats(float staminaValue)

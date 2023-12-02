@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,22 @@ public class CutScenesManager : MonoBehaviour
         playerSound.enabled = !playing;
         doorRayCast.enabled = !playing;
         enemyManager.enabled = !playing;
-        Debug.Log("EnemyManager: " + enemyManager.enabled);
+        TurnEnemies(!playing);
+    }
+
+    private void TurnEnemies(bool status)
+    {
+        EnemyController[] enemyController = FindObjectsOfType<EnemyController>();
+
+        foreach(EnemyController enemy in enemyController)
+        {
+            if (enemy != null)
+            {
+                enemy.gameObject.SetActive(status);
+            }
+            else continue;
+            
+        }
     }
 
 

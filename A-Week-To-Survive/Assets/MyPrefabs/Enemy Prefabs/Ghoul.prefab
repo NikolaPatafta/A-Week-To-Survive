@@ -142,14 +142,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtClips:
-  - {fileID: 8300000, guid: 8a8209b3ad6d488428fd3d1f9107fb2f, type: 3}
-  - {fileID: 8300000, guid: 971a39f00e08d5c43822450e3616fc26, type: 3}
-  scream_Clip: {fileID: 8300000, guid: 8a8209b3ad6d488428fd3d1f9107fb2f, type: 3}
-  die_Clip: {fileID: 8300000, guid: cc5d0701b7e264a488ef8b8a3bff299e, type: 3}
+  - {fileID: 8300000, guid: 0547b940dba4d964e9e447af1dc0759a, type: 3}
+  - {fileID: 8300000, guid: 5cd921b91deac4f47b05c451951f7a53, type: 3}
+  scream_Clip: {fileID: 8300000, guid: 90054576c036ea44096d20cc89ff4da2, type: 3}
+  die_Clip: {fileID: 8300000, guid: fc1882cb9cb0d474c95537bbdb4c48bd, type: 3}
   attack_Clips:
-  - {fileID: 8300000, guid: a78ba1c4b551e7545b8aff8141fc5c67, type: 3}
-  - {fileID: 8300000, guid: fb437b4ef5ae1a04d86529f50e2fd701, type: 3}
-  - {fileID: 8300000, guid: 833640be22bd78a48890ee30c4f7f0f0, type: 3}
+  - {fileID: 8300000, guid: 5ce6bb262e363834db2b5cdef8a21155, type: 3}
+  - {fileID: 8300000, guid: 83041cb4dc7766b48a4342db7511819d, type: 3}
+  - {fileID: 8300000, guid: 8b9826c915109c446be0c38d54721a2d, type: 3}
 --- !u!1 &825472634169924142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1065,7 @@ Transform:
   - {fileID: 1151830183274311246}
   - {fileID: 7180529392415770690}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &313512332405468069
 Animator:
@@ -1122,11 +1122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navAgent: {fileID: 2953975360368304130}
-  enemyDestructible: {fileID: 0}
   uIManager: {fileID: 0}
   target: {fileID: 0}
   dayAndNightSystem: {fileID: 0}
   attack_Point: {fileID: 3446960891670574202}
+  inCombat: 0
   obstacleAttackDistance: 2
   obstacleLayer:
     serializedVersion: 2
@@ -1139,7 +1139,6 @@ MonoBehaviour:
   chase_Distance: 100
   attack_Distance: 2
   chase_After_Attack_Distance: 0.5
-  currentState: 0
   patrol_Radius_Min: 20
   patrol_Radius_Max: 60
   patrol_For_This_Time: 15
@@ -1156,7 +1155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c6ec5512a004c4f9ec8d8454bd4c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 50
+  maxHealth: 0
   is_Player: 0
   is_Boar: 0
   is_Zombie: 1

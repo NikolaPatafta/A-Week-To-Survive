@@ -30,8 +30,7 @@ public class EnemyManager : MonoBehaviour
         MakeInstance();
         player = FindObjectOfType<PlayerMovement>().transform;
     }
-
-    void Start()
+    private void OnEnable()
     {
         StartCoroutine("SpawnEnemy");
         StartCoroutine("SpawnBoar");
@@ -71,6 +70,7 @@ public class EnemyManager : MonoBehaviour
                     NavMeshAgent navAgent = agent.GetComponent<NavMeshAgent>();
                     if (navAgent != null)
                     {
+                        //Debug.Log("Spawned: " + navAgent.name);
                         navAgent.Warp(randomPosition);
                     }
                     currentEnemyCount++;
