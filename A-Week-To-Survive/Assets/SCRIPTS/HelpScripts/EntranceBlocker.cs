@@ -13,18 +13,11 @@ public class EntranceBlocker : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider>();
         doorRayCast = FindObjectOfType<DoorRayCast>();
-        if(doorRayCast != null)
-        {
-            doorRayCast.enabled = false;
-        }
+        
     }
 
     private void OnDisable()
-    {
-        if (doorRayCast != null)
-        {
-            doorRayCast.enabled = true;
-        }
+    { 
         if(doorTextHolder != null)
         {
             doorTextHolder.gameObject.SetActive(false);
@@ -34,9 +27,17 @@ public class EntranceBlocker : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         doorTextHolder.gameObject.SetActive(true);
+        if (doorRayCast != null)
+        {
+            doorRayCast.enabled = false;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         doorTextHolder.gameObject.SetActive(false);
+        if (doorRayCast != null)
+        {
+            doorRayCast.enabled = true;
+        }
     }
 }

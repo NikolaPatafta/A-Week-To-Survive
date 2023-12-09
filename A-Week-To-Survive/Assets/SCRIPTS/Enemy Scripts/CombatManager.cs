@@ -7,14 +7,12 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private GameObject doorBlocker;
     [SerializeField] private GameObject[] cutSceneTriggers;
     
-    private DoorRayCast player;
     private EnemyController[] enemy;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<DoorRayCast>();
         StartCoroutine(CombatCheck());   
     }
 

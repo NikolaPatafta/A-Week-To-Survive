@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private DayAndNightSystem dayTime;
     [SerializeField] private UIManager uiManager;
 
+    public bool canPlayMusic = true;
+
     void Awake()
     {
         FirstStopDayAudio();
@@ -19,7 +21,7 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
 
-        if (!uiManager.isPaused && !uiManager.isCutScenePlaying)
+        if (!uiManager.isPaused && !uiManager.isCutScenePlaying && canPlayMusic)
         {
             if (dayTime.isDay)
             {

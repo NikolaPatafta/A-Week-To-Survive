@@ -15,7 +15,7 @@ public class ObstacleController : MonoBehaviour
     public void DamageObstacle()
     {
         health = health - 10;
-        doorManager.PlayAudioDoorHit();
+        doorManager.PlayAudioDoor();
         if(health <= 0)
         {
             doorManager.PlayAudioDoorBreak();

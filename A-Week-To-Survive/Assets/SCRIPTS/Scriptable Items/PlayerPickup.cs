@@ -61,8 +61,7 @@ public class PlayerPickup : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                PickupWeapons(hit.transform);
-                
+                PickupWeapons(hit.transform);  
             }
         }
         else
@@ -90,8 +89,7 @@ public class PlayerPickup : MonoBehaviour
                 specialItemsManager.SpecialItemCollected();
                 Debug.Log("Picked up: " + currentItem);
                 //add special item to inventory!
-
-                Destroy(hit.transform.gameObject);
+                PickupWeapons(hit.transform);
             }
         }
         else

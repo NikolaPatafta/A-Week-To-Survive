@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
-    //Equipment manager - Animations for hands https://www.youtube.com/watch?v=HrTrx_98e8s
-
     [SerializeField] private Transform WeaponHolder = null;
     [SerializeField] private InventoryManager inventoryManager; 
     [SerializeField] private GameObject[] Toolbar;

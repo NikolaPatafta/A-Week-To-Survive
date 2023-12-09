@@ -33,4 +33,46 @@ public class DoorManager : MonoBehaviour
         doorSource.clip = doorBreak; 
         doorSource.Play();
     }
+
+    public void PlayAudioDoor()
+    {
+        // Find the nearest AudioSource with 'DoorController' script
+        AudioSource nearestDoorAudioSource = FindNearestDoorAudioSource();
+
+        if (nearestDoorAudioSource != null)
+        {
+            // Play the 'doorBreak' AudioClip on the nearest AudioSource
+            Debug.Log("Playing doorbreak");
+            nearestDoorAudioSource.clip = doorBreak;
+            nearestDoorAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource with 'DoorController' script found.");
+        }
+    }
+
+    private AudioSource FindNearestDoorAudioSource()
+    {
+        DoorController[] doorControllers = FindObjectsOfType<DoorController>();
+        PlayerPickup player = FindAnyObjectByType<PlayerPickup>();
+        AudioSource nearestAudioSource = null;
+        float minDistance = float.MaxValue;
+
+        foreach (DoorController doorController in doorControllers)
+        {
+            AudioSource audioSource = doorController.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                float distance = Vector3.Distance(player.transform.position, doorController.transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestAudioSource = audioSource;
+                }
+            }
+        }
+
+        return nearestAudioSource;
+    }
 }
