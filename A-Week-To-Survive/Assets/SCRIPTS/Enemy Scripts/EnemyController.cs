@@ -30,11 +30,14 @@ public class EnemyController : MonoBehaviour
     public LayerMask obstacleLayer;
     public LayerMask defaultMask;
 
-    private bool isitDay = false;
+    public bool isNightTime = false;
     private EnemyState enemy_State;
 
-    public float walk_Speed = 0.5f;
-    public float run_Speed = 4f;
+    public float walk_Speed;
+    public float run_Speed;
+
+    private float currentMovementSpeed;
+    private bool hasAdjustedForNight = false;
 
     public float chase_Distance = 7f;
     private float current_Chase_Distance;
@@ -68,7 +71,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemy_State = EnemyState.PATROL;
-
         patrol_Timer = patrol_For_This_Time;
 
         //kada zombie dolazi do playera - napadni odmah
@@ -77,8 +79,10 @@ public class EnemyController : MonoBehaviour
 
         //zapamti vrijednost od chase_distance kako bi je mogli vratiti
         current_Chase_Distance = chase_Distance;
-
         navMeshPath = new NavMeshPath();
+
+
+        currentMovementSpeed = run_Speed;
     }
 
 
@@ -100,8 +104,7 @@ public class EnemyController : MonoBehaviour
                 else
                 {
                     Enemy_State = EnemyState.CHASE;
-                    Chase();
-                    
+                    Chase();        
                 }
                 
             }
@@ -112,6 +115,18 @@ public class EnemyController : MonoBehaviour
             if(enemy_State == EnemyState.ATTACKOBSTACLE)
             {
                 AttackObstacleBehavior();
+            }
+
+            //new code
+            if(!dayAndNightSystem.isDay && !hasAdjustedForNight)
+            {
+                ChangeZombieSpeed(false);
+                hasAdjustedForNight = true;
+            }
+            else if(dayAndNightSystem.isDay && hasAdjustedForNight)
+            {
+                ChangeZombieSpeed(true);
+                hasAdjustedForNight = false;
             }
         }
     }
@@ -311,23 +326,18 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    /*void ChangeZombieSpeed()
+    private void ChangeZombieSpeed(bool day)
     {
-        if (isitDay != dayAndNightSystem.isDay)
+        if (day)
         {
             run_Speed /= 2;
-            isitDay = true;
         }
-        else 
+        else
         {
             run_Speed *= 2;
-            isitDay = false;
         }
 
-    }*/
-
-
-
+    }
 
     //Random radijus za patrol state od zombija
     void SetNewRandomDestination()
@@ -367,7 +377,6 @@ public class EnemyController : MonoBehaviour
 
     public EnemyState Enemy_State
     {
-        //dozvoljava
         get; set;
     }
 }

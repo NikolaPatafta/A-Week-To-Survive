@@ -11,6 +11,7 @@ public class DoorRayCast : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private PlayPlayerSound playSound;
     [SerializeField] private Canvas canNotOpenDoor;
+    [SerializeField] private GameObject doorHealth;
     
     [HideInInspector] public bool canOpenDoor = true;
     private float picturealpha;
@@ -53,6 +54,10 @@ public class DoorRayCast : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, doorActionRange, doorMask))
         {
+            if(!doorHealth.gameObject.activeSelf)
+            {
+                doorHealth.gameObject.SetActive(true);
+            }
             textMeshPro.text = "Interact '" + interactButton + "'";
             if (picturealpha <= 0)
             {
@@ -62,7 +67,10 @@ public class DoorRayCast : MonoBehaviour
         }
         else
         {
-
+            if (doorHealth.gameObject.activeSelf)
+            {
+                doorHealth.gameObject.SetActive(false);
+            }
             textMeshPro.color = new Color(255, 255, 255, 0);
             picturealpha = 0;
         }

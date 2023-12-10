@@ -53,7 +53,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 7
+  MinDistance: 10
   MaxDistance: 45
   Pan2D: 0
   rolloffMode: 0
@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1151830183274311246
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1110,7 +1110,7 @@ Transform:
   - {fileID: 1151830183274311246}
   - {fileID: 7180529392415770690}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &313512332405468069
 Animator:
@@ -1179,6 +1179,7 @@ MonoBehaviour:
   defaultMask:
     serializedVersion: 2
     m_Bits: 114231
+  isNightTime: 0
   walk_Speed: 3
   run_Speed: 6
   chase_Distance: 100
@@ -1200,7 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c6ec5512a004c4f9ec8d8454bd4c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 180
   maxHealth: 0
   is_Player: 0
   is_Boar: 0

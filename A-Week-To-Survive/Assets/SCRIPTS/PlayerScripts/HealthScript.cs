@@ -115,7 +115,6 @@ public class HealthScript : MonoBehaviour
         {
             if (is_HordeZombie)
             {
-                Debug.Log("Transform of " + target.name + " is: " + target.transform.position);
                 spawnHordeZombies.ZombieKilled(target);
             }
             EnemyManager.instance.LowerEnemyCounter();
