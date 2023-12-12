@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 
-public class HealthScript : MonoBehaviour
+public class HealthScript : MonoBehaviour, IDataPersistence
 {
     private EnemyAnimatior enemy_Anim;
     private NavMeshAgent navAgent;
@@ -160,5 +160,31 @@ public class HealthScript : MonoBehaviour
             enemyAudio.Play_DeadSound();
         }
 
+    public void LoadData(GameData data)
+    {
+        if(!is_Player)
+        {
+            return;
+        }
+        else
+        {
+            this.health = data.playerHealth;
+        }
     }
+
+    public void SaveData(ref GameData data)
+    {
+        if (!is_Player)
+        {
+            return;
+        }
+        else
+        {
+            data.playerHealth = this.health;
+        }
+    }
+
+}
+
+
 

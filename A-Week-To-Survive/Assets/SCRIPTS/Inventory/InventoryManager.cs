@@ -182,4 +182,31 @@ public class InventoryManager : MonoBehaviour
         }
         return null;
     }
+
+    //testtttttttttttttinggggggggggggggggg
+
+    public void CheckForChildren()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot inventorySlot = inventorySlots[i];
+
+            if (inventorySlot != null)
+            {
+                // Iterate through the child objects of the InventorySlot
+                foreach (Transform child in inventorySlot.transform)
+                {
+                    // Check if the child object has a component of type InventoryItem
+                    InventoryItem inventoryItem = child.GetComponent<InventoryItem>();
+
+                    if (inventoryItem != null)
+                    {
+                        // The InventorySlot has a child of type InventoryItem
+                        Debug.Log($"InventoryItem found in InventorySlot {i}, Child: {child.name}");
+                        // Optionally, you can perform additional actions here
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Networking.UnityWebRequest;
 
 public class DayAndNightSystem : MonoBehaviour
 {
@@ -49,6 +51,7 @@ public class DayAndNightSystem : MonoBehaviour
         {
             currentTime = 0.75f;
         }
+        FindAllDataPersistenceObjects();
     }
 
     void Update()
@@ -126,5 +129,19 @@ public class DayAndNightSystem : MonoBehaviour
             currentTime = 0;
         }
        
+    }
+
+    private List<IDataPersistence> FindAllDataPersistenceObjects()
+    {
+        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+
+        List<IDataPersistence> result = new List<IDataPersistence>(dataPersistenceObjects);
+        foreach (IDataPersistence dataPersistenceObject in result)
+        {
+            // Log information about each object
+            //Debug.Log("Found IDataPersistence object: " + dataPersistenceObject.ToString());
+        } 
+        return new List<IDataPersistence>(dataPersistenceObjects);
+
     }
 }
