@@ -7,13 +7,15 @@ public class SpawnHordeZombies : MonoBehaviour
     [SerializeField] private GameObject hordeZombieprefab;
     [SerializeField] private int addedHealth;
     [SerializeField] private DayAndNightSystem dayNight;
-    [SerializeField] private GameObject lootPrefab;
+    public GameObject[] lootPrefab;
     [SerializeField] private Canvas lootCanvas;
     
     private GameObject findPlayer;
     private int maxSpawnRadius = 25;
     private int minSpawnRadius = 20;
     private int remainingZombies = 1;
+    
+    public int counter = -1;
 
     void Start()
     {
@@ -23,6 +25,26 @@ public class SpawnHordeZombies : MonoBehaviour
     public IEnumerator spawnHordeZombies()
     {
         int dayCount = dayNight.day;
+        if(dayCount == 7)
+        {
+            dayCount = 4;
+        }
+        if(dayCount == 14)
+        {
+            dayCount = 10;
+        }
+        if(dayCount == 21)
+        {
+            dayCount = 12;
+        }
+        if(dayCount == 28)
+        {
+            dayCount = 14;
+        }
+        if(dayCount == 35)
+        {
+            dayCount = 14;
+        }
         remainingZombies = dayCount;
         yield return new WaitForSeconds(5);
         for(int i = 0; i < dayCount; i++) 
@@ -38,9 +60,7 @@ public class SpawnHordeZombies : MonoBehaviour
         float z = Random.Range(findPlayer.transform.position.z + minSpawnRadius, findPlayer.transform.position.z + maxSpawnRadius);
 
         Instantiate(hordeZombieprefab, new Vector3(x, 100, z), Quaternion.identity);
-        hordeZombieprefab.gameObject.GetComponent<HealthScript>().health += addedHealth;
         hordeZombieprefab.gameObject.GetComponent<EnemyController>().chase_Distance = 100f;
-        Debug.Log("Spawned: " + hordeZombieprefab.gameObject.name + " at x: " + x + " z: " + z);
     }
 
     public void ZombieKilled(Transform location)
@@ -51,7 +71,6 @@ public class SpawnHordeZombies : MonoBehaviour
         {
             Vector3 offset = new Vector3(location.transform.position.x, location.transform.position.y + 1, location.transform.position.z);
             StartCoroutine(SpawnLootTimer(offset));
-            Debug.Log("Spawned: " + lootPrefab.gameObject.name + " at: " + offset);
         }
     }
 
@@ -59,7 +78,7 @@ public class SpawnHordeZombies : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         lootCanvas.gameObject.SetActive(true);
-        Instantiate(lootPrefab, location, Quaternion.identity);
+        Instantiate(lootPrefab[counter], location, Quaternion.identity);
         yield return new WaitForSeconds(5);
         lootCanvas.gameObject.SetActive(false);
     }

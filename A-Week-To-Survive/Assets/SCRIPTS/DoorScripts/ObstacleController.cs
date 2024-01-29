@@ -5,8 +5,8 @@ using UnityEngine;
 public class ObstacleController : MonoBehaviour
 {
     private DoorManager doorManager;
-    public int health = 100;
-    private int maxhealth;
+    public int health;
+    public int maxhealth;
 
     private void Start()
     {

@@ -31,13 +31,16 @@ public class EnemyController : MonoBehaviour
     public LayerMask defaultMask;
 
     public bool isNightTime = false;
+    public bool isPlayerCrouching = false;  
     private EnemyState enemy_State;
+    public bool IsHordeZombie = false;
 
     public float walk_Speed;
     public float run_Speed;
 
     private float currentMovementSpeed;
     private bool hasAdjustedForNight = false;
+    private bool hasAdjustedForCrouching = false;
 
     public float chase_Distance = 7f;
     private float current_Chase_Distance;
@@ -72,16 +75,12 @@ public class EnemyController : MonoBehaviour
     {
         enemy_State = EnemyState.PATROL;
         patrol_Timer = patrol_For_This_Time;
-
         //kada zombie dolazi do playera - napadni odmah
         attack_Timer = wait_Before_Attack;
         attack_Obstacle_Timer = wait_Before_Attack;
-
         //zapamti vrijednost od chase_distance kako bi je mogli vratiti
         current_Chase_Distance = chase_Distance;
         navMeshPath = new NavMeshPath();
-
-
         currentMovementSpeed = run_Speed;
     }
 
@@ -90,6 +89,10 @@ public class EnemyController : MonoBehaviour
     {
         if(!uIManager.isPaused) 
         {
+            if(IsHordeZombie)
+            {
+                chase_Distance = 100f;
+            }
             if (enemy_State == EnemyState.PATROL)
             {
                 Patrol();
@@ -105,8 +108,7 @@ public class EnemyController : MonoBehaviour
                 {
                     Enemy_State = EnemyState.CHASE;
                     Chase();        
-                }
-                
+                }  
             }
             if (enemy_State == EnemyState.ATTACK)
             {
@@ -121,13 +123,26 @@ public class EnemyController : MonoBehaviour
             if(!dayAndNightSystem.isDay && !hasAdjustedForNight)
             {
                 ChangeZombieSpeed(false);
+                ReduceDayVision(false);
                 hasAdjustedForNight = true;
             }
             else if(dayAndNightSystem.isDay && hasAdjustedForNight)
             {
                 ChangeZombieSpeed(true);
+                ReduceDayVision(true);
                 hasAdjustedForNight = false;
             }
+            if(isPlayerCrouching && !hasAdjustedForCrouching)
+            {
+                ChangeZombieVision(true);
+                hasAdjustedForCrouching = true;
+            }
+            else if(!isPlayerCrouching && hasAdjustedForCrouching)
+            {
+                ChangeZombieVision(false);
+                hasAdjustedForCrouching = false;
+            }
+            
         }
     }
 
@@ -167,8 +182,6 @@ public class EnemyController : MonoBehaviour
 
         }
     }//Patrol
-
-
 
     void Chase()
     {
@@ -276,7 +289,7 @@ public class EnemyController : MonoBehaviour
             FindClosestObstacle();
         }
 
-        else if(currentObstacle != null)
+        else if(currentObstacle != null && !IsPlayerReachable())
         {
             navAgent.SetDestination(currentObstacle.transform.position);
             if(Vector3.Distance(transform.position, currentObstacle.transform.position) < obstacleAttackDistance)
@@ -289,6 +302,7 @@ public class EnemyController : MonoBehaviour
         {
             currentObstacle = null;
             navAgent.isStopped = false;
+            enemy_State= EnemyState.PATROL;
         }
     }
 
@@ -338,8 +352,30 @@ public class EnemyController : MonoBehaviour
         }
 
     }
+    private void ChangeZombieVision(bool crouching)
+    {
+        if (crouching)
+        {
+            chase_Distance /= 2;
+        }
+        else
+        {
+            chase_Distance *= 2;
+        }
+    }
 
-    //Random radijus za patrol state od zombija
+    private void ReduceDayVision(bool day)
+    {
+        if (day)
+        {
+            chase_Distance -= 10;
+        }
+        else
+        {
+            chase_Distance += 10;
+        }
+    }
+
     void SetNewRandomDestination()
     {
         float rand_Radius = Random.Range(patrol_Radius_Min, patrol_Radius_Max);
@@ -378,6 +414,11 @@ public class EnemyController : MonoBehaviour
     public EnemyState Enemy_State
     {
         get; set;
+    }
+
+    public void HardStop()
+    {
+        navAgent.velocity = Vector3.zero;
     }
 }
 

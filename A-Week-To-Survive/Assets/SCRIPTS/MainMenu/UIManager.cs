@@ -134,12 +134,6 @@ public class UIManager : MonoBehaviour, IDataPersistence
         Cursor.lockState = CursorLockMode.None;
     }
 
-
-    public void Restart()
-    {
-        SceneManager.LoadSceneAsync(2);
-    }
-
     public void MainMenu()
     {
         SceneManager.LoadSceneAsync(1);

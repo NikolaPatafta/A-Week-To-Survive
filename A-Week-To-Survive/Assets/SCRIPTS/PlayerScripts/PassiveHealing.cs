@@ -6,6 +6,7 @@ public class PassiveHealing : MonoBehaviour
 {
     private HealthScript playerhealth;
     private PlayerStats stats;
+    
 
     private void Start()
     {

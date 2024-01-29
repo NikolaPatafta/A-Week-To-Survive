@@ -148,17 +148,17 @@ public class HealthScript : MonoBehaviour, IDataPersistence
             uiManager.SetActiveHud(false);
         }
     }
-        public void TurnOffGameObject()
-        {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
+    public void TurnOffGameObject()
+    {  
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
 
-        IEnumerator DeadSound()
-        {
-            yield return new WaitForSeconds(0.3f);
-            enemyAudio.Play_DeadSound();
-        }
+    IEnumerator DeadSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        enemyAudio.Play_DeadSound();
+    }
 
     public void LoadData(GameData data)
     {

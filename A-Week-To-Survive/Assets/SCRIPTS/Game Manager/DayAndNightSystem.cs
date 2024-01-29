@@ -6,9 +6,8 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Networking.UnityWebRequest;
 
-public class DayAndNightSystem : MonoBehaviour
+public class DayAndNightSystem : MonoBehaviour, IDataPersistence
 {
     public float currentTime;
     public float dayLengthMinutes;
@@ -23,6 +22,8 @@ public class DayAndNightSystem : MonoBehaviour
     [SerializeField] private HealthScript healthScript;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private ProgressionManager progressionManager;
+    [SerializeField] private EnemyManager enemyManager;
+
     public TextMeshProUGUI timeText;
 
     [Header("Game Stage Controllers")]
@@ -34,7 +35,6 @@ public class DayAndNightSystem : MonoBehaviour
     {
         rotationSpeed = 360 / dayLengthMinutes / 60;
         midday = dayLengthMinutes * 60/2;
-
         if (dayLengthMinutes == 10)
         {
             currentTime = 150f;
@@ -43,23 +43,22 @@ public class DayAndNightSystem : MonoBehaviour
         {
             currentTime = 75f;
         }
-        else if(dayLengthMinutes == 0.5)
+        else if (dayLengthMinutes == 0.5)
         {
             currentTime = 7.5f;
         }
-        else if(dayLengthMinutes == 0.05)
+        else if (dayLengthMinutes == 0.05)
         {
             currentTime = 0.75f;
         }
-        FindAllDataPersistenceObjects();
     }
 
     void Update()
     {
         if (interDaysCounter == day)
         {
-            progressionManager.RemoveLevelBorder(removeBorderNumber);
-            removeBorderNumber++;
+            //progressionManager.RemoveLevelBorder(removeBorderNumber);
+            //removeBorderNumber++;
             interDaysCounter = interDaysCounter + 7;
         }
         if (!uiManager.isPaused)
@@ -122,26 +121,26 @@ public class DayAndNightSystem : MonoBehaviour
             day++;
             uiManager.dayCounter = day; 
 
-            if (day == 2 || day == 7 || day == 14)
+            if (day == 7 || day == 14 || day == 21 || day == 28)
             {
-                spawnHordeZombies.StartCoroutine("spawnHordeZombies");
+                enemyManager.spawnableEnemyCount++;
+                //spawnHordeZombies.counter++;
+                //spawnHordeZombies.StartCoroutine("spawnHordeZombies");
+
             }
             currentTime = 0;
         }
        
     }
-
-    private List<IDataPersistence> FindAllDataPersistenceObjects()
+    public void LoadData(GameData data)
     {
-        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
-
-        List<IDataPersistence> result = new List<IDataPersistence>(dataPersistenceObjects);
-        foreach (IDataPersistence dataPersistenceObject in result)
-        {
-            // Log information about each object
-            //Debug.Log("Found IDataPersistence object: " + dataPersistenceObject.ToString());
-        } 
-        return new List<IDataPersistence>(dataPersistenceObjects);
-
+        this.day = data.dayInGame;
+        this.currentTime = data.gameTime; 
     }
+    public void SaveData(ref GameData data)
+    {
+        data.dayInGame = this.day;
+        data.gameTime = this.currentTime;
+    }
+
 }

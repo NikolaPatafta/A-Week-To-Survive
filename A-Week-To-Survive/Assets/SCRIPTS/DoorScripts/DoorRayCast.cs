@@ -54,10 +54,20 @@ public class DoorRayCast : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, doorActionRange, doorMask))
         {
-            if(!doorHealth.gameObject.activeSelf)
+            ObstacleController door = hit.transform.GetComponent<ObstacleController>();
+            if (door != null)
             {
-                doorHealth.gameObject.SetActive(true);
+                if (door.maxhealth != door.health)
+                {
+                    Debug.Log("Door's maxhealth:" + door.maxhealth);
+                    Debug.Log("Door's health:" + door.health);
+                    if (!doorHealth.gameObject.activeSelf)
+                    {
+                        doorHealth.gameObject.SetActive(true);
+                    }
+                }
             }
+
             textMeshPro.text = "Interact '" + interactButton + "'";
             if (picturealpha <= 0)
             {

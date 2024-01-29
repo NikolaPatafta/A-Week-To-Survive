@@ -11,9 +11,17 @@ public class ProgressionManager : MonoBehaviour
 
     public void RemoveLevelBorder(int bordernumber)
     {
-        Borders[bordernumber].gameObject.SetActive(false);
-        StartCoroutine("NotificationTextTimer");
-        audioSource.Play();
+        if(bordernumber >= 3)
+        {
+            return;
+        }
+        else
+        {
+            Borders[bordernumber].gameObject.SetActive(false);
+            StartCoroutine("NotificationTextTimer");
+            audioSource.Play();
+        }
+
     }
 
     private IEnumerator NotificationTextTimer()

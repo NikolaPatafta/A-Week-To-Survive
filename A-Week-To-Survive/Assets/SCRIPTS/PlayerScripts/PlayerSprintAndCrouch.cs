@@ -56,6 +56,36 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     {
         Sprint(); 
         Crouch();
+        if (isCrouching)
+        {
+            EnemyController[] enemyController = FindObjectsOfType<EnemyController>(); 
+            foreach(EnemyController enemyController1 in enemyController)
+            {
+                if(enemyController1 != null)
+                {
+                    if(enemyController1.Enemy_State == EnemyState.PATROL)
+                    {
+                        enemyController1.isPlayerCrouching = true;
+                    }
+                    else
+                    {
+                        enemyController1.isPlayerCrouching = false;
+                    }
+                }
+            }
+        }
+        else if (!isCrouching)
+        {
+            EnemyController[] enemyController = FindObjectsOfType<EnemyController>();
+            foreach (EnemyController enemyController1 in enemyController)
+            {
+                if(enemyController1 != null)
+                {
+                    enemyController1.isPlayerCrouching = false;
+                }
+
+            }
+        }
     }
 
     void Sprint()

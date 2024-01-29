@@ -42,7 +42,6 @@ public class DoorManager : MonoBehaviour
         if (nearestDoorAudioSource != null)
         {
             // Play the 'doorBreak' AudioClip on the nearest AudioSource
-            Debug.Log("Playing doorbreak");
             nearestDoorAudioSource.clip = doorBreak;
             nearestDoorAudioSource.Play();
         }

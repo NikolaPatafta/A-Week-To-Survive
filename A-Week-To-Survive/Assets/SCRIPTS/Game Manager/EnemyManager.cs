@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     public Transform player;
 
-    private int spawnableEnemyCount = 15;
+    public int spawnableEnemyCount = 3;
     private int currentEnemyCount;
     private int spawnableBoarCount = 3;
     private int currentBoarCount;

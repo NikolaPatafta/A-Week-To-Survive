@@ -7,7 +7,9 @@ public class EntranceBlockerTrigger : MonoBehaviour
     [SerializeField] private GameObject[] doors;
     [SerializeField] private GameObject barricade;
     [SerializeField] private GameObject timeline;
+    [SerializeField] private GameObject explosionTimeline;
     [SerializeField] AudioManager audioManager;
+    [SerializeField] EnemyManager enemyManager;
     private DoorController currentDoor;
     private BoxCollider Boxcollider;
 
@@ -18,6 +20,7 @@ public class EntranceBlockerTrigger : MonoBehaviour
         {
             CloseDoors();
             StartCoroutine(StartShortCutScene());
+            DisableZombies();
         }
     }
 
@@ -49,6 +52,21 @@ public class EntranceBlockerTrigger : MonoBehaviour
             }
         }
     }
+
+    private void DisableZombies()
+    {
+        EnemyController[] zombies = FindObjectsOfType<EnemyController>();
+
+        foreach (EnemyController zombie in zombies)
+        {
+            if (zombie != null)
+            {
+                zombie.HardStop();
+                zombie.enabled = false;
+                enemyManager.StopSpawning();
+            }
+        }
+    }
     private IEnumerator StartShortCutScene()
     {
         audioManager.canPlayMusic = false;
@@ -56,6 +74,8 @@ public class EntranceBlockerTrigger : MonoBehaviour
         audioManager.StopNightAudio();  
         yield return new WaitForSeconds(0.5f);
         barricade.SetActive(true);
-        timeline.SetActive(true);   
+        timeline.SetActive(true);
+        explosionTimeline.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

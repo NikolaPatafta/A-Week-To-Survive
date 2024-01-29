@@ -9,16 +9,19 @@ public class GameData
     public int scoreCounter;
     public int dayCounter;
     public float playerHealth;
-    public InventoryItem inventoryItem;
+    public float gameTime;
+    public int dayInGame;
 
     public Vector3 playerPosition;
 
     public GameData()
     {
-        this.scoreCounter = 0;
-        this.dayCounter = 0;
-        playerPosition = new Vector3(265, 0, 100);
-        this.playerHealth = 100;
+        this.scoreCounter = 11;
+        this.dayCounter = 31;
+        playerPosition = new Vector3(720, 0, 770);
+        this.playerHealth = 88;
+        this.gameTime = 75f;
+        this.dayInGame = 31;
     }
 
 }

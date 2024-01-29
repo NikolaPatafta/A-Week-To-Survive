@@ -184,7 +184,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     //testtttttttttttttinggggggggggggggggg
-
+    /*
     public void CheckForChildren()
     {
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -208,5 +208,5 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 }

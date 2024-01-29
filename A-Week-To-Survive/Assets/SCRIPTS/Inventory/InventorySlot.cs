@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler, IDataPersistence
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public Image image;
     public Color selectedColor, notSelectedColor;
@@ -33,40 +33,5 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IDataPersistence
         }
     }
 
-    public void LoadData(GameData data)
-    {
-        InventoryItem invItem = GetComponentInChildren<InventoryItem>();
-        if(invItem != null )
-        {
-            invItem = data.inventoryItem;
-        }
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        InventoryItem invItem = GetComponentInChildren<InventoryItem>();
-        if(invItem != null)
-        {
-            data.inventoryItem = invItem;
-        }
-    }
-
-    public void TestLoadData()
-    {
-        InventoryItem invItem = GetComponentInChildren<InventoryItem>();
-        if (invItem != null)
-        {
-            Debug.Log("Item: " + invItem);  
-        }
-    }
-
-    public void TestSaveData()
-    {
-        InventoryItem invItem = GetComponentInChildren<InventoryItem>();
-        if (invItem != null)
-        {
-            Debug.Log("Item: " + invItem);
-        }
-    }
 
 }

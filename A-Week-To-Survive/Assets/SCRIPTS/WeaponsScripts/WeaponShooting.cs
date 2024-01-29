@@ -117,7 +117,7 @@ public class WeaponShooting : MonoBehaviour
 
     private void AxeAttack()
     {
-        weaponHandler= GetComponentInChildren<WeaponHandler>();
+        weaponHandler = GetComponentInChildren<WeaponHandler>();
         weaponHandler.ShootAnimation();
     }
 

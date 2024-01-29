@@ -7,15 +7,28 @@ public class LookAtSpawn : MonoBehaviour
     public GameObject zombiePrefab;
     public AudioSource audioSource;
 
+    private UIManager uiManager;
+    private InventoryManager invManager = null;
+
     private Vector3 lastLookAtPoint = Vector3.zero;
     private float lookAtTimer = 0f;
     private float spawnTimer = 0f;
     private const float requiredLookTime = 10f;
     private const float spawnCooldown = 300f; 
-    private const float maxSpawnDistance = 30f; 
+    private const float maxSpawnDistance = 30f;
+
+    private void Start()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+        invManager = FindObjectOfType<InventoryManager>();
+    }
 
     void Update()
     {
+        if (uiManager.isPaused || invManager.isInventoryOn)
+        {
+            return;
+        }
         if (spawnTimer > 0)
         {
             spawnTimer -= Time.deltaTime;

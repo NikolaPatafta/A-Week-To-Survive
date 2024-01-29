@@ -16,8 +16,9 @@ public class DespawnManager : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            healthScript = other.transform.GetComponent<HealthScript>();
-            healthScript.TurnOffGameObject();
+            enemyManager = FindObjectOfType<EnemyManager>();
+            //healthScript = other.transform.GetComponent<HealthScript>();
+            //healthScript.TurnOffGameObject();
             enemyManager.LowerEnemyCounter();
         }
         

@@ -6,6 +6,7 @@ public class CombatManager : MonoBehaviour
 {
     [SerializeField] private GameObject doorBlocker;
     [SerializeField] private GameObject[] cutSceneTriggers;
+    [SerializeField] private SneakingScript sneakingScript;
     
     private EnemyController[] enemy;
     
@@ -26,8 +27,13 @@ public class CombatManager : MonoBehaviour
         {
             if (enemyController.inCombat)
             {
+                sneakingScript.ClosePicture();
                 anyEnemyInCombat = true;
                 break;
+            }
+            else
+            {
+                sneakingScript.OpenPicture();
             }
         }
         doorBlocker.gameObject.SetActive(anyEnemyInCombat);
